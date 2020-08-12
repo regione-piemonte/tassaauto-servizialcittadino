@@ -1,0 +1,242 @@
+/*
+
+Indice:
+
+1- pseudoclassi link :link + :active + :visited
+2- underline su link
+3- no gutters / reset space
+4- Media Queries
+5- Rotate utility
+*/
+
+
+//// PSEUDO classi A
+//// PSEUDO classi A
+////per settare solo link, active, visited dentro a @include setLinkSelectorStyle {color:gold;}
+@mixin setLinkSelectorStyle {
+  &:link, &:active, &:visited {
+    @content;
+  }
+}
+////per settare solo hover, focus dentro a @include setLinkHoverSelectorStyle {color:gold;}
+@mixin setLinkHoverSelectorStyle {
+  &:hover, &:focus {
+    @content;
+  }
+}
+
+  @mixin linkNoUnderline {
+    //@include linkNoUnderline;
+
+    text-decoration: none;
+
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+
+  }
+
+  @mixin linkUnderline {
+    //@include linkUnderline;
+
+    text-decoration: underline;
+
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+
+  }
+
+	// per bordi punteggiati su onFocus FF 
+	@mixin noOutline{
+		outline: none;
+	}
+
+// no-gutters-col
+  .no-gutters-col {
+      @extend .px-0;
+  }
+
+//reset paddin e margin small
+  .reset-all-space {
+    @extend .m-0;
+    @extend .p-0;
+  }
+
+// mixin per gestire Max width su parti testuali per accessibilità
+  %max-width-text {
+
+    max-width: 768px; 
+
+  }
+
+/* #############################  
+ MEDIA Queries
+##############################*/
+
+
+// STANDARD BREAKPOINTS
+$breakpoints: (
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1600px
+);
+
+
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+$placeholders: ();
+
+@mixin breakpoint($breakpoint) {
+	 
+	$value: map-get($breakpoints, $breakpoint);
+
+  
+	@if $value != null {
+		
+		$current-breakpoint: $breakpoint !global;
+		
+		@media (min-width: $value) {
+		  @content;
+		}
+		
+		$current-breakpoint: $default-breakpoint !global;
+	}
+
+  
+	@else {
+		@warn "Breakpoint non valido `#{$breakpoint}`.";
+	}
+}
+
+@mixin placeholder($name) {
+	 
+	 
+	@if not index($placeholders, $name) {
+		
+		$placeholders: append($placeholders, $name) !global;
+
+
+		@at-root {
+			
+			@each $breakpoint, $value in $breakpoints {
+				
+				@media (min-width: $value) {
+					
+					%#{$name}-#{$breakpoint} {
+						@content;
+					}
+					
+				}
+				
+			}
+
+			%#{$name}-#{$default-breakpoint} {
+				@content;
+			}
+		}
+	}
+
+  
+	@else {
+		@warn "Il placeholder `#{$name}` è già esistente";
+	}
+}
+
+@mixin _($name) {
+	@extend %#{$name}-#{$current-breakpoint} !optional;
+}
+
+/*  HOW TO USE:
+
+Creo placeholder
+@include placeholder('test') {
+	color:red!important;
+}
+@include placeholder('test2') {
+	color:green!important;
+}
+
+
+Includo
+@include _(test);
+
+@include breakpoint(md) {
+	@include _(test2);
+}
+
+
+
+*/
+
+@mixin box-shadow-my($top, $left, $blur, $blur-dis, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $blur-dis $color!important;
+    -moz-box-shadow:inset $top $left $blur $blur-dis $color!important;
+    box-shadow:inset $top $left $blur $blur-dis $color!important;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $blur-dis $color!important;
+    -moz-box-shadow: $top $left $blur $blur-dis $color!important;
+    box-shadow: $top $left $blur $blur-dis $color!important;
+  }
+}
+
+// ROTATE UTILITY
+.fa-rotate-180 {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+
+// per liste con divider 
+%vertical-divider{
+	&.vertical-divider{
+		
+		li,
+		li.list-group-item {
+
+			@extend .px-2;
+			&:before {
+				content:"";
+				position:absolute;
+				right:0;
+				background-color:$black;
+				width:1px;
+				height:100%;
+	
+			}
+		}
+		li:first-child,
+		li.list-group-item:first-child{
+			@extend .pl-0;
+
+		}
+		li:last-child,
+		li.list-group-item:last-child{
+			@extend .pr-0;
+			&:before {
+				background-color:transparent;
+			}
+		}
+	}
+}
+
+// Ripple effect come i pulsanti material-design
+
+%ripple {
+	background-position: center;
+	transition: background 0.8s;
+	&:hover{
+		background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+	}
+	&:active{
+		background-color: #6eb9f7;
+		background-size: 100%;
+		transition: background 0s;
+	}
+}

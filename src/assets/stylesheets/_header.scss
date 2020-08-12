@@ -1,0 +1,196 @@
+// Import elementi header
+.sp-header {
+  #main-menu {
+  .v-toolbar__content {
+    .v-app-bar__nav-icon {
+      margin-left: 0px;
+      @extend .mr-4;
+      height: 2.4em;
+      width: 2.4em;
+      min-height: auto!important;
+    }
+  }
+  
+  }
+  #main-menu-list {
+    .title-main-menu {
+      height: 40px;
+      @extend .pt-2;
+      padding-left: 16px;
+      color: $primary;
+      h2 {
+        @extend .m-0;
+        @extend .p-0;
+        border: none;
+      }
+    }
+    
+    .main-menu-left-offcanvas {
+      min-height: calc(100vh - 160px);
+      &.v-list  {
+      padding-left: 16px;
+      .v-list-item--active {
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+    }
+    
+    .footer-main-menu {
+      min-height: 120px;
+      background:$primary url(../images/loghi/piemonte/piemonteTu_logo.svg) 10% 50% no-repeat;
+      background-size: 200px auto;
+      @extend .d-flex;
+      align-items: center;
+      .link-piemonte-tu {
+        color: $white;
+        font-size: 16px;
+      }
+    }
+  }
+
+}
+
+.header {
+  color: $black;
+  //background-color:$blue;
+  background-color:$primary;
+
+
+  #sp-navbar {
+    //background:$primary;
+    /*
+    @media (min-width: 768px) {
+      
+      background: #0153a9;
+      background: -moz-linear-gradient(left, #0153a9 30%, $red-header 39%, $red-header 100%);
+      background: -webkit-linear-gradient(left, #0153a9 30%,$red-header 39%,$red-header 100%);
+      background: linear-gradient(to right, #0153a9 30%,$red-header 39%,$red-header 100%);
+      // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0153a9', endColorstr='#B81819',GradientType=1 );
+  
+      background-color:$blue-hover;
+
+    }
+    */
+    .sp-container {
+      @extend .container-fluid;
+      @media (max-width: 991.98px) {
+        padding:0;
+      }
+      .sp-row {
+        //background-color: $red-header;
+        @extend .row;
+        @extend .align-items-center;
+        @extend .no-gutters;
+
+      }
+    }
+    a:focus,
+    .btn:focus,
+    .form-control:focus,
+    .custom-file-input:focus {
+      outline:$red!important;
+      outline-color: $primary!important;
+      border-color: $primary!important;
+    }
+  }
+  .navbar-header {
+    //@extend .align-items-center;
+    @extend .justify-content-start;
+    @extend .col-6;
+    @extend .d-flex;
+    @extend .pl-0;
+
+    .navbar-brand {
+      
+      @extend .p-0;
+      @extend .pl-4;
+      @extend .m-0;
+      @extend .rfs-26;
+      @extend .bold;
+      color: $white;
+
+      .d-brand-mo {
+        @extend .d-lg-none;
+        
+      }
+      .d-brand-dsk {
+        @extend .d-none;
+        @extend .d-lg-inline-block;
+        @extend .rfs-22;
+        font-weight:$font-weight-bold;
+      }
+      & > div {
+
+        float:left;
+        @extend .pl-2;
+        line-height:49px;
+        color: $white;
+      }
+    }
+  }
+  #utilities {
+    .bm-burger-button { // soppresso ddmenu percui rendo sempre visibile il toggler
+      top:19px;
+      left:12px;
+      
+      width:15px!important;
+      height:15px!important;
+      &::before {
+
+        content:"";
+        position: absolute;
+        top:-11px;
+        left:-10px;
+        width:34px;
+        height:34px;
+        border-radius:50%;
+        background-color:transparent;
+        transition:all .2s;
+
+        
+      }
+      .line-style{
+        height:2px;
+        top:0!important;
+        &:nth-child(2){
+          top:4px!important;
+        }
+        &:nth-child(3){
+          top:8px!important;
+        }
+      }
+      &:hover {
+
+        &::before{
+          background-color:#2682BF;
+        }
+      }
+    }
+    @media (max-width: 991.98px) {
+      .bm-burger-button {
+        // top:-15px;
+        left:8px;
+      }
+    }
+
+    .bm-burger-bars {
+      background-color: $white;
+    }
+
+    .bm-menu {
+      left:0!important;
+      .bm-cross-button {
+        display:none;
+        &.cross-style {
+          left: 250px!important;
+        }
+      }
+    }
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+  }
+}

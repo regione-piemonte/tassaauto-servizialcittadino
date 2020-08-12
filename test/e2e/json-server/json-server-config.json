@@ -1,0 +1,6 @@
+{
+  "middlewares": "test/e2e/json-server/singular.js",
+  "port": 3004,
+  "watch": true,
+  "routes": "test/e2e/json-server/routes-test.json"
+}

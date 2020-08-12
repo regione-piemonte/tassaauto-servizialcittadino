@@ -1,0 +1,447 @@
+// ALERTS
+
+// modifica per vueitfy con i colori di tema
+
+#app {
+	&.v-application {
+		.error {
+			border-color:  $red!important;
+		}
+		.error--text {
+			color: $red!important;
+		}
+	}
+}
+.alert-heading {
+	.alertTitle {
+		
+	}	
+}
+
+
+.alert{
+	
+	//@extend .rounded-0;
+	//@extend .p-7;
+	@extend .p-2;
+	@extend .pl-14;
+	//@extend .col-12;
+	@extend .w-100;
+	@extend .rfs-18;
+	&.alert-danger, 
+	&.alert-success, 
+	&.alert-info, 
+	&.alert-warning {
+		// PROVA MIA SANSOL
+		//@extend .q-alert;
+		min-height: 100px;
+		/* */
+		color: $black !important;
+		border:0;
+		border-left-style: solid;
+		border-left-width: 16px;
+		
+		position: relative;
+		//min-height: 9rem;
+		
+		
+		&:before{
+			color: $black !important;
+			position: absolute;
+			left: 2rem;
+			//top: 2rem;
+			font-family: 'Font Awesome\ 5 Free';
+			font-weight: 900;
+			display: inline-block;
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			@extend .rfs-45;
+		}
+	}
+	&.alert-danger{
+		#boxErrDiv  & {
+			background: $red-light!important;
+			// border-color:$danger!important;
+			.v-alert__wrapper {
+				i {
+					display: none;
+				}
+			}
+		}
+
+	}
+	&.alert-info{
+		background: $light-blue-light;
+		border-color:$light-blue;
+	}
+	&.alert-success{
+		background: $green-light;
+		border-color:$green;
+	}
+	&.alert-warning{
+		background: $yellow-light;
+		border-color:$yellow;
+	}
+	
+
+
+	// added custom alert grigio
+	// reset alert icon
+	&.alert-quaternary{
+		@extend .p-4;
+		@extend .p-sm-7;
+		//@extend .col-12;
+		@extend .w-100;
+		@extend .rfs-18;
+		color: $black;
+		background-color: $quaternary;
+		border:0;
+		
+	}
+
+	&.alert-danger:before {
+		content: "\f06a";  
+		  
+	}
+	&.alert-success:before {
+		content: "\f058";
+	
+	}
+	&.alert-info:before {
+		content: "\f05a";
+			
+	}
+	&.alert-warning:before{
+		content: "\f071";
+	}
+	.alert-heading{
+		@extend .rfs-18;
+		@extend .border-0;
+	}
+	.alert-sub-heading{
+		@extend .d-block;
+		@extend .mt-n5;
+		@extend .mb-5;
+	}
+
+	// bordo box ok
+	&.border{
+		border-width:2px!important;
+	} 
+
+
+}
+
+.alert-form{
+
+	.alert-form-fields{
+		@extend .ml-sm-0;
+		@extend .pl-0;
+		@extend .pl-md-1;
+		@extend .pt-4;
+		@extend .pb-0;
+		@media (max-width: 767.98px){
+			.btn:not(.contextual-info){
+				width:calc(100% - 16px);
+				display:block;
+				margin:0 auto;
+			}
+		}
+		.btn:not(.contextual-info){
+			padding-top:.4em!important;
+			padding-bottom: .4em!important;
+		}
+    }
+    
+	.inner-cont-2box &{
+        
+		.alert-form-fields{
+			
+			
+			// @extend .ml-n13;
+			@extend .pl-1;
+			
+			//.btn:not(.contextual-info){
+			.btn.btn-primary,
+			.btn.btn-secondary:not(.contextual-info){
+				width:100%;
+				display:block;
+				
+			}
+			.inline-check-submit{
+				@extend .no-gutters-col;
+				.tooltip-field{
+		
+					@extend .col-xxl-12;
+					
+					.custom-control{
+						display:inline-block;
+						@media (min-width: 768px){
+							display:block;
+						}
+					}
+				}
+			}
+		}
+	}
+	.form-control{
+		@extend .p-1;
+		
+	}
+}
+.inner-cont-2box{
+	.first-col{
+		.alert{
+			@extend .ml-lg-7;
+		}
+	}
+	.second-col{
+		.alert{
+			@extend .mr-lg-7;
+		}
+	}
+	
+	.alert{
+		@extend .mb-5;
+		@extend .mb-xl-0;
+		@extend .p-5;
+		&.alert-quaternary{
+			.alert-form-fields{
+				@extend .ml-0;
+			}
+		}
+		&:not(.alert-quaternary){
+			@extend .pl-14;
+		}
+		
+		.alert-heading{
+			@extend .mb-5;
+		}
+	}
+
+	.inline-check-submit{
+
+		@extend .offset-lg-0;
+		@extend .col-12;
+    
+		.tooltip-field{
+
+			@extend .col-md-12;
+			@extend .py-0;
+			@extend .py-md-0;
+				
+			.custom-control{
+				@extend .d-inline-block;
+			}
+		}
+	}
+	.action-button-wide{
+		@extend .pt-md-10;
+		@extend .mt-md-7;
+		@extend .mt-3;
+		@extend .pt-5;
+		@extend .border-top;
+		@extend .border-dark;
+	}
+}
+
+
+
+.confirm-data{
+	@extend .rfs-30;
+	@extend .py-7;
+}
+
+
+.info-left,
+.inner-cont-2box.info-left {
+
+	.inline-check-submit {
+
+		.tooltip-field {
+
+			@extend .text-left;
+
+		}
+	}
+} 
+.inline-check-submit{
+	//@extend .offset-lg-4;
+    //@extend .col-lg-8;
+
+	& > .form-inline{
+		@extend .row;
+		.custom-checkbox{
+			flex: 1 0 0;
+		}
+	
+	}
+	.tooltip-field{
+		@extend .text-right;
+		@extend .col-md-7;
+		@extend .py-5;
+		@extend .py-md-0;
+		@extend .rfs-16;
+		& > div{
+			@extend .pr-7;
+			@extend .pr-lg-0;
+			.custom-control{
+				display:inline-block;
+				@media (min-width: 768px){
+					display:block;
+				}
+			}
+		}
+		label {
+			@extend .mb-0;
+		}
+	}
+
+	.confirm-send{
+		
+		@extend .col-md-4;
+		@extend .offset-md-1;
+		button.btn{
+			@extend .btn-block;
+		}
+	}
+	.contextual-info.v-btn{
+		
+		//background-color:$black;
+		min-width:auto!important;
+		width:25px!important;
+		height:25px!important;
+		min-height:auto!important;
+		padding:0!important;
+		display:inline-block;
+		border:0 none;
+		border-radius:50%;
+		
+		position:absolute;
+		top:0px;
+		//right:-30px;
+		&.privacy-btn {
+			right: -25px;
+		}
+		.fas{
+			color:$black;
+			display:block;
+			@extend .rfs-24;
+		}
+	}
+	
+}
+.reset-margin{
+	.inline-check-submit{
+		@extend .offset-md-0;
+		@extend .col-md-auto;
+		.tooltip-field{
+			@extend .col-12;
+			.fas{
+				display:block;
+			}
+		}
+	}
+}
+
+
+// CONTENITORI GENERICI
+
+.box-grigio{
+	
+	@extend .p-5;
+	@extend .p-md-9;
+	@extend .px-1;
+	@extend .py-8;
+	@extend .mb-6;
+	@extend .position-relative;
+	background-color:$quaternary;
+
+	@media (max-width: 991.98px){
+		.boxDelete {
+			position: absolute;
+			right: 0px;
+			align-self: center;
+		}		
+	}
+
+	&.addMoreRat {
+		.inline-check-submit{
+			padding-left: 0px;
+			.tooltip-field {
+				padding-left: 0px;
+			}
+		}
+		.btn-contextual-info {
+			position: absolute;
+			right: 0px;
+		}
+	}
+
+}
+.boxBlu{
+	background-color: $secondary;
+	@extend .p-5;
+	@extend .p-md-8;
+	.textRiepilogo{
+		font-weight: $font-weight-bold;
+		color:$white;
+		@extend .mb-0;
+		
+	}
+	.inline-check-submit{
+		.tooltip-field{
+			padding-left: 0px;
+			.fas{
+				color:$white;
+			}
+		}
+		padding-left: 0px;
+	}
+	
+	@media (max-width: 991.98px){
+		.textRiepilogo {
+			.inline-check-submit {
+				.tooltip-field{
+					padding-top: 5px!important;
+					padding-bottom: 5px!important;
+				}
+			}
+
+		}
+	}
+}
+
+
+.box-conferma{
+	
+	@extend .mb-6;
+	.box-conferma-inner{
+		background-color:$quaternary;
+		@extend .p-md-7;
+		@extend .px-1;
+		@extend .py-8;
+		.form-group{
+            
+            
+			@extend .offset-md-6;
+			
+			& > label,
+			& > div{
+				flex:1 0 0;
+			}
+			& > label{ order: 2;}
+			& > div{ order:1;}
+		}
+		h2{
+			border:0 none;
+			@extend .mb-0;
+		}
+	}
+}
+
+.error-label {
+	color: $red;
+}

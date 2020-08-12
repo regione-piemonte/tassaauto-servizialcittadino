@@ -1,0 +1,398 @@
+// Import links, buttons, pulsantiere, elementi di navigazione
+
+a {	
+    // &:link, &:active, &:visited
+    @include setLinkSelectorStyle {
+
+        color:$secondary;
+        
+    }
+    // &:hover, &:focus 
+    @include setLinkHoverSelectorStyle {
+        @include noOutline;
+        color:$secondary;
+        cursor:pointer;
+    }
+    @include linkNoUnderline;
+
+    
+}
+
+.full-card-grid .card:not(.special-card) .card-body a{
+    @include linkNoUnderline;
+    @extend .d-block;
+    
+    // height:100%;
+    color:$black;
+
+
+}
+
+.btn-link{
+    color:$secondary;
+    &.only-text{
+        @extend .reset-all-space;
+        @extend .d-inline;
+        line-height:inherit;
+        min-width:auto;
+        @include setLinkHoverSelectorStyle {
+            text-decoration: underline;
+        }
+    }
+}
+
+.external-link{
+    font-weight:$font-weight-bold;
+    @extend .d-block;
+    @extend .pb-2;
+    &:after{
+        content:"\f35d";
+        display:inline-block;
+        font-weight:900;
+        font-family: 'Font Awesome\ 5 Free';
+        margin-left:10px;
+    }
+}
+
+/* BUTTONS */
+
+.btn{
+    //font-size:$font-size-button;
+    text-decoration:none;
+    @extend .bold;
+    border-radius:.3rem;
+    @extend .px-6;
+    @extend .py-2;
+    //padding:.8rem 1.8rem;
+    min-width:150px;
+
+    &.btn-primary,
+    &.btn-primary:not(:disabled):not(.disabled):active,
+    &.btn-primary:not(:disabled):not(.disabled).active{
+        background-color:$blue;
+        color:$white!important;
+        border-color:$blue;
+        min-width:150px;
+        &:focus{
+            box-shadow:0 0 0 0.1rem $yellow;
+        }
+    }
+    &.btn-secondary,
+    &.btn-secondary:not(:disabled):not(.disabled):active,
+    &.btn-secondary:not(:disabled):not(.disabled).active{
+        background-color:transparent;
+        color:$blue;
+        border-color:$blue;
+        min-width:150px;
+        @include setLinkSelectorStyle{
+            border-color:$blue-hover;
+        }
+        &:focus{
+            box-shadow:0 0 0 0.1rem $yellow;
+        }
+    }
+    &:hover,
+    &:focus{
+        text-decoration:none;
+    }
+    // before icon
+    /*.fas{
+        @extend .mr-2;
+    }*/
+
+    // image button
+    &.btn-image{
+        @extend .reset-all-space;
+        @extend .border-0;
+        font-size:$font-size-h1;
+        min-width:auto;
+        @include setLinkSelectorStyle{
+            min-width:auto!important;
+        }
+    }
+
+}
+
+.btn-block{
+    @extend .py-3;
+}
+
+// PULSANTIERE
+.action-button-wide{
+    @extend .row;
+    @extend .text-left;
+    .btn{
+        @extend .mb-5;
+        @media (max-width: 767.98px){
+            width:100%;
+            display: block;
+        }
+        @media (max-width: 1199.98px){
+            min-width:120px;
+            padding-left:.25rem;
+            padding-right:.25rem;
+            &.btn-secondary, &.btn-primary{
+
+                &:active, &:focus, &:hover{
+                    min-width: 120px!important;
+                }
+            }
+        }
+
+    }
+}
+
+// TABS hp servizio
+.tab-content-hp{
+    @extend  .pt-md-8;
+    @media (min-width: 768px){
+        min-height: 500px;
+    }
+    &.tab-card-space {
+      @media (min-width: 768px){
+          min-height: 600px;
+      }
+    }
+    .app-row{
+
+      // per riposizionamento box a lato  
+      & > .pagobollo-hp,
+      & > .rateizzazione-hp{
+        order:2;
+        position:absolute;
+        z-index:2;
+        @media (max-width: 767.98px){
+            position:relative;
+        }
+      }
+
+      @media all and (max-width:767px) {
+        .noauthService {
+            order: 3;
+            margin-top: 50px!important;
+        }
+      }
+      .v-tabs-bar{
+        z-index:1;
+        @extend .col-xxl-8;
+        @extend .offset-xxl-2;
+        @extend .mt-md-n6;
+        
+        /*@media (min-width: 768px){
+            min-height:660px;  
+        }*/
+        order:1;
+        .v-item-group{
+            
+            justify-content:center;
+            @media (max-width: 767.98px){
+                margin-bottom: 3.75rem !important
+            }
+            
+
+            .v-tabs-bar__content{
+                @extend .p-0;
+                
+                @extend .mx-md-4;
+                @extend .mx-auto;
+                padding-bottom:1px!important;
+                @media (max-width: 991.98px){
+                    display:inline-block;
+                }
+            .v-tab{
+                
+                color:$black;
+                @extend .font-weight-bold;
+                @extend .p-0;
+                @extend .py-3;
+                @extend .p-md-2;
+                
+                border:0;
+                    &.v-tab-active{
+                        @extend .position-relative;
+                        color:$secondary;
+                        &:before{
+                        content:"";
+                            border-bottom: 0.3rem solid currentColor !important;
+                            position: absolute;
+                            bottom: 0;
+                            display: inline-block;
+                            width: 100%;
+                            left: 0;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        
+      }
+      .v-tabs-items{
+        @extend .col-md-4;
+        @extend .offset-md-6;
+        @media (min-width: 768px){
+          padding-top:80px;
+        }
+        
+        @include responsive-font-size(16px);
+        .tab-pane,
+        .v-window-item{
+            &:focus{
+                outline:none;
+            }
+        }
+      }
+    
+    }
+  
+  }
+
+  .tab-content-notHp {
+    .tabs {
+      z-index:1;
+
+      order: 1;
+      .nav-tabs {
+                    
+        justify-content:center;
+        @media (max-width: 767.98px){
+            margin-bottom: 3.75rem !important
+        }
+        .nav-item {
+          @extend .p-0;
+          @extend .mx-md-4;
+          @extend .mx-auto;
+          padding-bottom:1px!important;
+          @media (max-width: 991.98px){
+              display:inline-block;
+              min-width:25%;
+              text-align:center;
+          }  
+          .nav-link{
+            color:$black;
+            @extend .font-weight-bold;
+            @extend .p-0;
+            @extend .py-3;
+            @extend .p-md-2;
+            
+            border:0;
+
+            &.active {
+              @extend .position-relative;
+              color:$secondary;
+              border-color: transparent;
+              &:before{
+              content:"";
+                  border-bottom: 0.3rem solid currentColor !important;
+                  position: absolute;
+                  bottom: 0;
+                  display: inline-block;
+                  width: 100%;
+                  left: 0;
+                  opacity: 1;
+              }
+            }
+          }
+        
+        }
+        
+      }
+    }
+  }
+
+// Offcanvas menu
+.bm-overlay {
+    @extend .bg-transparent;
+    @extend .position-fixed;
+    @extend .w-100;
+    @extend .h-100;
+    z-index: $zindex-modal-backdrop;
+    top: 0;
+    left: 0;
+  
+    &::after {
+      @extend .position-absolute;
+      @extend .bg-dark;
+      content: '';
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      filter: alpha(opacity=70);
+      -moz-opacity: 0.7;
+      -khtml-opacity: 0.7;
+      opacity: 0.7;
+      z-index: 2;
+    }
+  }
+  
+  .bm-menu{
+    background-color: $white;
+    padding-top: 60px;
+    overflow:hidden; // per doppia scrollbar IE Edge
+    overflow-y:auto;
+    &::before {
+      content: '';
+      //background: $primary;
+      height: 60px;
+      padding-left: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+  
+    }
+  
+    .bm-item-list{
+        @extend .m-0;
+        @extend .d-flex;
+        opacity:0;
+        transition: .2s all;
+        flex-direction: column;
+        .bm-overlay &{
+            opacity:1;
+            transition: 1.2s all;
+        }
+      a{
+        background-color: $white;
+        @extend .align-items-center;
+        margin-top: 2px;
+        color: $primary;
+        font-weight:$font-weight-bold;
+        @extend .rfs-14;
+        width:100%;
+        
+        @extend .position-relative;
+        &::before{
+            content:"";
+            @extend .d-flex;
+            flex: 1 0 auto;
+            max-width:24px;
+            @extend .mx-2;
+            background: #a9aec7 url(http://via.placeholder.com/300) 0 0 no-repeat;
+            width:24px;
+            height:24px;
+
+        }
+       
+      }
+    }
+    
+    .bm-cross{
+      background-color:$black;
+      width: 5px!important;
+      height: 16px!important;
+    }
+  
+    .cross-style{
+      top:20px;
+    }
+  }
+
+// form control
+.form-control{
+	@extend .p-2;
+	@extend .mb-6;
+	height:auto;
+	background-image:none;
+	border-color:$tertiary;
+}

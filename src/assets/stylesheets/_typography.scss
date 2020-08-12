@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+/* TYPOGRAPHY */
+
+// font families
+$font-open-sans: 'Open Sans', sans-serif;
+$font-titilium-web: 'Titillium Web', sans-serif;
+
+$font-family-base: $font-open-sans;
+
+$body-font-family: $font-family-base!default;
+
+// font size
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-standard:18px;
+
+// variabili RFS 
+$rfs-base-font-size: 8px;
+$rfs-factor: 2;
+$rfs-font-size-unit: px;
+$rfs-breakpoint: 1440px;
+$unit-default-px: 16px; // for mixin rem/px units
+$enable-responsive-font-sizes: true; // per attivare il responsive-font di bootstrap
+
+$font-size-minimo:12px;
+
+//Titoli
+//$font-size-h1: 40px;
+$font-size-h1: 18px;
+$font-size-h1-title-service: 22px;
+$font-size-h1-title-servicehome: 40px;
+$font-size-h2: 30px;
+$font-size-h3: 32px;
+$font-size-h4: 23px;
+$font-size-h5: 21px;
+$font-size-h6: $font-size-standard;
+
+$p-font-size: $font-size-standard; // anche la citazione, x loro h7
+//basic
+$font-size-extra-small: $font-size-minimo;
+
+$font-size-extra-medium: 21px;
+$font-size-medium: 23px;
+$font-size-notes: 14px;
+$font-size-large: 70px;
+$font-size-extra-large: 120px;
+
+$h1-banner-font-size:70px;
+
+$p-font-size: $font-size-standard; // anche la citazione, x loro h7
+$font-size-small: 1.6rem;
+$font-size-extra-small: $font-size-minimo;
+
+$font-size-button:$font-size-small;
+
+// font weight
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-semibold: 600;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+
+$font-weight-base: $font-weight-normal;
+
+

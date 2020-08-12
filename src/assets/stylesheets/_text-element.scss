@@ -1,0 +1,322 @@
+// Import regole elementi testuali
+
+.light {
+  font-weight:$font-weight-light!important;
+}
+.normal {
+  font-weight:$font-weight-normal!important;
+}
+.semibold {
+  font-weight:$font-weight-semibold!important;
+}
+.bold {
+  font-weight:$font-weight-bold!important;
+}
+
+// classi di utility per grandezza testo rfs
+.rfs-14 {
+  @include responsive-font-size(14px);
+}
+
+.rfs-16 {
+  @include responsive-font-size(16px);
+}
+
+.rfs-18 {
+  @include responsive-font-size(18px);
+}
+
+.rfs-20 {
+  @include responsive-font-size(20px);
+}
+
+.rfs-22 {
+  @include responsive-font-size(22px);
+}
+
+.rfs-24 {
+  @include responsive-font-size(24px);
+}
+
+.rfs-26 {
+  @include responsive-font-size(26px);
+}
+
+.rfs-30 {
+  @include responsive-font-size(30px);
+}
+
+.rfs-45 {
+  @include responsive-font-size(45px);
+}
+
+h1, .h1 { @include responsive-font-size($font-size-h1); font-weight:$font-weight-semibold; }
+h2, .h2 { @include responsive-font-size($font-size-h2); @extend .font-weight-bold; }
+h3, .h3 { @include responsive-font-size($font-size-h3); @extend .font-weight-bold; }
+h4, .h4 { @include responsive-font-size($font-size-h4); @extend .font-weight-bold; }
+h5, .h5 { @include responsive-font-size($font-size-h5); @extend .font-weight-bold; }
+h6, .h6 { @include responsive-font-size($font-size-h6); @extend .font-weight-bold; }
+
+// parti testuali - max width per accessibilità
+
+p, ol, ul, hr {
+
+  @extend %max-width-text;
+
+}
+
+// come su help
+.cont-bordered-items {
+
+  a {
+
+    @include setLinkSelectorStyle {
+
+        font-weight:bold;
+        
+    }
+
+  }
+
+  @extend .mb-10;
+  ul {
+
+    li{
+
+      @extend .p-4;
+      @extend .mb-6;
+      @extend .border;
+      @extend .border-secondary;
+
+    }
+
+  }
+
+}
+
+.cont-title {
+  //background-color: $gray-600;
+  // @extend .w-100;
+  h1 {
+    // @extend .container;
+    // font-size:$h3-font-size;
+    @extend .py-7;
+  }
+}
+
+// Titoli
+.service-title {
+  &.q-layout-header{
+    // reset z-index di quasar
+    z-index:2;
+  }
+  //background-color:$gray-600;
+  @extend .px-3;
+  @extend .py-3;
+  @extend .mb-8;
+  .home-page &{
+    background-color:$white;
+    @extend .mb-0;
+    h1 {
+      @extend .pb-0;
+    }
+  }
+  h1 {
+    //@extend .py-7;
+    //@extend .px-3;
+    //@extend .mb-md-9;
+    color:$white;
+    @extend .mb-0;
+  }
+}
+
+h2 {
+  // border-bottom:2px solid $tertiary;
+  @extend .pb-1;
+  @extend .mb-5;
+  @include responsive-font-size(23px);
+  .box-grigio &{
+    border-bottom:0 none;
+    @extend .pb-0;
+  }
+  ul + &{
+    @extend .mb-0;
+  }
+}
+
+.dettagli-veicolo,
+.dl-inline-header {
+  &.bg-ico {
+    &:before {
+      content:"";
+      width:100px;
+      height:50px;
+    }
+    dl {
+      dt {
+        @extend .rfs-14;
+        font-weight:$font-weight-normal;
+      }
+      dd {
+        @extend .rfs-14;
+        font-weight:$font-weight-bold;
+      }
+    }
+    @media (min-width: 576px) {
+      dl {
+        dt {
+          @include responsive-font-size(14px);
+        }
+        dd {
+          @include responsive-font-size(18px);
+        }
+      }
+      &:before {
+        width:135px;
+        height:50px;
+      }
+    }
+    &.bg-ico-A:before {
+      background:transparent url(../images/icone/auto.png) 0 50% no-repeat;
+    }
+    &.bg-ico-M:before {
+      background:transparent url(../images/icone/motociclo.png) 0 50% no-repeat;
+    }
+    &.bg-ico-C:before {
+      background:transparent url(../images/icone/ciclomotore.png) 0 50% no-repeat;
+    }
+    &.bg-ico-R:before {
+      background:transparent url(../images/icone/rimorchio.png) 0 50% no-repeat;
+    }
+  }
+}
+
+.menuIcon {
+  @extend .pl-7;
+  &.aiuto {
+    background:transparent url(../images/icone/menu/aiuto.svg) 0 50% no-repeat;
+  }
+
+  &.calcola_bollo{
+    background:transparent url(../images/icone/menu/calcola_bollo.svg) 0 50% no-repeat;
+  }
+  
+  &.chiedi_rateizzazione{
+    background:transparent url(../images/icone/menu/chiedi_rateizzazione.svg) 0 50% no-repeat;
+  }
+  
+  &.consulta_pratica{
+    background:transparent url(../images/icone/menu/consulta_pratica.svg) 0 50% no-repeat;
+  }
+  
+  &.domanda_discarico_rimborso{
+    background:transparent url(../images/icone/menu/domanda_discarico_rimborso.svg) 0 50% no-repeat;
+  }
+  
+  &.home{
+    background:transparent url(../images/icone/menu/home.svg) 0 50% no-repeat;
+  }
+  
+  &.infobollo{
+    background:transparent url(../images/icone/menu/infobollo.svg) 0 50% no-repeat;
+  }
+  
+  &.memobollo{
+    background:transparent url(../images/icone/menu/memobollo.svg) 0 50% no-repeat;
+  }
+  
+  &.osservazioni{
+    background:transparent url(../images/icone/menu/osservazioni.svg) 0 50% no-repeat;
+  }
+  
+  &.pagamenti_online{
+    background:transparent url(../images/icone/menu/pagamenti_online.svg) 0 50% no-repeat;
+  }
+
+  &.scarica_ricevuta_pagamento{
+    background:transparent url(../images/icone/menu/scarica_ricevuta_pagamento.svg) 3px 50% no-repeat;
+  }
+
+  &.servizi_accesso_autenticato{
+    background:transparent url(../images/icone/menu/servizi_accesso_autenticato.svg) 0 50% no-repeat;
+    &::before, &:hover {
+      text-decoration: none;
+    }
+    .v-list-item__title {
+      &:hover {
+        text-decoration: none;
+      }
+      &::after {
+        width: 10px;
+        height: 10px;
+        content: '';
+        @extend .p-1;
+        @extend .ml-1;
+        background:transparent url(../images/icone/menu/link.svg) 0 50% no-repeat;
+      }
+    }
+  }
+
+  &.stampa_avviso_pagamento{
+    background:transparent url(../images/icone/menu/stampa_avviso_pagamento.svg) 0 50% no-repeat;
+  }
+
+  .v-list-item__title {
+    color: $primary!important;
+  }
+}
+
+.homeIcon {
+  @extend .pl-9;
+  &.aiuto {
+    background:transparent url(../images/icone/home/aiuto.svg) 0 0% no-repeat;
+  }
+
+  &.calcola_bollo{
+    background:transparent url(../images/icone/home/calcola_bollo.svg) 0 0% no-repeat;
+  }
+  
+  &.chiedi_rateizzazione{
+    background:transparent url(../images/icone/home/chiedi_rateizzazione.svg) 0 0% no-repeat;
+  }
+  
+  &.consulta_pratica{
+    background:transparent url(../images/icone/home/consulta_pratica.svg) 0 0% no-repeat;
+  }
+  
+  &.domanda_discarico_rimborso{
+    background:transparent url(../images/icone/home/domanda_discarico_rimborso.svg) 0 0% no-repeat;
+  }
+  
+  &.infobollo{
+    background:transparent url(../images/icone/home/infobollo.svg) 0 0% no-repeat;
+  }
+  
+  &.memobollo{
+    background:transparent url(../images/icone/home/memobollo.svg) 0 0% no-repeat;
+  }
+  
+  &.osservazioni{
+    background:transparent url(../images/icone/home/osservazioni.svg) 0 0% no-repeat;
+  }
+  
+  &.pagamenti_online{
+    background:transparent url(../images/icone/home/pagamenti_online.svg) 0 0% no-repeat;
+  }
+
+  &.scarica_ricevuta_pagamento{
+    background:transparent url(../images/icone/home/scarica_ricevuta_pagamento.svg) 0 0% no-repeat;
+  }
+
+  &.servizi_accesso_autenticato{
+    background:transparent url(../images/icone/home/servizi_accesso_autenticato.svg) 0 0% no-repeat;
+  }
+
+  &.stampa_avviso_pagamento{
+    background:transparent url(../images/icone/home/stampa_avviso_pagamento.svg) 0 0% no-repeat;
+  }
+}
+
+label {
+  margin-bottom: 0px;
+}

@@ -1,0 +1,428 @@
+@charset 'utf-8';
+@import "import";
+
+// ATTENZIONE: per far funzionare la customizzazione di vuetify mediante variabili
+// il codice che segue deve essere riscritto utilizzando le variabili vuetify
+// Per fare una prova di variabili custom di vuetify, commentare da qui alla fine del file.
+
+body{
+  @include responsive-font-size($font-size-standard);
+  @extend .mb-0;
+  line-height:1.5;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+  html {
+    overflow:auto;
+  }
+  .header {
+    #utilities {
+      .bm-menu {
+        left: -17px!important;
+        .bm-item-list {
+          padding-left: 17px!important;
+        }
+      }
+    } 
+  }
+}
+#footer{
+  @media all and ( max-width:554px ){
+    .ps_first-footer{
+      order: 1;
+    }
+
+    .ps_menu-footer{
+      order: 2;
+    }
+    .ps_last-footer{
+      order: 3;
+    }
+  }
+  @media all and ( min-width:555px ) and (max-width:991px){
+    .ps_first-footer{
+      order: 1;
+    }
+
+    .ps_menu-footer{
+      order: 3;
+    }
+    .ps_last-footer{
+      order: 2;
+    }
+  }
+}
+
+// NUOVO ACCORDION
+
+.accordion{
+  .card{
+    .card-header{
+      @media (max-width: 767.98px){
+        text-align: center;
+      }
+      a[aria-controls]{
+        @include setLinkSelectorStyle{
+          min-width:auto;
+        }
+        @extend .px-3;
+        @extend .px-lg-6;
+        @extend .py-2;
+        @extend .m-0;
+        border:0 none;
+        min-width:auto;
+        @extend .h1;
+        
+        &.collapsed{
+          i{
+            transform: rotate(180deg);
+          }
+        }
+       
+      }
+      .numberBadge{
+        @extend .badge;
+        // @extend .rounded-circle;
+        background-color: $secondary;
+        @extend .rfs-30;
+        font-weight:$font-weight-semibold; 
+        color:$quaternary;
+        min-width: 60px;
+      }
+    }
+  }
+  
+}
+
+// fine NUOVO ACCORDION
+
+
+// modifiche per pagorate
+.noAccordion {
+  .card{
+    .card-header{
+      @media (max-width: 767.98px){
+        text-align: center;
+      }
+      a[aria-controls]{
+        @include setLinkSelectorStyle{
+          min-width:auto;
+        }
+        @extend .px-3;
+        @extend .px-lg-6;
+        @extend .py-2;
+        @extend .m-0;
+        border:0 none;
+        min-width:auto;
+        @extend .h1;
+      }
+      .numberBadge{
+        @extend .badge;
+        // @extend .rounded-circle;
+        background-color: $secondary;
+        @extend .rfs-30;
+        font-weight:$font-weight-semibold; 
+        color:$quaternary;
+        min-width: 60px;
+      }
+      .custom-control-label{
+        &::before, &::after {
+          top: calc(50% - 6px);
+        }
+      }
+    }
+  }
+}
+
+// fine modifiche pago rate
+
+
+
+.box-inner.active{
+  .arrow::after{
+    content: "\f077";
+  }
+}
+.cardTotale {
+  background-color: $secondary;
+  @extend .p-6;
+  .costoTotale {
+    @extend .h1;
+    color:theme-color("sf-color");
+    @extend .mb-0;
+  }
+  @media (min-width: 576px){
+    text-align: right;
+  }
+}
+
+
+// WIZARD 
+
+.sp-wizard{
+
+  &.v-stepper, .v-stepper__header {
+    box-shadow: none;
+  }
+
+  .v-stepper__label {
+    font-size: 14px;
+    @extend .text-center;
+  }
+  
+  @extend .text-center;
+  @extend .mx-auto;
+  li {
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 1.9em;
+    border-radius: 1em;
+    background: $white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $secondary;
+    color: $secondary;
+    
+    @extend .mx-2;
+    @extend .mx-md-8;
+    @extend .d-inline-block;
+    @extend .position-relative;
+    
+  
+    @extend .py-0;
+    &:first-child{
+      @extend .ml-0;
+    }
+    .step{
+      font-style: normal;
+    }
+    span{
+      position:absolute;
+      bottom:-.8em;
+      color:$secondary;
+      left:50%;
+      transform:translate(-50%, 100%);
+      line-height:1;
+      @media (max-width: 767.98px){
+        @include responsive-font-size(10px)
+      }
+    }
+  }
+  
+  li::before{
+    content: '';
+    position: absolute;
+    top: .9em;
+    height: .2em;
+    background: $secondary;
+    z-index: -1;
+    @media (max-width: 767.98px){
+      width: 2em;
+      left:-2.2em;
+    }
+  }
+
+  li:not(.active)::after{
+    content: "\f00c";
+    font-family: 'Font Awesome\ 5 Free';
+		font-weight: 900;
+    @media (max-width: 767.98px){
+      width: 2em;
+      left:-2.2em;
+    }
+  }
+
+  
+  li:not(.active) .step{
+    display:none;
+  }
+  
+
+  .active ~ li::after{
+    content:"";
+  }
+  
+  li:first-child::before {
+    display: none;
+  }
+  
+  .active {
+    background: $secondary;
+    color:$white;
+  }
+  
+  .active ~ li {
+    background: $white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $secondary;
+    color: $secondary;
+    .step{
+      display:inline;
+     
+    }
+  }
+  
+  .active ~ li::before {
+    background: $secondary;
+  }
+  &.five-steps{
+    li{
+      &:before{
+        left: -7em;
+        width: 7em;
+        @media (max-width: 767.98px){
+          width: 3em;
+          left:-3em;
+        }
+      }
+    }
+    
+  }
+  &.four-steps{
+    li{
+      @extend .mx-sm-5;
+      @extend .mx-md-8;
+      &:before{
+        left: -7em;
+        width: 7em;
+        @media (max-width: 767.98px){
+          width: 3em;
+          left:-3em;
+        }
+      }
+    }
+    
+  }
+}
+
+
+.sp-Subwizard {
+  @extend .mb-9;
+  @extend .d-flex;
+
+    li {
+
+      @extend .mx-3;
+      @extend .mx-md-3;
+
+      height: 0.5em;
+      background-color: $green;
+      border-style: solid;
+      border-width: 2px;
+      border-color: $green;
+
+      &:first-child{
+        @extend .ml-3;
+      }
+
+      span {
+        @extend .d-none;
+      }
+
+      &.active {
+
+        background-color: $green;
+        border-style: solid;
+        border-width: 2px;
+        border-color: $green;
+
+        span {
+
+          color: $black;
+          min-width: 200px;
+
+          @extend .d-block;
+
+        }
+      }
+
+      &:not(.active)::after, &::before{
+        @extend .d-none;
+      }
+      &.active ~ li{
+        background-color: $secondary;
+        border-style: solid;
+        border-width: 2px;
+        border-color: $secondary;
+      }
+    }
+}
+
+#formModRata{
+  .userInput{
+    @extend .col-6;
+    @extend .col-sm-4;
+    @extend .col-md-2;
+    @extend .order-1;
+    @extend .order-md-0;
+    label{
+      @extend .sr-only;
+    }
+  }
+  .formLabel{
+    @extend .order-0;
+    @extend .order-md-1;
+  }
+}
+.accordionAddItemsBtn{
+  .collapsed > .when-opened,
+  :not(.collapsed) > .when-closed {
+    @extend .d-none;
+  }
+  .collapsed > .when-closed,
+  :not(.collapsed) > .when-opened {
+    @extend .position-absolute;   
+  }
+}
+.streamCamera, .canvasCamera {
+  width: 100%;
+  height: auto;
+}
+
+.boxAllegati {
+  @media (max-width: 767.98px){
+    .inputAttach {
+      order: 0;
+    }
+
+    .takePhoto {
+      order: 2;
+    }
+
+    .listAttach {
+      order: 1;
+      margin-bottom: 3.75rem;
+    }
+  
+  }
+}
+
+.mb-4.mb-sm-0.checkboxRecap::before {
+  content: "\f14a";
+  font-family: 'Font Awesome\ 5 Free';
+  font-weight: 900;
+  color: $secondary;
+  opacity: .4;
+}
+
+#modalePrivacy {
+  .btn-accept {
+    @extend .btn-primary;
+  }
+}
+
+.text-descrizione-servizio {
+  @include responsive-font-size(16px);
+}
+
+.card-view-page.v-card.v-sheet.theme--light {
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+@media all and (max-width: 770px) {
+  .card-view-page.v-card.v-sheet.theme--light {
+    margin-bottom: 80px;
+  }  
+}

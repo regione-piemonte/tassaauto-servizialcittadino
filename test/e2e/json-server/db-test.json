@@ -1,0 +1,1206 @@
+{
+  "avvisoScadenza": {
+    "intestatario": {
+      "altro": "",
+      "cap": "10155",
+      "codiceFiscale": "BNCLGU59B12G325Q",
+      "cognome": "TARRICONE",
+      "comuneProvCap": "string",
+      "denominazione": null,
+      "descComune": "TORINO",
+      "email": "mario.rossi@csi.it",
+      "indirizzo": "VIA GIOVANNI POGGIO 9",
+      "indirizzoCompleto": "TORINO / 10155 / TO",
+      "nome": "ANTONIETTA",
+      "provincia": "TO",
+      "telefono": 30012345678
+    },
+    "idPratica": {
+      "id":61412379
+    },
+    "idScadenzaVeicolo": 24271773,
+    "idScadenzaPersona": 22843446,
+    "tassa": 47.19,
+    "numeroRiferimento": "200912000372756",
+    "scadenza": "04/2017",
+    "targa": "ZA055GX",
+    "tipoVeicolo": {
+      "codice": "A",
+      "descrizione": "AUTOVEICOLO"
+    },
+    "ultimoGiornoUtile": "2017-08-31",
+    "validita": 12
+  },
+  "calcoloBolloOk": {
+    "codiceFiscale": "REXGLI17D18L219G",
+    "tipoVeicolo": {
+      "codice": "A",
+      "descrizione": "AUTOVEICOLO"
+    },
+    "targa": "EH372PV",
+    "esplicativo": "Pot Kw 70 E5",
+    "scadenza": "GENNAIO 2019",
+    "ultimoGiornoUtile": "31/01/2019",
+    "validita": 12,
+    "totale": 191.10,
+    "tassa": 191.10,
+    "sanzione": 9.42,
+    "interesse": 0.51
+  },
+  "dteIntestatarioPf": {"dataAnagraficiIntestatario":{"altro":null,"cap":"13047","codiceFiscale":"MMMNTN68A16C632X","cognome":"MAMMARELLA GIARDINIERI","comuneProvCap":null,"denominazione":null,"descComune":"SAN GERMANO VERCELLESE","email":null,"indirizzo":"VIALE FRANZOI AUGUSTO, 5","indirizzoCompleto":null,"nome":"ANTONIO","provincia":"VC","telefono":null,"sesso":"M","dataNascita":"16/01/1968","statoNascita":null,"provinciaNascita":"CH","comuneNascita":"CHIETI","piva":null}},
+  "dteNumIngiunzione": ["S116000210420"],
+  "infoBollo": [
+    { "esito": "KO", "dataAttivazione": null, "destinatario": "mario.rossi@dominiopostaxyz.com" },
+    { "esito": "KO", "dataAttivazione": null, "destinatario": "7891234567" }
+  ],
+  "infoBolloAttivazioneEmail": {"esito":"OK","destinatario":"daniel.scaletta@consulenti.csi.it"},
+  "infoBolloAttivazioneSMS": {"esito":"OK","destinatario":"7891234567"},
+  "memoBollo": [
+    {
+      "codiceFiscale": "SBCCST76M66F335L",
+      "targa": "CR152AX",
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "statoEmail": { "dataAttivazione": null, "destinatario": null, "stato": "INATTIVO" },
+      "statoSms": { "dataAttivazione": null, "destinatario": null, "stato": "INATTIVO" }
+    }
+  ],
+  "richiestaAttivazioneMemo": {
+    "esito": "OK",
+    "destinatario": "daniel.scaletta@consulenti.csi.it"
+  },
+  "richiestaRevocaMemobollo":{"esito":"OK","destinatario":"daniel.scaletta@consulenti.csi.it"},
+  "memobolloVerificaCF": {"codiceFiscale":"SBCCST76M66F335L","targa":"CR152AX","tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"},"statoEmail":{"dataAttivazione":"2020-01-01","destinatario":"daniel.scaletta@consulenti.csi.it","stato":"ATTIVO"},"statoSms":{"dataAttivazione":"2020-02-01","destinatario":"33333333","stato":"ATTIVO"}},
+  "ricevutaSingolaBollo": {"tipologia":"S","ricevutaSingola":{"banca":{"codice":"BCITITMM","descrizione":"Intesa Sanpaolo"},"dataOraPagamento":"16/07/2018 0:00","email":"cri.sabiacolucci@libero.it","esitoPagamento":"Pagamento effettuato","datiCalcolo":{"codiceFiscale":"SBCCMN35A30A519Z","creditoDisponibile":null,"dirittoFisso":null,"esplicativo":"POT KW 37 E2","esito":null,"identificativoPagamento":"201807160000002784977813","interesse":0.14,"percentualeRiduzione":"0","proprietario":{"tipologia":"PF","denominazione":"SABIA COLUCCI CARMINE ANGELO"},"sanzionamento":null,"sanzione":3.89,"scadenza":"12/2018","targa":"AT434CY","tassa":103.6,"tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"},"totaleDovuto":107.63,"totaleDaVersare":0.0,"totaleDovutoComp":null,"tipoRiduzione":"14","ultimoGiornoUtile":"31/01/2018","validita":"12"},"identificativoCarrello":"","identificativoPagamento":"201807160000002784977813","identificativoTransazione":"TST000000000043957","idRiscossione":"15317425430420147011","idStatoTransazione":4,"importo":107.63,"iuv":"RF02181970003T00200000002","percCommissione":null,"regione":"Piemonte","speseCommissione":null,"transazioneMDP":true,"rate":null},"ricevutaCumulativa":null,"pianoRateizzazione":null,"rate":[],"anagraficaIntestatario":null},
+  "tipologiaPratica": [
+    {
+      "identificativo": "1051",
+      "codiceFiscale": "BNCLGU59B12G325Q",
+      "codice": "OSSER"
+    }
+  ],
+  "scaricaRicevutaMultipla":{"tipologia":"C","ricevutaSingola":null,"ricevutaCumulativa":{"riepilogo":{"banca":{"codice":"BCITITMM","descrizione":"Intesa Sanpaolo"},"dataOraPagamento":"05/12/2019 0:00","email":"carlo.peraudo@consulenti.csi.it","esitoPagamento":"Pagamento effettuato","datiCalcolo":{"codiceFiscale":null,"creditoDisponibile":null,"dirittoFisso":null,"esplicativo":null,"esito":null,"identificativoPagamento":null,"interesse":null,"percentualeRiduzione":null,"proprietario":null,"sanzionamento":null,"sanzione":null,"scadenza":null,"targa":null,"tassa":20.0,"tipoVeicolo":null,"totaleDovuto":null,"totaleDaVersare":null,"totaleDovutoComp":null,"tipoRiduzione":null,"ultimoGiornoUtile":null,"validita":null},"identificativoCarrello":"201912050002101","identificativoPagamento":"201912050000002785286313","identificativoTransazione":"TST000000000079089","idRiscossione":"15755512290650013011","idStatoTransazione":4,"importo":20.0,"iuv":"RF43193390003T00200000003","percCommissione":null,"regione":"Piemonte","speseCommissione":null,"transazioneMDP":null,"rate":null},"listaRicevute":[{"banca":{"codice":"BCITITMM","descrizione":"Intesa Sanpaolo"},"dataOraPagamento":"05/12/2019 0:00","email":"carlo.peraudo@consulenti.csi.it","esitoPagamento":"Pagamento effettuato","datiCalcolo":{"codiceFiscale":"SBCCST76M66F335L","creditoDisponibile":null,"dirittoFisso":null,"esplicativo":"IMPORTO FISSO ANNUO","esito":null,"identificativoPagamento":"201912050000002785286313","interesse":0.0,"percentualeRiduzione":"0","proprietario":{"tipologia":"PF","denominazione":"SABIA COLUCCI CRISTIANA IRENE"},"sanzionamento":null,"sanzione":0.0,"scadenza":"12/2019","targa":"6778003","tassa":20.0,"tipoVeicolo":{"codice":"C","descrizione":"CICLOMOTORE"},"totaleDovuto":20.0,"totaleDaVersare":0.0,"totaleDovutoComp":null,"tipoRiduzione":"NN","ultimoGiornoUtile":"31/01/2019","validita":"12"},"identificativoCarrello":"201912050002101","identificativoPagamento":"201912050000002785286313","identificativoTransazione":"TST000000000079089","idRiscossione":"15755512290650013011","idStatoTransazione":4,"importo":20.0,"iuv":"RF43193390003T00200000003","percCommissione":null,"regione":"Piemonte","speseCommissione":null,"transazioneMDP":true,"rate":null}]},"pianoRateizzazione":null,"rate":[],"anagraficaIntestatario":null},
+  "scaricaRicevutaRate": {"tipologia":"S","ricevutaSingola":{"banca":{"codice":"BCITITMM","descrizione":"Intesa Sanpaolo"},"dataOraPagamento":"04/12/2019 - 00:00","email":"carlo.peraudo@consulenti.csi.it","esitoPagamento":"Pagamento effettuato","datiCalcolo":null,"identificativoCarrello":null,"identificativoPagamento":null,"identificativoTransazione":"TST000000000079071","idRiscossione":"15754748139270006011","idStatoTransazione":9,"importo":4.51,"iuv":"RF88193380003T00200000007","percCommissione":null,"regione":"Piemonte","speseCommissione":null,"transazioneMDP":null,"rate":null},"ricevutaCumulativa":null,"pianoRateizzazione":{"numeroRiferimento":"50043679","anno":"2019","totale":132.47,"numeroRate":1},"rate":[{"numeroRata":3,"scadenza":"01/11/2020","importo":4.51,"codiceBollettino":null}],"anagraficaIntestatario":{"altro":null,"cap":null,"codiceFiscale":"GLOPLA75E21L219X","cognome":null,"comuneProvCap":null,"denominazione":null,"descComune":null,"email":"carlo.peraudo@consulenti.csi.it","indirizzo":null,"indirizzoCompleto":null,"nome":"GOLA PAOLO","provincia":null,"telefono":null,"sesso":null,"dataNascita":null,"statoNascita":null,"provinciaNascita":null,"comuneNascita":null,"piva":null}},
+  "osservazioneAvvisoScadenza": {
+    "attributi": {
+      "datiVeicoloRettifica": {
+        "value": false,
+        "kw": "",
+        "targa": "",
+        "tipoVeicolo": { "codice": "", "descrizione": "" },
+        "catEuro": { "codice": "", "descrizione": "" },
+        "alimentazione": { "codice": "", "descrizione": "" },
+        "peso": 0,
+        "numPosti": 0,
+        "sp": false,
+        "rimorchio": false,
+        "portata": "",
+        "assi": 0,
+        "imp": false,
+        "emissCo2": ""
+      },
+      "datiAnagraficiRettifica": {
+        "value": false,
+        "codiceFiscale": "",
+        "cognomeDenominazione": "",
+        "nome": "",
+        "domicilioFiscale": "",
+        "indirizzo": "",
+        "email": "",
+        "cell": ""
+      },
+      "isNotIntestatario": {
+        "value": false
+      },
+      "venduto": {
+        "data": "2016-07-15",
+        "concessionario": true,
+        "value": true
+      },
+      "radiato": { "data": "", "value": false },
+      "disponibilitaPrivata": { "value": false, "dal": "", "al": ""
+      },
+      "esenzioni": {
+        "value": false,
+        "disabili": { "value": false, "del": "", "protocollo": "" },
+        "impiantoGplMetano": { "value": false, "data": "" },
+        "altroMotivo": { "value": false, "testo": "" }
+      },
+      "trasferimentoRegione": { "value": false, "data": "" },
+      "radiatoDemolizione": { "value": false, "data": "" },
+      "dataCompilazione": ""
+    },
+    "allegati": [
+      {
+        "identificativoArchivio": "218959",
+        "nomeAllegato": "GME-CDU-08-V02- Inserisci Oss Acc Senza autenticazione.docx",
+        "nomeLogico": "GME-CDU-08-V02- Inserisci Oss Acc Senza autenticazione.docx"
+      }
+    ],
+    "avvisoScadenza": {
+      "intestatario": {
+        "altro": "",
+        "cap": "10155",
+        "codiceFiscale": "TRRNNT50S68C983X",
+        "cognome": "TARRICONE",
+        "comuneProvCap": "",
+        "denominazione": "",
+        "descComune": "TORINO",
+        "email": "mario.rossi@csi.it",
+        "indirizzo": "VIA GIOVANNI POGGIO 9",
+        "indirizzoCompleto": "TORINO / 10155 / TO",
+        "nome": "ANTONIETTA",
+        "provincia": "TO",
+        "telefono": 30012345678
+      },
+      "idPratica": {
+        "id":61412379
+      },
+      "idScadenzaVeicolo": 24271773,
+      "idScadenzaPersona": 22843446,
+      "tassa": 47.19,
+      "numeroRiferimento": "201704000240031",
+      "scadenza": "04/2017",
+      "targa": "DB658BH",
+      "tipoVeicolo": {
+        "codice": "A=autoveicolo, M=motoveicolo",
+        "descrizione": "AUTOVEICOLO, MOTOVEICOLO, ....."
+      },
+      "ultimoGiornoUtile": "2017-08-31",
+      "validita": "12 o 4"
+    },
+    "email": "mario.rossi@csi.it",
+    "idComunicazione": 50031936,
+    "numeroProtocollo": "00001051/2019",
+    "identificativoArchivio": "218959",
+    "idPratica": 61412379,
+    "stato": {
+      "id": "1",
+      "codice": "RICEVUTA",
+      "descrizione": "Ricevuta",
+      "data": "22/02/2019",
+      "note": ""
+    },
+    "telefono": "30012345678"
+  },
+  "rateizzazioneFasce": [{"numeroFascia":1,"importoDa":120.0,"importoA":280.0,"numeroRate":5},{"numeroFascia":2,"importoDa":280.01,"importoA":600.0,"numeroRate":10},{"numeroFascia":3,"importoDa":600.01,"importoA":1260.0,"numeroRate":15},{"numeroFascia":4,"importoDa":1260.01,"importoA":2700.0,"numeroRate":20},{"numeroFascia":5,"importoDa":2700.01,"importoA":null,"numeroRate":30}],
+  "rateizzazioneProprietari":
+    {"cap":"15048","codiceFiscale":"NBBBBR69C68A182C","codiceFiscaleLegale":null,"cognome":"NEBBIA","comuneDiNascita":"ALESSANDRIA","comuneDomicilio":"VALENZA","dataDiNascita":"28/03/1969","denominazione":null,"email":null,"indirizzo":"VIALE VICENZA 8 ","indirizzoPresso":null,"nome":"BARBARA","personaFisica":true,"piva":null,"provinciaDiNascita":"AL","provinciaDomicilio":"AL","sesso":"F","telefono":null},
+  "rateizzazioneConfermaDatiContribuente": {
+    "accertamenti": [
+      {
+        "anno": 2015,
+        "protocollo": "00615010CB871JE",
+        "codiceFiscale": "NBBBBR69C68A182C",
+        "cognome": "NEBBIA",
+        "dataNotifica": null,
+        "denominazione": null,
+        "idPratica": 63255934,
+        "nome": "BARBARA",
+        "totale": 165.72
+      }
+    ],
+    "totale": 165.72,
+    "fascia": {
+      "numeroFascia": 1,
+      "importoDa": 120.0,
+      "importoA": 280.0,
+      "numeroRate": 5
+    }
+  },
+  "rateizzazioneProprietariPersonaGiuridica": {
+      "cap": "15076",
+      "codiceFiscale": "00024770067",
+      "codiceFiscaleLegale": null,
+      "cognome": null,
+      "comuneDiNascita": null,
+      "comuneDomicilio": "OVADA",
+      "dataDiNascita": null,
+      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+      "email": null,
+      "indirizzo": "STRADA VOLTRI 27 D",
+      "indirizzoPresso": null,
+      "nome": null,
+      "personaFisica": false,
+      "piva": null,
+      "provinciaDiNascita": null,
+      "provinciaDomicilio": "AL",
+      "sesso": null,
+      "telefono": null
+    },
+  "rateizzazioneConfermaDatiPersonaGiuridica": {
+    "accertamenti": [{
+      "anno": 2014,
+      "protocollo": "00214010CJ477BY",
+      "codiceFiscale": "00024770067",
+      "cognome": null,
+      "dataNotifica": "2016-08-31",
+      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+      "idPratica": 58966988,
+      "nome": null,
+      "totale": 737.42
+    }],
+    "totale": 737.42,
+    "fascia": {
+      "numeroFascia": 3,
+      "importoDa": 600.01,
+      "importoA": 1260.0,
+      "numeroRate": 15
+    }
+  },
+  "rateizzazioneConfermaDatiPersonaGiuridicaBis": {
+    "accertamenti": [{
+      "anno": 2014,
+      "protocollo": "00214010CJ477BA",
+      "codiceFiscale": "00024770067",
+      "cognome": null,
+      "dataNotifica": "2016-08-31",
+      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+      "idPratica": 58966988,
+      "nome": null,
+      "totale": 737.42
+    }],
+    "totale": 737.42,
+    "fascia": {
+      "numeroFascia": 3,
+      "importoDa": 600.01,
+      "importoA": 1260.0,
+      "numeroRate": 15
+    }
+  },
+  "rateizzazioneSpedita": {
+    "accertamenti":[{"anno":2015,"protocollo":"00615010CB871JE","codiceFiscale":"NBBBBR69C68A182C","cognome":"NEBBIA","dataNotifica":null,"denominazione":null,"idPratica":63255934,"nome":"BARBARA","totale":165.72}],"allegati":[],"dataCompilazione":"2019-12-20","diffEconomiche":false,"email":"carlo.peraudo@consulenti.csi.it","idArchiviazione":"253145","idComunicazione":50032590,"note":null,"numeroRate":{"numeroFascia":1,"importoDa":120.0,"importoA":280.0,"numeroRate":5},"numeroProtocollo":"00003723/2019",
+      "soggetto":{"cap":"15048","codiceFiscale":"NBBBBR69C68A182C","codiceFiscaleLegale":null,"cognome":"NEBBIA","comuneDiNascita":"ALESSANDRIA","comuneDomicilio":"VALENZA","dataDiNascita":"28/03/1969","denominazione":null,"email":null,"indirizzo":"VIALE VICENZA 8 ","indirizzoPresso":null,"nome":"BARBARA","personaFisica":true,"piva":null,"provinciaDiNascita":"AL","provinciaDomicilio":"AL","sesso":"F","telefono":null},"telefono":"3332040510","totaleDaRateizzare":165.72
+  },
+  "rateizzazioneSpeditaRappresentanteLegale": {
+    "accertamenti": [{
+      "anno": 2014,
+      "protocollo": "00214010CJ477BY",
+      "codiceFiscale": "00024770067",
+      "cognome": null,
+      "dataNotifica": "2016-08-31",
+      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+      "idPratica": 58966988,
+      "nome": null,
+      "totale": 737.42
+    }],
+    "allegati": [],
+    "dataCompilazione": "2020-01-15",
+    "diffEconomiche": false,
+    "email": "daniel.scaletta@consulenti.csi.it",
+    "idArchiviazione": "255495",
+    "idComunicazione": 50032710,
+    "note": null,
+    "numeroRate": {
+      "numeroFascia": 3,
+      "importoDa": 600.01,
+      "importoA": 1260.0,
+      "numeroRate": 15
+    },
+    "numeroProtocollo": "00000157/2020",
+    "statoComunicazione": {
+      "id": null,
+      "codice": null,
+      "descrizione": "RICEVUTA",
+      "data": null,
+      "note": null
+    },
+    "statoLavorazione": null,
+    "soggetto": {
+      "cap": "15076",
+      "codiceFiscale": "00024770067",
+      "codiceFiscaleLegale": "PRDCRL76D18L219G",
+      "cognome": "van der Poel",
+      "comuneDiNascita": "Ala di Stura",
+      "comuneDomicilio": "OVADA",
+      "dataDiNascita": "1990-10-20",
+      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+      "email": null,
+      "indirizzo": "STRADA VOLTRI 27 D",
+      "indirizzoPresso": null,
+      "nome": "Mathieu",
+      "personaFisica": false,
+      "piva": null,
+      "provinciaDiNascita": "to",
+      "provinciaDomicilio": "AL",
+      "sesso": "M",
+      "telefono": null
+    },
+    "telefono": "3333333333",
+    "totaleDaRateizzare": 737.42
+  },
+  "listaVeicoliFiltro": [{"codice":"A","descrizione":"AUTOVEICOLO"},{"codice":"M","descrizione":"MOTOVEICOLO"},{"codice":"R","descrizione":"RIMORCHIO"}],
+  "listaVeicoli": [{"codice":"A","descrizione":"AUTOVEICOLO"},{"codice":"M","descrizione":"MOTOVEICOLO"},{"codice":"R","descrizione":"RIMORCHIO"},{"codice":"C","descrizione":"CICLOMOTORE"},{"codice":"Q","descrizione":"QUADRICICLO"}],
+  "pagoBollo": [
+    {
+      "esito":"OK",
+      "errori":[],
+      "risultato": {
+        "codiceFiscale": "REXLNZ46A30C048F",
+        "tipoVeicolo": { "codice": "A", "descrizione": "AUTOVEICOLO" },
+        "targa":"DV720BS",
+        "esplicativo":"Pot Kw 139 E4",
+        "identificativoPagamento": "201911150000002785277113",
+        "scadenza":"10/2015",
+        "ultimoGiornoUtile":"01/12/2014",
+        "validita":12,
+        "totale":438.77,
+        "tassa":408.93,
+        "sanzione":24.54,
+        "interesse":5.3
+      },
+      "proprietario": { "tipologia":"PF", "denominazione":"EVENEPOEL REMCO" }
+    },
+    {
+      "esito":"OK",
+      "errori":[],
+      "risultato": {
+        "codiceFiscale": "VRTWTO46A30C048F",
+        "tipoVeicolo": { "codice": "A", "descrizione": "AUTOVEICOLO" },
+        "targa":"KV720AB",
+        "esplicativo":"Pot Kw 139 E6",
+        "identificativoPagamento": "201910290000002785277113",
+        "scadenza":"10/2014",
+        "ultimoGiornoUtile":"30/11/2014",
+        "validita":12,
+        "totale":438.77,
+        "tassa":408.93,
+        "sanzione":24.54,
+        "interesse":5.3
+      },
+      "proprietario": { "tipologia":"PF", "denominazione":"WOUT VAN AERT" }
+    }
+  ],
+  "pagoBolloLimiteCarrello": {"valore":15},
+  "pagoBolloDisponibScadenza": [
+    {"esito":"OK","tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"}},
+    {"esito":"OK","tipoVeicolo":{"codice":"M","descrizione":"MOTOVEICOLO"}},
+    {"esito":"OK","tipoVeicolo":{"codice":"R","descrizione":"RIMORCHIO"}},
+    {"esito":"KO","tipoVeicolo":{"codice":"C","descrizione":"CICLOMOTORE"}},
+    {"esito":"KO","tipoVeicolo":{"codice":"Q","descrizione":"QUADRICICLO"}}
+  ],
+  "pagoBolloScadenzaMesi": [{"valore":"1","nome":"GENNAIO"},{"valore":"2","nome":"FEBBRAIO"},{"valore":"3","nome":"MARZO"},{"valore":"4","nome":"APRILE"},{"valore":"5","nome":"MAGGIO"},{"valore":"6","nome":"GIUGNO"},{"valore":"7","nome":"LUGLIO"},{"valore":"8","nome":"AGOSTO"},{"valore":"9","nome":"SETTEMBRE"},{"valore":"10","nome":"OTTOBRE"},{"valore":"11","nome":"NOVEMBRE"},{"valore":"12","nome":"DICEMBRE"}],
+  "pagoBolloScadenzaAnni": [{"valore":2020,"nome":"2020"},{"valore":2019,"nome":"2019"},{"valore":2018,"nome":"2018"},{"valore":2017,"nome":"2017"},{"valore":2016,"nome":"2016"},{"valore":2015,"nome":"2015"},{"valore":2014,"nome":"2014"},{"valore":2013,"nome":"2013"},{"valore":2012,"nome":"2012"},{"valore":2011,"nome":"2011"},{"valore":2010,"nome":"2010"},{"valore":2009,"nome":"2009"},{"valore":2008,"nome":"2008"},{"valore":2007,"nome":"2007"},{"valore":2006,"nome":"2006"},{"valore":2005,"nome":"2005"},{"valore":2004,"nome":"2004"},{"valore":2003,"nome":"2003"},{"valore":2002,"nome":"2002"},{"valore":2001,"nome":"2001"},{"valore":2000,"nome":"2000"},{"valore":1999,"nome":"1999"}],
+  "pagoBolloScadenzaValidita": [{"valore":12,"nome":"12"},{"valore":11,"nome":"11"},{"valore":10,"nome":"10"},{"valore":9,"nome":"9"},{"valore":8,"nome":"8"},{"valore":7,"nome":"7"},{"valore":6,"nome":"6"},{"valore":5,"nome":"5"},{"valore":4,"nome":"4"},{"valore":3,"nome":"3"},{"valore":2,"nome":"2"},{"valore":1,"nome":"1"}],
+  "pagoBolloCreaTransazione": {
+    "esito": "OK",
+    "url": "http://localhost:8080/#/bollo/pago/pagopa/transazione?tranId=TST000000000027548"
+  },
+  "pagoBolloTransazionePagamento": {
+    "identificativoTransazione": "TST000000000027548",
+    "importo":877.54,
+    "iuv": "RF341603300030T0400000001",
+    "email": "remco.evenepoel@wolfpack.com"
+  },
+  "pagoRate": [
+    {
+      "intestatario":{
+        "cap":"12040",
+        "codiceFiscale":"VNPRMC73R22Z129L",
+        "codiceFiscaleLegale":null,
+        "cognome":"PEDERSEN",
+        "comuneDiNascita":"TORINO",
+        "comuneDomicilio":"MONTEU ROERO",
+        "dataDiNascita":"22/10/1973",
+        "denominazione":null,
+        "email":null,
+        "indirizzo":"VIA RE UMBERTO I 35 ",
+        "indirizzoPresso":null,
+        "nome":"MADS",
+        "personaFisica":true,
+        "piva":null,
+        "provinciaDiNascita":null,
+        "provinciaDomicilio":"CN",
+        "sesso":"M",
+        "telefono":null
+      },
+      "rate":[
+        {"numeroRata":1,"scadenza":"28/10/2017","importo":45.03,"codiceBollettino":"201700500432260118"},
+        {"numeroRata":2,"scadenza":"28/11/2017","importo":45.03,"codiceBollettino":"201700500432260219"},
+        {"numeroRata":3,"scadenza":"28/12/2017","importo":45.03,"codiceBollettino":"201700500432260320"},
+        {"numeroRata":4,"scadenza":"28/01/2018","importo":45.03,"codiceBollettino":"201700500432260421"},
+        {"numeroRata":5,"scadenza":"28/02/2018","importo":45.03,"codiceBollettino":"201700500432260522"}
+      ],
+      "pianoRateizzazione":{"numeroRiferimento":"50043226","anno":"2017","totale":225.15,"numeroRate":5},
+      "totale":0.0
+    }
+  ],
+  "pagoRateCalcolo": {
+    "intestatario":{
+      "cap":"12040",
+      "codiceFiscale":"VNPRMC73R22Z129L",
+      "codiceFiscaleLegale":null,
+      "cognome":"PEDERSEN",
+      "comuneDiNascita":"TORINO",
+      "comuneDomicilio":"MONTEU ROERO",
+      "dataDiNascita":"22/10/1973",
+      "denominazione":null,
+      "email":null,
+      "indirizzo":"VIA RE UMBERTO I 35 ",
+      "indirizzoPresso":null,
+      "nome":"MADS",
+      "personaFisica":true,
+      "piva":null,
+      "provinciaDiNascita":null,
+      "provinciaDomicilio":"CN",
+      "sesso":"M",
+      "telefono":null
+    },
+    "rate": [
+      {"numeroRata":1,"scadenza":"28/10/2017","importo":45.03,"codiceBollettino":"201700500432260118"}
+    ],
+    "pianoRateizzazione":{"numeroRiferimento":"50043226","anno":"2017","totale":225.15,"numeroRate":5},
+    "totale":45.03
+  },
+  "pagoRateTransazionePagoPa": {
+    "esito": "OK",
+    "url": "http://localhost:8080/#/bollo/pagorate/pagopa/transazione?tranId=TST000000000027548"
+  },
+  "sintesiPagamentoScadenza": {
+    "anagraficaIntestatario": {
+      "altro": "",
+      "cap": "10155",
+      "codiceFiscale": "BRNGNE50S68C983X",
+      "cognome": "BERNAL",
+      "comuneProvCap": "",
+      "denominazione": "",
+      "descComune": "TORINO",
+      "email": "mario.rossi@csi.it",
+      "indirizzo": "VIA GIOVANNI POGGIO 9",
+      "indirizzoCompleto": "TORINO / 10155 / TO",
+      "nome": "EGAN",
+      "provincia": "TO",
+      "telefono": 30012345678,
+      "sesso": "M",
+      "dataNascita": "2000-04-01",
+      "statoNascita": "ITALIA",
+      "provinciaNascita": "TO",
+      "comuneNascita": "Rivoli",
+      "piva": ""
+    },
+    "targa": "EH252RL",
+    "tipoVeicolo": { "codice": "A", "descrizione": "AUTOVEICOLO" },
+    "scadenza": "10/2017",
+    "validita": 12,
+    "costoBollo": 150.15,
+    "sanzione": 9.01,
+    "interessi": 1.89,
+    "totale": 161.05,
+    "iuv": "20191115001"
+  },
+  "sintesiPagamentoAccertamento": {
+    "anagraficaIntestatario": {
+      "altro": "",
+      "cap": "10100",
+      "codiceFiscale": "BRSVRY92T62F902F",
+      "cognome": "BRESCIANI",
+      "comuneProvCap": "TORINO",
+      "denominazione": "",
+      "descComune": "TORINO",
+      "email": "email@email.it",
+      "indirizzo": "VIA DI PROVA 1",
+      "indirizzoCompleto": "VIA DI PROVA 1, TORINO, TO",
+      "nome": "VALERYK",
+      "provincia": "TO",
+      "telefono": "000000000",
+      "sesso": "M",
+      "dataNascita": "2000-04-01",
+      "statoNascita": "ITALIA",
+      "provinciaNascita": "TO",
+      "comuneNascita": "Rivoli",
+      "piva": ""
+    },
+    "targa": "FC704AG",
+    "tipoVeicolo": { "codice": "A", "descrizione": "AUTOVEICOLO" },
+    "scadenza": "10/2017",
+    "validita": 12,
+    "costoBollo": 150.15,
+    "sanzione": 9.01,
+    "interessi": 1.89,
+    "totale": 161.05,
+    "iuv": "192630498508831"
+  },
+  "inserimentoOsservazioneAccertamento": {
+    "idAvvisoAccertamento": 8415855,
+    "identificativoArchivio": null,
+    "numeroProtocollo": "00516010DC528AW",
+    "scadenza": "2017-05",
+    "tributoDovuto": 279.67,
+    "dataInvio": "2017-03-01",
+    "violazioneAccertata": "Versamento Mancante",
+    "dataNotifica": "2017-03-05",
+    "intestatario": {
+      "altro": null,
+      "cap": "20099",
+      "codiceFiscale": "ZHOYHO65T17Z210Y",
+      "cognome": "ROSSI",
+      "comuneProvCap": "SESTO SAN GIOVANNI / MI / 20099",
+      "denominazione": null,
+      "descComune": null,
+      "email": null,
+      "indirizzo": "VIA EUGENIO VILLORESI 8 ",
+      "indirizzoCompleto": "VIA EUGENIO VILLORESI 8 ",
+      "nome": "PINO",
+      "provincia": "MI",
+      "telefono": null
+    },
+    "tipoVeicolo": {
+      "codice": "A",
+      "descrizione": "AUTOVEICOLO"
+    },
+    "targaVeicolo": "DC528AW",
+    "idPratica": {
+      "id":61412379
+    }
+  },
+  "veicoloCategoriaEuro": [{
+    "codice": "E0",
+    "descrizione": "EURO 0"
+  }, {
+    "codice": "E1",
+    "descrizione": "EURO 1"
+  }, {
+    "codice": "E2",
+    "descrizione": "EURO 2"
+  }, {
+    "codice": "E3",
+    "descrizione": "EURO 3"
+  }, {
+    "codice": "E4",
+    "descrizione": "EURO 4"
+  }, {
+    "codice": "E5",
+    "descrizione": "EURO 5"
+  }, {
+    "codice": "NN",
+    "descrizione": "NON DEFINITO"
+  }, {
+    "codice": "E6",
+    "descrizione": "EURO 6"
+  }],
+  "veicoloCombustile": [{
+    "codice": "B",
+    "descrizione": "BENZ"
+  }, {
+    "codice": "B-O",
+    "descrizione": "B/OLIO"
+  }, {
+    "codice": "B-W",
+    "descrizione": "B/WANK"
+  }, {
+    "codice": "ELE",
+    "descrizione": "ELETTR"
+  }, {
+    "codice": "G",
+    "descrizione": "GASOL"
+  }, {
+    "codice": "GP",
+    "descrizione": "GPL"
+  }, {
+    "codice": "GPL",
+    "descrizione": "B/GPL"
+  }, {
+    "codice": "M",
+    "descrizione": "B/MET"
+  }, {
+    "codice": "ME",
+    "descrizione": "METANO"
+  }, {
+    "codice": "MSC",
+    "descrizione": "MISCELA"
+  }, {
+    "codice": "P",
+    "descrizione": "PETROLIO"
+  }, {
+    "codice": "B-E",
+    "descrizione": "B/ELETTR"
+  }, {
+    "codice": "BET",
+    "descrizione": "B/ETANOLO"
+  }, {
+    "codice": "G-E",
+    "descrizione": "G/ELETTR"
+  }, {
+    "codice": "G-M",
+    "descrizione": "G/MET"
+  }, {
+    "codice": "G-G",
+    "descrizione": "G/GPL"
+  }, {
+    "codice": "GML",
+    "descrizione": "G/GNL"
+  }, {
+    "codice": "GNL",
+    "descrizione": "GNL"
+  }, {
+    "codice": "H",
+    "descrizione": "H"
+  }, {
+    "codice": "H-E",
+    "descrizione": "H/E"
+  }],
+  "verificaPraticaRateizzazione": {
+    "accertamenti": [{
+      "anno": null,
+      "protocollo": "00214010CJ477BY",
+      "codiceFiscale": null,
+      "cognome": null,
+      "dataNotifica": null,
+      "denominazione": null,
+      "idPratica": {
+        "id":61412379
+      },
+      "nome": null,
+      "totale": 737.42
+    }],
+    "allegati": [],
+    "dataCompilazione": "2019-11-25",
+    "diffEconomiche": null,
+    "email": "daniel.scaletta@consulenti.csi.it",
+    "idArchiviazione": "252236",
+    "idComunicazione": 50032459,
+    "note": null,
+    "numeroRate": {
+      "numeroFascia": 3,
+      "importoDa": null,
+      "importoA": null,
+      "numeroRate": 15
+    },
+    "numeroProtocollo": "00003341/2019",
+    "soggetto": {
+      "cap": "15076",
+      "codiceFiscale": "00024770067",
+      "codiceFiscaleLegale": "AAAAAA00A00A000A",
+      "cognome": "PROVA",
+      "comuneDiNascita": "PELGIO",
+      "comuneDomicilio": "OVADA",
+      "dataDiNascita": null,
+      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+      "email": null,
+      "indirizzo": "STRADA VOLTRI 27 D",
+      "indirizzoPresso": null,
+      "nome": "PROVA",
+      "personaFisica": false,
+      "piva": null,
+      "provinciaDiNascita": "PE",
+      "provinciaDomicilio": "AL",
+      "sesso": "M",
+      "telefono": null
+    },
+    "telefono": "3331211193",
+    "totaleDaRateizzare": 737.42
+  },
+  "consultaPraticaScadenza": {
+    "attributi": {
+      "datiVeicoloRettifica": null,
+      "datiAnagraficiRettifica": null,
+      "isNotIntestatario": null,
+      "venduto": {
+        "data": "2019-06-19",
+        "concessionario": true,
+        "value": true
+      },
+      "radiato": null,
+      "disponibilitaPrivata": null,
+      "esenzioni": null,
+      "trasferimentoRegione": null,
+      "radiatoDemolizione": null,
+      "dataCompilazione": "0031-12-10"
+    },
+    "allegati": [{
+      "identificativoArchivio": "236648",
+      "nomeAllegato": "mezzo_barcaiolo_rinf.jpg",
+      "nomeLogico": "mezzo_barcaiolo_rinf.jpg"
+    }],
+    "avvisoScadenza": {
+      "intestatario": {
+        "altro": null,
+        "cap": "10095",
+        "codiceFiscale": "BAIGPP79H16L219K",
+        "cognome": "BAIO",
+        "comuneProvCap": null,
+        "denominazione": null,
+        "descComune": "GRUGLIASCO",
+        "email": null,
+        "indirizzo": "VIA VITTORIO ALFIERI 19 ",
+        "indirizzoCompleto": "GRUGLIASCO / 10095 / TO",
+        "nome": "GIUSEPPE",
+        "provincia": "TO",
+        "telefono": null
+      },
+      "idPratica": {
+        "id":61412379
+      },
+      "idScadenzaVeicolo": 22706592,
+      "idScadenzaPersona": 21385495,
+      "tassa": 506.62,
+      "numeroRiferimento": "201608000022599",
+      "scadenza": "08/2016",
+      "targa": "CD331AX",
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "ultimoGiornoUtile": "2016-09-30",
+      "validita": 12
+    },
+    "email": "carlo.peraudo@gmail.com",
+    "idComunicazione": 50032125,
+    "numeroProtocollo": "00001627/2019",
+    "identificativoArchivio": "236649",
+    "idPratica": 61412379,
+    "stato": {
+      "id": 1,
+      "codice": null,
+      "descrizione": "Ricevuta",
+      "data": "26/06/2019",
+      "note": null
+    },
+    "telefono": "335425868"
+  },
+  "osservazioneAccertamentoPost": {
+    "grigliaAccertamento": {
+      "grigliaAccertamentoNonPagato": {
+        "grigliaEsenzioni": {
+          "value":true,
+          "grigliaEsenzioniDisabili": null,
+          "grigliaInstallazioneGplMetano": {
+            "value": true,
+            "data": "2020-01-24"
+          },
+          "grigliaEsenzioniAltroMotivo": null
+        }
+      }
+    },
+    "avvisoAccertamento": {
+      "idAvvisoAccertamento": 8415855,
+      "identificativoArchivio": null,
+      "numeroProtocollo": "00516010DC528AW",
+      "scadenza": "2017-05",
+      "tributoDovuto": 279.67,
+      "dataInvio": "2017-03-01",
+      "violazioneAccertata": "Versamento Mancante",
+      "dataNotifica": "2017-03-05",
+      "intestatario": {
+        "altro": null,
+        "cap": "20099",
+        "codiceFiscale": "ZHOYHO65T17Z210Y",
+        "cognome": "ROSSI",
+        "comuneProvCap": "SESTO SAN GIOVANNI / MI / 20099",
+        "denominazione": null,
+        "descComune": null,
+        "email": null,
+        "indirizzo": "VIA EUGENIO VILLORESI 8 ",
+        "indirizzoCompleto": "VIA EUGENIO VILLORESI 8 ",
+        "nome": "PINO",
+        "provincia": "MI",
+        "telefono": null
+      },
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "targaVeicolo": "DC528AW",
+      "idPratica": {
+        "id":61412379
+      }
+    },
+    "allegati": [
+      {
+        "identificativoArchivio": "218959",
+        "nomeAllegato": "GME-CDU-08-V02- Inserisci Oss Acc Senza autenticazione.docx",
+        "nomeLogico": "GME-CDU-08-V02- Inserisci Oss Acc Senza autenticazione.docx"
+      }
+    ],
+    "note": "Testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo",
+    "email": "email@email.it",
+    "telefono": "333333333",
+    "idComunicazione": 12121212,
+    "numeroProtocollo": "120412/2019",
+    "idPratica": 61412379,
+    "identificativoArchivio": null,
+    "stato": {
+      "id": "1",
+      "codice": "RICEVUTA",
+      "descrizione": "Ricevuta",
+      "data": "22/02/2019",
+      "note": ""
+    }
+  },
+  "osservazioneScadenzaPost": {
+    "attributi":{"datiVeicoloRettifica":{"value":true,"kw":"29","targa":"AK13345","tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"},"catEuro":{"codice":"E0","descrizione":"EURO 0"},"alimentazione":{"codice":"G","descrizione":"GASOL"},"peso":"789","numPosti":"7","sp":false,"rimorchio":false,"portata":"1000","assi":"8","imp":null,"emissCo2":"10"},"datiAnagraficiRettifica":null,"isNotIntestatario":{"value":false},"venduto":{"data":null,"concessionario":false,"value":false},"radiato":{"data":null,"value":false},"disponibilitaPrivata":{"value":false,"dal":null,"al":null},"esenzioni":{"value":false,"disabili":{"value":false,"del":null,"protocollo":""},"impiantoGplMetano":{"value":false,"data":null},"altroMotivo":{"value":false,"testo":""}},"trasferimentoRegione":{"value":false,"data":null},"radiatoDemolizione":{"value":false,"data":null},"motivoGenerico":null,"dataCompilazione":"2020-01-09"},"allegati":[],"avvisoScadenza":{"intestatario":{"altro":null,"cap":"10036","codiceFiscale":"TRCMTT51T09E332T","cognome":"TROCCOLO","comuneProvCap":null,"denominazione":null,"descComune":"SETTIMO TORINESE","email":null,"indirizzo":"VIA CREMONA 10 ","indirizzoCompleto":"SETTIMO TORINESE / 10036 / TO","nome":"MATTEO","provincia":"TO","telefono":null},"idPratica":61954433,"idScadenzaVeicolo":24477266,"idScadenzaPersona":23041298,"tassa":291.54,"numeroRiferimento":"201703000008026","scadenza":"03/2017","targa":"CN831BE","tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"},"ultimoGiornoUtile":"2017-05-02","validita":12},"email":"carlo.peraudo@consulenti.csi.it","idComunicazione":50032634,"numeroProtocollo":"00000044/2020","identificativoArchivio":"253355","idPratica":61954433,"stato":{"id":1,"codice":null,"descrizione":"Ricevuta","data":null,"note":null},"telefono":"3332040510"
+  },
+  "verificaPraticaDTE": {
+    "dataAnagraficiIntestatario": {
+      "altro": null,
+      "cap": "14030",
+      "codiceFiscale": "VRGLGU50B18H121A",
+      "cognome": "VERGANO",
+      "comuneProvCap": null,
+      "denominazione": null,
+      "descComune": "VIARIGI",
+      "email": null,
+      "indirizzo": "FRAZIONE PERGATTI COLLINA, 8",
+      "indirizzoCompleto": null,
+      "nome": "LUIGI",
+      "provincia": "AT",
+      "telefono": null,
+      "sesso": "M",
+      "dataNascita": "18/02/1950",
+      "statoNascita": null,
+      "provinciaNascita": "AL",
+      "comuneNascita": "QUATTORDIO",
+      "piva": null
+    },
+    "dataAnagraficiRappresentante": null,
+    "ingiunzioneFiscale": {
+      "value": true,
+      "numeroIngiunzione": "11120008888888811000"
+    },
+    "cartellaEsattoriale": null,
+    "dataNotifica": "2019-02-18",
+    "importoTotaleRiscossione": 300.0,
+    "oggettoDomanda": {
+      "discaricoAmministrativo": {
+        "value": true,
+        "totale": true,
+        "parziale": null
+      },
+      "rimborsoGiaPagato": null
+    },
+    "motivo": {
+      "pagamentoEseguito": true,
+      "mancanzaPresupposto": null,
+      "altro": null
+    },
+    "allegati": [],
+    "email": null,
+    "telefono": null,
+    "numeroProtocollo": "00000217/2019",
+    "identificativoArchivio": "218817",
+    "idComunicazione": 50031918,
+    "stato": {
+      "id": 1,
+      "codice": null,
+      "descrizione": "Ricevuta",
+      "data": "18/02/2019",
+      "note": null
+    }
+  },
+  "osservazioniAvvisoScadenza": [
+    {
+      "attributi": {
+        "datiVeicoloRettifica": null,
+        "datiAnagraficiRettifica": null,
+        "isNotIntestatario": null,
+        "venduto": null,
+        "radiato": null,
+        "disponibilitaPrivata": null,
+        "esenzioni": {
+          "value": true,
+          "disabili": null,
+          "impiantoGplMetano": null,
+          "altroMotivo": {
+            "value": true,
+            "testo": "LorenIpsum\nABCD\nGP\n"
+          }
+        },
+        "trasferimentoRegione": null,
+        "radiatoDemolizione": null,
+        "motivoGenerico": null,
+        "dataCompilazione": "0031-12-10"
+      },
+      "allegati": [],
+      "avvisoScadenza": {
+        "intestatario": {
+          "altro": null,
+          "cap": "12060",
+          "codiceFiscale": "BAIMSM72B23B111H",
+          "cognome": "BAI",
+          "comuneProvCap": null,
+          "denominazione": null,
+          "descComune": "POCAPAGLIA",
+          "email": null,
+          "indirizzo": "STRADA SAN SECONDO 31 ",
+          "indirizzoCompleto": "POCAPAGLIA / 12060 / CN",
+          "nome": "MASSIMILIANO",
+          "provincia": "CN",
+          "telefono": null
+        },
+        "idPratica": null,
+        "idScadenzaVeicolo": 24968499,
+        "idScadenzaPersona": 23511846,
+        "tassa": 246.13,
+        "numeroRiferimento": "201704000146086",
+        "scadenza": "04/2017",
+        "targa": "TO33955T",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "ultimoGiornoUtile": "2017-05-31",
+        "validita": 12
+      },
+      "email": "",
+      "idComunicazione": 50032136,
+      "numeroProtocollo": "00001643/2019",
+      "identificativoArchivio": "236685",
+      "idPratica": null,
+      "stato": { "id": 1, "codice": null,
+        "descrizione": "Ricevuta",
+        "data": "26/06/2019",
+        "note": null
+      },
+      "telefono": "3332040510"
+    }
+  ],
+  "verificaPraticaAccertamento": {
+    "grigliaAccertamento": {
+      "grigliaAccertamentoNonPagato": {
+        "grigliaEsenzioni": {
+          "value":true,
+          "grigliaEsenzioniDisabili": null,
+          "grigliaInstallazioneGplMetano": null,
+          "grigliaEsenzioniAltroMotivo": {
+            "value": true,
+            "testo": "Motivazione di testo"
+          }
+        }
+      }
+    },
+    "avvisoAccertamento": {
+      "idAvvisoAccertamento": 8414206,
+      "identificativoArchivio": null,
+      "numeroProtocollo": "00514010DC528AW",
+      "scadenza": "2015-05",
+      "tributoDovuto": 284.42,
+      "dataInvio": "2019-04-29",
+      "violazioneAccertata": "Versamento Mancante",
+      "dataNotifica": "",
+      "intestatario": {
+        "altro": null,
+        "cap": "20099",
+        "codiceFiscale": "ZHOYHO65T17Z210Y",
+        "cognome": "ZHOU",
+        "comuneProvCap": "SESTO SAN GIOVANNI / MI / 20099",
+        "denominazione": null,
+        "descComune": null,
+        "email": null,
+        "indirizzo": "VIA EUGENIO VILLORESI 8 ",
+        "indirizzoCompleto": "VIA EUGENIO VILLORESI 8 ",
+        "nome": "YOUHAO",
+        "provincia": "MI",
+        "telefono": null
+      },
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "targaVeicolo": "DC528AW",
+      "idPratica": {
+        "id": 63254125
+      }
+    },
+    "note": null,
+    "allegati": null,
+    "email": "cristiana.sabiacolucci@csi.it",
+    "idComunicazione": 50032215,
+    "numeroProtocollo": "00002695/2019",
+    "identificativoArchivio": "250683",
+    "idPratica": null,
+    "stato": {
+      "id": 2,
+      "codice": null,
+      "descrizione": "In corso di lavorazione",
+      "data": "24/09/2019",
+      "note": null
+    },
+    "telefono": ""
+  },
+  "verificaPraticaTipologia": [
+    { "identificativo": "00001643/2019", "codiceFiscale": "BAIMSM72B23B111H", "codice": "OSSER" },
+    { "identificativo": "00000044/2020", "codiceFiscale": "TRCMTT51T09E332T", "codice": "OSSER" },
+    { "identificativo": "00000217/2019", "codiceFiscale": "VRGLGU50B18H121A", "codice": "DTE" },
+    { "identificativo": "00003341/2019", "codiceFiscale": "00024770067", "codice": "RAR" },
+    { "identificativo": "00002695/2019", "codiceFiscale": "ZHOYHO65T17Z210Y", "codice": "MEMOR" }
+  ],
+  "codiciTributo": ["1B66","1B67","1B68","1D35"],
+  "domandaDiscaricoResponseIntestatario": {
+    "dataAnagraficiIntestatario": {
+      "altro": null,
+      "cap": "13047",
+      "codiceFiscale": "MMMNTN68A16C632X",
+      "cognome": "MAMMARELLA GIARDINIERI",
+      "comuneProvCap": null,
+      "denominazione": null,
+      "descComune": "SAN GERMANO VERCELLESE",
+      "email": null,
+      "indirizzo": "VIALE FRANZOI AUGUSTO, 5",
+      "indirizzoCompleto": null,
+      "nome": "ANTONIO",
+      "provincia": "VC",
+      "telefono": null,
+      "sesso": "M",
+      "dataNascita": "16/01/1968",
+      "statoNascita": null,
+      "provinciaNascita": "CH",
+      "comuneNascita": "CHIETI",
+      "piva": null
+    },
+    "dataAnagraficiRappresentante": null,
+    "ingiunzioneFiscale": {
+      "value": true,
+      "numeroIngiunzione": "S116000210420"
+    },
+    "cartellaEsattoriale": null,
+    "dataNotifica": "2020-01-08",
+    "importoTotaleRiscossione": 123.10,
+    "oggettoDomanda": {
+      "discaricoAmministrativo": {
+        "value": true,
+        "totale": true,
+        "parziale": false
+      },
+      "rimborsoGiaPagato": null
+    },
+    "motivo": {
+      "pagamentoEseguito": true,
+      "mancanzaPresupposto": null,
+      "altro": null
+    },
+    "allegati": [],
+    "email": "daniel.scaletta@consulenti.csi.it",
+    "telefono": "",
+    "numeroProtocollo": "00000139/2020",
+    "identificativoArchivio": "255116",
+    "idComunicazione": 50032696,
+    "stato": {
+      "id": 1,
+      "codice": null,
+      "descrizione": "Ricevuta",
+      "data": null,
+      "note": null
+    },
+    "statoLavorazione": {
+      "id": 1,
+      "codice": null,
+      "descrizione": "Protocollata",
+      "data": null,
+      "note": null
+    }
+  },
+  "dteIntestatarioRL": {
+    "dataAnagraficiIntestatario": {
+      "altro": null,
+      "cap": "93012",
+      "codiceFiscale": null,
+      "cognome": null,
+      "comuneProvCap": null,
+      "denominazione": "SCAM S.R.L.",
+      "descComune": "GELA",
+      "email": null,
+      "indirizzo": "VIA C COLOMBO 146 ",
+      "indirizzoCompleto": null,
+      "nome": null,
+      "provincia": "CL",
+      "telefono": null,
+      "sesso": null,
+      "dataNascita": null,
+      "statoNascita": null,
+      "provinciaNascita": null,
+      "comuneNascita": null,
+      "piva": "00368570859"
+    }
+  },
+  "dteNumIngiunzioneRL": ["S116000391505"],
+  "domandaDiscaricoResponseRL": {
+    "dataAnagraficiIntestatario": {
+      "altro": null,
+      "cap": "93012",
+      "codiceFiscale": "",
+      "cognome": null,
+      "comuneProvCap": null,
+      "denominazione": "SCAM S.R.L.",
+      "descComune": "GELA",
+      "email": null,
+      "indirizzo": "VIA C COLOMBO 146 ",
+      "indirizzoCompleto": null,
+      "nome": null,
+      "provincia": "CL",
+      "telefono": null,
+      "sesso": null,
+      "dataNascita": null,
+      "statoNascita": null,
+      "provinciaNascita": null,
+      "comuneNascita": null,
+      "piva": "00368570859"
+    },
+    "dataAnagraficiRappresentante": {
+      "altro": null,
+      "cap": "10155",
+      "codiceFiscale": "PRDCRL76D18L219G",
+      "cognome": "VAN DER POEL",
+      "comuneProvCap": "10155",
+      "denominazione": null,
+      "descComune": "Ala di Stura",
+      "email": "mario.rossi@csi.it",
+      "indirizzo": "VIA GIOVANNI POGGIO 9",
+      "indirizzoCompleto": "Ala di Stura / 10155 / TO",
+      "nome": "MATHIEU",
+      "provincia": "TO",
+      "telefono": "3333333333",
+      "sesso": "M",
+      "dataNascita": "1990-10-20",
+      "statoNascita": "ITALIA",
+      "provinciaNascita": "TO",
+      "comuneNascita": "TO",
+      "piva": null  
+    },
+    "ingiunzioneFiscale": {
+      "value": true,
+      "numeroIngiunzione": "S116000210420"
+    },
+    "cartellaEsattoriale": null,
+    "dataNotifica": "2020-01-08",
+    "importoTotaleRiscossione": 123.10,
+    "oggettoDomanda": {
+      "discaricoAmministrativo": {
+        "value": true,
+        "totale": true,
+        "parziale": false
+      },
+      "rimborsoGiaPagato": null
+    },
+    "motivo": {
+      "pagamentoEseguito": true,
+      "mancanzaPresupposto": null,
+      "altro": null
+    },
+    "allegati": [{
+      "identificativoArchivio": "218959",
+      "nomeAllegato": "GME-CDU-08-V02.docx",
+      "nomeLogico": "GME-CDU-08-V02.docx"
+    }],
+    "email": "daniel.scaletta@csi.it",
+    "telefono": "3333333333",
+    "numeroProtocollo": "00000149/2020",
+    "identificativoArchivio": "string",
+    "idComunicazione": 50031936,
+    "stato": {
+      "id": "'1' o null",
+      "codice": "'RICEVUTA' o null",
+      "descrizione": "'Ricevuta' o 'Protocollata'",
+      "data": "'22/02/2019' o null",
+      "note": "string"
+    },
+    "statoLavorazione": {
+      "id": "'1' o null",
+      "codice": "'RICEVUTA' o null",
+      "descrizione": "'Ricevuta' o 'Protocollata'",
+      "data": "'22/02/2019' o null",
+      "note": "string"
+    }
+  }
+}
