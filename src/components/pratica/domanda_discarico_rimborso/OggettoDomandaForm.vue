@@ -17,36 +17,34 @@
             <strong id="discaricoAmministrativo">
               Chiedo il discarico amministrativo
             </strong>
-
-            <v-radio-group
-            v-model="oggDomandaForm.tipoDiscAmministr"
-            :error-count="1"
-            :error-messages="tipoDiscAmministrErrors"
-            :disabled="oggDomandaForm.oggDomRadio !== 'discaricoAmministrativo'"
-            name="OggettoDomandaDiscarico">
-              <v-radio
-                value="totale"
-                >
-                <template v-slot:label>
-                  <strong id="discaricoAmministrativo-totale">
-                    Totale
-                  </strong>
-                </template>
-              </v-radio>
-              <v-radio
-                value="parziale"
-                class="w-100">
-                <template v-slot:label>
-                  <strong id="discaricoAmministrativo">
-                    Parziale
-                  </strong>
-                </template>
-              </v-radio>
-            </v-radio-group>
-
           </template>
         </v-radio>
-
+        <v-radio-group
+        class="pl-md-9"
+        v-model="oggDomandaForm.tipoDiscAmministr"
+        :error-count="1"
+        :error-messages="tipoDiscAmministrErrors"
+        :disabled="oggDomandaForm.oggDomRadio !== 'discaricoAmministrativo'"
+        name="OggettoDomandaDiscarico">
+          <v-radio
+            value="totale"
+            >
+            <template v-slot:label>
+              <strong id="discaricoAmministrativo-totale">
+                Totale
+              </strong>
+            </template>
+          </v-radio>
+          <v-radio
+            value="parziale"
+            class="w-100">
+            <template v-slot:label>
+              <strong id="discaricoAmministrativo">
+                Parziale
+              </strong>
+            </template>
+          </v-radio>
+        </v-radio-group>
         <v-radio
           value="rimborsoPagamento"
           @input="delDati()">

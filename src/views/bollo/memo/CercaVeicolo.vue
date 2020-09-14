@@ -35,7 +35,7 @@
             <v-text-field
               clearable
               clear-icon="mdi-close-circle"
-              label="Codice fiscale"
+              label="Codice fiscale / P.IVA"
               type="text"
               id="codiceFiscale"
               v-model="cercaForm.codiceFiscale"
@@ -83,6 +83,7 @@ import ApiError from '@/common/api.error'
 import {
   emailAttiva,
   smsAttivo,
+  COD_FISCALE_MIN_LENGTH,
   COD_FISCALE_MAX_LENGTH,
   NO_RECAPTCHA_ATTEMPTS,
   REGIONE_PARAMS,
@@ -146,7 +147,7 @@ export default {
     cercaForm: {
       codiceFiscale: {
         required,
-        minLength: minLength(COD_FISCALE_MAX_LENGTH),
+        minLength: minLength(COD_FISCALE_MIN_LENGTH),
         maxLength: maxLength(COD_FISCALE_MAX_LENGTH),
         alphaNum,
         serverFailed: function () {

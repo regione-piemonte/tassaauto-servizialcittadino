@@ -19,7 +19,7 @@
       >
 
         <v-list-item-content
-          :class="(regione != 'piemonte') ? '' : item.icon"
+          :class="item.icon"
           @click="vaiA(item.action)">
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item-content>

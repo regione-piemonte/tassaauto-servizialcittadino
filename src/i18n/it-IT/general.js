@@ -59,9 +59,9 @@ export default {
   privacy: 'Informativa sulla privacy',
   validations: {
     codiceFiscale: {
-      alfanumerico: 'Il Codice fiscale deve contenere solo lettere e numeri.',
-      lunghezza: 'Il Codice fiscale deve avere una lunghezza di {num} caratteri.',
-      obbligatorio: 'Il Codice fiscale è obbligatorio.'
+      alfanumerico: 'Il codice fiscale / P.IVA deve contenere solo lettere e numeri.',
+      lunghezza: 'Il codice fiscale / P.IVA deve avere una lunghezza minima di {num} caratteri.',
+      obbligatorio: 'Il codice fiscale / P.IVA è obbligatorio.'
     },
     targa: {
       alfanumerico: 'La targa deve contenere solo lettere e numeri.',

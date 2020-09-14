@@ -13,7 +13,7 @@
     </v-alert>
     <div class="noAccordion" role="tablist">
         <v-card
-          class="card-view-page px-5"
+          class="px-5"
           v-for="(item, index) in pRespPagoRate.rate"
           :key="index">
             <v-row>

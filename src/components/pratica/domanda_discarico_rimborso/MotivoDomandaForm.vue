@@ -70,23 +70,23 @@
                     id="altro">
                     Altro
                   </strong>
-                  <v-textarea
-                    class="col-12 fix-align"
-                    clear-icon="mdi-close-circle"
-                    label="Inserire motivazione"
-                    id="altro-note"
-                    outlined
-                    auto-grow
-                    clearable
-                    rows="3"
-                    autocomplete="off"
-                    :disabled="motivoForm.motDomRadio !== 'altro'"
-                    :error-messages="altroNoteErrors"
-                    v-model="motivoForm.altroNote">
-                  </v-textarea>
                 </div>
               </template>
            </v-radio>
+           <v-textarea
+            class="col-12 fix-align"
+            clear-icon="mdi-close-circle"
+            label="Inserire motivazione"
+            id="altro-note"
+            outlined
+            auto-grow
+            clearable
+            rows="3"
+            autocomplete="off"
+            :disabled="motivoForm.motDomRadio !== 'altro'"
+            :error-messages="altroNoteErrors"
+            v-model="motivoForm.altroNote">
+          </v-textarea>
           </div>
         </div>
       </div>
