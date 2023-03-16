@@ -6,7 +6,7 @@ const BollowebFilter = {
   },
 
   formatCurrency (amount) {
-    if (amount === 0) return 'Non dovuto'
+    if (amount === 0) return '0,00 €'
     return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(amount)
   },
 

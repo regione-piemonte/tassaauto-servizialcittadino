@@ -12,28 +12,19 @@
 		}
 	}
 }
-.alert-heading {
-	.alertTitle {
-		
-	}	
-}
 
 
 .alert{
 	
-	//@extend .rounded-0;
-	//@extend .p-7;
-	@extend .p-2;
-	@extend .pl-14;
-	//@extend .col-12;
-	@extend .w-100;
+	padding: $space-2!important;
+	padding-left: $space-14!important;
+	width: 100%;
 	@extend .rfs-18;
 	&.alert-danger, 
 	&.alert-success, 
 	&.alert-info, 
 	&.alert-warning {
 		// PROVA MIA SANSOL
-		//@extend .q-alert;
 		min-height: 100px;
 		/* */
 		color: $black !important;
@@ -90,15 +81,18 @@
 	// added custom alert grigio
 	// reset alert icon
 	&.alert-quaternary{
-		@extend .p-4;
-		@extend .p-sm-7;
-		//@extend .col-12;
-		@extend .w-100;
-		@extend .rfs-18;
+		padding: $space-4!important;
+		width: 100%;
+		 @extend .rfs-18;
 		color: $black;
 		background-color: $quaternary;
 		border:0;
 		
+	}
+	@media (max-width: 577px) {
+		&.alert-quaternary{
+			padding: $space-7!important;
+		}
 	}
 
 	&.alert-danger:before {
@@ -117,13 +111,13 @@
 		content: "\f071";
 	}
 	.alert-heading{
-		@extend .rfs-18;
-		@extend .border-0;
+		 @extend .rfs-18;
+		border: 0px;
 	}
 	.alert-sub-heading{
-		@extend .d-block;
-		@extend .mt-n5;
-		@extend .mb-5;
+		display: block;
+		margin-top: -$space-5!important;
+		margin-bottom: $space-5!important;
 	}
 
 	// bordo box ok
@@ -137,11 +131,10 @@
 .alert-form{
 
 	.alert-form-fields{
-		@extend .ml-sm-0;
-		@extend .pl-0;
-		@extend .pl-md-1;
-		@extend .pt-4;
-		@extend .pb-0;
+
+		padding-left: $space-0!important;
+		padding-top: $space-4!important;
+		padding-bottom: $space-0!important;
 		@media (max-width: 767.98px){
 			.btn:not(.contextual-info){
 				width:calc(100% - 16px);
@@ -153,15 +146,26 @@
 			padding-top:.4em!important;
 			padding-bottom: .4em!important;
 		}
-    }
+		}
+		@media (min-width: 767.98px){
+			.alert-form-fields{
+				padding-left: $space-1!important;
+			}
+		}
+		
+		@media (min-width: 567.98px){
+			.alert-form-fields{
+				margin-left: $space-0!important;
+			}
+		}
     
 	.inner-cont-2box &{
         
 		.alert-form-fields{
 			
 			
-			// @extend .ml-n13;
-			@extend .pl-1;
+			// // @extend .ml-n13;
+			padding-left: $space-1!important;
 			
 			//.btn:not(.contextual-info){
 			.btn.btn-primary,
@@ -171,10 +175,7 @@
 				
 			}
 			.inline-check-submit{
-				@extend .no-gutters-col;
 				.tooltip-field{
-		
-					@extend .col-xxl-12;
 					
 					.custom-control{
 						display:inline-block;
@@ -187,71 +188,47 @@
 		}
 	}
 	.form-control{
-		@extend .p-1;
-		
+		padding: $space-1!important;
 	}
 }
 .inner-cont-2box{
-	.first-col{
-		.alert{
-			@extend .ml-lg-7;
-		}
-	}
-	.second-col{
-		.alert{
-			@extend .mr-lg-7;
-		}
-	}
 	
 	.alert{
-		@extend .mb-5;
-		@extend .mb-xl-0;
-		@extend .p-5;
+		margin-bottom: $space-5!important;
+		padding: $space-5!important;
 		&.alert-quaternary{
 			.alert-form-fields{
-				@extend .ml-0;
+				margin-top: $space-0!important;
 			}
 		}
-		&:not(.alert-quaternary){
-			@extend .pl-14;
-		}
+		// &:not(.alert-quaternary){
+		//  	@extend .pl-14;
+		// }
 		
 		.alert-heading{
-			@extend .mb-5;
+			margin-bottom: $space-5!important;
 		}
 	}
 
 	.inline-check-submit{
-
-		@extend .offset-lg-0;
-		@extend .col-12;
-    
+		    
 		.tooltip-field{
 
-			@extend .col-md-12;
-			@extend .py-0;
-			@extend .py-md-0;
-				
-			.custom-control{
-				@extend .d-inline-block;
-			}
+			padding-top: $space-0!important;
+			padding-bottom: $space-0!important;
 		}
 	}
 	.action-button-wide{
-		@extend .pt-md-10;
-		@extend .mt-md-7;
-		@extend .mt-3;
-		@extend .pt-5;
-		@extend .border-top;
-		@extend .border-dark;
+		margin-top: $space-3!important;
 	}
 }
 
 
 
 .confirm-data{
-	@extend .rfs-30;
-	@extend .py-7;
+	 @extend .rfs-30;
+	padding-top: $space-7!important;
+	padding-bottom: $space-7!important;
 }
 
 
@@ -262,31 +239,30 @@
 
 		.tooltip-field {
 
-			@extend .text-left;
+			text-align: left;
 
 		}
 	}
 } 
 .inline-check-submit{
-	//@extend .offset-lg-4;
-    //@extend .col-lg-8;
 
 	& > .form-inline{
-		@extend .row;
 		.custom-checkbox{
 			flex: 1 0 0;
 		}
 	
 	}
+	
 	.tooltip-field{
-		@extend .text-right;
-		@extend .col-md-7;
-		@extend .py-5;
-		@extend .py-md-0;
-		@extend .rfs-16;
+		@media (min-width: 960px) {
+			text-align: right;
+		}
+		
+		padding-bottom: $space-5!important;
+		padding-top: $space-5!important;
+		// @extend .py-md-0;
+		 @extend .rfs-16;
 		& > div{
-			@extend .pr-7;
-			@extend .pr-lg-0;
 			.custom-control{
 				display:inline-block;
 				@media (min-width: 768px){
@@ -295,19 +271,16 @@
 			}
 		}
 		label {
-			@extend .mb-0;
+			margin-bottom: $space-0!important;
 		}
 	}
 
-	.confirm-send{
-		
-		@extend .col-md-4;
-		@extend .offset-md-1;
-		button.btn{
-			@extend .btn-block;
-		}
-	}
-	.contextual-info.v-btn{
+	// .confirm-send{
+	// 	button.btn{
+	// 	 	@extend .btn-block;
+	// 	}
+	// }
+	.contextual-info{
 		
 		//background-color:$black;
 		min-width:auto!important;
@@ -328,17 +301,16 @@
 		.fas{
 			color:$black;
 			display:block;
-			@extend .rfs-24;
+			 @extend .rfs-24;
 		}
 	}
 	
 }
 .reset-margin{
 	.inline-check-submit{
-		@extend .offset-md-0;
-		@extend .col-md-auto;
+		// @extend .offset-md-0;
+		// @extend .col-md-auto;
 		.tooltip-field{
-			@extend .col-12;
 			.fas{
 				display:block;
 			}
@@ -351,13 +323,11 @@
 
 .box-grigio{
 	
-	@extend .p-5;
-	@extend .p-md-9;
-	@extend .px-1;
-	@extend .py-8;
-	@extend .mb-6;
-	@extend .position-relative;
-	background-color:$quaternary;
+	padding: $space-5!important;
+	padding: $space-8 $space-9!important;
+	margin-bottom: $space-6!important;
+	position: relative;
+	background:$gray-500;
 
 	@media (max-width: 991.98px){
 		.boxDelete {
@@ -382,13 +352,17 @@
 
 }
 .boxBlu{
-	background-color: $secondary;
-	@extend .p-5;
-	@extend .p-md-8;
+	background-color: $blue;
+	padding: $space-5!important;
+	@media (min-width:768px)
+  {
+    padding: $space-8;
+  }
+	// @extend .p-md-8;
 	.textRiepilogo{
 		font-weight: $font-weight-bold;
 		color:$white;
-		@extend .mb-0;
+		margin-bottom: $space-0!important;
 		
 	}
 	.inline-check-submit{
@@ -417,16 +391,18 @@
 
 .box-conferma{
 	
-	@extend .mb-6;
+	margin-bottom: $space-6!important;
 	.box-conferma-inner{
 		background-color:$quaternary;
-		@extend .p-md-7;
-		@extend .px-1;
-		@extend .py-8;
+		// // @extend .p-md-7;
+		padding-left: $space-1!important;
+		padding-right: $space-1!important;
+		padding-bottom: $space-8!important;
+		padding-top: $space-8!important;
 		.form-group{
             
             
-			@extend .offset-md-6;
+			// @extend .offset-md-6;
 			
 			& > label,
 			& > div{
@@ -437,7 +413,7 @@
 		}
 		h2{
 			border:0 none;
-			@extend .mb-0;
+			margin-bottom: $space-0!important;
 		}
 	}
 }

@@ -20,14 +20,14 @@ if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       console.log('New content is available; please refresh.', { registration })
       // An update is triggered if any of the following happens: ... A navigation to an in-scope page (index.html)
 
-      registration.waiting.postMessage({ action: 'skipWaiting' })
+      // registration.waiting.postMessage({ action: 'skipWaiting' })
+      // precedente istruzione sostituita da (workbox-webpack-plugin) GenerateSW({skipWaiting: true})
 
       navigator.serviceWorker.addEventListener('controllerchange', event => {
         // This fires when the service worker controlling this page
         // changes, eg a new worker has skipped waiting and become the new active worker
         console.log('[Service Worker event][controllerchange]', { event })
-        // true - Reloads the current page from the server
-        location.reload(true)
+        location.reload()
       })
     },
     offline () {

@@ -1,70 +1,74 @@
 <template>
-  <div class="app-container" ref="formContainer">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class=" col-xxl-8 offset-xxl-2 justify-content-center">
-        <Wizard :servizio="'osservazione'" :stepAttivo="3" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div
-        class=" col-xxl-8 offset-xxl-2"
-        v-if="osservazioneCreata == null">
-        {{ $t('general.labels.pagina_scaduta') }}
-      </div>
-      <div
-        class=" col-xxl-8 offset-xxl-2"
-        v-else>
-        <DomandaEsitoBox
-          :numeroProtocollo="osservazioneCreata.numeroProtocollo"
-        />
-        <DatiAnagraficiIntestatario
-          :denominazione="intestatarioAvviso"
-          :codiceFiscale="osservazioneCreata.avvisoScadenza.intestatario.codiceFiscale"
-          :tipoDatiAnagrafici="'intestatario avviso'"
-        />
-        <DatiAnagRettOssAvvScadenza
-          v-if="osservazioneCreata.attributi.datiAnagraficiRettifica !== null && osservazioneCreata.attributi.datiAnagraficiRettifica.value"
-          :denominazione="intestatarioRettif"
-          :codiceFiscale="osservazioneCreata.attributi.datiAnagraficiRettifica.codiceFiscale"
-          :indirizzo="osservazioneCreata.attributi.datiAnagraficiRettifica.indirizzo + ' - '  + osservazioneCreata.attributi.datiAnagraficiRettifica.domicilioFiscale"
-        />
-        <DatiVeicolo
-          :descrizione="osservazioneCreata.avvisoScadenza.tipoVeicolo.descrizione"
-          :targa="osservazioneCreata.avvisoScadenza.targa"
-          :scadenza="osservazioneCreata.avvisoScadenza.scadenza"
-          :validita="Number(osservazioneCreata.avvisoScadenza.validita)"
-          :tassa="osservazioneCreata.avvisoScadenza.tassa"
-        />
-        <DatiAvvisoScadenza
-          :numeroRiferimento="osservazioneCreata.avvisoScadenza.numeroRiferimento"
-        />
-        <OssAvvScadenza
-          :attributi="osservazioneCreata.attributi"
-        />
-        <Allegati
-          :codiceFiscale="osservazioneCreata.avvisoScadenza.intestatario.codiceFiscale"
-          :numeroProtocollo="osservazioneCreata.numeroProtocollo"
-          :listaAllegati="osservazioneCreata.allegati"
-          :pLocal="false"
-        />
-        <Riferimenti
-          :pEmail="rifEmail"
-          :pTelefono="rifTelefono"
-        />
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnStampaPagina
-              :label="'Stampa riepilogo'"
-            />
-          </div>
-          <div class="col-md-6 text-md-right">
-            <BtnHome />
+  <div class="container" ref="formContainer">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class=" col-lg-8 offset-lg-2 justify-content-center">
+            <Wizard :servizio="'osservazione'" :stepAttivo="3" />
           </div>
         </div>
-      </div>
+        <div class="row inner-cont-bollo">
+          <div
+            class=" col-lg-8 offset-lg-2"
+            v-if="osservazioneCreata === null">
+            {{ $t('general.labels.pagina_scaduta') }}
+          </div>
+          <div
+            class=" col-lg-8 offset-lg-2"
+            v-else>
+            <DomandaEsitoBox
+              :numeroProtocollo="osservazioneCreata.numeroProtocollo"
+            />
+            <DatiAnagraficiIntestatario
+              :denominazione="intestatarioAvviso"
+              :codiceFiscale="osservazioneCreata.avvisoScadenza.intestatario.codiceFiscale"
+              :tipoDatiAnagrafici="'intestatario avviso'"
+            />
+            <DatiAnagRettOssAvvScadenza
+              v-if="osservazioneCreata.attributi.datiAnagraficiRettifica !== null && osservazioneCreata.attributi.datiAnagraficiRettifica.value"
+              :denominazione="intestatarioRettif"
+              :codiceFiscale="osservazioneCreata.attributi.datiAnagraficiRettifica.codiceFiscale"
+              :indirizzo="osservazioneCreata.attributi.datiAnagraficiRettifica.indirizzo"
+              :comune="osservazioneCreata.attributi.datiAnagraficiRettifica.domicilioFiscale"
+            />
+            <DatiVeicolo
+              :descrizione="osservazioneCreata.avvisoScadenza.tipoVeicolo.descrizione"
+              :targa="osservazioneCreata.avvisoScadenza.targa"
+              :scadenza="osservazioneCreata.avvisoScadenza.scadenza"
+              :validita="Number(osservazioneCreata.avvisoScadenza.validita)"
+              :tassa="osservazioneCreata.avvisoScadenza.tassa"
+            />
+            <DatiAvvisoScadenza
+              :numeroRiferimento="osservazioneCreata.avvisoScadenza.numeroRiferimento"
+            />
+            <OssAvvScadenza
+              :attributi="osservazioneCreata.attributi"
+            />
+            <Allegati
+              :codiceFiscale="osservazioneCreata.avvisoScadenza.intestatario.codiceFiscale"
+              :numeroProtocollo="osservazioneCreata.numeroProtocollo"
+              :listaAllegati="osservazioneCreata.allegati"
+              :pLocal="false"
+            />
+            <Riferimenti
+              :pEmail="rifEmail"
+              :pTelefono="rifTelefono"
+            />
+            <div class="action-button-wide row">
+              <div class="col-md-6">
+                <BtnStampaPagina
+                  :label="'Stampa riepilogo'"
+                />
+              </div>
+              <div class="col-md-6 text-md-right">
+                <BtnHome />
+              </div>
+            </div>
+          </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
+
   </div>
 </template>
 
@@ -116,7 +120,7 @@ export default {
       return intest + this.osservazioneCreata.attributi.datiAnagraficiRettifica.cognomeDenominazione
     },
     rifEmail: function () {
-      if (emailAttiva) return this.osservazioneCreata.email
+      if (emailAttiva) return this.osservazioneCreata.email ? this.osservazioneCreata.email.toLowerCase() : this.osservazioneCreata.email
       return null
     },
     rifTelefono: function () {

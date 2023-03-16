@@ -9,7 +9,8 @@ import {
   OSS_AVV_ACC_SALVA_NOTE,
   OSS_AVV_ACCERTAMENTO_CREA,
   OSS_AVV_ACCERTAMENTO_CARICA_ALLEGATO,
-  OSS_AVV_ACCERTAMENTO_ELIMINA_ALLEGATO
+  OSS_AVV_ACCERTAMENTO_ELIMINA_ALLEGATO,
+  OSS_AVV_ACCERTAMENTO_LIST_AUTENTICATI
 } from './actions.type'
 
 import {
@@ -23,7 +24,8 @@ import {
   REM_ALLEGATO_OSS_AVV_ACCERTAMENTO,
   INIT_STATE_OSS_AVV_ACC_PAGATO,
   INIT_STATE_OSS_AVV_ACC_NONPAGATO,
-  INIT_STATE_OSS_AVV_ACC_ALTRO
+  INIT_STATE_OSS_AVV_ACC_ALTRO,
+  UPD_OSS_AVV_ACCERTAMENTO_LIST_AUTENTICATI
 } from './mutations.type'
 
 const initialState = {
@@ -83,12 +85,21 @@ const initialState = {
       emissCo2: ''
     }
   },
-  ossAvvAccNote: ''
+  ossAvvAccNote: '',
+  listaAvvisiAuth: []
 }
 
 // spread operator - shallow copy
 // cfr. https://lucybain.com/blog/2018/js-es6-spread-operator/
 export const state = { ...initialState }
+
+function lista (data) {
+  const lista = [{ text: 'Seleziona', value: null }]
+  for (const idx in data) {
+    lista.push({ text: data[idx].tipoVeicolo.descrizione + ' - ' + data[idx].targa + ' - ' + data[idx].meseScadenza + '/' + data[idx].annoScadenza, value: data[idx] })
+  }
+  return lista
+}
 
 export const actions = {
   [OSS_AVV_ACCERTAMENTO_RESET_STATE] ({ commit }) {
@@ -141,6 +152,11 @@ export const actions = {
     delete params.slug
     await OssAvvisoAccertamentoService.eliminaAllegato(slug, params)
     return context.commit(REM_ALLEGATO_OSS_AVV_ACCERTAMENTO, slug)
+  },
+  async [OSS_AVV_ACCERTAMENTO_LIST_AUTENTICATI] (context, params) {
+    const { data } = await OssAvvisoAccertamentoService.avvisiAutenticati(params)
+    context.commit(UPD_OSS_AVV_ACCERTAMENTO_LIST_AUTENTICATI, lista(data))
+    return { data }
   }
 }
 
@@ -245,6 +261,9 @@ const mutations = {
 
     if (itemIdx === -1) return
     state.ossAvvAccertamentoAllegati.splice(itemIdx, 1)
+  },
+  [UPD_OSS_AVV_ACCERTAMENTO_LIST_AUTENTICATI] (state, listaAvvisiAuth) {
+    state.listaAvvisiAuth = listaAvvisiAuth
   }
 }
 
@@ -271,6 +290,9 @@ const getters = {
 
   ossAvvAccNote (state) {
     return state.ossAvvAccNote
+  },
+  listaAvvisiAccAuth (state) {
+    return state.listaAvvisiAuth
   }
 }
 

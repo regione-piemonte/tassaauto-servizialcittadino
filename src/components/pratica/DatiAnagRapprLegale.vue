@@ -3,25 +3,25 @@
     <h2>
       Dati anagrafici del rappresentante legale
     </h2>
-    <v-list class="text-uppercase">
-      <v-list-item-group>
-        <v-list-item id="denominazione">
+    <v-list class="text-uppercase" flat>
+      <v-list-item-group :no-action="true" aria-label="dati anagrafici del rappresentante legale">
+        <v-list-item id="denominazione" :inactive="true" :ripple="false">
           {{ denominazione }}
         </v-list-item>
-        <v-list-item id="codiceFiscaleRL">
+        <v-list-item id="codiceFiscaleRL" :inactive="true" :ripple="false">
         CF: {{ codiceFiscale }}
         </v-list-item>
-        <v-list-item id="sessoRL">
+        <v-list-item id="sessoRL" :inactive="true" :ripple="false">
         Sesso: {{ sesso }}
         </v-list-item>
-        <v-list-item id="dataDiNascitaRL">
-        Data di nascita: {{ new Date(dataDiNascita) | dateFormat('DD/MM/YYYY') }}
+        <v-list-item id="dataDiNascitaRL" :inactive="true" :ripple="false">
+        Data di Nascita: {{ new Date(dataDiNascita) | dateFormat('DD/MM/YYYY') }}
         </v-list-item>
         <v-list-item v-if="provinciaDiNascita !== null && provinciaDiNascita !== ''"
-        id="comuneDiNascitaRL">
-        Comune di nascita o Stato Estero: {{ comuneDiNascita }} ({{ provinciaDiNascita }})
+        id="comuneDiNascitaRL" :inactive="true" :ripple="false">
+        Comune di Nascita o Stato Estero: {{ comuneDiNascita }} ({{ provinciaDiNascita }})
         </v-list-item>
-        <v-list-item v-else id="statoDiNascitaRL">
+        <v-list-item v-else id="statoDiNascitaRL" :inactive="true" :ripple="false">
         Stato Estero: {{ comuneDiNascita }}
         </v-list-item>
       </v-list-item-group>

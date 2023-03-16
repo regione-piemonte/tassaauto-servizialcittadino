@@ -1,18 +1,14 @@
 <template>
-  <div class="col-xxl-4 offset-xxl-2 col-md-6 first-col d-flex">
-    <div class="d-flex w-100"
-      v-if="esitoMemoVerifica.statoEmail.stato=='INATTIVO'">
-      <div class="alert alert-form alert-quaternary">
-        <div
-          class="d-block"
-          id="boxAttivaEmail">
-          <h4>
-            Attiva Memobollo via email
-          </h4>
+  <div class="col-lg-4 offset-lg-2 col-md-6 first-col d-flex">
+    <div class="d-flex w-100" v-if="esitoMemoVerifica.statoEmail.stato == 'INATTIVO'">
+      <div class="alert alert-form alert-quaternary ml-md-7 ml-lg-0 mb-lg-0">
+        <div class="d-block d-block-memo" id="boxAttivaEmail">
+          <h4>Attiva Memobollo via email</h4>
           <div class="alert-form-fields">
             <v-form
               id="nuovaAttivazioneEmaill"
-              @submit.prevent="nuovaAttivazione">
+              @submit.prevent="nuovaAttivazione"
+            >
               <v-text-field
                 clearable
                 clear-icon="mdi-close-circle"
@@ -24,9 +20,10 @@
                 :error-messages="emailErrors"
                 autocomplete="off"
                 :error-count="3"
-                ></v-text-field>
-              <div class="inline-check-submit">
-                <div class="tooltip-field">
+                @focusout="toTrim()"
+              ></v-text-field>
+              <div class="inline-check-submit no-gutters-col row">
+                <div class="tooltip-field col-md-10 py-md-0 pr-lg-0 text-left">
                   <div class="position-relative d-inline-block">
                     <v-checkbox
                       id="privacy"
@@ -36,25 +33,37 @@
                       :state="!$v.emailForm.privacy.$error"
                       value="accepted"
                       unchecked-value="not_accepted"
-                      :label="this.$i18n.t('general.privacy')">
+                      :label="this.$i18n.t('general.privacy')"
+                    >
                     </v-checkbox>
                     <v-btn
-                      class="contextual-info"
-                      @click="$refs.mwPrivacy.mostraModalePrivacy()">
+                      aria-label="Privacy Policy per i servizi di Tassa Auto"
+                      fab
+                      depressed
+                      class="contextual-info privacy-btn"
+                      @click="$refs.mwPrivacy.mostraModalePrivacy()"
+                    >
                       <v-icon>mdi-information</v-icon>
                     </v-btn>
                   </div>
                 </div>
               </div>
-              <div class="confirm-send pt-6">
+              <div class="confirm-send col-md-4 offset-md-1 pt-6">
                 <v-btn
+                  color="primary"
+                  aria-label="attiva il servizio"
+                  outlined
+                  depressed
                   type="submit"
-                  class="btn-block">
+                  class="btn-block"
+                >
                   Attiva
                 </v-btn>
               </div>
-              <div class="error-label"
-                v-if="this.clickCb && !$v.emailForm.privacy.acceptedPrivacy">
+              <div
+                class="error--text"
+                v-if="this.clickCb && !$v.emailForm.privacy.acceptedPrivacy"
+              >
                 Il consenso all'informativa sulla privacy è obbligatorio.
               </div>
             </v-form>
@@ -63,67 +72,72 @@
       </div>
     </div>
 
-    <div class="d-flex w-100 h-100"
-      v-if="esitoMemoVerifica.statoEmail.stato == 'IN_ATTESA' || esitoMemoVerifica.statoEmail.stato == 'ATTESA_REVOCA'">
-        <v-alert
-          class="alert-form"
-          type="warning"
-          border="left"
-          show>
-          <div class="d-block">
-            <div v-if="esitoMemoVerifica.statoEmail.stato == 'IN_ATTESA'">
-              <h4 class="alert-heading">
-                Attivazione Memobollo via e-mail
-              </h4>
-              <p class="sr-only">Hai inoltrato richiesta di attivazione di Memobollo via e-mail</p>
-              <p>
-                Per confermare l'attivazione di Memobollo <strong>controlla la tua email e clicca sul link entro 24 ore!</strong>
-              </p>
-              <p>
-                Non hai ricevuto la mail per l'attivazione? Fai click <a class="only-text" color="link" @click="nuovoToken()">QUI</a>
-              </p>
-            </div>
-            <div v-if="esitoMemoVerifica.statoEmail.stato == 'ATTESA_REVOCA'">
-              <h4 class="alert-heading">
-                Revoca Memobollo via email
-              </h4>
-              <p class="sr-only">Hai inoltrato richiesta di revoca di Memobollo via e-mail</p>
-              <p>
-                Per confermare la revoca di Memobollo <strong>controlla la tua email e clicca sul link entro 24 ore!</strong>
-              </p>
-              <p>
-                Non hai ricevuto la mail per la revoca? Fai click <a class="only-text" text @click="revoca()">QUI</a>
-              </p>
-            </div>
+    <div
+      class="d-flex w-100 h-100"
+      v-if="
+        esitoMemoVerifica.statoEmail.stato == 'IN_ATTESA'
+      "
+    >
+      <v-alert class="alert-form" type="warning" border="left" show>
+        <div class="d-block d-block-memo">
+          <div v-if="esitoMemoVerifica.statoEmail.stato == 'IN_ATTESA'">
+            <h4 class="alert-heading">Attivazione Memobollo via e-mail</h4>
+            <p class="d-sr-only">
+              Hai inoltrato richiesta di attivazione di Memobollo via e-mail
+            </p>
+            <p>
+              Per confermare l'attivazione di Memobollo
+              <strong
+                >controlla la tua email e clicca sul link entro 24 ore!</strong
+              >
+            </p>
+            <p>
+              Non hai ricevuto la mail per l'attivazione? Fai click
+              <a class="only-text" color="link" @click="nuovoToken()">QUI</a>
+            </p>
           </div>
-        </v-alert>
+        </div>
+      </v-alert>
     </div>
 
-    <div class="d-flex w-100"
-      v-if="esitoMemoVerifica.statoEmail.stato == 'ATTIVO' && revocaAttivazione == false">
+    <div
+      class="d-flex w-100"
+      v-if="
+        esitoMemoVerifica.statoEmail.stato == 'ATTIVO' &&
+        revocaAttivazione == false
+      "
+    >
       <v-alert
         color="success"
         dense
         outlined
-        aria-live="off" show class="w-100 pa-8 alertSuccessMemo">
-        <div class="d-block">
-          <h4 class="alert-heading-success">
-            Memobollo attivo via email
-          </h4>
-          <small class="alert-sub-heading">attivo dal: <strong>{{ new Date(esitoMemoVerifica.statoEmail.dataAttivazione) | dateFormat('DD/MM/YYYY')  }}</strong></small>
-          <v-list flat class="listAlign">
-            <v-list-item-group :no-action="true">
+        aria-live="off"
+        show
+        class="w-100 pa-6 alertSuccessMemo"
+      >
+        <div class="d-block d-block-memo">
+          <h4 class="alert-heading-success">Memobollo attivo <br/>via email</h4>
+          <small class="alert-sub-heading">attivo dal:
+            <strong>{{new Date(esitoMemoVerifica.statoEmail.dataAttivazione)| dateFormat("DD/MM/YYYY")}}</strong></small>
+          <v-list flat>
+            <v-list-item-group :no-action="true" aria-label="Dati indirizzo email">
               <v-list-item id="" :inactive="true" :ripple="false">
-                Indirizzo email: <strong class="dataMemoActive">{{ esitoMemoVerifica.statoEmail.destinatario }}</strong>
+                Indirizzo email:&nbsp;<strong class="d-block d-block-memo">{{
+                    esitoMemoVerifica.statoEmail.destinatario
+                  }}</strong>
               </v-list-item>
             </v-list-item-group>
           </v-list>
           <div class="alert-form-fields">
             <div class="pt-6">
-              <v-btn color="primary"
+              <v-btn
+                aria-label="revoca il servizio"
+                color="primary"
+                depressed
                 class="btn-block"
                 id="revocaEmailBtn"
-                @click="revocaAttivazione=true">
+                @click="revocaAttivazione = true"
+              >
                 <v-icon>mdi-trash-can</v-icon> Revoca
               </v-btn>
             </div>
@@ -132,36 +146,57 @@
       </v-alert>
     </div>
 
-    <div class="d-flex w-100"
-      v-if="esitoMemoVerifica.statoEmail.stato == 'ATTIVO' && revocaAttivazione == true">
-        <v-alert class="alert-form"
+    <div
+      class="d-flex w-100"
+      v-if="
+        esitoMemoVerifica.statoEmail.stato == 'ATTIVO' &&
+        revocaAttivazione === true
+      "
+    >
+      <v-alert
+        class="alert-form"
         dense
         outlined
         color="error"
-        aria-live="off" show >
-          <div class="d-block">
-            <h4 class="alert-heading">
-              Revoca memobollo via email
-            </h4>
-            <small class="alert-sub-heading">attivo dal: {{ new Date(esitoMemoVerifica.statoEmail.dataAttivazione) | dateFormat('DD/MM/YYYY')  }}</small>
-            <p>
-              <strong>Attenzione!</strong> Stai revocando Memobollo via e-mail. Per confermare la revoca di Memobollo <strong>controlla la tua email e clicca sul link entro 24 ore!</strong>
-            </p>
-            <div class="alert-form-fields">
-              <div class="pt-6">
-                <v-btn color="error" class="btn-block"
-                  id="confermaRevocaEmail"
-                  @click="revoca()"><v-icon>mdi-trash-can</v-icon> Revoca
-                </v-btn>
-                <v-btn class="btn-block"
-                  id="annullaRevocaEmail"
-                  @click="revocaAttivazione=false">
-                  Annulla
-                </v-btn>
-              </div>
+        aria-live="off"
+        show
+      >
+        <div class="d-block d-block-memo">
+          <h4 class="alert-heading">Revoca Memobollo via email</h4>
+          <small class="alert-sub-heading"
+            >attivo dal:
+            {{
+              new Date(esitoMemoVerifica.statoEmail.dataAttivazione)
+                | dateFormat("DD/MM/YYYY")
+            }}</small
+          >
+          <p>
+            <strong>Attenzione!</strong> Stai revocando Memobollo via e-mail.
+          </p>
+          <div class="alert-form-fields">
+            <div class="pt-6">
+              <v-btn
+                color="error"
+                class="btn-block"
+                aria-label="conferma revoca email"
+                depressed
+                id="confermaRevocaEmail"
+                @click="revoca()"
+                ><v-icon>mdi-trash-can</v-icon> Revoca
+              </v-btn>
+              <v-btn
+                class="btn-block"
+                aria-label="annulla revoca email"
+                depressed
+                id="annullaRevocaEmail"
+                @click="revocaAttivazione = false"
+              >
+                Annulla
+              </v-btn>
             </div>
           </div>
-        </v-alert>
+        </div>
+      </v-alert>
     </div>
 
     <ModalePrivacy
@@ -231,6 +266,9 @@ export default {
     }
   },
   methods: {
+    toTrim () {
+      this.emailForm.email = this.emailForm.email.replace(/\s/g, '').toLowerCase()
+    },
     erroriRichAttRev (error) {
       if (error == null || error.response.status === 500) {
         this.$emit('updateboxerr', {
@@ -298,6 +336,7 @@ export default {
               this.esitoMemoVerifica.codiceFiscale,
               this.esitoMemoVerifica.targa,
               this.esitoMemoVerifica.tipoVeicolo.codice)
+            this.revocaAttivazione = false
           } else {
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.error'),

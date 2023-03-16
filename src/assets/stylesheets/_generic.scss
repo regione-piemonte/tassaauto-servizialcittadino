@@ -1,17 +1,29 @@
 // Import elementi generici, tabelle, liste, alert e altre componenti generiche
 
+
+// fieldset 
+fieldset {
+  border: none
+}
+
+// input text
+.uppercase-input input{
+  text-transform: uppercase;
+}
+
 // LISTE 
 
 ul {
-  @extend .reset-all-space;
+  padding: $space-0;
+  margin: $space-0;
   list-style-type:none;
-  @extend %vertical-divider;
+  // @extend %vertical-divider;
   li {
-    @extend .py-5;
+    // @extend .py-5;
     border:0 none;
     &.md-list-item {
       &.md-menu-item {
-        @extend .p-0;
+        padding: $space-0;
       }
     }
   }
@@ -29,9 +41,9 @@ ul {
   }
 }
 .important-list {
-  @extend .font-weight-bold;
+  // @extend .font-weight-bold;
   li{
-    @extend .py-0;
+    // @extend .py-0;
     line-height: 1.5em;
     &::before {
       content: "\2022";
@@ -43,14 +55,14 @@ ul {
       position: relative;
       top: 0px;
 
-      @extend .rfs-30;
-      @extend .d-inline-block;
+       @extend .rfs-30;
+      // @extend .d-inline-block;
     }
   }
 }
 .dl-inline-header {
-  @extend .row;
-  @extend .no-gutters;
+  // @extend .row;
+  // @extend .no-gutters;
   min-height:80px;
   img {
     max-height:80px;
@@ -58,11 +70,11 @@ ul {
   dl {
     dt {
       font-weight:$font-weight-normal;
-      @extend .rfs-18;
+       @extend .rfs-18;
     }
     dd {
       font-weight:$font-weight-bold;
-      @extend .rfs-24;
+       @extend .rfs-24;
     }
   }
   
@@ -70,31 +82,32 @@ ul {
 
 .dl-important-data-up {
 
-  @extend .data-up;
-  @extend .dl-inline-header;
-  @extend .text-center;
-  @extend .w-100;
-  @extend .d-block;
-  @extend .my-6;
+  // @extend .data-up;
+  // @extend .dl-inline-header;
+  text-align: center;
+  width: 100%;
+  display: block;
+  // @extend .my-6;
 }
 .data-up {
   dl {
-    @extend .d-flex;
-    @extend .flex-column-reverse;
-    @extend .mx-auto;
-    @extend .mx-md-0;
+    display: flex;
+    flex-direction:column-reverse;
+    margin-left: auto;
+    margin-right: auto;
+    // @extend .mx-md-0;
 
     &.data-empty {
-      @extend .d-none;
-      @extend .d-sm-flex;
+      display: none;
+      // @extend .d-sm-flex;
     }
-    dd {
+    /* dd {
       @extend .h1;
-    }
+    }*/
   }
   .block-slash {
-    @extend .d-none;
-    @extend .d-lg-flex;
+    display: flex;
+    // @extend .d-lg-flex;
   }
 }
 
@@ -102,7 +115,7 @@ ul {
 
 .custom-select {
   background-image:none;
-  @extend .p-2;
+  padding: $space-2;
   height:auto;
 }
 
@@ -110,22 +123,22 @@ ul {
 
 
 // TABELLE 
-.riepilogo-dettagli {
+/*.riepilogo-dettagli {
   & > tr {
     th {
       @extend .align-top;
     }
   }
-}
+}*/
 table {
   td,
   th {
-    @extend .p-3;
+    padding: $space-3;
   }
   th {
     font-weight:$font-weight-base;
   }
-  @extend .mb-6;
+  margin-bottom: $space-6
 }
 .table {
   @media (max-width: 991.98px) {
@@ -152,17 +165,17 @@ table {
   &.table-row {
     tr {
       th {
-        @extend .pl-0;
+        padding-left: $space-0;
       }
       td {
-        @extend .pr-0;
+        padding-right: $space-0;
       }
     }
   }
 }
 
 h2 + .table-row{
-  @extend .mt-n5;
+  margin-top: -$space-5;
 }
 
 // LIST
@@ -170,8 +183,8 @@ h2 + .table-row{
 .list-group{
   .list-group-item{
     border:0 none;
-    @extend .p-0;
-    @extend .bg-transparent;
+    padding: $space-0;
+    // @extend .bg-transparent;
   }
 }
 
@@ -190,16 +203,16 @@ div.error{
   //font-size:14px;
   justify-content:left;
 }
-ul.error-messages{
+/* ul.error-messages{
   @extend .reset-all-space;
-}
+} */
 
 // form control
-.form-control{
+/*.form-control{
   & + .error{
     @extend .mt-n5;
   }
-}
+}*/
 .form-control,
 .custom-radio{ 
   & + .error,
@@ -240,18 +253,18 @@ ul.error-messages{
     justify-content:inherit;
     border-bottom:0px;
     flex-direction:column;
-    @extend .p-3;
+    padding: $space-3;
     h5{
       order:2;
-      @extend .pt-2;
+      padding-top: $space-2;
     }
-    @extend .col-12;
+    // @extend .col-12;
     .close{
-      @extend .h1;
+      // @extend .h1;
 
       float:left;
 
-      @extend .reset-all-space;
+      // @extend .reset-all-space;
       color:$secondary;
       opacity:1;
 
@@ -265,12 +278,12 @@ ul.error-messages{
     }
   }
   .modalSatisfaction {
-    @extend .position-relative;
+    position: relative;
     overflow: hidden;
     padding-top: 80vh;
     
     iframe {
-      @extend .position-absolute;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -282,31 +295,72 @@ ul.error-messages{
 
 // SPINNER POSITION
 .vld-overlay .vld-icon, .vld-parent {
-    @extend .position-fixed;
+    position: fixed;
     top: 50%;
     margin-top: -75px;
 }
+// AREA PERSONALE
+.tab-transparent{
+  .areapersonale--tab {
+    .v-tabs-bar {
+      background-color: transparent!important;
+      border-bottom: 1px solid #E2E2E2;
+    }
+    .v-tabs-slider-wrapper {
+      height: 4px!important;
+    }
+    .v-slide-group__wrapper{
+      background: #F0F3F8;
+    }
+    .v-tab {
+      @include font-size(20px);
+      font-weight: $font-weight-bold;
+      @media all and (min-width: 990px) {
+        min-width: 224px;
+      }
+      text-transform: capitalize;
+      &:not(.v-tab--active) {
+        color: $black!important;
+        i {
+          color: $black!important;
+        }
+      }
+    }
+  }
+  .theme--light.v-tabs-items {
+    background-color:#F0F3F8;
+  }
 
+  &.areaPersonale--page {
+
+    h3 {
+      @include font-size(24px);
+    }
+    .mydata--card {
+      min-height: auto;
+    }
+  }
+}
+/*
 .spinner {
-  /* 
   -webkit-box-shadow: 0px 0px 31px -5px rgba($black, .075);
   -moz-box-shadow: 0px 0px 31px -5px rgba($black ,0.075);
   box-shadow: 0px 0px 31px -5px rgba($black, 0.075); 
-  border: 3px solid $secondary;*/
-  // background-color: rgba(256, 256, 256, 0.5);
+  border: 3px solid $secondary;
+  background-color: rgba(256, 256, 256, 0.5);
 
-}
+}*/
 
 // elenchi testuali senza list-item nè padding tipico delle 
 
 ul.textual,
 ul.textual.important-list {
 
-  @extend .list-unstyled;
+  // @extend .list-unstyled;
 
   li {
 
-    @extend .p-0;
+    padding: $space-0;
  
 
     a{
@@ -330,18 +384,12 @@ ul.textual.important-list {
 * + ul.textual,
 * + ul.textual.important-list {
 
-  @extend .pt-2;
+  padding-top: $space-2;
   li {
 
     a,
     p{
-      font-size: 14px;
-    }
-
-    @media all and (max-width: 767px) {
-      a,p {
-        font-size: 16px;
-      }
+      @include font-size(14px);
     }
     
   }
@@ -358,4 +406,14 @@ ul.textual.important-list {
       }
     }
   }  
+}
+
+.btn--large-resp {
+  @media (max-width: 400px) {
+    .v-btn__content {
+      white-space: break-spaces;
+      max-width: 200px;
+      margin-bottom: $space-2;
+    }
+  }
 }

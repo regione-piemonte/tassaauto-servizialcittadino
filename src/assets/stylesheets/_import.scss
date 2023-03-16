@@ -1,54 +1,16 @@
 //  Bolloweb Settings
 //  -----------------------------
 //
-
+@import '~@mdi/font/css/materialdesignicons.min.css';
 @import '~vuetify/dist/vuetify.min.css';
-
 // ATTENZIONE: per far funzionare la customizzazione di vuetify mediante variabili
 // commentare il codice scss DA QUI
+@import 'variables-vuetify.scss';
 
 @import 'variables';
 @import 'typography';
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/transitions";
-@import "~bootstrap/scss/dropdown";
-@import "~bootstrap/scss/button-group";
-@import "~bootstrap/scss/input-group";
-@import "~bootstrap/scss/custom-forms";
-@import "~bootstrap/scss/nav";
-@import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/card";
-@import "~bootstrap/scss/breadcrumb";
-@import "~bootstrap/scss/pagination";
-@import "~bootstrap/scss/badge";
-@import "~bootstrap/scss/jumbotron";
-@import "~bootstrap/scss/alert";
-@import "~bootstrap/scss/progress";
-@import "~bootstrap/scss/media";
-@import "~bootstrap/scss/list-group";
-@import "~bootstrap/scss/close";
-@import "~bootstrap/scss/toasts";
-@import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/tooltip";
-@import "~bootstrap/scss/popover";
-@import "~bootstrap/scss/carousel";
-@import "~bootstrap/scss/spinners";
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/print";
-
-@import '~bootstrap-vue/dist/bootstrap-vue.min.css';
+@import "~rfs/scss";
 
 @import "mixins"; 
 
@@ -61,7 +23,12 @@
 @import "generic";
 @import "text-element";
 
+
+@import "theme-vda";
+
 // Print Page
 @import "print";
+
+@import "_cssrp.scss";
 
 // --> A QUI

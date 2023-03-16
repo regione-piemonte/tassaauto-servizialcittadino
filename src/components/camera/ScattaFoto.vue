@@ -19,6 +19,8 @@
           v-on:updateboxerr="updateDetailError($event)"
         />
         <v-btn
+          depressed
+          aria-label="scatta la foto"
           @click="scattaFoto()"
           color="primary"
           v-if="this.detailError.message === '' && this.detailError.title === ''">
@@ -26,18 +28,22 @@
         </v-btn>
       </div>
       <v-btn
+        depressed
+        aria-label="annulla la foto"
         v-if="imgFile !== null"
         class="mt-3"
-        color="primary"
+        color="btn-secondary"
         @click="nascondiModaleFoto()">
         {{ $t('general.buttons.undo') }}
       </v-btn>
       <v-btn
+        depressed
+        aria-label="invia la foto"
         v-if="imgFile !== null"
         class="mt-3"
         color="primary"
         @click="caricaFoto()">
-        Vai
+        Invia
       </v-btn>
     </v-card>
   </v-dialog>
@@ -63,11 +69,18 @@ export default {
     }
   },
   methods: {
+    playVideo () {
+      this.$refs.camera.playVideo()
+    },
     nascondiModaleFoto () {
       this.$refs.camera.clearPhoto()
       this.$refs.camera.$refs.video.pause()
-      const tracks = this.$refs.camera.stream.getTracks()
-      tracks.forEach(track => track.stop())
+      if (this.$refs.camera.stream !== undefined) {
+        const tracks = this.$refs.camera.stream.getTracks()
+        tracks.forEach(track => track.stop())
+      }
+      // const tracks = this.$refs.camera.stream.getTracks()
+      // tracks.forEach(track => track.stop())
       this.modalFoto = false
       this.$emit('annullafile')
     },
@@ -78,7 +91,7 @@ export default {
       if (mese.length === 1) mese = '0' + mese
       const nomeFile = 'IMG' + data.getFullYear().toString() + mese + data.getDate().toString() + data.getHours().toString() + data.getMinutes().toString() + data.getSeconds().toString()
 
-      var self = this
+      const self = this
       const canvas = this.$refs.camera.takeAPhoto()
       canvas.toBlob(function (blob) {
         const file = new File([blob], nomeFile + '.jpg', { type: 'image/jpeg' })
@@ -99,11 +112,16 @@ export default {
       this.detailError = detErr
     },
     closeDialog () {
+      this.$refs.camera.clearPhoto()
       this.$refs.camera.$refs.video.pause()
-      const tracks = this.$refs.camera.stream.getTracks()
-      tracks.forEach(track => track.stop())
+      if (this.$refs.camera.stream !== undefined) {
+        const tracks = this.$refs.camera.stream.getTracks()
+        tracks.forEach(track => track.stop())
+      }
+      // const tracks = this.$refs.camera.stream.getTracks()
+      // tracks.forEach(track => track.stop())
       this.modalFoto = false
-      return this.modalFoto
+      this.$emit('annullafile')
     }
   }
 }

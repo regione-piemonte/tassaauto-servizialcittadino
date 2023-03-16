@@ -1,85 +1,133 @@
 <template>
-  <div class="app-container">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro text-descrizione-servizio col-xxl-8 offset-xxl-2">
-        <p
-          v-html="introServizio"
-        />
+  <div class="container">
+    <div class="row inner-cont-bollo">
+      <div class="text-intro text-descrizione-servizio col-lg-8 offset-lg-2">
+        <p v-html="introServizio" />
       </div>
     </div>
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="verifica-pratica-hp col-xxl-3 col-md-6 offset-xxl-2 mt-8 mt-sm-0">
-        <v-img
-          class="imgHomeServizio"
-          width="178"
-          :src="require('@/assets/images/ritagli/servizi/consulta_pratica.svg')"
-          alt=""
-          fluid/>
-        <div class="text-inner">
-          <p
-            v-html="descrizServizio"
-          />
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
+            <!-- inizio box warning per servizi autenticati di consulta pratica -->
+            <v-alert
+              class="w-100"
+              type="warning"
+              aria-relevant="all"
+              border="left"
+              :icon="false"
+              v-if="detailWarning.message !== '' && detailWarning.title !== ''"
+            >
+              <v-row class="pl-6 pl-md-12">
+                <v-col cols="12" md="1">
+                  <v-img
+                    width="40"
+                    :src="require(`@/assets/images/icone/alert/warning.svg`)"
+                    :lazy-src="
+                      require(`@/assets/images/icone/alert/warning.svg`)
+                    "
+                  />
+                </v-col>
+                <v-col cols="12" md="10">
+                  <h4 class="alert-heading">
+                    {{ detailWarning.title }}
+                  </h4>
+                  <p class="">
+                    {{ detailWarning.message }}
+                    <span v-if="logged"
+                      >e seguire questo
+                      <a @click="verificaPraticaAuth()">link</a></span
+                    >
+                  </p>
+                </v-col>
+              </v-row>
+            </v-alert>
+            <!-- fine box warning per servizi autenticati di consulta pratica -->
+          </div>
         </div>
-      </div>
-      <div class="form-verifica-pratica col-xxl-4 col-md-6 offset-xxl-1">
-        <h2>
-          {{ $t('pratica.verifica.cerca_titolo') }}
-        </h2>
-        <v-form
-          @submit.prevent="verificaPratica">
+        <div class="row inner-cont-bollo">
+          <div
+            class="
+              verifica-pratica-hp
+              col-lg-3 col-md-6
+              offset-lg-2
+              mt-8 mt-sm-0
+            "
+          >
+            <v-img
+              class="imgHomeServizio"
+              width="178"
+              :src="
+                require('@/assets/images/ritagli/servizi/consulta_pratica.svg')
+              "
+              alt=""
+              fluid
+            />
+            <div class="text-inner pt-7 pl-0 pr-md-8 pr-lg-0">
+              <p v-html="descrizServizio" />
+            </div>
+          </div>
+          <div class="form-verifica-pratica col-lg-4 col-md-6 offset-lg-1">
+            <h2>
+              {{ $t("pratica.verifica.cerca_titolo") }}
+            </h2>
+            <v-form @submit.prevent="verificaPratica">
+              <v-text-field
+                :error-messages="numeroPErrors"
+                :maxLength="$v.cercaForm.numero.$params.maxLength.max"
+                @change.native="resetErroriServer()"
+                autocomplete="off"
+                class="uppercase-input"
+                clear-icon="mdi-close-circle"
+                clearable
+                id="numero"
+                label="Numero protocollo"
+                v-model="cercaForm.numero"
+                :error-count="3"
+                @focusout="toTrim()"
+              ></v-text-field>
 
-          <v-text-field
-            clearable
-            clear-icon="mdi-close-circle"
-            label="Numero protocollo"
-            id="numero"
-            v-model="cercaForm.numero"
-            @change.native="resetErroriServer()"
-            :maxLength="$v.cercaForm.numero.$params.maxLength.max"
-            :error-messages="numeroPErrors"
-            autocomplete="off"
-            :error-count="3"
-            ></v-text-field>
+              <v-text-field
+                :error-count="4"
+                :error-messages="codFiscPartIvaErrors"
+                :maxLength="$v.cercaForm.codFiscPartIva.$params.maxLength.max"
+                @change.native="resetErroriServer()"
+                autocomplete="off"
+                class="uppercase-input"
+                clear-icon="mdi-close-circle"
+                clearable
+                id="codFiscPartIva"
+                label="Codice fiscale / P.IVA"
+                v-model="cercaForm.codFiscPartIva"
+              ></v-text-field>
 
-          <v-text-field
-            clearable
-            clear-icon="mdi-close-circle"
-            label="Codice fiscale / P.IVA"
-            id="codFiscPartIva"
-            v-model="cercaForm.codFiscPartIva"
-            @change.native="resetErroriServer()"
-            :maxLength="$v.cercaForm.codFiscPartIva.$params.maxLength.max"
-            :error-messages="codFiscPartIvaErrors"
-            autocomplete="off"
-            :error-count="4"
-            ></v-text-field>
-
-          <tassa-auto-recaptcha
-            :pCount="noCaptchaCount"
-            v-on:recaptchaverified="updRecaptchaVerified()"
-            v-on:recaptchanotverified="recaptchaVerified = false"
-          />
-          <v-btn
-            class="spaceTopButtonSubmit"
-            type="submit"
-            color="primary">
-            {{ $t('general.buttons.search') }}
-          </v-btn>
-        </v-form>
-      </div>
+              <tassa-auto-recaptcha
+                :pCount="noCaptchaCount"
+                v-on:recaptchanotverified="recaptchaVerified = false"
+                v-on:recaptchaverified="updRecaptchaVerified()"
+              />
+              <v-btn
+                class="spaceTopButtonSubmit"
+                aria-label="cerca la pratica"
+                color="primary"
+                depressed
+                type="submit"
+              >
+                {{ $t("general.buttons.search") }}
+              </v-btn>
+            </v-form>
+          </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
     <spinner :pOverlay="overlay" />
   </div>
 </template>
 
 <script>
+// questa view è la pagina iniziale di consulta pratica in modalità NON autenticata
+import { mapGetters } from 'vuex'
 import ApiError from '@/common/api.error'
 import {
   emailAttiva,
@@ -114,6 +162,7 @@ export default {
         codFiscPartIva: ''
       },
       detailError: { message: '', title: '' },
+      detailWarning: { message: '', title: '', type: '' },
       noCaptchaCount: 0,
       overlay: false,
       paginaDettaglio: '',
@@ -122,16 +171,18 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['isUserLogged', 'isUserLoggedLocalhost']),
     introServizio: function () {
       let tipiDomanda = ''
+      const lastPartMsg = ', qui ne puoi controllare il contenuto (il servizio fornisce l\'esito dell\'istruttoria esclusivamente per le osservazioni su avviso di scadenza; per le altre pratiche è necessario attendere comunicazione da parte del Settore Politiche fiscali).'
       if (servizioAttivo('rateizzazione')) tipiDomanda += 'una richiesta di rateizzazione'
       if (tipiDomanda !== '') tipiDomanda += ' o '
-      if (servizioAttivo('domanda_discarico_rimborso')) tipiDomanda += 'una domanda di discarico/rimborso'
+      if (servizioAttivo('domanda_discarico_rimborso')) tipiDomanda += 'una domanda di discarico'
       if (tipiDomanda !== '') tipiDomanda += ', o se hai inviato '
       if (servizioAttivo('osservazione_avviso_scadenza') && servizioAttivo('osservazione_avviso_accertamento')) tipiDomanda += 'una osservazione su avviso di scadenza/accertamento'
       if (servizioAttivo('osservazione_avviso_scadenza') && !servizioAttivo('osservazione_avviso_accertamento')) tipiDomanda += 'una osservazione su avviso di scadenza'
       if (!servizioAttivo('osservazione_avviso_scadenza') && servizioAttivo('osservazione_avviso_accertamento')) tipiDomanda += 'una osservazione su avviso di accertamento'
-      return 'Se hai fatto ' + tipiDomanda + ', qui la puoi controllare.'
+      return 'Se hai fatto ' + tipiDomanda + lastPartMsg
     },
     descrizServizio: function () {
       const pref = 'Il numero di protocollo si trova '
@@ -147,7 +198,7 @@ export default {
       }
     },
     inputParams: function () {
-      return { identificativo: this.cercaForm.numero, codiceFiscale: this.cercaForm.codFiscPartIva }
+      return { identificativo: this.cercaForm.numero, codiceFiscale: this.cercaForm.codFiscPartIva.toUpperCase() }
     },
     numeroPErrors () {
       const errors = []
@@ -165,6 +216,12 @@ export default {
       !this.$v.cercaForm.codFiscPartIva.alphaNum && errors.push('Il codice fiscale / P.IVA deve contenere solo lettere e numeri.')
       !this.$v.cercaForm.codFiscPartIva.serverFailed && errors.push(this.serverErrors.codiceFiscale)
       return errors
+    },
+    logged () {
+      if (process.env.NODE_ENV === 'production') {
+        return this.isUserLogged
+      }
+      return this.isUserLoggedLocalhost
     }
   },
   mixins: [
@@ -190,6 +247,9 @@ export default {
     }
   },
   methods: {
+    toTrim () {
+      this.cercaForm.numero = this.cercaForm.numero.replace(/\s/g, '').toUpperCase()
+    },
     cercaPratica () {
       if (this.action === '') return
       store
@@ -217,7 +277,7 @@ export default {
               codiceFiscale: this.$i18n.t('general.api.errors.param_not_found')
             }
           } else if (error.response.status === 404) {
-            const noResMsg = 'Nessuna comunicazione provata per il numero identificativo ' + this.cercaForm.numero
+            const noResMsg = 'Nessuna comunicazione trovata per il numero identificativo ' + this.cercaForm.numero
             this.detailError = {
               title: this.$i18n.t('general.api.errors.no_results'),
               message: noResMsg
@@ -268,11 +328,25 @@ export default {
               this.action = PRATICA_DISC_RIMB
               this.paginaDettaglio = 'verifica_disc_rimb'
               break
+            case 'RIM':
+              this.overlay = false
+              this.detailWarning = {
+                title: 'Servizio riservato agli utenti autenticati',
+                message: 'Per accedere al servizio si prega di autenticarsi '
+              }
+              break
+            case 'EPD':
+              this.overlay = false
+              this.detailWarning = {
+                title: 'Servizio riservato agli utenti autenticati',
+                message: 'Per accedere al servizio si prega di autenticarsi '
+              }
+              break
             default:
               this.overlay = false
               this.detailError = {
                 title: this.$i18n.t('general.error'),
-                message: this.$i18n.t('general.api.errors.service_unavailable')
+                message: this.$i18n.t('pratica.verifica.errors.input_params_not_found')
               }
               break
           }
@@ -282,7 +356,7 @@ export default {
           this.overlay = false
           if (error == null || error.response.status === 500) {
             this.detailError = {
-              title: this.$i18n.t('general.error'),
+              title: this.$i18n.t('general.api.errors.no_results'),
               message: this.$i18n.t('general.api.errors.service_unavailable')
             }
             return
@@ -323,6 +397,10 @@ export default {
       this.recaptchaVerified = true
       this.detailError = { message: '', title: '' }
       this.noCaptchaCount = 0
+    },
+
+    verificaPraticaAuth () {
+      return this.$router.push({ name: 'verifica_pratica_auth' })
     }
   }
 }

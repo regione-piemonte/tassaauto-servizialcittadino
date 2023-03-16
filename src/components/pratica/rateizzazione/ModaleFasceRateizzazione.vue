@@ -5,7 +5,7 @@
     max-width="600px">
     <v-card>
       <v-card-title class="justify-end">
-        <v-btn text @click="modaleFasce = false">
+        <v-btn text @click="modaleFasce = false" depressed>
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-title>
@@ -21,8 +21,14 @@
             <th scope="col">
               Importo A
             </th>
-            <th scope="col">
+            <th scope="col" v-if="regione === 'piemonte'">
               Numero Rate
+            </th>
+            <th scope="col" v-if="regione === 'vda'">
+              Min n° Rate
+            </th>
+            <th scope="col" v-if="regione === 'vda'">
+              Max n° Rate
             </th>
           </tr>
         </thead>
@@ -37,8 +43,14 @@
             <td>
               {{ fascia.importoA }}
             </td>
-            <td>
+            <td v-if="regione === 'piemonte'">
               {{ fascia.numeroRate }}
+            </td>
+            <td v-if="regione === 'vda'">
+              {{ fascia.minNumeroRate }}
+            </td>
+            <td v-if="regione === 'vda'">
+              {{ fascia.maxNumeroRate }}
             </td>
           </tr>
         </tbody>
@@ -49,12 +61,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { REGIONE_ABILITATA } from '@/common/config'
 
 export default {
   name: 'ModaleFasceRateizzazione',
   data () {
     return {
-      modaleFasce: false
+      modaleFasce: false,
+      regione: REGIONE_ABILITATA
     }
   },
   computed: {

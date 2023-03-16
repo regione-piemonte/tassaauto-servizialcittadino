@@ -15,7 +15,14 @@ import rateizzazione from './rateizzazione.module'
 import ricevuta from './ricevuta.module'
 import stampaavvaccertamento from './stampa_avv_accertamento.module'
 import stampaavvscadenza from './stampa_avv_scadenza.module'
+import stampapianorateizzazione from './stampa_piano_rateizzazione.module'
 import veicolo from './veicolo.module'
+import esenzionidisabili from './esenzioni_disabili.module'
+import restituzionetassa from './restituzione_tassa.module'
+import consultapraticaauth from './pratica_auth.module'
+import visure from './visure.module'
+import notifiche from './notifiche.module'
+import ossavvbonario from './oss-avv-bonario.module'
 
 Vue.use(Vuex)
 
@@ -23,18 +30,25 @@ export default new Vuex.Store({
   modules: {
     calcolobollo,
     common,
+    consultapraticaauth,
     domandadiscaricorimborso,
+    esenzionidisabili,
     info,
     memobollo,
     ossavvaccertamento,
     ossavvscadenza,
+    ossavvbonario,
     pagobollo,
     pagorate,
     pratica,
     rateizzazione,
+    restituzionetassa,
     ricevuta,
     stampaavvaccertamento,
     stampaavvscadenza,
-    veicolo
+    stampapianorateizzazione,
+    veicolo,
+    visure,
+    notifiche
   }
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="cameraPicture">
-    <div class="app-row">
+    <div class="row">
       <div class="col-md-6">
         <video
           ref="video"
@@ -35,6 +35,28 @@ export default {
     }
   },
   methods: {
+    async playVideo () {
+      try {
+        this.stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: 'environment'
+          },
+          audio: this.audio
+        })
+
+        this.$refs.video.srcObject = this.stream
+        this.$refs.video.play()
+      } catch (error) {
+        // cfr. https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+        this.$emit('updateboxerr', {
+          title: 'Errore',
+          message:
+            "Problemi occorsi durante l'attivazione della fotocamera. " +
+            'Per poter utilizzare la funzionalità "Scatta una foto" è necessario permettere l\'accesso alla fotocamera.'
+        })
+      }
+    },
+
     takeAPhoto () {
       const video = this.$refs.video
       const canvas = this.$refs.canvas
@@ -48,31 +70,16 @@ export default {
     clearPhoto () {
       const canvas = this.$refs.canvas
       const context = canvas.getContext('2d')
-      context.fillStyle = '#AAA'
-      context.fillRect(0, 0, canvas.width, canvas.height)
+      // context.fillStyle = '#AAA'
+      // context.fillRect(0, 0, canvas.width, canvas.height)
+      context.clearRect(0, 0, canvas.width, canvas.height)
       return canvas.toDataURL('image/png')
     }
   },
 
   async mounted () {
-    try {
-      this.stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: 'environment'
-        },
-        audio: this.audio
-      })
-
-      this.$refs.video.srcObject = this.stream
-      this.$refs.video.play()
-    } catch (error) {
-      // cfr. https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
-      this.$emit('updateboxerr', {
-        title: this.$i18n.t('general.error'),
-        message: 'Problemi occorsi durante l\'attivazione della fotocamera. ' +
-          'Per poter utilizzare la funzionalità "Scatta una foto" è necessario permettere l\'accesso alla fotocamera.'
-      })
-    }
+    this.clearPhoto()
+    this.playVideo()
   },
 
   async beforeDestroy () {

@@ -19,16 +19,19 @@ export default {
     titolo_servizio: 'Memobollo'
   },
   pago: {
+    scelta_tipo_pagamento: {
+      titolo_servizio: 'Paga on line'
+    },
     bollo: {
       labels: {
         tab_iuv: 'Paga con codice di avviso di pagamento',
         tab_targa_telaio: 'Paga con targa/telaio'
       },
-      titolo_servizio: 'Pago bollo online',
+      titolo_servizio: 'Paga il bollo',
       service_description: 'Compila i campi sottostanti e continua con il pagamento.'
     },
     rate: {
-      titolo_servizio: 'Cerca le rate da pagare',
+      titolo_servizio: 'Paga le rate',
       labels: {
         cerca_rate: {
           n_riferimento: 'Numero di Riferimento',
@@ -64,7 +67,10 @@ export default {
     errors: {
       iuv_not_found: 'Codice di avviso di pagamento non trovato',
       iuv_required: 'Il codice di avviso di pagamento è obbligatorio.',
-      iuv_alphaNum: 'Il codice di avviso di pagamento deve contenere solo lettere e numeri.'
+      iuv_alphaNum: 'Il codice di avviso di pagamento deve contenere solo lettere e numeri.',
+      anno_required: 'Campo obbligatorio.',
+      tipoIuv_required: 'E\' obbligatorio selezionare almeno un tipo di pagamento.',
+      iuvSelect_required: 'E\' obbligatorio selezionare almeno un codice di avviso di pagamento.'
     },
     service_description_1: 'Compila i campi sottostanti e procedi con il download della ricevuta di pagamento.',
     icona: 'test3',

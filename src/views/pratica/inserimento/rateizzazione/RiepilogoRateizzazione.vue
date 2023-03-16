@@ -1,93 +1,104 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <Wizard :servizio="'richiesta_rateizzazione'" :stepAttivo="2" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="col-xxl-8 offset-xxl-2">
-        <div class="space-section">
-          <h2>Rate</h2>
-          <div class="app-row">
-            <div class="col-12 col-md-6 h4">
-              <strong>Totale: {{totaleCarrelloRateizzazione | formatCurrency}}</strong>
-            </div>
-            <div class="col-12 col-md-6 align-self-center">
-              <div v-if="!datiRateizzazione.checked">
-                <strong>Numero rate: {{ carrelloRateizzazione.fascia.numeroRate }}</strong>
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <Wizard :servizio="'richiesta_rateizzazione'" :stepAttivo="2" />
+          </div>
+        </div>
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
+          </div>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="space-section">
+              <h2>Rate</h2>
+              <div class="row">
+                <div class="col-12 col-md-6 h4">
+                  <strong>Totale: {{totaleCarrelloRateizzazione | formatCurrency}}</strong>
+                </div>
+                <div class="col-12 col-md-6 align-self-center" v-if="regione === 'piemonte'">
+                  <div v-if="!datiRateizzazione.checked">
+                    <strong>Numero rate: {{numeroRateDaPagare}}</strong>
+                  </div>
+                  <div v-else>
+                    <strong>Numero rate: {{ datiRateizzazione.numeroRateUtente }}</strong>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 align-self-center" v-if="regione === 'vda'">
+                  <strong>Numero rate: {{ rataSelezionata }}</strong>
+                </div>
               </div>
-              <div v-else>
-                <strong>Numero rate: {{ datiRateizzazione.numeroRateUtente }}</strong>
+            </div>
+            <div class="space-section" v-if="datiRateizzazione.checked">
+              <h2>
+                Variazione rate
+              </h2>
+              <div>
+                <v-alert color="warning" show >
+                  Attenzione! Hai richiesto una variazione delle rate per motivi di disagio economico (rate previste: {{numeroRateDaPagare}}, rate richieste: {{ datiRateizzazione.numeroRateUtente }}).
+                </v-alert>
+              </div>
+            </div>
+            <DatiAnagraficiIntestatario
+              :denominazione="soggettoRateizz"
+              :codiceFiscale="datiContribuente.codiceFiscale"
+              :tipoDatiAnagrafici="'del contribuente'"
+            />
+            <DatiAnagRapprLegale
+              v-if="rappresentanteLegale !== null"
+              :denominazione="rappresentanteLegale.nome + ' ' + rappresentanteLegale.cognome"
+              :codiceFiscale="rappresentanteLegale.codiceFiscaleR"
+              :sesso="rappresentanteLegale.sesso"
+              :dataDiNascita="rappresentanteLegale.dataDiNascita"
+              :comuneDiNascita="rappresentanteLegale.comune"
+              :provinciaDiNascita="rappresentanteLegale.provincia"
+            />
+            <Allegati
+              :codiceFiscale="''"
+              :numeroProtocollo="''"
+              :listaAllegati="allegati"
+              :pLocal="true"
+            />
+            <RiferimentiPratica
+              ref="rifPratica"
+              v-on:bloccainvioosservazione="inviaRichRateizzDisabled = true"
+              :errorMsgPratica = detailError.fieldError
+              @resetMsgErrorsPage="removeMsg"
+            />
+            <div class="action-button-wide row">
+              <div class="col-md-6">
+                <BtnBack
+                  :backUrl="'numero_rate'"
+                  :backType="'backMod'"/>
+              </div>
+              <div class="col-md-6 text-md-right">
+                <v-btn
+                  depressed
+                  id="btnInvioRichiesta"
+                  aria-label="invia la richiesta di rateizzazione"
+                  type="button"
+                  color="primary"
+                  @click.prevent="inviaRateizzazione"
+                  :disabled="inviaRichRateizzDisabled">
+                  Invia richiesta
+                </v-btn>
               </div>
             </div>
           </div>
         </div>
-        <div class="space-section" v-if="datiRateizzazione.checked">
-          <h2>
-            Variazione rate
-          </h2>
-          <div>
-            <v-alert color="warning" show >
-              Attenzione! Hai richiesto una variazione delle rate per motivi di disagio economico (rate previste: {{ carrelloRateizzazione.fascia.numeroRate }}, rate richieste: {{ datiRateizzazione.numeroRateUtente }}).
-            </v-alert>
-          </div>
-        </div>
-        <DatiAnagraficiIntestatario
-          :denominazione="soggettoRateizz"
-          :codiceFiscale="datiContribuente.codiceFiscale"
-          :tipoDatiAnagrafici="'del contribuente'"
-        />
-        <DatiAnagRapprLegale
-          v-if="rappresentanteLegale !== null"
-          :denominazione="rappresentanteLegale.nome + ' ' + rappresentanteLegale.cognome"
-          :codiceFiscale="rappresentanteLegale.codiceFiscaleR"
-          :sesso="rappresentanteLegale.sesso"
-          :dataDiNascita="rappresentanteLegale.dataDiNascita"
-          :comuneDiNascita="rappresentanteLegale.comune"
-          :provinciaDiNascita="rappresentanteLegale.provincia"
-        />
-        <Allegati
-          :codiceFiscale="''"
-          :numeroProtocollo="''"
-          :listaAllegati="allegati"
-          :pLocal="true"
-        />
-        <RiferimentiPratica
-          ref="rifPratica"
-          v-on:bloccainvioosservazione="inviaRichRateizzDisabled = true"
-        />
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnBack
-              :backUrl="'numero_rate'"
-              :backType="'backMod'"/>
-          </div>
-          <div class="col-md-6 text-md-right">
-            <v-btn
-              id="btnInvioRichiesta"
-              type="button"
-              color="primary"
-              @click.prevent="inviaRateizzazione"
-              :disabled="inviaRichRateizzDisabled">
-              Invia richiesta
-            </v-btn>
-          </div>
-        </div>
-      </div>
+      </v-card>
     </div>
-    </v-card>
+
     <spinner :pOverlay="overlay" />
   </div>
 </template>
 
 <script>
+import ApiError from '@/common/api.error'
 import { emailAttiva, smsAttivo } from '@/common/config'
 import { RATEIZZAZIONE_CREA } from '@/store/actions.type'
 import BoxErrore from '@/components/BoxErrore'
@@ -115,7 +126,7 @@ export default {
   },
   data () {
     return {
-      detailError: { message: '', title: '' },
+      detailError: { message: '', title: '', fieldError: null },
       inviaRichRateizzDisabled: false,
       overlay: false
     }
@@ -129,7 +140,9 @@ export default {
       'datiRateizzazione',
       'numeroRateDaPagare',
       'rappresentanteLegale',
-      'allegati'
+      'allegati',
+      'rataSelezionata',
+      'regione'
     ]),
     soggettoRateizz: function () {
       if (!this.datiContribuente.personaFisica) return this.datiContribuente.denominazione
@@ -137,7 +150,13 @@ export default {
     }
   },
   methods: {
+    removeMsg (params) {
+      if (params === true) {
+        this.resetErrori()
+      }
+    },
     inviaRateizzazione () {
+      this.detailError = { message: '', title: '', fieldError: null }
       this.$refs.rifPratica.iniziaValidazione()
       this.$refs.rifPratica.$v.rifForm.$touch()
       if (this.$refs.rifPratica.$v.rifForm.$invalid) return
@@ -166,9 +185,9 @@ export default {
       this.accertamentiRateiz.forEach(function (v) { delete v.checked })
 
       const rifObj = this.$refs.rifPratica.getRiferimenti()
-      if (emailAttiva()) this.carrelloRateizzazione.mail = rifObj.email
+      if (emailAttiva()) this.carrelloRateizzazione.mail = rifObj.email.toLowerCase()
       if (smsAttivo()) this.carrelloRateizzazione.cell = rifObj.telefono
-
+      if (this.regione === 'vda') this.carrelloRateizzazione.numeroRateScelte = this.rataSelezionata
       this.carrelloRateizzazione.soggetto = this.datiContribuente
       this.carrelloRateizzazione.accertamenti = this.accertamentiRateiz
       this.carrelloRateizzazione.allegati = this.allegati
@@ -209,10 +228,14 @@ export default {
           } else if (error.response.status === 422) {
             this.detailError = {
               title: this.$i18n.t('general.error'),
-              message: 'Domanda non inviata, parametri inseriti non validi.'
+              message: this.$i18n.t('general.api.errors.pratica_invalid'),
+              fieldError: ApiError.serverValidationErrors(error.response.data.detail)
             }
           }
         })
+    },
+    resetErrori () {
+      this.detailError = { message: '', title: '', fieldError: null }
     }
   }
 }

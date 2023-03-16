@@ -4,7 +4,7 @@
       Dati del veicolo
     </h2>
     <v-list class="text-uppercase" flat>
-      <v-list-item-group :no-action="true">
+      <v-list-item-group :no-action="true" aria-label="Dati veicolo">
         <v-list-item :inactive="true" :ripple="false">
           {{ descrizione }}
         </v-list-item>

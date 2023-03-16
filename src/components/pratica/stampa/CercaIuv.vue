@@ -1,30 +1,33 @@
 <template>
   <div>
-    <v-form
-      @submit.prevent="cercaIuv">
+    <v-form @submit.prevent="cercaIuv">
       <v-text-field
-        clearable
+        :error-count="3"
+        :error-messages="iuvErrors"
+        :maxlength="$v.iuvForm.iuv.$params.maxLength.max"
+        @change.native="resetErroriServer()"
+        @focusout="toTrim()"
+        autocomplete="off"
+        class="uppercase-input"
         clear-icon="mdi-close-circle"
-        label="IUV / Codice di avviso di pagamento"
+        clearable
         id="iuv"
+        label="IUV / Codice di avviso di pagamento"
         type="text"
         v-model="iuvForm.iuv"
-        @change.native="resetErroriServer()"
-        :maxlength="$v.iuvForm.iuv.$params.maxLength.max"
-        :error-messages="iuvErrors"
-        autocomplete="off"
-        :error-count="3"
-        ></v-text-field>
+      ></v-text-field>
       <tassa-auto-recaptcha
         :pCount="noCaptchaCount"
         v-on:recaptchaverified="updRecaptchaVerified()"
         v-on:recaptchanotverified="recaptchaVerified = false"
       />
       <v-btn
+        depressed
         class="spaceTopButtonSubmit"
         type="submit"
-        color="primary">
-        {{ $t('general.buttons.search') }}
+        color="primary"
+      >
+        {{ $t("general.buttons.search") }}
       </v-btn>
     </v-form>
   </div>
@@ -81,6 +84,9 @@ export default {
     }
   },
   methods: {
+    toTrim () {
+      this.iuvForm.iuv = this.iuvForm.iuv.replace(/\s/g, '').toUpperCase()
+    },
     cercaIuv () {
       this.resetErroriServer()
       this.$v.iuvForm.iuv.$touch()

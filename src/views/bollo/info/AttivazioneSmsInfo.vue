@@ -1,63 +1,61 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-lg-8 offset-lg-2 col-12">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row justify-content-md-center">
-      <div class="col-12 col-lg-8">
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+            <v-card class="card-view-page">
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
+          </div>
+        </div>
         <div class="wrap-view" v-if="this.mostraForm">
           <div class="inner-cont-bollo">
-            <div
-              class="row"
-              id="boxAttiva">
-              <div class="col-12">
-                <v-alert class="alert-form" color="quaternary" show >
-                  <h2 class="alert-heading">
-                    Conferma numero di telefono mobile
-                  </h2>
-                  <div class="rfs-30">{{  esitoInfoVerificaSms.destinatario}}</div>
-                  <div class="alert-form-fields">
-                    <div class="inline-check-submit">
-                      <v-form inline @submit.prevent="richiedi">
-                        <div class="tooltip-field">
-                          <div class="position-relative d-inline-block">
-                            <v-checkbox
-                              id="privacy"
-                              v-model="smsForm.privacy"
-                              @change="$v.smsForm.privacy.$touch()"
-                              :state="!$v.smsForm.privacy.$error"
-                              value="accepted"
-                              unchecked-value="not_accepted"
-                              :error-messages="privacyErrors"
-                              :label="this.$i18n.t('general.privacy')">
-                            </v-checkbox>
-                            <v-btn
-                              class="contextual-info"
-                              @click="$refs.mwPrivacy.mostraModalePrivacy()">
-                              <v-icon>mdi-information</v-icon>
-                            </v-btn>
-                          </div>
+            <div id="boxAttiva" class="col-lg-8 offset-lg-2">
+              <v-alert class="alert-form pa-0">
+                <h2 class="alert-heading">
+                  Conferma numero di telefono mobile
+                </h2>
+                <div class="rfs-30">{{  esitoInfoVerificaSms.destinatario}}</div>
+                <div class="alert-form-fields">
+                  <div class="inline-check-submit no-gutters-col">
+                    <v-form inline @submit.prevent="richiedi" class="row">
+                      <div class="tooltip-field col-md-7 py-md-0 pr-lg-0">
+                        <div class="position-relative d-inline-block">
+                          <v-checkbox
+                            id="privacy"
+                            v-model="smsForm.privacy"
+                            @change="$v.smsForm.privacy.$touch()"
+                            :state="!$v.smsForm.privacy.$error"
+                            value="accepted"
+                            unchecked-value="not_accepted"
+                            :error-messages="privacyErrors"
+                            :label="this.$i18n.t('general.privacy')">
+                          </v-checkbox>
+                          <v-btn
+                            fab
+                            depressed
+                            class="contextual-info privacy-btn"
+                            @click="$refs.mwPrivacy.mostraModalePrivacy()">
+                            <v-icon>mdi-information</v-icon>
+                          </v-btn>
                         </div>
                         <div class="error--text" v-if="this.clickCb && !$v.smsForm.privacy.acceptedPrivacy">
                           Il consenso all'informativa sulla privacy è obbligatorio.
                         </div>
-                        <div class="confirm-send">
-                          <v-btn
-                            type="submit"
-                            color="primary" >
-                            {{ labelBtnAttivaRevoca }}
-                          </v-btn>
-                        </div>
-                      </v-form>
-                    </div>
+                      </div>
+                      <div class="confirm-send col-md-4 offset-md-1">
+                        <v-btn
+                          depressed
+                          type="submit"
+                          color="primary" >
+                          {{ labelBtnAttivaRevoca }}
+                        </v-btn>
+                      </div>
+                    </v-form>
                   </div>
-                </v-alert>
-              </div>
-              <div class="action-button-wide">
-                <div class="col-12 text-left">
+                </div>
+              </v-alert>
+              <div class="action-button-wide row">
+                <div class="text-left">
                   <BtnBack
                     :backUrl="'verifica_attivazione_info'"
                     :backType="'back'"/>
@@ -66,7 +64,7 @@
             </div>
           </div>
         </div>
-        <div class="wrap-view" v-if="this.mostraEsito">
+        <div class="wrap-view col-lg-8 offset-lg-2" v-if="this.mostraEsito">
           <div class="row justify-content-center">
             <v-alert color="warning" show class="alert-form">
               <h4 class="alert-heading">Conferma numero di telefono mobile</h4>
@@ -85,9 +83,9 @@
                     autocomplete="off"
                     :error-count="3">
                   </v-text-field>
-                  <div class="action-button-wide">
+                  <div class="action-button-wide row">
                     <div class="col-12 text-md-right">
-                      <v-btn type="submit" color="primary">
+                      <v-btn type="submit" color="primary" depressed>
                         Conferma
                       </v-btn>
                     </div>
@@ -96,7 +94,7 @@
               </div>
             </v-alert>
           </div>
-          <div class="action-button-wide">
+          <div class="action-button-wide row">
             <div class="col-12 text-left">
               <BtnBack
                 :backUrl="'verifica_attivazione_info'"
@@ -104,7 +102,7 @@
             </div>
           </div>
         </div>
-        <div class="wrap-view" v-if="this.mostraEsitoConferma">
+        <div class="wrap-view col-lg-8 offset-lg-2" v-if="this.mostraEsitoConferma">
           <div class="row justify-content-center">
             <div class="form-cerca-veicolo">
               <v-alert color="success" show>
@@ -112,15 +110,15 @@
               </v-alert>
             </div>
           </div>
-          <div class="action-button-wide">
+          <div class="action-button-wide row">
             <div class="col-12 text-md-right">
               <BtnHome />
             </div>
           </div>
         </div>
-      </div>
+      </v-card>
     </div>
-    </v-card>
+
     <ModalePrivacy
       ref="mwPrivacy"
       v-on:privacyaccepted="smsForm.privacy = 'accepted'"

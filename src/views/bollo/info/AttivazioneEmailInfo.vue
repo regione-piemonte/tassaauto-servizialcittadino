@@ -1,89 +1,96 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="col-xxl-8 offset-xxl-2">
-        <div class="wrap-view" v-if="this.mostraForm">
-          <div class="inner-cont-bollo">
-            <div
-              class="row"
-              id="boxAttiva">
-              <div class="col-12">
-                <v-alert class="alert-form" color="quaternary" show >
-                  <h2 class="alert-heading">
-                    Conferma indirizzo email
-                  </h2>
-                  <div class="rfs-24">
-                    {{ esitoInfoVerificaEmail.destinatario }}
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+            <v-card class="card-view-page">
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
+          </div>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="wrap-view" v-if="this.mostraForm">
+              <div class="inner-cont-bollo">
+                <div
+                  class="row"
+                  id="boxAttiva">
+                  <div class="col-12">
+                    <v-alert class="alert-form pa-0">
+                      <h2 class="alert-heading">
+                        Conferma indirizzo email
+                      </h2>
+                      <div class="rfs-24">
+                        {{ esitoInfoVerificaEmail.destinatario }}
+                      </div>
+                      <div class="alert-form-fields">
+                        <div class="inline-check-submit no-gutters-col">
+                          <v-form
+                            @submit.prevent="richiedi"
+                            id="richiedi"
+                            class="row">
+                            <div class="tooltip-field col-md-7 py-md-0 pr-lg-0">
+                              <div class="position-relative d-inline-block pr-lg-0">
+                                <v-checkbox
+                                  id="privacy"
+                                  v-model="emailForm.privacy"
+                                  @change="$v.emailForm.privacy.$touch()"
+                                  :state="!$v.emailForm.privacy.$error"
+                                  value="accepted"
+                                  unchecked-value="not_accepted"
+                                  :error-messages="privacyErrors"
+                                  :label="this.$i18n.t('general.privacy')">
+                                </v-checkbox>
+                                <v-btn
+                                  fab
+                                  depressed
+                                  class="contextual-info privacy-btn"
+                                  @click="$refs.mwPrivacy.mostraModalePrivacy()">
+                                  <v-icon>mdi-information</v-icon>
+                                </v-btn>
+                              </div>
+                              <div class="error--text"
+                                v-if="this.clickCb && !$v.emailForm.privacy.acceptedPrivacy">
+                                Il consenso all'informativa sulla privacy è obbligatorio.
+                              </div>
+                            </div>
+                            <div class="confirm-send col-md-4 offset-md-1">
+                              <v-btn
+                                depressed
+                                type="submit"
+                                color="primary" >
+                                {{ labelBtnAttivaRevoca }}
+                              </v-btn>
+                            </div>
+                          </v-form>
+                        </div>
+                      </div>
+                    </v-alert>
                   </div>
-                  <div class="alert-form-fields">
-                    <div class="inline-check-submit">
-                      <v-form
-                        @submit.prevent="richiedi"
-                        id="richiedi">
-                        <div class="tooltip-field">
-                          <div class="position-relative d-inline-block">
-                            <v-checkbox
-                              id="privacy"
-                              v-model="emailForm.privacy"
-                              @change="$v.emailForm.privacy.$touch()"
-                              :state="!$v.emailForm.privacy.$error"
-                              value="accepted"
-                              unchecked-value="not_accepted"
-                              :error-messages="privacyErrors"
-                              :label="this.$i18n.t('general.privacy')">
-                            </v-checkbox>
-                            <v-btn
-                              class="contextual-info"
-                              @click="$refs.mwPrivacy.mostraModalePrivacy()">
-                              <v-icon>mdi-information</v-icon>
-                            </v-btn>
-                          </div>
-                        </div>
-                        <div class="error--text"
-                          v-if="this.clickCb && !$v.emailForm.privacy.acceptedPrivacy">
-                          Il consenso all'informativa sulla privacy è obbligatorio.
-                        </div>
-                        <div class="confirm-send">
-                          <v-btn
-                            type="submit"
-                            color="primary" >
-                            {{ labelBtnAttivaRevoca }}
-                          </v-btn>
-                        </div>
-                      </v-form>
+                  <div class="action-button-wide row">
+                    <div class="col-12 text-left">
+                      <BtnBack
+                        :backUrl="'verifica_attivazione_info'"
+                        :backType="'back'"/>
                     </div>
                   </div>
-                </v-alert>
+                </div>
               </div>
-              <div class="action-button-wide">
-                <div class="col-12 text-left">
-                  <BtnBack
-                    :backUrl="'verifica_attivazione_info'"
-                    :backType="'back'"/>
+            </div>
+            <div class="wrap-view" v-if="this.mostraEsito">
+              <div class="row justify-content-center">
+                <BoxWarning :warning="detailWarning" />
+              </div>
+              <div class="action-button-wide row">
+                <div class="col-12 text-md-right">
+                  <BtnHome />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="wrap-view" v-if="this.mostraEsito">
-          <div class="row justify-content-center">
-            <BoxWarning :warning="detailWarning" />
-          </div>
-          <div class="action-button-wide">
-            <div class="col-12 text-md-right">
-              <BtnHome />
-            </div>
-          </div>
-        </div>
-      </div>
+      </v-card>
     </div>
-    </v-card>
+
     <ModalePrivacy
       ref="mwPrivacy"
       v-on:privacyaccepted="emailForm.privacy = 'accepted'"

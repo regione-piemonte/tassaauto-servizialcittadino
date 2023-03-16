@@ -1,17 +1,23 @@
 <template>
   <v-text-field
-    clearable
-    clear-icon="mdi-close-circle"
-    label="Codice fiscale"
+    :error-count="4"
+    :error-messages="cfErrors"
     :id="'codiceFiscale' + servizioCF"
+    :maxLength="$v.cfForm.codiceFiscale.$params.maxLength.max"
+    @change.native="resetErroriServer()"
+    autocomplete="off"
+    class="uppercase-input"
+    clear-icon="mdi-close-circle"
+    clearable
+    :label="
+      servizioCF === 'RappresentanteLegale' ||
+      servizioCF === 'IntestatarioIngiunzioneRL'
+        ? 'Codice fiscale / P.IVA'
+        : 'Codice Fiscale'
+    "
     type="text"
     v-model="cfForm.codiceFiscale"
-    @change.native="resetErroriServer()"
-    :maxLength="$v.cfForm.codiceFiscale.$params.maxLength.max"
-    :error-messages="cfErrors"
-    autocomplete="off"
-    :error-count="4"
-    ></v-text-field>
+  ></v-text-field>
 </template>
 
 <script>

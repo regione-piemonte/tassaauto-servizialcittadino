@@ -1,72 +1,76 @@
 <template>
-  <div class="app-container">
-    <div class="app-row inner-cont-bollo">
+  <div class="container">
+    <div class="row inner-cont-bollo">
       <div
-        class="text-intro text-descrizione-servizio col-xxl-8 offset-xxl-2"
+        class="text-intro text-descrizione-servizio col-lg-8 offset-lg-2"
         v-html="this.$i18n.t('pratica.domanda_discarico_rimborso.richiesta.intro.par')"
       />
     </div>
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <Wizard
-          :servizio="'domanda_discarico_rimborso'"
-          :stepAttivo="0"
-        />
-      </div>
-    </div>
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="tab-content-hp">
-      <div class="app-row inner-cont-bollo">
-        <div class="pagobollo-hp col-xxl-3 col-md-6 offset-xxl-2 mt-8 mt-sm-0">
-          <v-img
-          class="imgHomeServizio"
-          width="178"
-          :src="require('@/assets/images/ritagli/servizi/domanda_discarico_rimborso.svg')"
-          alt=""
-          fluid/>
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <Wizard
+              :servizio="'domanda_discarico_rimborso'"
+              :stepAttivo="0"
+            />
+          </div>
         </div>
-        <v-tabs
-        class="tabServizi"
-        aria-live="polite"
-        aria-aromic="false"
-        v-model="tabs"
-        centered
-        fixed-tabs
-        show-arrows="mobile">
-          <v-tab
-            active
-            @click="detailError={ message: '', title: '' }">
-            {{ $t('pratica.domanda_discarico_rimborso.richiesta.labels.tab_1') }}
-          </v-tab>
-          <v-tab
-            @click="detailError={ message: '', title: '' }">
-            {{ $t('pratica.domanda_discarico_rimborso.richiesta.labels.tab_2') }}
-          </v-tab>
-        </v-tabs>
-        <v-tabs-items v-model="tabs" class="noauthService">
-          <v-tab-item>
-            <DisRimbIntestatarioVeicolo
-              v-bind:boxErr.sync="detailError"
-              v-on:controlspinner="overlay = $event.running"
-              v-on:updateboxerr="updateDetailError($event)"
-            />
-          </v-tab-item>
-          <v-tab-item>
-            <DisRimbRappresentanteLegale
-              v-bind:boxErr.sync="detailError"
-              v-on:controlspinner="overlay = $event.running"
-              v-on:updateboxerr="updateDetailError($event)"
-            />
-          </v-tab-item>
-        </v-tabs-items>
-      </div>
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
+          </div>
+        </div>
+        <div class="tab-content-hp">
+          <div class="row inner-cont-bollo">
+            <div class="pagobollo-hp col-lg-3 col-md-6 offset-lg-2 mt-8 mt-sm-0">
+              <v-img
+              class="imgHomeServizio"
+              width="178"
+              :src="require('@/assets/images/ritagli/servizi/domanda_discarico_rimborso.svg')"
+              alt=""
+              fluid/>
+              <div  class="text-inner pt-3 pl-0 pr-md-8 pr-lg-0" v-html="link"/>
+            </div>
+            <v-tabs
+            class="tabServizi"
+            aria-live="polite"
+            aria-aromic="false"
+            v-model="tabs"
+            centered
+            fixed-tabs
+            show-arrows="mobile">
+              <v-tab
+                active
+                @click="detailError={ message: '', title: '' }">
+                {{ $t('pratica.domanda_discarico_rimborso.richiesta.labels.tab_1') }}
+              </v-tab>
+              <v-tab
+                @click="detailError={ message: '', title: '' }">
+                {{ $t('pratica.domanda_discarico_rimborso.richiesta.labels.tab_2') }}
+              </v-tab>
+            </v-tabs>
+            <v-tabs-items v-model="tabs" class="noauthService">
+              <v-tab-item>
+                <DisRimbIntestatarioVeicolo
+                  v-bind:boxErr.sync="detailError"
+                  v-on:controlspinner="overlay = $event.running"
+                  v-on:updateboxerr="updateDetailError($event)"
+                />
+              </v-tab-item>
+              <v-tab-item>
+                <DisRimbRappresentanteLegale
+                  v-bind:boxErr.sync="detailError"
+                  v-on:controlspinner="overlay = $event.running"
+                  v-on:updateboxerr="updateDetailError($event)"
+                />
+              </v-tab-item>
+            </v-tabs-items>
+          </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
+
     <spinner :pOverlay="overlay" />
   </div>
 </template>
@@ -90,7 +94,8 @@ export default {
     return {
       detailError: { message: '', title: '' },
       overlay: false,
-      tabs: null
+      tabs: null,
+      link: '<a href="https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tassa-automobilistica-riscossione-coattiva" target="_blank"><strong>Maggiori informazioni</strong></a>'
     }
   },
   methods: {

@@ -7,13 +7,23 @@
         ref="codiceFiscale"
         :pServerErr="serverErrors.codiceFiscale"
         v-on:cfchanged="serverErrors.codiceFiscale=''"
+        v-if="!logged"
       />
+      <!--accesso servizio con autenticaticazione-->
+      <v-text-field
+        v-else
+        disabled
+        label="Codice fiscale"
+        v-model="userIdentity.cf">
+      </v-text-field>
       <tassa-auto-recaptcha
         :pCount="noCaptchaCount"
         v-on:recaptchaverified="updRecaptchaVerified()"
         v-on:recaptchanotverified="recaptchaVerified = false"
+        v-if="!logged"
       />
       <v-btn
+        depressed
         class="spaceTopButtonSubmit"
         id="btnIntVeicAvanti"
         type="submit"
@@ -26,6 +36,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { NO_RECAPTCHA_ATTEMPTS } from '@/common/config'
 import NavigatorService from '@/common/navigator.service'
 import CodiceFiscale from '@/components/CodiceFiscale'
@@ -43,28 +54,39 @@ export default {
       serverErrors: { codiceFiscale: '' }
     }
   },
+  computed: {
+    ...mapGetters(['isUserLogged', 'userIdentity', 'isUserLoggedLocalhost']),
+    logged () {
+      if (process.env.NODE_ENV === 'production') {
+        return this.isUserLogged
+      }
+      return this.isUserLoggedLocalhost
+    }
+  },
   methods: {
     iniziaDomanda () {
-      this.$refs.codiceFiscale.$v.cfForm.$touch()
-      if (this.$refs.codiceFiscale.$v.cfForm.$invalid) return
-      if (this.noCaptchaCount > NO_RECAPTCHA_ATTEMPTS && !this.recaptchaVerified) {
-        this.$emit('updateboxerr', {
-          title: this.$i18n.t('general.error'),
-          message: 'Dimostra di non essere un robot'
-        })
-        return
+      if (!this.logged) {
+        this.$refs.codiceFiscale.$v.cfForm.$touch()
+        if (this.$refs.codiceFiscale.$v.cfForm.$invalid) return
+        if (this.noCaptchaCount > NO_RECAPTCHA_ATTEMPTS && !this.recaptchaVerified) {
+          this.$emit('updateboxerr', {
+            title: this.$i18n.t('general.error'),
+            message: 'Dimostra di non essere un robot'
+          })
+          return
+        }
       }
       if (!NavigatorService.checkInternetConnection()) return
 
       this.$emit('controlspinner', { running: true })
       store
-        .dispatch(CERCA_DOMANDA_DISCARICO_RIMBORSO, this.$refs.codiceFiscale.getValore())
+        .dispatch(CERCA_DOMANDA_DISCARICO_RIMBORSO, (this.logged) ? this.userIdentity.cf : this.$refs.codiceFiscale.getValore())
         .then(({ data }) => {
           this.$emit('controlspinner', { running: false })
           if (data.dataAnagraficiIntestatario.denominazione !== null) {
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.error'),
-              message: 'Il Codice fiscale inserito non corrisponde ad una Persona Fisica.'
+              message: 'Per poter inserire una domanda di discarico per una persona giuridica, è necessario utilizzare la ricerca per persona giuridica.'
             })
             return
           }

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { RateizzazioneService } from '@/common/api/tassa-auto'
-import { NUM_PROTOCOLLO_MAX_LENGTH } from '@/common/config'
+import { NUM_PROTOCOLLO_MAX_LENGTH, REGIONE_ABILITATA } from '@/common/config'
 import {
   PRATICA_RICHIESTA_INTESTATARIO,
   PRATICA_RICHIESTA_RESET_STATE,
@@ -9,8 +9,10 @@ import {
   RATEIZZA_ALLEGATO_ELIMINA,
   DATI_INTESTATARIO,
   DATI_LEGALE_RAPPRESENTANTE,
+  SCELTA_RATA_UTENTE,
   RATEIZZAZIONE_CREA,
-  RATEIZZA_ELIMINA_DAL_CARRELLO
+  RATEIZZAZIONE_VALIDA,
+  RATEIZZAZIONE_ELIMINA_DAL_CARRELLO
 } from './actions.type'
 
 import {
@@ -20,11 +22,13 @@ import {
   ADD_ALLEGATO_RATEIZZA,
   REM_ALLEGATO_RATEIZZA,
   ADD_DATI_INTESTATARIO,
+  ADD_SCELTA_RATA_UTENTE,
   ADD_DATI_LEGALE_RAPPRESENTANTE,
   REM_PROTOCOLLO_RATEIZZA
 } from './mutations.type'
 
 const initialState = {
+  regione: REGIONE_ABILITATA,
   accertamentiRateiz: [],
   allegati: [],
   carrelloRateizzazione: {
@@ -45,7 +49,9 @@ const initialState = {
   fasceCarrelloRateizzazione: [],
   numeroRateDaPagare: null,
   totaleCarrelloRateizzazione: null,
-  rappresentanteLegale: null
+  rappresentanteLegale: null,
+  selectRate: [],
+  rataSelezionata: null
 }
 
 export const state = { ...initialState }
@@ -73,7 +79,7 @@ export const actions = {
     context.commit(ADD_DATI_LEGALE_RAPPRESENTANTE, params)
   },
 
-  [RATEIZZA_ELIMINA_DAL_CARRELLO] (context, params) {
+  [RATEIZZAZIONE_ELIMINA_DAL_CARRELLO] (context, params) {
     context.commit(REM_PROTOCOLLO_RATEIZZA, params)
   },
 
@@ -96,8 +102,16 @@ export const actions = {
     return context.commit(REM_ALLEGATO_RATEIZZA, slug)
   },
 
+  async [SCELTA_RATA_UTENTE] (context, params) {
+    context.commit(ADD_SCELTA_RATA_UTENTE, params)
+  },
+
   async [RATEIZZAZIONE_CREA] (context, params) {
     const { data } = await RateizzazioneService.creaRateizzazioneAvviso(params)
+    return { data }
+  },
+  async [RATEIZZAZIONE_VALIDA] (context, params) {
+    const { data } = await RateizzazioneService.creaRateizzazioneValida(params)
     return { data }
   }
 }
@@ -115,15 +129,30 @@ const mutations = {
     }
     state.accertamentiRateiz.push(nuovaRateizzazione.accertamenti[0])
     state.totaleCarrelloRateizzazione += nuovaRateizzazione.accertamenti[0].totale
-    Vue.set(state.accertamentiRateiz[state.accertamentiRateiz.length - 1], 'checked', false)
-
     const fascia = state.fasceCarrelloRateizzazione.find(
       p => (p.importoDa <= state.totaleCarrelloRateizzazione && (p.importoA >= state.totaleCarrelloRateizzazione || p.importoA === null)))
-    if (fascia === undefined) throw new Error('Non è possibile individuare la fascia corrispondente')
-    state.carrelloRateizzazione.fascia.numeroFascia = fascia.numeroFascia
-    state.carrelloRateizzazione.fascia.importoDa = fascia.importoDa
-    state.carrelloRateizzazione.fascia.importoA = fascia.importoA
-    state.carrelloRateizzazione.fascia.numeroRate = fascia.numeroRate
+    // if (fascia === undefined) throw new Error('Non è possibile individuare la fascia corrispondente')
+    if (fascia != null && fascia !== undefined) {
+      state.carrelloRateizzazione.fascia.numeroFascia = fascia.numeroFascia
+      state.carrelloRateizzazione.fascia.importoDa = fascia.importoDa
+      state.carrelloRateizzazione.fascia.importoA = fascia.importoA
+      state.carrelloRateizzazione.fascia.numeroRate = fascia.numeroRate
+      state.numeroRateDaPagare = fascia.numeroRate
+      if (state.regione === 'vda') {
+        state.selectRate = []
+        state.carrelloRateizzazione.fascia.minNumeroRate = fascia.minNumeroRate
+        state.carrelloRateizzazione.fascia.maxNumeroRate = fascia.maxNumeroRate
+        for (let i = fascia.minNumeroRate; i <= fascia.maxNumeroRate; i++) {
+          state.selectRate.push(i)
+        }
+      }
+    } else {
+      state.carrelloRateizzazione.fascia.numeroFascia = 0
+      state.carrelloRateizzazione.fascia.importoDa = 0
+      state.carrelloRateizzazione.fascia.importoA = 0
+      state.carrelloRateizzazione.fascia.numeroRate = 0
+      state.numeroRateDaPagare = 0
+    }
   },
 
   [ADD_DATI_INTESTATARIO] (state, datiIntestatario) {
@@ -136,6 +165,9 @@ const mutations = {
 
   [FASCE_RATEIZZAZIONE] (state, fasceRateizzazione) {
     state.fasceCarrelloRateizzazione = fasceRateizzazione
+  },
+  [ADD_SCELTA_RATA_UTENTE] (state, rataScelta) {
+    state.rataSelezionata = rataScelta
   },
 
   [ADD_ALLEGATO_RATEIZZA] (state, allegato) {
@@ -154,11 +186,27 @@ const mutations = {
     state.accertamentiRateiz.splice(itemIdx, 1)
     const fascia = state.fasceCarrelloRateizzazione.find(
       p => (p.importoDa <= state.totaleCarrelloRateizzazione && (p.importoA >= state.totaleCarrelloRateizzazione || p.importoA === null)))
-    if (fascia === undefined) throw new Error('Non è possibile individuare la fascia corrispondente')
-    state.carrelloRateizzazione.fascia.numeroFascia = fascia.numeroFascia
-    state.carrelloRateizzazione.fascia.importoDa = fascia.importoDa
-    state.carrelloRateizzazione.fascia.importoA = fascia.importoA
-    state.carrelloRateizzazione.fascia.numeroRate = fascia.numeroRate
+    // if (fascia === undefined) throw new Error('Non è possibile individuare la fascia corrispondente')
+    if (fascia !== null && fascia !== undefined) {
+      state.carrelloRateizzazione.fascia.numeroFascia = fascia.numeroFascia
+      state.carrelloRateizzazione.fascia.importoDa = fascia.importoDa
+      state.carrelloRateizzazione.fascia.importoA = fascia.importoA
+      state.carrelloRateizzazione.fascia.numeroRate = fascia.numeroRate
+      state.numeroRateDaPagare = fascia.numeroRate
+      if (state.regione === 'vda') {
+        state.carrelloRateizzazione.fascia.minNumeroRate = fascia.minNumeroRate
+        state.carrelloRateizzazione.fascia.maxNumeroRate = fascia.maxNumeroRate
+        for (let i = fascia.minNumeroRate; i <= fascia.maxNumeroRate; i++) {
+          state.selectRate.push(i)
+        }
+      }
+    } else {
+      state.carrelloRateizzazione.fascia.numeroFascia = 0
+      state.carrelloRateizzazione.fascia.importoDa = 0
+      state.carrelloRateizzazione.fascia.importoA = 0
+      state.carrelloRateizzazione.fascia.numeroRate = 0
+      state.numeroRateDaPagare = 0
+    }
   },
 
   [INITIAL_STATE_RATEIZZAZIONE] () {
@@ -171,6 +219,7 @@ const mutations = {
       checked: false,
       numeroRateUtente: null
     }
+    state.selectRate = []
   }
 }
 
@@ -180,7 +229,15 @@ const getters = {
   },
 
   accertamentiRateiz (state) {
-    return state.accertamentiRateiz
+    const sortedArray = state.accertamentiRateiz
+    sortedArray.sort(function (a, b) {
+      if (a.anno > b.anno) return 1
+      if (a.anno < b.anno) return -1
+      if (a.totale > b.totale) return 1
+      if (a.totale < b.totale) return -1
+      else return 0
+    })
+    return sortedArray
   },
 
   allegati (state) {
@@ -210,6 +267,15 @@ const getters = {
   },
   rateizzazioneCreata (state) {
     return state.rateizzazioneCreata
+  },
+  selectRate (state) {
+    return state.selectRate
+  },
+  regione (state) {
+    return state.regione
+  },
+  rataSelezionata (state) {
+    return state.rataSelezionata
   }
 }
 

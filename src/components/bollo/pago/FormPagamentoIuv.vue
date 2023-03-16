@@ -1,7 +1,6 @@
 <template>
   <div>
-    <v-form
-      @submit.prevent="iniziaPagamentoIuv">
+    <v-form @submit.prevent="iniziaPagamentoIuv">
       <v-text-field
         clearable
         clear-icon="mdi-close-circle"
@@ -13,33 +12,44 @@
         :error-messages="iuvErrors"
         autocomplete="off"
         :error-count="3"
+        @focusout="toTrim()"
       ></v-text-field>
       <tassa-auto-recaptcha
         :pCount="noCaptchaCount"
         v-on:recaptchaverified="updRecaptchaVerified()"
         v-on:recaptchanotverified="recaptchaVerified = false"
       />
-      <v-btn
-        class="spaceTopButtonSubmit"
-        id="cercaIuvBtn"
-        type="submit"
-        color="primary"
-        :disabled="carrelloPagoBollo.length >= limiteCarrelloPagoBollo">
-        {{ $t('general.buttons.search') }}
-      </v-btn>
+      <v-row class="action-button-wide">
+        <v-col cols="12" md="6">
+          <v-btn
+            depressed
+            class="spaceTopButtonSubmit"
+            id="cercaIuvBtn"
+            aria-label="ricerca i pagamenti"
+            type="submit"
+            color="primary"
+            :disabled="carrelloPagoBollo.length >= limiteCarrelloPagoBollo"
+          >
+            {{ $t("general.buttons.search") }}
+          </v-btn>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-btn
+            depressed
+            aria-label="vai al riepilogo dei pagamenti"
+            class="spaceTopButtonSubmit"
+            outlined
+            color="primary"
+            id="riepilogoCarrelloBtn"
+            type="button"
+            :to="{ name: 'carrello_pagamenti' }"
+            v-if="carrelloPagoBollo.length > 0"
+          >
+            Riepilogo
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-form>
-    <div class="action-button-wide">
-      <div class="col-12">
-        <v-btn
-          class="spaceTopButtonSubmit"
-          id="riepilogoCarrelloBtn"
-          type="button"
-          :to="{ name: 'carrello_pagamenti' }"
-          v-if="carrelloPagoBollo.length > 0">
-          Riepilogo
-        </v-btn>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -48,7 +58,7 @@ import { mapGetters } from 'vuex'
 import ApiError from '@/common/api.error'
 import { NO_RECAPTCHA_ATTEMPTS } from '@/common/config'
 import NavigatorService from '@/common/navigator.service'
-import { BOLLO_PAGO_IUV } from '@/store/actions.type'
+import { BOLLO_PAGO_IUV, COMMON_PARAMETRI } from '@/store/actions.type'
 import TassaAutoRecaptcha from '@/components/TassaAutoRecaptcha'
 import store from '@/store'
 import { validationMixin } from 'vuelidate'
@@ -65,13 +75,15 @@ export default {
       iuvForm: { iuv: '' },
       noCaptchaCount: 0,
       recaptchaVerified: false,
-      serverErrors: { iuv: '' }
+      serverErrors: { iuv: '' },
+      changeCCParams: { dataParametroAcc: '', dataParametroMod1CC: '', dataParametroMod1BolloCC: '', dataParamAppDateCC: '' }
     }
   },
   computed: {
     ...mapGetters([
       'carrelloPagoBollo',
-      'limiteCarrelloPagoBollo'
+      'limiteCarrelloPagoBollo',
+      'parametri'
     ]),
     iuvErrors () {
       const errors = []
@@ -97,7 +109,11 @@ export default {
     }
   },
   methods: {
+    toTrim () {
+      this.iuvForm.iuv = this.iuvForm.iuv.replace(/\s/g, '').toUpperCase()
+    },
     iniziaPagamentoIuv () {
+      this.resetErroriServer()
       this.$v.iuvForm.iuv.$touch()
       if (this.$v.iuvForm.iuv.$invalid) return
 
@@ -111,8 +127,16 @@ export default {
       if (!NavigatorService.checkInternetConnection()) return
 
       this.$emit('controlspinner', { running: true })
+      console.log('Marts form: ' + this.changeCCParams.dataParametroAcc)
+      const inParams = {
+        iuv: this.iuvForm.iuv,
+        parametroAcc: this.changeCCParams.dataParametroAcc,
+        parametroMod1CC: this.changeCCParams.dataParametroMod1CC,
+        parametroMod1BolloCC: this.changeCCParams.dataParametroMod1BolloCC,
+        paramAppDateCC: this.changeCCParams.dataParamAppDateCC
+      }
       store
-        .dispatch(BOLLO_PAGO_IUV, this.iuvForm.iuv)
+        .dispatch(BOLLO_PAGO_IUV, inParams)
         .then(({ data }) => {
           this.$emit('controlspinner', { running: false })
           this.$router.push({ name: 'esito_ricerca_pagamento' })
@@ -145,6 +169,13 @@ export default {
               this.serverErrors.iuv = this.$i18n.t('bollo.ricevuta.errors.iuv_not_found')
               break
             case 406:
+              this.$emit('updateboxwarn', {
+                title: this.$i18n.t('general.api.errors.no_results'),
+                message: error.response.data.title
+              })
+              this.noCaptchaCount++
+              this.serverErrors.iuv = error.response.data.title
+              break
             case 409:
               this.$emit('updateboxerr', {
                 title: this.$i18n.t('general.api.errors.no_results'),
@@ -162,6 +193,11 @@ export default {
               this.serverErrors.iuv = 'Proprietario non trovato'
               break
             case 500:
+              this.$emit('updateboxerr', {
+                title: this.$i18n.t('general.error'),
+                message: this.$i18n.t('general.api.errors.service_unavailable') + ' (' + error.response.data.title + ')'
+              })
+              break
             case 503:
               this.$emit('updateboxerr', {
                 title: this.$i18n.t('general.error'),
@@ -177,6 +213,7 @@ export default {
     resetErroriServer () {
       this.serverErrors.iuv = ''
       this.$emit('updateboxerr', { message: '', title: '' })
+      this.$emit('updateboxwarn', { message: '', title: '' })
     },
 
     updRecaptchaVerified () {
@@ -184,6 +221,53 @@ export default {
       this.$emit('updateboxerr', { message: '', title: '' })
       this.noCaptchaCount = 0
     }
+  },
+  async created () {
+    this.overlay = true
+    await store
+      .dispatch(COMMON_PARAMETRI, 'MDP_COD_APPLICATIVO_ACC')
+      .then(() => {
+        this.overlay = false
+        this.changeCCParams.dataParametroAcc = this.parametri
+        console.log('marts create: ' + this.changeCCParams.dataParametroAcc)
+      })
+      .catch((error) => {
+        console.log(error, ' errore')
+        this.overlay = false
+      })
+    this.overlay = true
+    await store.dispatch(COMMON_PARAMETRI, 'MDP_MOD1_BOLLO')
+      .then(() => {
+        this.changeCCParams.dataParametroMod1CC = this.parametri
+        console.log('marts create: ' + this.changeCCParams.dataParametroMod1CC)
+        this.overlay = false
+      })
+      .catch((error) => {
+        console.log(error, ' errore')
+        this.overlay = false
+      })
+    this.overlay = true
+    await store.dispatch(COMMON_PARAMETRI, 'MDP_MOD1_BOLLO_CC')
+      .then(() => {
+        this.changeCCParams.dataParametroMod1BolloCC = this.parametri
+        console.log('marts create: ' + this.changeCCParams.dataParametroMod1BolloCC)
+        this.overlay = false
+      })
+      .catch((error) => {
+        console.log(error, ' errore')
+        this.overlay = false
+      })
+    this.overlay = true
+    await store.dispatch(COMMON_PARAMETRI, 'MDP_DATE_CC')
+      .then(() => {
+        this.changeCCParams.dataParamAppDateCC = this.parametri
+        console.log('marts create: ' + this.changeCCParams.dataParamAppDateCC)
+        this.overlay = false
+      })
+      .catch((error) => {
+        console.log(error, ' errore')
+        this.overlay = false
+      })
   }
 }
 </script>

@@ -1,35 +1,38 @@
 <template>
   <div>
-    <v-form
-      @submit.prevent="iniziaRichiestaRateizzazione">
+    <v-form @submit.prevent="iniziaRichiestaRateizzazione">
       <codice-fiscale
-        ref="codiceFiscale"
-        :servizioCF="'IntestatarioVeicolo'"
         :pServerErr="serverErrors.codiceFiscale"
-        v-on:cfchanged="serverErrors.codiceFiscale=''"
+        :servizioCF="'IntestatarioVeicolo'"
+        ref="codiceFiscale"
+        v-on:cfchanged="serverErrors.codiceFiscale = ''"
       />
       <v-text-field
-        clearable
+        :error-count="3"
+        :error-messages="numeroProtocolloErrors"
+        :maxlength="$v.cercaForm.numeroProtocollo.$params.maxLength.max"
+        @change.native="resetErroriServer()"
+        autocomplete="off"
+        class="uppercase-input"
         clear-icon="mdi-close-circle"
-        label="Numero protocollo"
+        clearable
         id="numeroProtocollo"
+        label="Numero protocollo"
         type="text"
         v-model="cercaForm.numeroProtocollo"
-        @change.native="resetErroriServer()"
-        :maxlength="$v.cercaForm.numeroProtocollo.$params.maxLength.max"
-        :error-messages="numeroProtocolloErrors"
-        autocomplete="off"
-        :error-count="3"
-        ></v-text-field>
+      ></v-text-field>
       <div
-        v-html="this.$i18n.t('pratica.rateizzazione.cerca.text_info')" class="mb-5"
+        v-html="this.$i18n.t('pratica.rateizzazione.cerca.text_info')"
+        class="mb-5"
       />
+
       <tassa-auto-recaptcha
         :pCount="noCaptchaCount"
         v-on:recaptchaverified="updRecaptchaVerified()"
         v-on:recaptchanotverified="recaptchaVerified = false"
       />
       <v-btn
+        depressed
         class="spaceTopButtonSubmit"
         id="btnIntVeicAvanti"
         type="submit"
@@ -58,7 +61,8 @@ export default {
   data () {
     return {
       cercaForm: {
-        numeroProtocollo: ''
+        numeroProtocollo: '',
+        rateizzazioneScelta: ''
       },
       noCaptchaCount: 0,
       recaptchaVerified: false,
@@ -93,6 +97,9 @@ export default {
   methods: {
     formValido () {
       let formValid = true
+      if (this.logged) {
+        return true
+      }
       this.$refs.codiceFiscale.$v.cfForm.$touch()
       if (this.$refs.codiceFiscale.$v.cfForm.$invalid) formValid = false
       this.$v.cercaForm.$touch()
@@ -104,17 +111,17 @@ export default {
       this.$emit('updateboxerr', { title: '', message: '' })
       this.$emit('updateboxwarn', { title: '', message: '' })
 
-      if (!this.formValido()) return
-      if (this.noCaptchaCount > NO_RECAPTCHA_ATTEMPTS && !this.recaptchaVerified) {
+      if (!this.formValido() && !this.logged) return
+      if (this.noCaptchaCount > NO_RECAPTCHA_ATTEMPTS && !this.recaptchaVerified && !this.logged) {
         this.$emit('updateboxerr', {
           title: this.$i18n.t('general.error'),
           message: 'Dimostra di non essere un robot'
         })
         return
       }
-      if (!NavigatorService.checkInternetConnection()) return
+      if (!NavigatorService.checkInternetConnection() && !this.logged) return
 
-      const codFiscale = this.$refs.codiceFiscale.getValore()
+      const codFiscale = this.$refs.codiceFiscale.getValore().toUpperCase()
       this.$emit('controlspinner', { running: true })
       store
         .dispatch(DATI_INTESTATARIO, codFiscale)
@@ -123,7 +130,7 @@ export default {
             this.$emit('controlspinner', { running: false })
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.error'),
-              message: 'Il Codice fiscale inserito non corrisponde ad una Persona Fisica.'
+              message: 'Per poter inserire una domanda di discarico per una persona giuridica, è necessario utilizzare la ricerca per persona giuridica.'
             })
             return
           }
@@ -168,7 +175,7 @@ export default {
       store
         .dispatch(PRATICA_RICHIESTA_INTESTATARIO, {
           codiceFiscale: cf,
-          numeroProtocollo: this.cercaForm.numeroProtocollo
+          numeroProtocollo: this.cercaForm.numeroProtocollo.toUpperCase()
         })
         .then(({ data }) => {
           this.$emit('controlspinner', { running: false })
@@ -214,7 +221,8 @@ export default {
           } else if (error.response.status === 422) {
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.api.errors.no_results'),
-              message: 'Impossibile aggiungere l\'accertamento in quanto risulta prescritto'
+              // message: 'Impossibile aggiungere l\'accertamento in quanto risulta prescritto'
+              message: error.response.data.title
             })
             this.noCaptchaCount++
             const detail = error.response.data.detail
@@ -222,7 +230,8 @@ export default {
           } else if (error.response.status === 500) {
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.error'),
-              message: this.$i18n.t('general.api.errors.service_unavailable') + ' (' + error.response.data.title + ')'
+              // message: this.$i18n.t('general.api.errors.service_unavailable') + ' (' + error.response.data.title + ')'
+              message: this.$i18n.t('general.api.errors.service_unavailable')
             })
           }
         })

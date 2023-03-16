@@ -1,119 +1,114 @@
 <template>
   <div class="space-section">
     <h2>
-      Persona fisica (o legale rappresentante di soggetto diverso da persona fisica)
+      Compilare i dati del rappresentante legale e successivamente inserire la
+      P.IVA della società rappresentata
     </h2>
-    <p>
-      Tutti i campi sono obbligatori
-    </p>
+    <p>Tutti i campi sono obbligatori</p>
     <v-form>
       <v-text-field
-        clearable
+        :error-count="3"
+        :error-messages="cfRLErrors"
+        :maxLength="
+          $v.rappresentanteLegale.codiceFiscaleRL.$params.maxLength.max
+        "
+        autocomplete="off"
+        class="uppercase-input"
         clear-icon="mdi-close-circle"
-        label="Codice fiscale"
+        clearable
         id="codiceFiscaleRL"
+        label="Codice fiscale"
         type="text"
         v-model="rappresentanteLegale.codiceFiscaleRL"
-        :maxLength="$v.rappresentanteLegale.codiceFiscaleRL.$params.maxLength.max"
-        :error-messages="cfRLErrors"
-        autocomplete="off"
-        :error-count="3"
+        @focusout="toTrim()"
       ></v-text-field>
       <v-radio-group
-        label="Sesso"
-        v-model="rappresentanteLegale.sesso"
         :error-messages="sessoRLErrors"
+        label="Sesso"
+        name="rappLegSesso"
         row
-        name="rappLegSesso">
+        v-model="rappresentanteLegale.sesso"
+      >
         <v-radio label="Femmina" value="F"></v-radio>
         <v-radio label="Maschio" value="M"></v-radio>
       </v-radio-group>
       <v-text-field
-        clearable
-        clear-icon="mdi-close-circle"
-        label="Nome"
-        id="nome"
-        type="text"
-        v-model="rappresentanteLegale.nome"
+        :error-count="1"
         :error-messages="nomeRLErrors"
         autocomplete="off"
-        :error-count="1"
+        clear-icon="mdi-close-circle"
+        clearable
+        id="nome"
+        label="Nome"
+        type="text"
+        v-model="rappresentanteLegale.nome"
       ></v-text-field>
       <v-text-field
-        clearable
-        clear-icon="mdi-close-circle"
-        label="Cognome"
-        id="cognome"
-        type="text"
-        v-model="rappresentanteLegale.cognome"
         :error-messages="cognomeRLErrors"
         autocomplete="off"
+        clear-icon="mdi-close-circle"
+        clearable
+        id="cognome"
+        label="Cognome"
+        type="text"
+        v-model="rappresentanteLegale.cognome"
         :error-count="1"
       ></v-text-field>
       <!--date picker -->
-      <v-menu
-        v-model="dataDiNascitaPicker"
-        :close-on-content-click="false"
-        transition="scale-transition"
-        offset-y
-        max-width="290px"
-        min-width="290px"
-      >
-        <template v-slot:activator="{ on }">
-          <v-text-field
-            v-model="computedDateFormatted"
-            id="dataDiNascita"
-            label="Data di Nascita"
-            append-icon="event"
-            readonly
-            v-on="on"
-            :error-messages="dataDiNascitaRLErrors"
-            :error-count="1"
-          ></v-text-field>
-        </template>
-        <v-date-picker v-model="rappresentanteLegale.dataDiNascita" @input="dataDiNascitaPicker = false" locale="it-IT"></v-date-picker>
-      </v-menu>
+      <v-text-field
+          :error-count="1"
+          :error-messages="dataDiNascitaRLErrors"
+          id="dataDiNascita"
+          label="Data di Nascita"
+          aria-label="data di nascita"
+          :readonly="false"
+          v-model="rappresentanteLegale.dataDiNascita"
+          @input="dataDiNascitaPicker = false"
+          type="date"
+        ></v-text-field>
       <!--fine date picker -->
       <v-text-field
-        clearable
-        clear-icon="mdi-close-circle"
-        label="Comune"
-        id="comune"
-        type="text"
-        v-model="rappresentanteLegale.comune"
+        :disabled="rappresentanteLegale.statoEsteroCheck ? true : false"
+        :error-count="1"
         :error-messages="comuneRLErrors"
         autocomplete="off"
-        :error-count="1"
-        :disabled="rappresentanteLegale.statoEsteroCheck ? true : false"
+        clear-icon="mdi-close-circle"
+        clearable
+        id="comune"
+        label="Comune di Nascita"
+        type="text"
+        v-model="rappresentanteLegale.comune"
       ></v-text-field>
       <v-text-field
-        clearable
-        clear-icon="mdi-close-circle"
-        label="Provincia"
-        id="provincia"
-        type="text"
-        v-model="rappresentanteLegale.provincia"
+        :disabled="rappresentanteLegale.statoEsteroCheck ? true : false"
+        :error-count="1"
         :error-messages="provinciaRLErrors"
         autocomplete="off"
-        :error-count="1"
-        :disabled="rappresentanteLegale.statoEsteroCheck ? true : false"
+        clear-icon="mdi-close-circle"
+        clearable
+        id="provincia"
+        label="Provincia di Nascita"
+        type="text"
+        v-model="rappresentanteLegale.provincia"
       ></v-text-field>
       <v-switch
+        :ripple="false"
         id="cittadinoEsteroSwitch"
+        label="Cittadino di Stato Estero"
         v-model="rappresentanteLegale.statoEsteroCheck"
-        label="Cittadino di Stato Estero">
+      >
       </v-switch>
       <v-text-field
-        clearable
-        clear-icon="mdi-close-circle"
-        label="Stato di nascita"
-        id="stato"
-        type="text"
-        v-model="rappresentanteLegale.stato"
+        :error-count="1"
         :error-messages="statoRLErrors"
         autocomplete="off"
-        :error-count="1"
+        clear-icon="mdi-close-circle"
+        clearable
+        id="stato"
+        label="Stato di Nascita"
+        type="text"
         v-if="rappresentanteLegale.statoEsteroCheck"
+        v-model="rappresentanteLegale.stato"
       ></v-text-field>
     </v-form>
   </div>
@@ -196,7 +191,7 @@ export default {
     sessoRLErrors () {
       const errors = []
       if (!this.$v.rappresentanteLegale.sesso.$dirty) return errors
-      !this.$v.rappresentanteLegale.sesso.required && errors.push('Il sesso è obbligatorio.')
+      !this.$v.rappresentanteLegale.sesso.required && errors.push('Il campo sesso è obbligatorio.')
       return errors
     },
     nomeRLErrors () {
@@ -226,13 +221,13 @@ export default {
     statoRLErrors () {
       const errors = []
       if (!this.$v.rappresentanteLegale.stato.$dirty) return errors
-      !this.$v.rappresentanteLegale.stato.required && errors.push('Lo stato di nascita è obbligatorio.')
+      !this.$v.rappresentanteLegale.stato.required && errors.push('Lo stato di Nascita è obbligatorio.')
       return errors
     },
     dataDiNascitaRLErrors () {
       const errors = []
       if (!this.$v.rappresentanteLegale.dataDiNascita.$dirty) return errors
-      !this.$v.rappresentanteLegale.dataDiNascita.required && errors.push('La data di nascita è obbligatoria.')
+      !this.$v.rappresentanteLegale.dataDiNascita.required && errors.push('La data di Nascita è obbligatoria.')
       !this.$v.rappresentanteLegale.dataDiNascita.adult && errors.push('Devi essere maggiorenne per chiedere una rateizzazione.')
       return errors
     },
@@ -241,6 +236,9 @@ export default {
     }
   },
   methods: {
+    toTrim () {
+      this.rappresentanteLegale.codiceFiscaleRL = this.rappresentanteLegale.codiceFiscaleRL.replace(/\s/g, '').toUpperCase()
+    },
     formatDate (date) {
       if (!date) return null
 

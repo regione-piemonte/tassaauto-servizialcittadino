@@ -9,6 +9,7 @@
         ref="RappresentanteLegaleBox"
       />
       <v-btn
+      depressed
         id="rappLegaleAvanti"
         @click="next()"
         type="submit" color="primary">
@@ -22,7 +23,7 @@
       />
       <div class="space-section">
         <h2>
-          Dati soggetto rappresentato
+          {{ $t("pratica.domanda_discarico_rimborso.crea.dati_soggetto_rappresentato") }}
         </h2>
         <v-form
           @submit.prevent="iniziaRichiestaDomandaDiscaricoRimborso">
@@ -37,9 +38,10 @@
             v-on:recaptchaverified="updRecaptchaVerified()"
             v-on:recaptchanotverified="recaptchaVerified = false"
           />
-          <div class="action-button-wide spaceTopButtonSubmit">
+          <div class="action-button-wide row spaceTopButtonSubmit">
             <div class="col-md-6">
               <v-btn
+                depressed
                 id="indietroDTERL"
                 @click.prevent="step = 1">
                 Indietro
@@ -47,6 +49,7 @@
             </div>
             <div class="col-md-6 text-md-right">
               <v-btn
+                depressed
                 id="cercaDTERL"
                 type="submit"
                 color="primary">
@@ -109,16 +112,17 @@ export default {
         })
         return
       }
-
       const datiRapprLegale = this.$refs.RappresentanteLegaleBox.datiRappresentanteLegale()
+
       // dati del rappresentante legale messi nello store di Vuex
+      datiRapprLegale.codiceFiscaleR.toUpperCase()
       store.dispatch(DATI_LEGALE_RAPPRESENTANTE_DOMANDA_DISCARICO, datiRapprLegale)
 
       if (!NavigatorService.checkInternetConnection()) return
 
       this.$emit('controlspinner', { running: true })
       store
-        .dispatch(CERCA_DOMANDA_DISCARICO_RIMBORSO, this.$refs.cFSoggRapp.getValore())
+        .dispatch(CERCA_DOMANDA_DISCARICO_RIMBORSO, this.$refs.cFSoggRapp.getValore().toUpperCase())
         .then(({ data }) => {
           this.$emit('controlspinner', { running: false })
           if (data.dataAnagraficiIntestatario.denominazione === null) {

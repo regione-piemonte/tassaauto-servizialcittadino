@@ -11,7 +11,9 @@ import {
   PRATICA_TIPOLOGIA,
   PRATICA_DISC_RIMB,
   PRATICA_DISC_RIMB_MODIFICA,
-  PRATICA_RESET_STATE
+  PRATICA_RESET_STATE,
+  PRATICA_BONARIO,
+  PRATICA_BONARIO_MODIFICA
 } from './actions.type'
 import { INITIAL_STATE_VERIFICA_PRATICA, SET_VERIFICA_PRATICA } from './mutations.type'
 
@@ -54,8 +56,16 @@ export const actions = {
     context.commit(SET_VERIFICA_PRATICA, data)
     return { data }
   },
+  async [PRATICA_BONARIO] (context, params) {
+    const { data } = await PraticaService.cercaBonario(params)
+    context.commit(SET_VERIFICA_PRATICA, data)
+    return { data }
+  },
   async [PRATICA_ACCERTAMENTO_MODIFICA] (context, params) {
     return PraticaService.modificaRifAccertamento(params)
+  },
+  async [PRATICA_BONARIO_MODIFICA] (context, params) {
+    return PraticaService.modificaRifBonario(params)
   },
   async [PRATICA_DISC_RIMB] (context, params) {
     const { data } = await PraticaService.cercaDomandaDiscarico(params)

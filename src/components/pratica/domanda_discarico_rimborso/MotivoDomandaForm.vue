@@ -1,26 +1,28 @@
 <template>
   <div class="space-section mt-2">
     <h2>
-      Motivo
+      {{ $t("pratica.domanda_discarico_rimborso.motivo.titolo") }}
     </h2>
-    <v-alert
-    show
-    aria-live="off"
-    type="info"
-    border="left"
-    :icon="false">
+    <v-alert show aria-live="off" type="info" border="left" :icon="false">
       <v-row class="pl-6 pl-md-12">
         <v-col cols="12" md="1">
           <v-img
             width="40"
             :src="require(`@/assets/images/icone/alert/info.svg`)"
-            :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
+            :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"
+          />
         </v-col>
         <v-col cols="12" md="10" class="bodyAlertDark">
           <p>
-            <strong>Attenzione</strong>: Dato <strong>obbligatorio</strong><br/>
-            è necessario specificare il motivo della domanda scegliendo una delle opzioni.
+            <strong>Attenzione</strong>: Dato <strong>obbligatorio</strong
+            ><br />
           </p>
+
+          <p
+            v-html="
+              $t('pratica.domanda_discarico_rimborso.richiesta.intro.spec')
+            "
+          />
         </v-col>
       </v-row>
     </v-alert>
@@ -29,15 +31,20 @@
       :error-messages="domandaMotivoFormErrors"
       :error-count="1"
       column
-      name="domandaMotivoForm">
+      name="domandaMotivoForm"
+    >
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="pagamentoEseguito">
+            <v-radio value="pagamentoEseguito">
               <template v-slot:label>
                 <strong class="fix-align">
-                  Pagamento eseguito (allegare fotocopia nella sezione Allegati)
+                  {{
+                    $t(
+                      "pratica.domanda_discarico_rimborso.motivo.pagamentoEseguito"
+                    )
+                  }}
+                  (allegare fotocopia nella sezione Allegati)
                 </strong>
               </template>
             </v-radio>
@@ -45,48 +52,45 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="mancanzaPresupposto">
+            <v-radio value="mancanzaPresupposto">
               <template v-slot:label>
                 <div class="row">
-                  <strong
-                    class="col-12 fix-align"
-                    id="mancanzaPresupposto">
-                    Mancanza del presupposto
+                  <strong class="col-12 fix-align" id="mancanzaPresupposto">
+                    {{
+                      $t(
+                        "pratica.domanda_discarico_rimborso.motivo.mancanzaPresupposto"
+                      )
+                    }}
                   </strong>
                 </div>
               </template>
-           </v-radio>
+            </v-radio>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="altro">
+            <v-radio value="altro">
               <template v-slot:label>
                 <div class="row">
-                  <strong
-                    class="col-12 fix-align"
-                    id="altro">
-                    Altro
-                  </strong>
+                  <strong class="col-12 fix-align" id="altro"> Altro </strong>
                 </div>
               </template>
-           </v-radio>
-           <v-textarea
-            class="col-12 fix-align"
-            clear-icon="mdi-close-circle"
-            label="Inserire motivazione"
-            id="altro-note"
-            outlined
-            auto-grow
-            clearable
-            rows="3"
-            autocomplete="off"
-            :disabled="motivoForm.motDomRadio !== 'altro'"
-            :error-messages="altroNoteErrors"
-            v-model="motivoForm.altroNote">
-          </v-textarea>
+            </v-radio>
+            <v-textarea
+              class="col-12 fix-align"
+              clear-icon="mdi-close-circle"
+              label="Inserire motivazione"
+              id="altro-note"
+              outlined
+              auto-grow
+              clearable
+              rows="3"
+              autocomplete="off"
+              :disabled="motivoForm.motDomRadio !== 'altro'"
+              :error-messages="altroNoteErrors"
+              v-model="motivoForm.altroNote"
+            >
+            </v-textarea>
           </div>
         </div>
       </div>

@@ -1,222 +1,229 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <Wizard :servizio="'domanda_discarico_rimborso'" :stepAttivo="1" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="this.detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="col-xxl-8 offset-xxl-2">
-        <div class="space-section">
-          <DatiAnagraficiIntestatario
-            :denominazione="soggettoDomDisRim"
-            :codiceFiscale="cfDomDisRim"
-            :dataNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.dataNascita"
-            :comuneNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.comuneNascita"
-            :provinciaNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.provinciaNascita"
-            :sesso="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.sesso"
-            :tipoDatiAnagrafici="'intestatario ingiunzione / cartella'"
-            :personaFisica="personaFisica"
-          />
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <Wizard :servizio="'domanda_discarico_rimborso'" :stepAttivo="1" />
+          </div>
         </div>
-      </div>
-      <div
-        class="col-xxl-8 offset-xxl-2"
-        v-if="rappresentanteLegaleDomanda !== null">
-        <DatiAnagRapprLegale
-          :denominazione="rappresentanteLegaleDomanda.nome + ' ' + rappresentanteLegaleDomanda.cognome"
-          :codiceFiscale="rappresentanteLegaleDomanda.codiceFiscaleR"
-          :sesso="rappresentanteLegaleDomanda.sesso"
-          :dataDiNascita="rappresentanteLegaleDomanda.dataDiNascita"
-          :comuneDiNascita="rappresentanteLegaleDomanda.comune"
-          :provinciaDiNascita="rappresentanteLegaleDomanda.provincia"
-        />
-      </div>
-      <div class="col-xxl-8 offset-xxl-2">
-        <DatiIndirizzoIntestatario
-          :indirizzo="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.indirizzo"
-          :comune="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.descComune"
-          :provincia="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.provincia"
-          :cap="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.cap"
-          :tipoDatiAnagrafici="'ingiunzione / cartella'"
-        />
-      </div>
-      <div class="col-xxl-8 offset-xxl-2">
-        <div class="space-section">
-          <h2>
-            Titolo esecutivo: Ingiunzione / Cartella
-          </h2>
-          <BoxWarning :warning="detailWarn" />
-          <v-form
-            @submit.prevent="compilaDomanda"
-            class="multiple-inline-form"
-            enctype="multipart/form-data">
-            <div class="tab-content-notHp">
-              <v-tabs
-              fixed-tabs
-              show-arrows="mobile"
-              centered
-              class="tabServizi"
-              v-model="tabs">
-                <v-tab
-                  :disabled="ingiunzFiscTabDisabled"
-                  :active="ingiunzFiscaleTab"
-                  @click="ingiunzFiscaleTab = true">
-                  Ingiunzione
-                </v-tab>
-                <v-tab
-                  :active="!ingiunzFiscaleTab"
-                  @click="ingiunzFiscaleTab = false">
-                  Cartella
-                </v-tab>
-              </v-tabs>
-              <v-tabs-items
-              v-model="tabs">
-                <v-tab-item>
-                  <DomDisRimbFormRadioIng
-                    ref="formRadioIngiunzione"
-                    :elencoIngiunzione = "listaNumeriIngiunzione"
-                    :pNumIngiunzione = "ingiunzioneFiscaleDiscRimb.numeroIngiunzione"
-                  />
-                </v-tab-item>
-                <v-tab-item>
-                  <DomDisRimbFormRadioCart
-                    ref="formRadioCartella"
-                    :pNumCartellaEsattoriale = "cartellaEsattorialeDiscRimb.numeroCartellaEsattoriale"
-                    :ingiunzFiscaleTab ="ingiunzFiscaleTab"
-                  />
-                </v-tab-item>
-              </v-tabs-items>
-            </div>
-            <dati-opzionali
-              ref="datiOpzionali"
-              :pDataNotif="domandaDiscaricoRimborso.dataNotifica"
-              :pImportoTotRiscos="Number(domandaDiscaricoRimborso.importoTotaleRiscossione)"
-              :pIngiunzFiscaleTab="ingiunzFiscaleTab"
-            />
-            <div class="space-section row">
-              <div class="col-12">
-                <strong class="fix-align">
-                  Codice Tributi
-                </strong>
-                <ul class="list-group list-group-horizontal vertical-divider">
-                  <li v-for="codice in codiceTributiElenco" :key="codice" class="list-group-item"> {{ codice }}</li>
-                </ul>
-              </div>
-            </div>
-            <oggetto-domanda-form
-              ref="oggettoDomandaBox"
-              :pOggettoDomanda="domandaDiscaricoRimborso.oggettoDomanda"
-            />
-            <motivo-domanda-form
-              ref="motivoDomandaBox"
-              :pMotivoDomanda="domandaDiscaricoRimborso.motivo"
-            />
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="this.detailError" />
+          </div>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class="col-lg-8 offset-lg-2">
             <div class="space-section">
-            <h2>
-              {{ $t('general.box_titles.allegati') }}
-            </h2>
-            <v-alert
-            show
-            aria-live="off"
-            type="info"
-            border="left"
-            :icon="false">
-              <v-row class="pl-6 pl-md-12">
-                <v-col cols="12" md="1">
-                  <v-img
-                    width="40"
-                    :src="require(`@/assets/images/icone/alert/info.svg`)"
-                    :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
-                </v-col>
-                <v-col cols="12" md="10" class="bodyAlertDark">
-                  <p>
-                    {{ $t('general.services.scatta_foto.par_1', { numMaxAllegati: numMaxAllegati, tipiAllegato: tipiAllegato } ) }}
-                  </p>
-                  <p>
-                    {{ $t('general.services.scatta_foto.par_2') }}
-                  </p>
-                </v-col>
-              </v-row>
-            </v-alert>
-            <div class="row">
-              <div class="col-md-5">
-                <v-file-input
-                  id="uploadFile"
-                  :accept="tipiAllegato"
-                  label="Seleziona allegato"
-                  :disabled="domDiscaricoRimborsoAllegati.length >= numMaxAllegati"
-                  @change="caricaAllegato()"
-                  v-model="domDiscaricoForm.file"
-                  browse-text="Sfoglia"
-                  :error-count="2"
-                  :error-messages="allegatiErrors"/>
+              <DatiAnagraficiIntestatario
+                :denominazione="soggettoDomDisRim"
+                :codiceFiscale="cfDomDisRim"
+                :dataNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.dataNascita"
+                :comuneNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.comuneNascita"
+                :provinciaNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.provinciaNascita"
+                :sesso="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.sesso"
+                :tipoDatiAnagrafici="'intestatario ingiunzione / cartella'"
+                :personaFisica="personaFisica"
+              />
+            </div>
+          </div>
+          <div
+            class="col-lg-8 offset-lg-2"
+            v-if="rappresentanteLegaleDomanda !== null">
+            <DatiAnagRapprLegale
+              :denominazione="rappresentanteLegaleDomanda.nome + ' ' + rappresentanteLegaleDomanda.cognome"
+              :codiceFiscale="rappresentanteLegaleDomanda.codiceFiscaleR"
+              :sesso="rappresentanteLegaleDomanda.sesso"
+              :dataDiNascita="rappresentanteLegaleDomanda.dataDiNascita"
+              :comuneDiNascita="rappresentanteLegaleDomanda.comune"
+              :provinciaDiNascita="rappresentanteLegaleDomanda.provincia"
+            />
+          </div>
+          <div class="col-lg-8 offset-lg-2">
+            <DatiIndirizzoIntestatario
+              :indirizzo="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.indirizzo"
+              :comune="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.descComune"
+              :provincia="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.provincia"
+              :cap="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.cap"
+              :tipoDatiAnagrafici="'ingiunzione / cartella'"
+            />
+          </div>
+          <div class="col-lg-8 offset-lg-2">
+            <div class="space-section">
+              <h2>
+                {{ $t('pratica.domanda_discarico_rimborso.crea.titolo_esecutivo') }}
+              </h2>
+              <BoxWarning :warning="detailWarn" />
+              <v-form
+                @submit.prevent="compilaDomanda"
+                class="multiple-inline-form"
+                enctype="multipart/form-data">
+                <div class="tab-content-notHp">
+                  <v-tabs
+                  fixed-tabs
+                  show-arrows="mobile"
+                  centered
+                  class="tabServizi"
+                  v-model="tabs">
+                    <v-tab
+                      :disabled="ingiunzFiscTabDisabled"
+                      :active="ingiunzFiscaleTab"
+                      @click="ingiunzFiscaleTab = true">
+                      Ingiunzione
+                    </v-tab>
+                    <v-tab
+                      :active="!ingiunzFiscaleTab"
+                      @click="ingiunzFiscaleTab = false">
+                      Cartella
+                    </v-tab>
+                  </v-tabs>
+                  <v-tabs-items class="container"
+                  v-model="tabs">
+                    <v-tab-item>
+                      <DomDisRimbFormRadioIng
+                        ref="formRadioIngiunzione"
+                        :elencoIngiunzione = "listaNumeriIngiunzione"
+                        :pNumIngiunzione = "ingiunzioneFiscaleDiscRimb.numeroIngiunzione"
+                      />
+                    </v-tab-item>
+                    <v-tab-item>
+                      <DomDisRimbFormRadioCart
+                        ref="formRadioCartella"
+                        :pNumCartellaEsattoriale = "cartellaEsattorialeDiscRimb.numeroCartellaEsattoriale"
+                        :ingiunzFiscaleTab ="ingiunzFiscaleTab"
+                      />
+                    </v-tab-item>
+                  </v-tabs-items>
+                </div>
+                <dati-opzionali
+                  ref="datiOpzionali"
+                  :pDataNotif="domandaDiscaricoRimborso.dataNotifica"
+                  :pImportoTotRiscos="Number(domandaDiscaricoRimborso.importoTotaleRiscossione)"
+                  :pIngiunzFiscaleTab="ingiunzFiscaleTab"
+                />
+                <div class="space-section row">
+                  <div class="col-12">
+                    <strong class="fix-align">
+                     {{ $t('pratica.domanda_discarico_rimborso.crea.codice_tributi') }}
+                    </strong>
+                    <ul class="list-group list-group-horizontal vertical-divider">
+                      <li v-for="codice in codiceTributiElenco" :key="codice" class="list-group-item"> {{ codice }}</li>
+                    </ul>
+                  </div>
+                </div>
+                <oggetto-domanda-form
+                  ref="oggettoDomandaBox"
+                  :pOggettoDomanda="domandaDiscaricoRimborso.oggettoDomanda"
+                />
+                <motivo-domanda-form
+                  ref="motivoDomandaBox"
+                  :pMotivoDomanda="domandaDiscaricoRimborso.motivo"
+                />
+                <div class="space-section">
+                <h2>
+                  {{ $t('general.box_titles.allegati') }}
+                </h2>
+                <v-alert
+                show
+                aria-live="off"
+                type="info"
+                border="left"
+                :icon="false">
+                  <v-row class="pl-6 pl-md-12">
+                    <v-col cols="12" md="1">
+                      <v-img
+                        width="40"
+                        :src="require(`@/assets/images/icone/alert/info.svg`)"
+                        :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
+                    </v-col>
+                    <v-col cols="12" md="10" class="bodyAlertDark">
+                      <p>
+                        {{ $t('general.services.scatta_foto.par_1', { numMaxAllegati: numMaxAllegati, tipiAllegato: tipiAllegato } ) }}
+                      </p>
+                      <p>
+                        {{ $t('general.services.scatta_foto.par_2') }}
+                      </p>
+                    </v-col>
+                  </v-row>
+                </v-alert>
+                <div class="row">
+                  <div class="col-md-5">
+                    <v-file-input
+                      id="uploadFile"
+                      :accept="tipiAllegato"
+                      label="Seleziona allegato"
+                      :disabled="domDiscaricoRimborsoAllegati.length >= numMaxAllegati"
+                      @change="caricaAllegato()"
+                      v-model="domDiscaricoForm.file"
+                      browse-text="Sfoglia"
+                      :error-count="2"
+                      :error-messages="allegatiErrors"/>
+                  </div>
+                </div>
+                <div class="mt-2"
+                  v-if="domDiscaricoRimborsoAllegati.length === 0">
+                  {{ $t('general.messages.zero_allegati') }}
+                </div>
+                <div v-else>
+                  <ul class="border-list">
+                    <li v-for="(item, index) in domDiscaricoRimborsoAllegati" :key="index">
+                      <a href="#" v-on:click="scaricaAllegato(item.identificativoArchivio)">
+                        {{ item.nomeAllegato }}
+                      </a>
+                      <v-btn
+                        depressed
+                        text
+                        @click="eliminaAllegato(item.identificativoArchivio)">
+                        <v-icon>mdi-trash-can</v-icon>
+                      </v-btn>
+                    </li>
+                  </ul>
+                </div>
+                <div class="error--text mt-2"
+                  v-if="downloadFileError !== null">
+                  {{ downloadFileError }}
+                </div>
               </div>
-            </div>
-            <div class="mt-2"
-              v-if="domDiscaricoRimborsoAllegati.length === 0">
-              {{ $t('general.messages.zero_allegati') }}
-            </div>
-            <div v-else>
-              <ul class="border-list">
-                <li v-for="(item, index) in domDiscaricoRimborsoAllegati" :key="index">
-                  <a href="#" v-on:click="scaricaAllegato(item.identificativoArchivio)">
-                    {{ item.nomeAllegato }}
-                  </a>
+              <div class="action-button-wide row">
+                <div class="col-md-6 offset-md-6 text-md-right">
                   <v-btn
-                    text
-                    @click="eliminaAllegato(item.identificativoArchivio)">
-                    <v-icon>mdi-trash-can</v-icon>
+                    depressed
+                    color="primary"
+                    @click="openmodalFoto()">
+                    <v-icon class="mr-2">mdi-camera</v-icon> {{ $t('general.buttons.foto') }}
                   </v-btn>
-                </li>
-              </ul>
-            </div>
-            <div class="error mt-2"
-              v-if="downloadFileError !== null">
-              {{ downloadFileError }}
-            </div>
+                </div>
+              </div>
+              <div class="action-button-wide row">
+                <div class="col-md-6">
+                  <BtnBack
+                    :backUrl="'richiesta_domanda_discarico_rimborso'"
+                    :backType="'back'"/>
+                </div>
+                <div class="col-md-6 text-md-right">
+                  <v-btn
+                    depressed
+                    id="stepAvanti"
+                    type="submit"
+                    color="primary">
+                    Avanti
+                  </v-btn>
+                </div>
+              </div>
+            </v-form>
           </div>
-          <div class="action-button-wide">
-            <div class="col-md-6 offset-md-6 text-right">
-              <v-btn
-                @click="$refs.scattaFoto.modalFoto = true">
-                <v-icon class="mr-2">mdi-camera</v-icon> {{ $t('general.buttons.foto') }}
-              </v-btn>
-            </div>
-          </div>
-          <div class="action-button-wide">
-            <div class="col-md-6">
-              <BtnBack
-                :backUrl="'richiesta_domanda_discarico_rimborso'"
-                :backType="'back'"/>
-            </div>
-            <div class="col-md-6 text-md-right">
-              <v-btn
-                id="stepAvanti"
-                type="submit"
-                color="primary">
-                Avanti
-              </v-btn>
-            </div>
-          </div>
-        </v-form>
-      </div>
+        </div>
+        <ScattaFoto
+          ref="scattaFoto"
+          v-bind:imgFile.sync="domDiscaricoForm.file"
+          v-on:annullafile="domDiscaricoForm.file = null"
+          v-on:salvafile="domDiscaricoForm.file = $event"
+          v-on:caricaallegato="caricaAllegato()"
+        />
+        </div>
+      </v-card>
     </div>
-    <ScattaFoto
-      ref="scattaFoto"
-      v-bind:imgFile.sync="domDiscaricoForm.file"
-      v-on:annullafile="domDiscaricoForm.file = null"
-      v-on:salvafile="domDiscaricoForm.file = $event"
-      v-on:caricaallegato="caricaAllegato()"
-    />
-    </div>
-    </v-card>
+
     <spinner :pOverlay="overlay" />
   </div>
 </template>
@@ -284,6 +291,7 @@ export default {
       listaNumeriIngiunzione: [],
       numMaxAllegati: ALLEGATI_MAX_NUM,
       overlay: false,
+      modalFotoFirstTime: true,
       tipiAllegato: tipiAllegatoString(),
       uploadFileError: null,
       downloadFileError: null,
@@ -339,6 +347,11 @@ export default {
     }
   },
   methods: {
+    openmodalFoto () {
+      this.$refs.scattaFoto.modalFoto = true
+      if (!this.modalFotoFirstTime) this.$refs.scattaFoto.playVideo()
+      this.modalFotoFirstTime = false
+    },
     compilaDomanda () {
       if (!this.formValido()) return
       const datiDomanda = { }
@@ -404,7 +417,7 @@ export default {
       this.$v.domDiscaricoForm.file.$touch()
       if (this.$v.domDiscaricoForm.file.$invalid) return
 
-      var formData = new FormData()
+      const formData = new FormData()
       formData.append('upFile', this.domDiscaricoForm.file)
       formData.append('codiceFiscale', this.cfDomDisRim)
       formData.append('cognome', this.datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.cognome)

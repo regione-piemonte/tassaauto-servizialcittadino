@@ -1,1 +1,18 @@
+@import '~vuetify/src/styles/styles.sass';
 
+$grid-breakpoints: ();
+$grid-breakpoints: map-deep-merge(
+  (
+    xs: 576px,
+    sm: 768px,
+    md: 992px,
+    lg: 1200px,
+    xl: 1440px
+  ),
+  $grid-breakpoints
+);
+
+$btn-active-opacity: 0;
+$btn-focus-opacity: 0;
+$btn-hover-opacity: 0;
+$grid-gutter: 16px!default;

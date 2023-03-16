@@ -1,6 +1,6 @@
 // File di configurazione di Webpack usato per gli unit tests, non per produrre una distribuzione
 
-var utils = require('./utils')
+const utils = require('./utils')
 var webpack = require('webpack')
 const { merge } = require('webpack-merge')
 var baseConfig = require('./webpack.base.conf')
@@ -10,7 +10,7 @@ var webpackConfig = merge(baseConfig, {
   module: {
     rules: utils.styleLoaders()
   },
-  devtool: '#inline-source-map',
+  devtool: false,
   resolveLoader: {
     alias: {
       // necessary to to make lang="scss" work in test when using vue-loader's ?inject option

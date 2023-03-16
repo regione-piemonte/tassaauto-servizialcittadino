@@ -7,11 +7,13 @@ export default {
       param_not_found: 'Non trovato',
       cf_not_found: 'Il codice fiscale non corrisponde al soggetto dell\'avviso accertamento',
       params_invalid: 'Parametri inseriti non validi.',
+      pratica_invalid: 'Domanda non inviata, parametri inseriti non validi.',
       search_params_invalid: 'Parametri di ricerca non validi.',
       service_unavailable: 'Servizio al momento non disponibile.',
       targa_not_found: 'Targa non presente',
       targa_invalid: 'Formato errato della targa',
-      subject_not_found: 'Soggetto non trovato'
+      subject_not_found: 'Soggetto non trovato',
+      phone_error: 'Il numero di telefono non è valido.'
     }
   },
   box_titles: {
@@ -30,6 +32,7 @@ export default {
     nuovo_veicolo: 'Nuova ricerca veicolo',
     back_mod: 'Modifica / Indietro',
     avanti: 'Avanti',
+    indietro: 'Indietro',
     invia: 'Invia richiesta',
     calcola: 'Calcola',
     accetta: 'Accetta',
@@ -43,12 +46,15 @@ export default {
     cell: 'Numero di telefono mobile',
     pagina_scaduta: 'Pagina scaduta.',
     error: {
-      privacy: "Il consenso all'informativa sulla privacy è obbligatorio."
+      privacy: "Il consenso all'informativa sulla privacy è obbligatorio.",
+      flag: "L'accettazione della dichiarazione è obbligatoria."
     }
   },
   messages: {
     zero_allegati: 'Nessun file allegato',
-    limite_allegati: 'Non puoi allegare altri documenti.'
+    limite_allegati: 'Non puoi allegare altri documenti.',
+    caricamento_pagina: 'Attendere il caricamento della pagina di Tassa Auto',
+    pagina_caricata: 'Caricamento completato della pagina di Tassa Auto'
   },
   services: {
     scatta_foto: {
@@ -57,6 +63,7 @@ export default {
     }
   },
   privacy: 'Informativa sulla privacy',
+  flag: 'Accetta dichiarazione',
   validations: {
     codiceFiscale: {
       alfanumerico: 'Il codice fiscale / P.IVA deve contenere solo lettere e numeri.',
@@ -68,5 +75,9 @@ export default {
       obbligatorio: 'La targa è obbligatoria.'
     }
   },
-  warning: 'Attenzione'
+  warning: 'Attenzione',
+  info_loading: {
+    title: 'In attesa di caricamento',
+    message: 'Si prega l\'utente di non chiudere o ricaricare questa finestra.'
+  }
 }

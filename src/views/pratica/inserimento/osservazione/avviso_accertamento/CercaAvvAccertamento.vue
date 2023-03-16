@@ -1,117 +1,202 @@
 <template>
-  <div class="app-container">
-    <div class="app-row inner-cont-bollo">
+  <div class="container">
+    <div class="row inner-cont-bollo">
       <div
-        class="text-intro text-descrizione-servizio col-xxl-8 offset-xxl-2"
+        class="text-intro text-descrizione-servizio col-lg-8 offset-lg-2"
         v-html="descrizione"
       />
     </div>
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2"
-        id="boxErrCmp"
-        tabindex="-1">
-        <box-errore
-          :error="detailError"
-        />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="col-xxl-8 offset-xxl-2 justify-content-center">
-        <Wizard :servizio="'osservazione'" :stepAttivo="0" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="cerca-avviso col-xxl-3 col-md-6 offset-xxl-2 mt-8 mt-sm-0">
-        <v-img
-          class="imgHomeServizio"
-          width="178"
-          :src="require('@/assets/images/ritagli/servizi/osservazioni.svg')"
-          alt=""
-          fluid/>
-        <div class="text-inner">
-          <p>
-            Il protocollo dell'avviso si trova nell'
-            <v-dialog v-model="dialog" max-width="600">
-              <template v-slot:activator="{ on }">
-                <a role="button" name="modalAvvisoAccetamento" v-on="on" aria-hidden="true">avviso di accertamento</a>
-              </template>
-              <v-card class="card-view-page">
-                <v-card-title class="justify-end">
-                  <v-icon @click="closeDialog()">mdi-close</v-icon>
-                </v-card-title>
-                <v-img
-                  :src="require(`@/assets/images/ritagli/${regione}/modal-num_protocollo_avviso_accertamento.jpg`)"
-                  alt="Dove è il protocollo avviso?"
-                  fluid
-                />
-              </v-card>
-            </v-dialog>
-            <span class="sr-only">avviso di accertamento</span> che hai ricevuto.
-          </p>
-          <router-link
-            :to="{ name: 'video_tutorial', hash:'#osservazioni_accertamento_video'}"
-            v-if="videoTutorial()">
-            <strong><span class="sr-only">Vai al </span>Video tutorial di osservazioni</strong>
-          </router-link>
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-alert">
+          <div
+            class="text-intro col-lg-8 offset-lg-2"
+            id="boxErrCmp"
+            tabindex="-1"
+          >
+            <box-errore :error="detailError" />
+          </div>
         </div>
-      </div>
-      <div class="form-cerca-avviso-hp col-xxl-4 col-md-6 offset-xxl-1">
-        <h2>
-          Cerca un avviso di accertamento
-        </h2>
-        <v-form
-          @submit.prevent="cercaAvviso">
-          <v-text-field
-            clearable
-            clear-icon="mdi-close-circle"
-            label="N° di protocollo dell'avviso"
-            id="numeroProtocollo"
-            type="text"
-            v-model="cercaForm.numeroProtocollo"
-            @change.native="resetErroriServer()"
-            :maxLength="$v.cercaForm.numeroProtocollo.$params.maxLength.max"
-            :error-messages="nProtErrors"
-            autocomplete="off"
-            :error-count="4"
-            ></v-text-field>
+        <div class="row inner-cont-bollo">
+          <div class="col-lg-8 offset-lg-2 justify-content-center">
+            <Wizard :servizio="'osservazione'" :stepAttivo="0" />
+          </div>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class="cerca-avviso col-lg-3 col-md-6 offset-lg-2 mt-8 mt-sm-0">
+            <v-img
+              class="imgHomeServizio"
+              width="178"
+              :src="require('@/assets/images/ritagli/servizi/osservazioni.svg')"
+              alt=""
+              fluid
+            />
+            <div class="text-inner pt-7 pl-0 pr-md-8 pr-lg-0">
+              <p>
+                Il protocollo dell'avviso si trova nell'
+                <v-dialog v-model="dialog" max-width="600" class="dialog-popup">
+                  <template v-slot:activator="{ on }">
+                    <a
+                      href="javascript:null"
+                      role="button"
+                      name="modalAvvisoAccetamento"
+                      v-on="on"
+                      aria-hidden="true"
+                      >avviso di accertamento</a
+                    >
+                  </template>
+                  <v-card aria-hidden="true">
+                    <v-card-title class="justify-end">
+                      <v-icon @click="closeDialog()">mdi-close</v-icon>
+                    </v-card-title>
+                    <v-img
+                      width="871"
+                      :src="
+                        require(`@/assets/images/ritagli/${regione}/modal-num_protocollo_avviso_accertamento.jpg`)
+                      "
+                      alt="Dove è il protocollo avviso?"
+                      fluid
+                    />
+                  </v-card>
+                </v-dialog>
+                <span class="d-sr-only">avviso di accertamento</span> che hai
+                ricevuto.
+              </p>
+              <router-link
+                :to="{
+                  name: 'video_tutorial',
+                  hash: '#osservazioni_accertamento_video',
+                }"
+                v-if="videoTutorial()"
+              >
+                <strong
+                  ><span class="d-sr-only">Vai al </span>Video tutorial di
+                  osservazioni</strong
+                >
+              </router-link>
+              <div class="text-inner pt-3 pl-0 pr-md-8 pr-lg-0">
+                <a href="https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tassa-automobilistica-avviso-accertamento" target="_blank"><strong>Maggiori informazioni</strong></a>
+              </div>
+            </div>
+          </div>
+          <div class="form-cerca-avviso-hp col-lg-4 col-md-6 offset-lg-1">
+            <h2>Cerca un avviso di accertamento</h2>
+            <v-form @submit.prevent="cercaAvviso" v-if="!logged">
+              <v-text-field
+                :error-count="4"
+                :error-messages="nProtErrors"
+                :maxLength="$v.cercaForm.numeroProtocollo.$params.maxLength.max"
+                @change.native="resetErroriServer()"
+                autocomplete="off"
+                class="uppercase-input"
+                clear-icon="mdi-close-circle"
+                clearable
+                id="numeroProtocollo"
+                label="N° di protocollo dell'avviso"
+                type="text"
+                v-model="cercaForm.numeroProtocollo"
+                @focusout="toTrim()"
+              ></v-text-field>
 
-          <v-text-field
-            clearable
-            clear-icon="mdi-close-circle"
-            label="Codice fiscale / P.IVA"
-            id="codiceFiscale"
-            type="text"
-            v-model="cercaForm.codiceFiscale"
-            @change.native="resetErroriServer()"
-            :maxLength="$v.cercaForm.codiceFiscale.$params.maxLength.max"
-            :error-messages="cFiscaleErrors"
-            autocomplete="off"
-            :error-count="4"
-            ></v-text-field>
+              <v-text-field
+                :error-count="4"
+                :error-messages="cFiscaleErrors"
+                :maxLength="$v.cercaForm.codiceFiscale.$params.maxLength.max"
+                @change.native="resetErroriServer()"
+                autocomplete="off"
+                class="uppercase-input"
+                clear-icon="mdi-close-circle"
+                clearable
+                id="codiceFiscale"
+                label="Codice fiscale / P.IVA"
+                type="text"
+                v-model="cercaForm.codiceFiscale"
+              ></v-text-field>
 
-          <tassa-auto-recaptcha
-            :pCount="noCaptchaCount"
-            v-on:recaptchaverified="updRecaptchaVerified()"
-            v-on:recaptchanotverified="recaptchaVerified = false"
-          />
-          <v-btn
-            class="spaceTopButtonSubmit"
-            type="submit"
-            color="primary"
-            :disabled="cercaAvvisoDisabled">
-            Cerca avviso
-          </v-btn>
-        </v-form>
-      </div>
+              <tassa-auto-recaptcha
+                :pCount="noCaptchaCount"
+                v-on:recaptchaverified="updRecaptchaVerified()"
+                v-on:recaptchanotverified="recaptchaVerified = false"
+              />
+              <v-btn
+                depressed
+                class="spaceTopButtonSubmit"
+                type="submit"
+                color="primary"
+                :disabled="cercaAvvisoDisabled"
+              >
+                Cerca avviso
+              </v-btn>
+            </v-form>
+            <v-form @submit.prevent="cercaAvvisoAuth" v-else>
+              <v-select
+                :items="listaAvvisiAccAuth"
+                id="codiceAvvisi"
+                label="Scegli l'avviso"
+                v-model="cercaFormAuth.avvisoScelto"
+                :error-count="1"
+                :error-messages="avvisoSceltoErrors"
+              >
+              </v-select>
+               <v-text-field
+              disabled
+              label="N° protocollo dell'avviso"
+              v-if="cercaFormAuth.avvisoScelto !== ''"
+              v-model="cercaFormAuth.avvisoScelto.nriferimento"></v-text-field>
+              <v-text-field
+              disabled
+              label="Codice fiscale"
+              v-if="cercaFormAuth.avvisoScelto !== ''"
+              v-model="userIdentity.cf">
+              </v-text-field>
+              <v-text-field
+              disabled
+              label="Tipo veicolo"
+              v-if="cercaFormAuth.avvisoScelto !== ''"
+              v-model="cercaFormAuth.avvisoScelto.tipoVeicolo.descrizione"></v-text-field>
+              <v-text-field
+              disabled
+              label="Targa"
+              v-if="cercaFormAuth.avvisoScelto !== ''"
+              v-model="cercaFormAuth.avvisoScelto.targa">
+              </v-text-field>
+              <v-text-field
+                id="meseScadenza"
+                label="Mese scadenza"
+                disabled
+                v-if="cercaFormAuth.avvisoScelto !== ''"
+                v-model="cercaFormAuth.avvisoScelto.meseScadenza"
+              >
+              </v-text-field>
+              <v-text-field
+                id="annoScadenza"
+                disabled
+                label="Anno scadenza"
+                v-if="cercaFormAuth.avvisoScelto !== ''"
+                v-model="cercaFormAuth.avvisoScelto.annoScadenza"
+              >
+              </v-text-field>
+              <v-btn
+                depressed
+                class="spaceTopButtonSubmit"
+                type="submit"
+                color="primary"
+                :disabled="cercaAvvisoDisabled"
+              >
+                {{ $t("general.buttons.search") }}
+              </v-btn>
+            </v-form>
+          </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
     <spinner :pOverlay="overlay" />
   </div>
 </template>
 
 <script>
 import ApiError from '@/common/api.error'
+import { mapGetters } from 'vuex'
 import {
   emailAttiva,
   smsAttivo,
@@ -133,7 +218,8 @@ import {
   CATEGORIE_EURO_LISTA,
   COMBUSTIBILI_LISTA,
   OSS_AVV_ACCERTAMENTO_RESET_STATE,
-  VEICOLO_LISTA_FILTRATA
+  VEICOLO_LISTA_FILTRATA,
+  OSS_AVV_ACCERTAMENTO_LIST_AUTENTICATI
 } from '@/store/actions.type'
 import store from '@/store'
 import { validationMixin } from 'vuelidate'
@@ -147,7 +233,11 @@ export default {
       cercaAvvisoDisabled: false,
       cercaForm: {
         numeroProtocollo: '',
-        codiceFiscale: ''
+        codiceFiscale: '',
+        avvisoScelto: ''
+      },
+      cercaFormAuth: {
+        avvisoScelto: ''
       },
       descrizione: '',
       noCaptchaCount: 0,
@@ -180,14 +270,28 @@ export default {
           return !ApiError.serverValidationFailed(this.serverErrors, 'codiceFiscale')
         }
       }
+    },
+    cercaFormAuth: {
+      avvisoScelto: { required }
     }
   },
   computed: {
+    ...mapGetters([
+      'userIdentity',
+      'listaAvvisiAccAuth',
+      'isUserLogged',
+      'isUserLoggedLocalhost'
+    ]),
+    logged () {
+      if (process.env.NODE_ENV === 'production') {
+        return this.isUserLogged
+      }
+      return this.isUserLoggedLocalhost
+    },
     nProtErrors () {
       const errors = []
       if (!this.$v.cercaForm.numeroProtocollo.$dirty) return errors
       !this.$v.cercaForm.numeroProtocollo.required && errors.push('Il numero di protocollo dell\'avviso è obbligatorio.')
-      !this.$v.cercaForm.numeroProtocollo.minLength && errors.push('Il numero di protocollo dell\'avviso deve essere composto da massimo ' + this.$v.cercaForm.numeroProtocollo.$params.maxLength.max + ' caratteri.')
       !this.$v.cercaForm.numeroProtocollo.alphaNum && errors.push('Il numero di protocollo dell\'avviso deve contenere solo lettere e numeri.')
       !this.$v.cercaForm.numeroProtocollo.serverFailed && errors.push(this.serverErrors.numeroProtocollo)
       return errors
@@ -200,14 +304,22 @@ export default {
       !this.$v.cercaForm.codiceFiscale.alphaNum && errors.push('Il Codice fiscale / P.IVA deve contenere solo lettere e numeri.')
       !this.$v.cercaForm.codiceFiscale.serverFailed && errors.push(this.serverErrors.codiceFiscale)
       return errors
+    },
+    avvisoSceltoErrors () {
+      const errors = []
+      if (!this.$v.cercaFormAuth.avvisoScelto.$dirty) return errors
+      !this.$v.cercaFormAuth.avvisoScelto.required && errors.push('Il Numero di Riferimento è obbligatorio.')
+      return errors
     }
   },
   methods: {
-    cercaAvviso () {
+    toTrim () {
+      this.cercaForm.numeroProtocollo = this.cercaForm.numeroProtocollo.replace(/\s/g, '').toUpperCase()
+    },
+    async cercaAvviso () {
       this.resetErrori()
-
-      this.$v.$touch()
-      if (this.$v.$invalid) return
+      this.$v.cercaForm.$touch()
+      if (this.$v.cercaForm.$invalid) return
       if (this.noCaptchaCount > NO_RECAPTCHA_ATTEMPTS && !this.recaptchaVerified) {
         this.detailError = {
           title: this.$i18n.t('general.error'),
@@ -216,12 +328,97 @@ export default {
         return
       }
       if (!NavigatorService.checkInternetConnection()) return
-
       this.overlay = true
-      store
+      await store
         .dispatch(AVV_ACCERTAMENTO_CERCA, {
-          numeroRiferimento: this.cercaForm.numeroProtocollo,
-          codiceFiscale: this.cercaForm.codiceFiscale
+          numeroRiferimento: this.cercaForm.numeroProtocollo.toUpperCase(),
+          codiceFiscale: this.cercaForm.codiceFiscale.toUpperCase()
+        })
+        .then(() => {
+          this.$router.push({ name: 'crea_osservazione_accertamento' })
+        })
+        .catch((error) => {
+          this.overlay = false
+          store.dispatch(OSS_AVV_ACCERTAMENTO_RESET_STATE)
+          if (error === null || error.response === undefined) {
+            this.detailError = {
+              title: this.$i18n.t('general.error'),
+              message: this.$i18n.t('general.api.errors.service_unavailable')
+            }
+            return
+          }
+
+          switch (error.response.status) {
+            case 400:
+              this.detailError = {
+                title: this.$i18n.t('general.api.errors.no_results'),
+                message: 'Parametri obbligatori non valorizzati.'
+              }
+              this.noCaptchaCount++
+              break
+            case 404:
+              // 404 (se la combinazione dei dati in input non produce un risultato)
+              this.detailError = {
+                title: this.$i18n.t('general.api.errors.no_results'),
+                message: 'Avviso non trovato.'
+              }
+              this.noCaptchaCount++
+              break
+            case 409:
+              this.detailError = {
+                title: 'Attenzione, impossibile proseguire.',
+                message: 'Esiste un\'osservazione in lavorazione per l\'avviso indicato.'
+              }
+              this.serverErrors.numeroProtocollo = 'Esiste un\'osservazione in lavorazione per l\'avviso indicato.'
+              this.noCaptchaCount++
+              break
+            case 412:
+              this.detailError = {
+                title: 'Attenzione, impossibile proseguire.',
+                message: 'E\' stato riscontrato un\'errore. Contattare l\'assistenza'
+              }
+              this.serverErrors.numeroProtocollo = 'Si sono verificati problemi nella ricerca dell\'accertamento'
+              this.noCaptchaCount++
+              break
+            case 422:
+              this.detailError = {
+                title: this.$i18n.t('general.api.errors.no_results'),
+                message: this.$i18n.t('general.api.errors.search_params_invalid')
+              }
+              this.serverErrors = ApiError.serverValidationErrors(error.response.data.detail)
+              this.noCaptchaCount++
+              break
+            case 500:
+            case 503:
+              this.detailError = {
+                title: this.$i18n.t('general.error'),
+                message: this.$i18n.t('general.api.errors.service_unavailable') + ' (' + error.response.data.title + ')'
+              }
+              break
+            default:
+              this.noCaptchaCount++
+              break
+          }
+          document.getElementById('boxErrCmp').focus()
+        })
+    },
+    async cercaAvvisoAuth () {
+      this.resetErrori()
+      this.$v.cercaFormAuth.$touch()
+      if (this.$v.cercaFormAuth.$invalid) return
+      if (this.noCaptchaCount > NO_RECAPTCHA_ATTEMPTS && !this.recaptchaVerified) {
+        this.detailError = {
+          title: this.$i18n.t('general.error'),
+          message: 'Dimostra di non essere un robot'
+        }
+        return
+      }
+      if (!NavigatorService.checkInternetConnection()) return
+      this.overlay = true
+      await store
+        .dispatch(AVV_ACCERTAMENTO_CERCA, {
+          numeroRiferimento: this.cercaFormAuth.avvisoScelto.nriferimento,
+          codiceFiscale: this.userIdentity.cf
         })
         .then(() => {
           this.$router.push({ name: 'crea_osservazione_accertamento' })
@@ -317,6 +514,28 @@ export default {
     }
   },
   async created () {
+    if (this.logged) {
+      await store
+        .dispatch(OSS_AVV_ACCERTAMENTO_LIST_AUTENTICATI, this.userIdentity.cf)
+        .catch((error) => {
+          this.cercaAvvisoDisabled = true
+          this.overlay = true
+          if (error === null) {
+            this.overlay = false
+            this.detailError = {
+              title: this.$i18n.t('general.error'),
+              message: 'Non è possibile accedere al servizio'
+            }
+          }
+          if (error.response.status) {
+            this.overlay = false
+            this.detailError = {
+              title: this.$i18n.t('general.error'),
+              message: error.response.data.title
+            }
+          }
+        })
+    }
     this.overlay = true
     if (!emailAttiva() && !smsAttivo()) {
       this.detailError = {

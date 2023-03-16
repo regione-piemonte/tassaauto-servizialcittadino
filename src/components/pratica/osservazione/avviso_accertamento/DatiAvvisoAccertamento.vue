@@ -1,11 +1,11 @@
 <template>
   <div class="space-section" id="dati-avviso-accertamento">
     <h2>
-      Dati dell'avviso di accertamento
+      {{ $t('pratica.osservazione.avviso_accertamento.motivazione.titolo') }}
     </h2>
     <div class="dl-important-data-up">
       <dl>
-        <dt>numero di protocollo dell'avviso</dt>
+        <dt>{{ $t('pratica.osservazione.avviso_accertamento.motivazione.numeroRiferimento') }}</dt>
         <dd>{{ numeroRiferimento }}</dd>
       </dl>
     </div>
@@ -31,7 +31,7 @@
         <span aria-hidden="true">
           -
         </span>
-        <span class="sr-only">
+        <span class="d-sr-only">
           dato non presente
         </span>
       </span>

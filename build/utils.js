@@ -1,9 +1,9 @@
-var path = require('path')
-var config = require('../config')
-var MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
+const config = require('../config')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 exports.assetsPath = function (_path) {
-  var assetsSubDirectory = process.env.NODE_ENV === 'production'
+  const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
@@ -13,7 +13,7 @@ exports.cssLoaders = function (options) {
   options = options || {}
 
   // cssLoader, loader sempre presente
-  var cssLoader = {
+  const cssLoader = {
     loader: 'css-loader',
     options: {
       sourceMap: options.sourceMap
@@ -22,7 +22,7 @@ exports.cssLoaders = function (options) {
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    var loaders = [cssLoader]
+    const loaders = [cssLoader]
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
@@ -57,7 +57,7 @@ exports.cssLoaders = function (options) {
       sassOptions: {
         fiber: require('fibers')
       },
-      additionalData: "@import '@/assets/stylesheets/variables-vuetify.scss'; $region: " + process.env.REGION + ';'
+      additionalData: '$region: ' + process.env.REGION + "; @import '@/assets/stylesheets/variables-vuetify.scss';"
     })
     // stylus: generateLoaders('stylus'), // Da attivare in presenza di file di stile stylus
     // styl: generateLoaders('stylus') // Da attivare in presenza di file di stile styl
@@ -66,10 +66,10 @@ exports.cssLoaders = function (options) {
 
 // Generate loaders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {
-  var output = []
-  var loaders = exports.cssLoaders(options)
-  for (var extension in loaders) {
-    var loader = loaders[extension]
+  const output = []
+  const loaders = exports.cssLoaders(options)
+  for (const extension in loaders) {
+    const loader = loaders[extension]
     // a ciascuna estensione (css, postcss, sass, scss, etc) viene associato il loader corretto
     output.push({
       test: new RegExp('\\.' + extension + '$'),

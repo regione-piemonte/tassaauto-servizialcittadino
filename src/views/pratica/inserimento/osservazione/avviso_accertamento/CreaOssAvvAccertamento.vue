@@ -1,165 +1,171 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class=" col-xxl-8 offset-xxl-2 justify-content-center">
-        <Wizard :servizio="'osservazione'" :stepAttivo="1" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class=" col-xxl-8 offset-xxl-2">
-        <DatiAnagraficiIntestatario
-          :denominazione="intestAvvAcc"
-          :codiceFiscale="avvisoAccertamento.intestatario.codiceFiscale"
-          :tipoDatiAnagrafici="'intestatario avviso'"
-        />
-        <DatiVeicolo
-          :descrizione="avvisoAccertamento.tipoVeicolo.descrizione"
-          :targa="avvisoAccertamento.targaVeicolo"
-        />
-        <DatiAvvisoAccertamento
-          :numeroRiferimento="avvisoAccertamento.numeroProtocollo"
-          :scadenza="avvisoAccertamento.scadenza"
-          :tributoDovuto="avvisoAccertamento.tributoDovuto"
-          :dataInvio="avvisoAccertamento.dataInvio"
-          :violazioneAccertata="avvisoAccertamento.violazioneAccertata"
-          :dataNotifica="avvisoAccertamento.dataNotifica"
-        />
-        <v-form
-          @submit.prevent="aggiungiMotivazione"
-          class="multiple-inline-form"
-          enctype="multipart/form-data">
-          <div class="tab-content-notHp">
-            <v-tabs
-            fixed-tabs
-            class="tabServizi"
-            show-arrows="mobile"
-            centered
-            v-model="activeTab"
-            aria-live="polite"
-            aria-atomic="false">
-              <v-tab
-                :active="(activeTab === 0)">
-                Ho pagato
-              </v-tab>
-              <v-tab
-                :active="(activeTab === 1)">
-                Non ho pagato
-              </v-tab>
-              <v-tab
-                :active="(activeTab === 2)">
-                Altro
-              </v-tab>
-            </v-tabs>
-            <v-tabs-items
-             v-model="activeTab">
-              <v-tab-item>
-                <OssAvvAccFormRadioP
-                  ref="formRadioPagato"
-                  v-on:updateboxerr="updateDetailError($event)"/>
-              </v-tab-item>
-              <v-tab-item>
-                <OssAvvAccFormRadioNP
-                  ref="formRadioNonPagato"
-                  v-on:updateboxerr="updateDetailError($event)"/>
-              </v-tab-item>
-              <v-tab-item>
-                <OssAvvAccFormRadioAltro
-                  ref="formRadioAltroMotivo"
-                  v-on:updateboxerr="updateDetailError($event)"/>
-              </v-tab-item>
-            </v-tabs-items>
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
           </div>
-          <NotePratica
-            ref="note"
-            :pNote="ossAvvAccNote"
-          />
-          <div class="space-section">
-            <h2>{{ $t('general.box_titles.allegati') }}</h2>
-            <v-alert
-            show
-            aria-live="off"
-            type="info"
-            border="left"
-            :icon="false">
-              <v-row class="pl-6 pl-md-12">
-                <v-col cols="12" md="1">
-                  <v-img
-                    width="40"
-                    :src="require(`@/assets/images/icone/alert/info.svg`)"
-                    :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
-                </v-col>
-                <v-col cols="12" md="10" class="bodyAlertDark">
-                  <p>
-                    Puoi inserire fino a {{ numMaxAllegati }} documenti allegati a completamento della tua osservazione.
-                    Formati ammessi: {{ tipiAllegato }}
-                  </p>
-                  <p>La funzionalità "Scatta una foto" potrebbe non essere disponibile su tutti i dispositivi.</p>
-                </v-col>
-              </v-row>
-            </v-alert>
-            <div class="row">
-              <div class="col-md-5">
-                <v-file-input
-                  :accept="tipiAllegato"
-                  label="Seleziona allegato"
-                  :disabled="ossAvvAccertamentoAllegati.length >= numMaxAllegati"
-                  @change="caricaAllegato()"
-                  v-model="tipoOssForm.file"
-                  browse-text="Sfoglia"
-                  :error-count="2"
-                  :error-messages="allegatiErrors"/>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class=" col-lg-8 offset-lg-2 justify-content-center">
+            <Wizard :servizio="'osservazione'" :stepAttivo="1" />
+          </div>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class=" col-lg-8 offset-lg-2">
+            <DatiAnagraficiIntestatario
+              :denominazione="intestAvvAcc"
+              :codiceFiscale="avvisoAccertamento.intestatario.codiceFiscale"
+              :tipoDatiAnagrafici="'intestatario avviso'"
+            />
+            <DatiVeicolo
+              :descrizione="avvisoAccertamento.tipoVeicolo.descrizione"
+              :targa="avvisoAccertamento.targaVeicolo"
+            />
+            <DatiAvvisoAccertamento
+              :numeroRiferimento="avvisoAccertamento.numeroProtocollo"
+              :scadenza="avvisoAccertamento.scadenza"
+              :tributoDovuto="avvisoAccertamento.tributoDovuto"
+              :dataInvio="avvisoAccertamento.dataInvio"
+              :violazioneAccertata="avvisoAccertamento.violazioneAccertata"
+              :dataNotifica="avvisoAccertamento.dataNotifica"
+            />
+            <v-form
+              @submit.prevent="aggiungiMotivazione"
+              class="multiple-inline-form"
+              enctype="multipart/form-data">
+              <div class="tab-content-notHp">
+                <v-tabs
+                fixed-tabs
+                class="tabServizi"
+                show-arrows="mobile"
+                centered
+                v-model="activeTab"
+                aria-live="polite"
+                aria-atomic="false">
+                  <v-tab
+                    :active="(activeTab === 0)">
+                    Ho pagato
+                  </v-tab>
+                  <v-tab
+                    :active="(activeTab === 1)">
+                    Non ho pagato
+                  </v-tab>
+                  <v-tab
+                    :active="(activeTab === 2)">
+                    Altro
+                  </v-tab>
+                </v-tabs>
+                <v-tabs-items
+                v-model="activeTab">
+                  <v-tab-item>
+                    <OssAvvAccFormRadioP
+                      ref="formRadioPagato"
+                      v-on:updateboxerr="updateDetailError($event)"/>
+                  </v-tab-item>
+                  <v-tab-item>
+                    <OssAvvAccFormRadioNP
+                      ref="formRadioNonPagato"
+                      v-on:updateboxerr="updateDetailError($event)"/>
+                  </v-tab-item>
+                  <v-tab-item>
+                    <OssAvvAccFormRadioAltro
+                      ref="formRadioAltroMotivo"
+                      v-on:updateboxerr="updateDetailError($event)"/>
+                  </v-tab-item>
+                </v-tabs-items>
               </div>
-            </div>
-            <div class="mt-2" v-if="ossAvvAccertamentoAllegati.length === 0">
-              {{ $t('general.messages.zero_allegati') }}
-            </div>
-            <div v-else>
-              <ul class="border-list">
-                <li v-for="(item, index) in ossAvvAccertamentoAllegati" :key="index">
-                  <a href="#" v-on:click="scaricaAllegato(item.identificativoArchivio)">
-                    {{ item.nomeAllegato }}
-                  </a>
+              <NotePratica
+                ref="note"
+                :pNote="ossAvvAccNote"
+              />
+              <div class="space-section">
+                <h2>{{ $t('general.box_titles.allegati') }}</h2>
+                <v-alert
+                show
+                aria-live="off"
+                type="info"
+                border="left"
+                :icon="false">
+                  <v-row class="pl-6 pl-md-12">
+                    <v-col cols="12" md="1">
+                      <v-img
+                        width="40"
+                        :src="require(`@/assets/images/icone/alert/info.svg`)"
+                        :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
+                    </v-col>
+                    <v-col cols="12" md="10" class="bodyAlertDark">
+                      <p>
+                        Puoi inserire fino a {{ numMaxAllegati }} documenti allegati a completamento della tua osservazione.
+                        Formati ammessi: {{ tipiAllegato }}.
+                      </p>
+                      <p>La funzionalità "Scatta una foto" potrebbe non essere disponibile su tutti i dispositivi; si consiglia di utilizzarla solo in caso di uso di smartphone.</p>
+                    </v-col>
+                  </v-row>
+                </v-alert>
+                <div class="row">
+                  <div class="col-md-5">
+                    <v-file-input
+                      :accept="tipiAllegato"
+                      label="Seleziona allegato"
+                      :disabled="ossAvvAccertamentoAllegati.length >= numMaxAllegati"
+                      @change="caricaAllegato()"
+                      v-model="tipoOssForm.file"
+                      browse-text="Sfoglia"
+                      :error-count="2"
+                      :error-messages="allegatiErrors"/>
+                  </div>
+                </div>
+                <div class="mt-2" v-if="ossAvvAccertamentoAllegati.length === 0">
+                  {{ $t('general.messages.zero_allegati') }}
+                </div>
+                <div v-else>
+                  <ul class="border-list">
+                    <li v-for="(item, index) in ossAvvAccertamentoAllegati" :key="index">
+                      <a href="#" v-on:click="scaricaAllegato(item.identificativoArchivio)">
+                        {{ item.nomeAllegato }}
+                      </a>
+                      <v-btn
+                        depressed
+                        text
+                        @click="eliminaAllegato(item.identificativoArchivio)">
+                        <v-icon>mdi-trash-can</v-icon>
+                      </v-btn>
+                    </li>
+                  </ul>
+                </div>
+                <div class="error--text mt-2"
+                  v-if="downloadFileError !== null">
+                  {{ downloadFileError }}
+                </div>
+              </div>
+              <div class="action-button-wide row">
+                <div class="col-md-6 offset-md-6 text-md-right">
                   <v-btn
-                    text
-                    @click="eliminaAllegato(item.identificativoArchivio)">
-                    <v-icon>mdi-trash-can</v-icon>
+                    depressed
+                    color="primary"
+                    @click="openmodalFoto()">
+                    <v-icon class="mr-2">mdi-camera</v-icon> Scatta una foto
                   </v-btn>
-                </li>
-              </ul>
-            </div>
-            <div class="error mt-2"
-              v-if="downloadFileError !== null">
-              {{ downloadFileError }}
-            </div>
+                </div>
+              </div>
+              <div class="action-button-wide row">
+                <div class="col-md-6">
+                  <BtnBack
+                  :backUrl="'cerca_avviso_accertamento'"
+                  :backType="'back'"/>
+                </div>
+                <div class="col-md-6 text-md-right">
+                  <v-btn depressed type="submit" color="primary">Avanti</v-btn>
+                </div>
+              </div>
+            </v-form>
           </div>
-          <div class="action-button-wide">
-            <div class="col-md-6 offset-md-6 text-right">
-              <v-btn
-                @click="$refs.scattaFoto.modalFoto = true">
-                <v-icon class="mr-2">mdi-camera</v-icon> Scatta una foto
-              </v-btn>
-            </div>
-          </div>
-          <div class="action-button-wide">
-            <div class="col-md-6">
-              <BtnBack
-              :backUrl="'cerca_avviso_accertamento'"
-              :backType="'back'"/>
-            </div>
-            <div class="col-md-6 text-md-right">
-              <v-btn type="submit" color="primary">Avanti</v-btn>
-            </div>
-          </div>
-        </v-form>
-      </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
+
     <ScattaFoto
       ref="scattaFoto"
       v-bind:imgFile.sync="tipoOssForm.file"
@@ -228,6 +234,7 @@ export default {
       },
       numMaxAllegati: ALLEGATI_MAX_NUM,
       overlay: false,
+      modalFotoFirstTime: true,
       tipiAllegato: tipiAllegatoString(),
       uploadFileError: null,
       downloadFileError: null,
@@ -272,6 +279,11 @@ export default {
     }
   },
   methods: {
+    openmodalFoto () {
+      this.$refs.scattaFoto.modalFoto = true
+      if (!this.modalFotoFirstTime) this.$refs.scattaFoto.playVideo()
+      this.modalFotoFirstTime = false
+    },
     aggiungiMotivazione () {
       switch (this.activeTab) {
         case 0:
@@ -315,7 +327,7 @@ export default {
       this.$v.tipoOssForm.file.$touch()
       if (this.$v.tipoOssForm.file.$invalid) return
 
-      var formData = new FormData()
+      const formData = new FormData()
       formData.append('upFile', this.tipoOssForm.file)
       formData.append('numeroProtocollo', this.avvisoAccertamento.numeroProtocollo)
       formData.append('codiceFiscale', this.avvisoAccertamento.intestatario.codiceFiscale)

@@ -3,7 +3,7 @@
     <h2>
       {{ $t('general.box_titles.allegati') }}
     </h2>
-    <div class="app-row inner-cont-alert">
+    <div class="row inner-cont-alert">
       <div class="text-intro col-lg-8 offset-lg-2 col-12"
       id="boxErrDiv">
         <BoxErrore
@@ -12,12 +12,12 @@
       </div>
     </div>
     <div
-      v-if="listaAllegati.length === 0">
+      v-if="listaAllegati === null || listaAllegati.length === 0">
       {{ $t('general.messages.zero_allegati') }}
     </div>
     <div v-else>
-      <ul class="border-list">
-        <li v-for="(item, index) in listaAllegati" :key="index">
+      <ul class="border-list attach-list pl-0">
+        <li v-for="(item, index) in listaAllegati" :key="index" class="item-attach-list">
           <a href="#"
             v-on:click="scaricaAllegato(item.identificativoArchivio, item.nomeAllegato)"
             class="linkPrint">
@@ -43,7 +43,7 @@ export default {
   props: {
     codiceFiscale: { type: String, required: true },
     numeroProtocollo: { type: String, required: true },
-    listaAllegati: { type: Array, required: true },
+    listaAllegati: { required: false },
     pLocal: { type: Boolean, required: true }
   },
   components: { BoxErrore, Spinner },

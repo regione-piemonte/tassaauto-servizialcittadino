@@ -1,10 +1,10 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 const { merge } = require('webpack-merge')
-var path = require('path')
+const path = require('path')
 
 module.exports = {
   build: {
-    env: merge(require('./' + process.env.GOAL_ENV), { TARGET_REGION: '"' + process.env.REGION + '"' }),
+    env: merge(require('./' + process.env.CSI_ENV), { TARGET_REGION: '"' + process.env.REGION + '"' }),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
@@ -12,7 +12,7 @@ module.exports = {
     productionSourceMap: false
   },
   dev: {
-    env: merge(require('./dev_localhost.env'), { TARGET_REGION: '"' + process.env.REGION + '"' }),
+    env: merge(require('./dev.env'), { TARGET_REGION: '"' + process.env.REGION + '"' }),
     port: 8080,
     autoOpenBrowser: false,
     assetsSubDirectory: 'static',

@@ -20,7 +20,7 @@ a {
 
 .full-card-grid .card:not(.special-card) .card-body a{
     @include linkNoUnderline;
-    @extend .d-block;
+    // @extend .d-block;
     
     // height:100%;
     color:$black;
@@ -31,8 +31,8 @@ a {
 .btn-link{
     color:$secondary;
     &.only-text{
-        @extend .reset-all-space;
-        @extend .d-inline;
+        // @extend .reset-all-space;
+        // @extend .d-inline;
         line-height:inherit;
         min-width:auto;
         @include setLinkHoverSelectorStyle {
@@ -43,8 +43,8 @@ a {
 
 .external-link{
     font-weight:$font-weight-bold;
-    @extend .d-block;
-    @extend .pb-2;
+    // @extend .d-block;
+    // @extend .pb-2;
     &:after{
         content:"\f35d";
         display:inline-block;
@@ -59,10 +59,10 @@ a {
 .btn{
     //font-size:$font-size-button;
     text-decoration:none;
-    @extend .bold;
+    // @extend .bold;
     border-radius:.3rem;
-    @extend .px-6;
-    @extend .py-2;
+    // @extend .px-6;
+    // @extend .py-2;
     //padding:.8rem 1.8rem;
     min-width:150px;
 
@@ -95,15 +95,11 @@ a {
     &:focus{
         text-decoration:none;
     }
-    // before icon
-    /*.fas{
-        @extend .mr-2;
-    }*/
 
     // image button
     &.btn-image{
-        @extend .reset-all-space;
-        @extend .border-0;
+        // @extend .reset-all-space;
+        // @extend .border-0;
         font-size:$font-size-h1;
         min-width:auto;
         @include setLinkSelectorStyle{
@@ -113,16 +109,16 @@ a {
 
 }
 
-.btn-block{
-    @extend .py-3;
-}
+// .btn-block{
+//     @extend .py-3;
+// }
 
 // PULSANTIERE
 .action-button-wide{
-    @extend .row;
-    @extend .text-left;
+    // @extend .row;
+    // @extend .text-left;
     .btn{
-        @extend .mb-5;
+        margin-bottom: $space-5;
         @media (max-width: 767.98px){
             width:100%;
             display: block;
@@ -144,43 +140,72 @@ a {
 
 // TABS hp servizio
 .tab-content-hp{
-    @extend  .pt-md-8;
     @media (min-width: 768px){
         min-height: 500px;
+        padding-top: $space-14;
     }
     &.tab-card-space {
       @media (min-width: 768px){
           min-height: 600px;
       }
     }
-    .app-row{
+
+    #tab--btn {
+      .v-item-group {
+        margin-left: 0px;
+        flex: 0 0 100%;
+        max-width: 100%;
+        border: none;
+      }
+      .v-tabs-slider-wrapper {
+        display: none;
+      }
+      .v-tab {
+        color: $primary;
+        @include font-size(14px);
+        border: 1px solid $primary;
+        &.tab-tuoveicolo {
+          border-radius: 5px 0px 0px 5px;
+        }
+        &.tab-altriVeicolo {
+          border-radius: 0px 5px 5px 0px;
+        }
+        &.v-tab--active {
+          background-color: $primary;
+          color: $white;
+        }
+      }
+      
+
+    }
+    .row{
 
       // per riposizionamento box a lato  
       & > .pagobollo-hp,
       & > .rateizzazione-hp{
-        order:2;
-        position:absolute;
-        z-index:2;
-        @media (max-width: 767.98px){
-            position:relative;
+        order:2!important;
+        position:absolute!important;
+        z-index:2!important;
+        @media (max-width: 992px){
+            position:relative!important;
         }
       }
 
-      @media all and (max-width:767px) {
+      @media (max-width:992px) {
         .noauthService {
-            order: 3;
+            order: 3!important;
             margin-top: 50px!important;
         }
       }
       .v-tabs-bar{
         z-index:1;
-        @extend .col-xxl-8;
-        @extend .offset-xxl-2;
-        @extend .mt-md-n6;
         
-        /*@media (min-width: 768px){
-            min-height:660px;  
-        }*/
+        @media (min-width: 1200px){
+            margin-top: -$space-6;
+            margin-left: 16.6666666667%;
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+        }
         order:1;
         .v-item-group{
             
@@ -191,10 +216,9 @@ a {
             
 
             .v-tabs-bar__content{
-                @extend .p-0;
-                
-                @extend .mx-md-4;
-                @extend .mx-auto;
+                padding: $space-0;
+                margin-left: auto;
+                margin-right: auto;
                 padding-bottom:1px!important;
                 @media (max-width: 991.98px){
                     display:inline-block;
@@ -202,14 +226,17 @@ a {
             .v-tab{
                 
                 color:$black;
-                @extend .font-weight-bold;
-                @extend .p-0;
-                @extend .py-3;
-                @extend .p-md-2;
+                font-weight: bold;
+                padding: $space-0;
+                padding-top: $space-3;
+                padding-bottom: $space-3;
+                @media (min-width: 768px){
+                  padding: $space-2;
+                }
                 
                 border:0;
                     &.v-tab-active{
-                        @extend .position-relative;
+                        position: relative;
                         color:$secondary;
                         &:before{
                         content:"";
@@ -228,13 +255,25 @@ a {
         
       }
       .v-tabs-items{
-        @extend .col-md-4;
-        @extend .offset-md-6;
-        @media (min-width: 768px){
+        padding-left: 7px;
+        padding-bottom: 7px;
+        @media (min-width: 992px){
+          padding-left: 4px;
+          padding-bottom: 4px;
           padding-top:80px;
+          flex: 0 0 33.3333333333%;
+          max-width: 33.3333333333%;
+          margin-left: 50%;
+
+          &.authServiceTab {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-left: 0px;
+            padding-top: 40px;
+          }
         }
         
-        @include responsive-font-size(16px);
+        @include font-size(16px);
         .tab-pane,
         .v-window-item{
             &:focus{
@@ -259,9 +298,9 @@ a {
             margin-bottom: 3.75rem !important
         }
         .nav-item {
-          @extend .p-0;
-          @extend .mx-md-4;
-          @extend .mx-auto;
+          padding: $space-0;
+          // @extend .mx-md-4;
+          // @extend .mx-auto;
           padding-bottom:1px!important;
           @media (max-width: 991.98px){
               display:inline-block;
@@ -270,15 +309,15 @@ a {
           }  
           .nav-link{
             color:$black;
-            @extend .font-weight-bold;
-            @extend .p-0;
-            @extend .py-3;
-            @extend .p-md-2;
+            // @extend .font-weight-bold;
+            padding: $space-0;
+            // @extend .py-3;
+            // @extend .p-md-2;
             
             border:0;
 
             &.active {
-              @extend .position-relative;
+              // @extend .position-relative;
               color:$secondary;
               border-color: transparent;
               &:before{
@@ -302,17 +341,17 @@ a {
 
 // Offcanvas menu
 .bm-overlay {
-    @extend .bg-transparent;
-    @extend .position-fixed;
-    @extend .w-100;
-    @extend .h-100;
-    z-index: $zindex-modal-backdrop;
+    // @extend .bg-transparent;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    //z-index: $zindex-modal-backdrop;
     top: 0;
     left: 0;
   
     &::after {
-      @extend .position-absolute;
-      @extend .bg-dark;
+      position: absolute;
+      // @extend .bg-dark;
       content: '';
       top: 0;
       right: 0;
@@ -343,8 +382,8 @@ a {
     }
   
     .bm-item-list{
-        @extend .m-0;
-        @extend .d-flex;
+        margin: $space-0;
+        display: flex;
         opacity:0;
         transition: .2s all;
         flex-direction: column;
@@ -354,20 +393,20 @@ a {
         }
       a{
         background-color: $white;
-        @extend .align-items-center;
+        // @extend .align-items-center;
         margin-top: 2px;
         color: $primary;
         font-weight:$font-weight-bold;
-        @extend .rfs-14;
+         @extend .rfs-14;
         width:100%;
         
-        @extend .position-relative;
+        // @extend .position-relative;
         &::before{
             content:"";
-            @extend .d-flex;
+            // @extend .d-flex;
             flex: 1 0 auto;
             max-width:24px;
-            @extend .mx-2;
+            // @extend .mx-2;
             background: #a9aec7 url(http://via.placeholder.com/300) 0 0 no-repeat;
             width:24px;
             height:24px;
@@ -390,8 +429,8 @@ a {
 
 // form control
 .form-control{
-	@extend .p-2;
-	@extend .mb-6;
+	padding: $space-2;
+	margin-bottom: $space-6;
 	height:auto;
 	background-image:none;
 	border-color:$tertiary;

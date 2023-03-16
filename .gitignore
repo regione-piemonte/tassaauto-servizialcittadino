@@ -1,29 +1,37 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+bolloweb-be/.idea
+bolloweb-be/px/.idea
+
 # dependencies
-node_modules
+bolloweb-fe/node_modules
+bolloweb-fe/video
+
+bolloweb-fe/set_proxy.bat
 
 # Tooling Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-selenium-debug.log
-selenium-server.log
+bolloweb-fe/npm-debug.log*
+bolloweb-fe/yarn-debug.log*
+bolloweb-fe/yarn-error.log*
+bolloweb-fe/selenium-debug.log
+bolloweb-fe/selenium-server.log
 
 # IDEs and editors
-.idea
-.project
-.classpath
-*.launch
-.settings/
-.vscode
+bolloweb-fe/.idea
+bolloweb-fe/.project
+bolloweb-fe/.classpath
+bolloweb-fe/*.launch
+bolloweb-fe/.settings/
+bolloweb-fe/.vscode
 
 # System Files
 .DS_Store
 Thumbs.db
 
 # Generated Files
-dist/
-test/unit/coverage
-test/unit/reports
-test/e2e/reports
+bolloweb-fe/dist/
+bolloweb-fe/test/unit/coverage
+bolloweb-fe/test/unit/reports
+bolloweb-fe/test/e2e/reports
+
+node_modules

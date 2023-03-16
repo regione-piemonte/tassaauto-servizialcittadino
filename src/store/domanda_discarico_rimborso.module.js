@@ -210,7 +210,7 @@ const getters = {
     return state.domandaDiscaricoRimborsoMotivo
   },
 
-  // state response domanda discarico rimborso
+  // state response domanda discarico
   responseDomandaDiscaricoRimborso (state) {
     return state.responseDomandaDiscaricoRimborso
   }

@@ -1,0 +1,404 @@
+{
+  "bot_casi_test": [
+{
+"index_ques_atteso": "13",
+"domanda": "Tassa circolazione  cos'è, chi deve pagarla  quando, scadenza, dimenticato  anno precedente  ciclomotori/cinquantino/motorino/scooter, vespa  quadricicli leggeri, veicoli storici più di 30 anni, roulottes, rimorchi speciali"
+},
+{
+"index_ques_atteso": "13",
+"domanda": "Cos'è la tassa di circolazione e chi deve pagarla?"
+},
+{
+"index_ques_atteso": "13",
+"domanda": "Ho un'auto che non uso, devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "13",
+"domanda": "Quando devo pagare la tassa di circolazione?"
+},
+{
+"index_ques_atteso": "13",
+"domanda": "Che scadenze ho per la tassa di circolazione?"
+},
+{
+"index_ques_atteso": "13",
+"domanda": "Ho un ciclomotore/motorino/scooter/vespa, devo pagare la tassa di circolazione/bollo dell'anno precedente/scorso/passato, come posso fare?"
+},
+{
+"index_ques_atteso": "16",
+"domanda": "tassa auto/bollo   tassa di circolazione  differenze, cosa sono  possesso, uso, utilizzo, inattivo  circolazione, strada"
+},
+{
+"index_ques_atteso": "16",
+"domanda": "Cos'è la tassa di circolazione?"
+},
+{
+"index_ques_atteso": "16",
+"domanda": "Che differenza c'è fra bollo e tassa di circolazione?"
+},
+{
+  "index_ques_atteso": "16",
+  "domanda": "ho un camper, devo pagare il bollo?"
+},
+{
+  "index_ques_atteso": "16",
+  "domanda": "tassa auto per un autocaravan"
+},
+{
+"index_ques_atteso": "17",
+"domanda": "tassa auto/bollo   tassa di circolazione  riscossione pagamento pagare versare  intermediari autorizzati, dove, punti/agenzie di riscossione, sportelli  Dove e come  ACI, Avantgarde e Sermetra   Poste banca bancomat, sisal, lottomatica, pagoPa"
+},
+{
+"index_ques_atteso": "17",
+"domanda": "Dove posso trovare i punti Sermetra"
+},
+{
+"index_ques_atteso": "17",
+"domanda": "Dove sono le agenzie di riscossione ACI o Avantgarde in Piemonte?&nbsp;"
+},
+{
+"index_ques_atteso": "17",
+"domanda": "Quali sono gli intermediari autorizzati alla riscossione delle tasse automobilistiche?"
+},
+{
+"index_ques_atteso": "17",
+"domanda": "Dove posso pagare il bollo?"
+},
+{
+"index_ques_atteso": "17",
+"domanda": "Come posso pagare il bollo?"
+},
+{
+  "index_ques_atteso": "17",
+  "domanda": "pagamento tassa auto"
+  },
+{
+"index_ques_atteso": "17",
+"domanda": "Dove pagare"
+},
+{
+"index_ques_atteso": "23",
+"domanda": "Tassa di circolazione/bollo   quanto pagare, importo, costo, esenzione, esente  ciclomotori/cinquantino/motorino/scooter, vespa  quadricicli leggeri  roulottes e rimorchi speciali   "
+},
+{
+"index_ques_atteso": "23",
+"domanda": "Di quant'è la tassa di circolazione/bollo per uno scooter o un motorino?"
+},
+{
+"index_ques_atteso": "23",
+"domanda": "Quanto devo pagare/versare per un ciclomotore?"
+},
+{
+"index_ques_atteso": "23",
+"domanda": "Ho uno scooter quanto devo pagare?"
+},
+{
+"index_ques_atteso": "23",
+"domanda": "Ho dimenticato di pagare&nbsp; il bollo della mia vespa dello scorso anno, devo pagarla?"
+},
+{
+"index_ques_atteso": "23",
+"domanda": "Ho una micro-car, devo pagare?"
+},
+{
+"index_ques_atteso": "23",
+"domanda": "Si deve pagare/versare per i quadricicli leggeri?"
+},
+{
+"index_ques_atteso": "27",
+"domanda": "Tassa di circolazione/bollo   avvisi di pagamento, avvisare, ricordare, scadenza  quanto pagare, importo, costo, esenzione, esente  quadricicli leggeri/microvetture/micromacchine/micro-car  ciclomotori/cinquantino/motorino/scooter, vespa "
+},
+{
+"index_ques_atteso": "27",
+"domanda": "La Regione invia anche gli avvisi di pagamento per un cinquantino?"
+},
+{
+"index_ques_atteso": "27",
+"domanda": "Ho uno scooter&nbsp;posso essere avvisato sulla scadenza di pagamento?&nbsp;"
+},
+{
+"index_ques_atteso": "27",
+"domanda": "Ho una microvettura posso essere avvisato circa la scadenza di pagamento?&nbsp;"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "quanto pagare, importo, costo, esenzione, esente  auto/veicoli/macchine storiche/vecchie/anziane? vecchi/anziani/storici/tra i 20 e i 30 anni/oltre i 30 anni  uso professionale, commerciale  autocarri, autobus  TIR/autoarticolato/camion "
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Qual è l'importo del bollo per le auto vecchie, storiche?"
+},
+{
+  "index_ques_atteso": "39",
+  "domanda": "Tassa proprietà per moto d'epoca, come fare?"
+  },
+{
+"index_ques_atteso": "39",
+"domanda": "Si deve pagare la tassa di proprietà per i veicoli&nbsp; tra i 20 e i 30 anni e per quelli oltre i 30 anni?"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Di quant'è la tassa di circolazione&nbsp;per le auto anziane?"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Pago il bollo ridotto se ho una macchina tra i 20 e i 30 anni?"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Ho comprato un veicolo di 20 anni. Posso esentarla/sono esentata dalla tassa automobilistica?&nbsp;"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Si deve pagare la tassa di proprietà&nbsp;per i veicoli&nbsp; oltre i 30 anni?Le auto storiche (fra 20 e 30 anni) devono pagare il bollo auto oppure sono esentate dal pagamento"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Ho un autocarro adibito ad uso professionale con più di 30 anni. Devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Ho un autobus adibito ad uso professionale con più di 30 anni.&nbsp;Se non lo uso più per professione, non pago più il bollo? Come posso fare?"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Ho un furgone che ha più di 30 anni, devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Quanto devo pagare per un autocarro che ha più di 30 anni, se non lo uso per attività professionale?"
+},
+{
+"index_ques_atteso": "39",
+"domanda": "Ho un TIR, autoarticolato che uso per lavoro devo versare il bollo?"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "tassa automobilistica/bollo   quanto pagare, importo, costo  scadenza, termine ultimo  comprato/acquistato un'auto nuova, nuova immatricolazione  veicolo/macchina/autoveicolo"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "Qual è il termine di pagamento del bollo per un'auto nuova cioè entro quando devo pagare la tassa automobilistica se ho comprato un'auto nuova (di nuova immatricolazione)?"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "Quando devo pagare/versare la tassa automobilistica se ho acquistato un'auto nuova?"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "Ho scordato in che mese mi scade la tassa automobilistica del mio veicolo"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "tassa automobilistica/bollo   quanto pagare, importo, costo  scadenza, termine ultimo  comprato/acquistato un'auto nuova, nuova immatricolazione  veicolo/macchina/autoveicolo"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "Ho acquistato/comprato un veicolo usato, devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "Il proprietario precedente non ha pagato il bollo, devo pagarlo io?"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "Ho acquistato una macchina usata ma non so quando scade il bollo, potete dirmelo?"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "Qual è il termine di pagamento/versamento del bollo per un'auto usata?"
+},
+{
+"index_ques_atteso": "50",
+"domanda": "Ho comprato un'auto usata, come posso fare per il bollo? qual è la regola?"
+},
+{
+"index_ques_atteso": "54",
+"domanda": "bollo/bollo auto/tassa auto/tassa automobilistica  controllare, verificare  dove, sito, servizio  dimenticato, scordato, forse  pagamento pagare"
+},
+{
+"index_ques_atteso": "54",
+"domanda": "Dove posso controllare se ho corrisposto il bollo?"
+},
+{
+  "index_ques_atteso": "54",
+  "domanda": "controlla il bollo"
+},
+{
+  "index_ques_atteso": "54",
+  "domanda": "controlla bollo"
+},
+{
+  "index_ques_atteso": "54",
+  "domanda": "Situazione dei miei pagamenti"
+  },
+{
+"index_ques_atteso": "54",
+"domanda": "Ho dimenticato/scordato se ho pagato la tassa automobilistica"
+},
+{
+"index_ques_atteso": "54",
+"domanda": "Non ricordo, ho scordato se ho pagato la tassa automobilistica&nbsp;"
+},
+{
+"index_ques_atteso": "54",
+"domanda": "Calcolo della tassa automobilistica"
+},
+{
+  "index_ques_atteso": "54",
+  "domanda": "Calcola bollo"
+  },
+{
+"index_ques_atteso": "54",
+"domanda": "Quanto verso di bollo auto?"
+},
+{
+"index_ques_atteso": "54",
+"domanda": "Quali sono le tariffe della tassa automobilistica?"
+},
+{
+"index_ques_atteso": "54",
+"domanda": "Mi sono dimenticato di pagare il bollo, quanto devo pagare di mora, sanzione?"
+},
+{
+"index_ques_atteso": "59",
+"domanda": "Per furto o rottamazione, devo comunque pagare la tassa?"
+},
+{
+"index_ques_atteso": "59",
+"domanda": "Mi hanno rubato la macchina/veicolo/auto devo pagare/versare il bollo auto/tassa auto/tassa automobilistica?"
+},
+{
+"index_ques_atteso": "59",
+"domanda": "Ho rottamato la macchina/veicolo/auto devo pagare/versare il bollo auto/tassa auto/tassa automobilistica?&nbsp;"
+},
+{
+"index_ques_atteso": "59",
+"domanda": "Domanda sul rimborso per furto auto"
+},
+{
+"index_ques_atteso": "60",
+"domanda": "Il mio veicolo ha un  fermo amministrativo, devo versare la tassa?"
+},
+{
+"index_ques_atteso": "60",
+"domanda": "Ho un fermo amministrativo sulla mia macchina, devo pagare il bollo auto?"
+},
+{
+"index_ques_atteso": "61",
+"domanda": "auto/tassa auto/tassa automobilistica  Pagare  Esportato, trasferito all'estero "
+},
+{
+"index_ques_atteso": "61",
+"domanda": "Ho esportato la mia macchina/veicolo/auto/autoveicolo all'estero devo pagare/versare il bollo/bollo auto/tassa auto/tassa automobilistica?"
+},
+{
+"index_ques_atteso": "61",
+"domanda": "Mi sono trasferito all'estero. Devo versare il bollo?"
+},
+{
+"index_ques_atteso": "63",
+"domanda": "auto/tassa auto/tassa automobilistica  Pagare  leasing/affitto noleggio lising"
+},
+{
+"index_ques_atteso": "63",
+"domanda": "Con i veicoli&nbsp;in leasing chi deve pagare il bollo?"
+},
+{
+"index_ques_atteso": "63",
+"domanda": "Ho una macchina in affitto devo pagare la tassa automobilistica?"
+},
+{
+"index_ques_atteso": "64",
+"domanda": "veicolo/auto/autoveicolo/macchina/   puro esclusivo solo solamente  elettrico   impianto  alimentazione gas propano liquido GPL metano    pagare/versare esenzioni permanente per sempre bollo/tassa auto/tassa automobilistica"
+},
+{
+"index_ques_atteso": "64",
+"domanda": "Se ho comprato un veicolo con impianto solo a GPL devo pagare la tassa automobilistica?"
+},
+{
+"index_ques_atteso": "64",
+"domanda": "Ho un'auto con alimentazione pura a&nbsp;&nbsp;metano pago il bollo?"
+},
+{
+"index_ques_atteso": "64",
+"domanda": "Ho comprato auto con&nbsp;motore elettrico devo pagare bollo?"
+},
+{
+"index_ques_atteso": "75",
+"domanda": "doppia  alimentazione benzina gas propano liquido GPL metano  impianto bombolone  trasformato  installato  pagare/versare esenzioni  bollo/bollo auto/tassa auto/tassa automobilistica  anni euro, classe categoria"
+},
+{
+"index_ques_atteso": "75",
+"domanda": "Ho un veicolo a doppia alimentazione benzina/metano devo pagare/versare il bollo?"
+},
+{
+"index_ques_atteso": "75",
+"domanda": "Ho acquistato un veicolo a doppia alimentazione benzina/GPL, devo versare il bollo auto?&nbsp;"
+},
+{
+"index_ques_atteso": "75",
+"domanda": "Ho acquistato un autoveicolo bi-power, sono passati 5 anni dall'esenzione, devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "75",
+"domanda": "Per un auto con un impianto a doppia alimentazione benzina/GPL e categoria euro 0/1/2/3 sono esentato dal pagamento del bollo?"
+},
+{
+"index_ques_atteso": "75",
+"domanda": "Ho un’auto a gpl e benzina, devo pagare?"
+},
+{
+"index_ques_atteso": "75",
+"domanda": "La mia macchina va a benzina e metano, devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "doppia  alimentazione   gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico   impianto bombolone  installato    esenzioni  "
+},
+{
+"index_ques_atteso": "127",
+"domanda": "ho acquistato un veicolo a doppia alimentazione gasolio e metano, devo pagare la tassa automobilistica?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "ho un veicolo a doppia alimentazione gasolio/gpl, devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "ho un veicolo a doppia alimentazione diesel e idrogeno devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "ho un veicolo a doppia alimentazione diesel e elettrico&nbsp;devo pagare il bollo?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "per auto ibrida gasolio e elettrico, ho esenzioni?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "ibrido diesel e idrogeno, ho esenzioni?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "veicolo   ibrido (elettrico+benzina),   bollo auto/ tassa automobilistica?  pagare esente "
+},
+{
+"index_ques_atteso": "127",
+"domanda": "Ho un veicolo ibrido (elettrico+benzina), devo pagare il bollo auto?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "ci sono esenzioni per una macchina ibrida benzina + elettrico?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "quanto pago per ibrido elettrico e benzina?"
+},
+{
+"index_ques_atteso": "127",
+"domanda": "auto ibride elettriche e verde, pago?"
+}
+  ]
+}

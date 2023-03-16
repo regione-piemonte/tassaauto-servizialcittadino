@@ -17,9 +17,10 @@
         <div class="d-block">
           <p v-html="testoPrivacy" />
         </div>
-        <div class="action-button-wide">
+        <div class="action-button-wide row">
           <div class="col-md-6">
             <v-btn
+              depressed
               class="mt-3 btn-secondary"
               @click="nascondiModalePrivacy">
               {{ $t('general.buttons.undo') }}
@@ -27,6 +28,7 @@
           </div>
           <div class="col-md-6 text-md-right">
             <v-btn
+              depressed
               class="mt-3 btn-accept"
               color="primary"
               @click="accettaPrivacy">

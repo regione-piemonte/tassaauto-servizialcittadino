@@ -1,5 +1,5 @@
 <template>
-  <div class="space-section mt-2">
+  <div class="space-section mt-2 mx-2">
     <v-radio-group
       id="formRadio-altroMotivo"
       v-model="ossAvvAccForm.osservazRadio"
@@ -14,7 +14,7 @@
               value="dirittoRiduzione">
               <template v-slot:label>
                 <strong class="fix-align">
-                  Avevo diritto alla riduzione
+                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.avevo_diritto_riduzione') }}
                 </strong>
                   <!-- TODO aumentare dimensione textarea -->
               </template>

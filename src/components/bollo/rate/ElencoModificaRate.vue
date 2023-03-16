@@ -4,12 +4,24 @@
       Elenco rate da pagare
     </h2>
     <v-alert
-      color="info"
-      border="left">
-      <template v-slot:prepend>
-        <v-icon x-large>mdi-information</v-icon>
-      </template>
-      Puoi selezionare una o più rate a partire da quella con scadenza più vicina.
+    show
+    aria-live="off"
+    type="info"
+    border="left"
+    :icon="false">
+      <v-row class="pl-6 pl-md-12">
+        <v-col cols="12" md="1">
+          <v-img
+            width="40"
+            :src="require(`@/assets/images/icone/alert/info.svg`)"
+            :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
+        </v-col>
+        <v-col cols="12" md="10" class="bodyAlertDark">
+          <p>
+            Puoi selezionare una o più rate a partire da quella con scadenza più vicina.
+          </p>
+        </v-col>
+      </v-row>
     </v-alert>
     <div class="noAccordion" role="tablist">
         <v-card
@@ -93,7 +105,6 @@ export default {
       for (let i = 0; i < this.selected.length; i++) {
         const item = this.pRespPagoRate.rate.find(
           p => (p.numeroRata === this.selected[i]))
-        console.log()
         if (item !== undefined) calcolaPagamRate.push(item)
       }
 

@@ -1,19 +1,23 @@
 <template>
-  <div class="space-section mt-2">
+  <div class="space-section mt-2 mx-2">
     <v-radio-group
-    :error-count="1"
-    :error-messages="osservazRadioErrors"
-    v-model="ossAvvAccForm.osservazRadio"
-    name="osservazRadio"
-    id="formRadio-nonpagato">
+      :error-count="1"
+      :error-messages="osservazRadioErrors"
+      v-model="ossAvvAccForm.osservazRadio"
+      name="osservazRadio"
+      id="formRadio-nonpagato"
+    >
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="maiPosseduto">
+            <v-radio value="maiPosseduto">
               <template v-slot:label>
                 <strong class="fix-align">
-                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.mai_posseduto') }}
+                  {{
+                    $t(
+                      "pratica.osservazione.avviso_accertamento.motivazione.mai_posseduto"
+                    )
+                  }}
                 </strong>
               </template>
             </v-radio>
@@ -26,75 +30,79 @@
               clear-icon="mdi-close-circle"
               id="datiAggMaiPosseduto"
               type="text"
-              v-model="grigliaAccertamentoNonPagato.grigliaVeicoloMaiPosseduto.datiAggiuntivi"
-              :disabled="ossAvvAccForm.osservazRadio != 'maiPosseduto'"/>
+              v-model="
+                grigliaAccertamentoNonPagato.grigliaVeicoloMaiPosseduto
+                  .datiAggiuntivi
+              "
+              :disabled="ossAvvAccForm.osservazRadio != 'maiPosseduto'"
+            />
           </div>
         </div>
       </div>
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-sm-7">
-            <v-radio
-              value="venduto">
+            <v-radio value="venduto">
               <template v-slot:label>
                 <strong class="fix-align">
-                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.venduto') }}
+                  {{
+                    $t(
+                      "pratica.osservazione.avviso_accertamento.motivazione.venduto"
+                    )
+                  }}
                 </strong>
               </template>
             </v-radio>
             <div class="validation-cont">
-              <v-menu
-                v-model="dataVenditaPicker"
-                :close-on-content-click="false"
-                transition="scale-transition"
-                offset-y
-                max-width="290px"
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    :disabled="ossAvvAccForm.osservazRadio != 'venduto'"
-                    v-model="grigliaVenditaVeicoloDateFormatted"
-                    id="dataVendita"
-                    label="Data di vendita"
-                    append-icon="event"
-                    readonly
-                    v-on="on"
-                    :error-messages="dataVenditaErrors"
-                    :error-count="2"
-                  ></v-text-field>
-                </template>
-                <v-date-picker v-model="grigliaAccertamentoNonPagato.grigliaVenditaVeicolo.data" @input="dataVenditaPicker = false" locale="it-IT"></v-date-picker>
-              </v-menu>
-            </div>
-              <v-checkbox
-                id="vendutoConcessionario"
-                v-model="grigliaAccertamentoNonPagato.grigliaVenditaVeicolo.concessionario"
+              <v-text-field
                 :disabled="ossAvvAccForm.osservazRadio != 'venduto'"
-                :label="this.$i18n.t('pratica.osservazione.avviso_accertamento.motivazione.venduto_concessionario')">
-              </v-checkbox>
+                v-model="grigliaAccertamentoNonPagato.grigliaVenditaVeicolo.data"
+                id="dataVendita"
+                label="Data di vendita"
+                aria-label="inserire la data di vendita"
+                type="date"
+                :readonly="false"
+                :error-messages="dataVenditaErrors"
+                :error-count="2"
+              ></v-text-field>
+            </div>
+            <v-checkbox
+              id="vendutoConcessionario"
+              v-model="
+                grigliaAccertamentoNonPagato.grigliaVenditaVeicolo
+                  .concessionario
+              "
+              :disabled="ossAvvAccForm.osservazRadio != 'venduto'"
+              :label="
+                this.$i18n.t(
+                  'pratica.osservazione.avviso_accertamento.motivazione.venduto_concessionario'
+                )
+              "
+            >
+            </v-checkbox>
           </div>
           <div class="col-12">
             <v-alert
-            show
-            aria-live="off"
-            type="info"
-            border="left"
-            :icon="false">
+              show
+              aria-live="off"
+              type="info"
+              border="left"
+              :icon="false"
+            >
               <v-row class="pl-6 pl-md-12">
                 <v-col cols="12" md="1">
                   <v-img
                     width="40"
                     :src="require(`@/assets/images/icone/alert/info.svg`)"
-                    :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
+                    :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"
+                  />
                 </v-col>
                 <v-col cols="12" md="10" class="bodyAlertDark">
-                  <p>
-                    <strong>Attenzione</strong>: la procedura a vendere, la dichiarazione di scarico responsabilità, l'affidamento,
-                    la fattura o simili, <strong>non sono idonei</strong> a provare il trasferimento di proprietà e <strong>non costituiscono valida giustificazione per il mancato pagamento</strong>:
-                    occorre un atto di compravendita registrato presso il Pubblico Registro Automobilistico (<strong>voltura o minivoltura</strong>) o se l'acquirente non ha provveduto
-                    all'obbligo di registrazione, un atto di data certa, come ad esempio l'autentica notarile, ovvero una sentenza del giudice di pace.
-                  </p>
+                  <p
+                    v-html="
+                      $t('pratica.osservazione.avviso_accertamento.intro')
+                    "
+                  />
                 </v-col>
               </v-row>
             </v-alert>
@@ -104,38 +112,29 @@
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="esportato">
+            <v-radio value="esportato">
               <template v-slot:label>
                 <strong class="fix-align">
-                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.esportato') }}
+                  {{
+                    $t(
+                      "pratica.osservazione.avviso_accertamento.motivazione.esportato"
+                    )
+                  }}
                 </strong>
               </template>
             </v-radio>
             <div class="validation-cont">
-              <v-menu
-                v-model="dataEsportazionePicker"
-                :close-on-content-click="false"
-                transition="scale-transition"
-                offset-y
-                max-width="290px"
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    :disabled="ossAvvAccForm.osservazRadio != 'esportato'"
-                    v-model="dataEsportazioneFormatted"
-                    id="dataEsportazione"
-                    label="Data di esportazione"
-                    append-icon="event"
-                    readonly
-                    v-on="on"
-                    :error-messages="dataEsportazioneErrors"
-                    :error-count="2"
-                  ></v-text-field>
-                </template>
-                <v-date-picker v-model="grigliaAccertamentoNonPagato.grigliaRadiatoEsportazione.data" @input="dataEsportazionePicker = false" locale="it-IT"></v-date-picker>
-              </v-menu>
+              <v-text-field
+                :disabled="ossAvvAccForm.osservazRadio != 'esportato'"
+                v-model="grigliaAccertamentoNonPagato.grigliaRadiatoEsportazione.data"
+                id="dataEsportazione"
+                label="Data di esportazione"
+                aria-label="inserire la data di esportazione"
+                type="date"
+                :readonly="false"
+                :error-messages="dataEsportazioneErrors"
+                :error-count="2"
+              ></v-text-field>
             </div>
           </div>
         </div>
@@ -143,76 +142,71 @@
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="nonDisponibile">
+            <v-radio value="nonDisponibile">
               <template v-slot:label>
-                  <strong class="fix-align">
-                    {{ $t('pratica.osservazione.avviso_accertamento.motivazione.non_disponibile') }}
-                  </strong>
+                <strong class="fix-align">
+                  {{
+                    $t(
+                      "pratica.osservazione.avviso_accertamento.motivazione.non_disponibile"
+                    )
+                  }}
+                </strong>
               </template>
             </v-radio>
             <div class="row">
               <p class="col-12">
-                {{ $t('pratica.osservazione.avviso_scadenza.motivazione.non_disponibile_desc') }}
+                {{
+                  $t(
+                    "pratica.osservazione.avviso_scadenza.motivazione.non_disponibile_desc"
+                  )
+                }}
               </p>
               <div class="col-md-6">
-                <v-menu
-                  v-model="nonDisponibileDalPicker"
-                  :close-on-content-click="false"
-                  transition="scale-transition"
-                  offset-y
-                  max-width="290px"
-                  min-width="290px"
-                >
-                  <template v-slot:activator="{ on }">
-                    <v-text-field
-                      label="Dal"
-                      :disabled="ossAvvAccForm.osservazRadio != 'nonDisponibile'"
-                      v-model="nonDisponibileDalFormatted"
-                      id="nonDisponibileDal"
-                      append-icon="event"
-                      readonly
-                      v-on="on"
-                      :error-messages="nonDisponibileDalErrors"
-                      :error-count="3"
-                    ></v-text-field>
-                  </template>
-                  <v-date-picker v-model="grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataDal" @input="nonDisponibileDalPicker = false" locale="it-IT"></v-date-picker>
-                </v-menu>
+                <v-text-field
+                  label="Dal"
+                  aria-label="inserire la data di non disponibiltà del veicolo da"
+                  :disabled="
+                    ossAvvAccForm.osservazRadio != 'nonDisponibile'
+                  "
+                  v-model="grigliaAccertamentoNonPagato
+                    .grigliaPrivazioneDisponibilita.dataDal"
+                  id="nonDisponibileDal"
+                  type="date"
+                  :readonly="false"
+                  :error-messages="nonDisponibileDalErrors"
+                  :error-count="3"
+                ></v-text-field>
               </div>
               <div class="col-md-6">
-                <v-menu
+                <v-text-field
                   label="Al"
-                  v-model="nonDisponibileAlPicker"
-                  :close-on-content-click="false"
-                  transition="scale-transition"
-                  offset-y
-                  max-width="290px"
-                  min-width="290px"
-                >
-                  <template v-slot:activator="{ on }">
-                    <v-text-field
-                      :disabled="ossAvvAccForm.osservazRadio != 'nonDisponibile'"
-                      v-model="nonDisponibileAlFormatted"
-                      id="nonDisponibileAl"
-                      append-icon="event"
-                      readonly
-                      v-on="on"
-                      :error-messages="nonDisponibileAlErrors"
-                      :error-count="2"
-                    ></v-text-field>
-                  </template>
-                  <v-date-picker v-model="grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataAl" @input="nonDisponibileAlPicker = false" locale="it-IT"></v-date-picker>
-                </v-menu>
+                  :disabled="
+                    ossAvvAccForm.osservazRadio != 'nonDisponibile'
+                  "
+                  v-model="grigliaAccertamentoNonPagato
+                    .grigliaPrivazioneDisponibilita.dataAl"
+                  id="nonDisponibileAl"
+                  aria-label="inserire la data di non disponibiltà del veicolo al"
+                  type="date"
+                  :readonly="false"
+                  :error-messages="nonDisponibileAlErrors"
+                  :error-count="2"
+                ></v-text-field>
               </div>
-              <v-textarea id="motivoPrivazioneDisponibilita"
-                label="Specificare la motivazione."
-                type="text"
-                :error-messages="motivoPrivazioneDisponibilitaErrors"
-                :error-count="1"
-                v-model="grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.motivazione"
-                :disabled="ossAvvAccForm.osservazRadio != 'nonDisponibile'"
-              />
+              <div class="col-12">
+                <v-textarea
+                  id="motivoPrivazioneDisponibilita"
+                  label="Specificare la motivazione."
+                  type="text"
+                  :error-messages="motivoPrivazioneDisponibilitaErrors"
+                  :error-count="1"
+                  v-model="
+                    grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita
+                      .motivazione
+                  "
+                  :disabled="ossAvvAccForm.osservazRadio != 'nonDisponibile'"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -221,11 +215,14 @@
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="esentato">
+            <v-radio value="esentato">
               <template v-slot:label>
                 <strong class="col-12 fix-align">
-                  {{ $t('pratica.osservazione.avviso_scadenza.motivazione.esentato') }}
+                  {{
+                    $t(
+                      "pratica.osservazione.avviso_scadenza.motivazione.esentato"
+                    )
+                  }}
                 </strong>
               </template>
             </v-radio>
@@ -234,128 +231,136 @@
               :error-count="1"
               v-model="ossAvvAccForm.tipoEsenzione"
               :disabled="ossAvvAccForm.osservazRadio !== 'esentato'"
-              name="tipoEsenzione">
-
+              name="tipoEsenzione"
+            >
               <!--esenzione disabili-->
-              <v-radio
-                value="esentatoDisabili">
+              <v-radio value="esentatoDisabili">
                 <template v-slot:label>
                   <strong class="fix-align">
-                      {{ $t('pratica.osservazione.avviso_accertamento.motivazione.esentato_disabili') }}
-                    </strong>
+                    {{
+                      $t(
+                        "pratica.osservazione.avviso_accertamento.motivazione.esentato_disabili"
+                      )
+                    }}
+                  </strong>
                 </template>
               </v-radio>
               <div class="row">
-                <div class="col-7 ">
+                <div class="col-7">
                   <v-text-field
-                  clearable
-                  clear-icon="mdi-close-circle"
-                  label="Numero protocollo provvedimento"
-                  id="numProtocolloDisabili"
-                  type="text"
-                  v-model="grigliaAccertamentoNonPagato.grigliaEsenzioni.grigliaEsenzioniDisabili.numeroProtocolloProvvedimento"
-                  :error-messages="numProtocolloDisabiliErrors"
-                  autocomplete="off"
-                  :error-count="1"
-                  :disabled="ossAvvAccForm.tipoEsenzione != 'esentatoDisabili'"
+                    clearable
+                    clear-icon="mdi-close-circle"
+                    label="Numero protocollo provvedimento"
+                    id="numProtocolloDisabili"
+                    type="text"
+                    v-model="
+                      grigliaAccertamentoNonPagato.grigliaEsenzioni
+                        .grigliaEsenzioniDisabili.numeroProtocolloProvvedimento
+                    "
+                    :error-messages="numProtocolloDisabiliErrors"
+                    autocomplete="off"
+                    :error-count="1"
+                    :disabled="
+                      ossAvvAccForm.tipoEsenzione != 'esentatoDisabili'
+                    "
                   ></v-text-field>
                 </div>
                 <div class="col-7">
-                  <v-menu
-                    v-model="dataProtocolloDisabiliPicker"
-                    :close-on-content-click="false"
-                    transition="scale-transition"
-                    offset-y
-                    max-width="290px"
-                    min-width="290px"
-                  >
-                    <template v-slot:activator="{ on }">
-                      <v-text-field
-                        label="Data"
-                        :disabled="ossAvvAccForm.tipoEsenzione != 'esentatoDisabili'"
-                        v-model="dataProtocolloDisabiliFormatted"
-                        id="dataProtocolloDisabili"
-                        append-icon="event"
-                        readonly
-                        v-on="on"
-                        :error-messages="dataProtocolloDisabiliErrors"
-                        :error-count="2"
-                      ></v-text-field>
-                    </template>
-                    <v-date-picker v-model="grigliaAccertamentoNonPagato.grigliaEsenzioni.grigliaEsenzioniDisabili.data" @input="dataProtocolloDisabiliPicker = false" locale="it-IT"></v-date-picker>
-                  </v-menu>
+                  <v-text-field
+                    label="Data"
+                    :disabled="
+                      ossAvvAccForm.tipoEsenzione != 'esentatoDisabili'
+                    "
+                    v-model="grigliaAccertamentoNonPagato.grigliaEsenzioni
+                      .grigliaEsenzioniDisabili.data"
+                    id="dataProtocolloDisabili"
+                    type="date"
+                    :readonly="false"
+                    aria-label="inserire la data di protocollo per l'esenzione disabili"
+                    :error-messages="dataProtocolloDisabiliErrors"
+                    :error-count="2"
+                  ></v-text-field>
                 </div>
               </div>
               <v-alert
-              show
-              aria-live="off"
-              type="info"
-              border="left"
-              :icon="false">
+                show
+                aria-live="off"
+                type="info"
+                border="left"
+                :icon="false"
+              >
                 <v-row class="pl-6 pl-md-12">
                   <v-col cols="12" md="1">
                     <v-img
                       width="40"
                       :src="require(`@/assets/images/icone/alert/info.svg`)"
-                      :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
+                      :lazy-src="
+                        require(`@/assets/images/icone/alert/info.svg`)
+                      "
+                    />
                   </v-col>
                   <v-col cols="12" md="10" class="bodyAlertDark">
                     <p
-                      v-html="$t('pratica.osservazione.esenzione.disabili.nota_protocollo')"
+                      v-html="
+                        $t(
+                          'pratica.osservazione.esenzione.disabili.nota_protocollo'
+                        )
+                      "
                     />
                   </v-col>
                 </v-row>
               </v-alert>
               <!--esenzione impianto-->
-              <v-radio
-                value="esentatoImpianto">
+              <v-radio value="esentatoImpianto" v-if="regione === 'piemonte'">
                 <template v-slot:label>
                   <strong class="fix-align">
-                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.esentato_impianto') }}
-                </strong>
-                </template>
-              </v-radio>
-              <div class="validation-cont">
-                <v-menu
-                  v-model="dataInstallImpPicker"
-                  :close-on-content-click="false"
-                  transition="scale-transition"
-                  offset-y
-                  max-width="290px"
-                  min-width="290px"
-                >
-                  <template v-slot:activator="{ on }">
-                    <v-text-field
-                      v-model="dataInstallImpFormatted"
-                      id="dataInstallImp"
-                      append-icon="event"
-                      readonly
-                      v-on="on"
-                      :error-messages="dataInstallImpErrors"
-                      :error-count="2"
-                      :disabled="ossAvvAccForm.tipoEsenzione !== 'esentatoImpianto'"
-                    ></v-text-field>
-                  </template>
-                  <v-date-picker v-model="grigliaAccertamentoNonPagato.grigliaEsenzioni.grigliaInstallazioneGplMetano.data" @input="dataInstallImpPicker = false" locale="it-IT"></v-date-picker>
-                </v-menu>
-              </div>
-              <!--esenzione altro motivo-->
-              <v-radio
-                value="esentatoAltroMotivo">
-                <template v-slot:label>
-                  <strong class="fix-align">
-                    {{ $t('pratica.osservazione.avviso_scadenza.motivazione.esentato_altro_motivo') }}
+                    {{
+                      $t(
+                        "pratica.osservazione.avviso_accertamento.motivazione.esentato_impianto"
+                      )
+                    }}
                   </strong>
                 </template>
               </v-radio>
-                <v-textarea id="esentatoAltroMotivoTesto"
-                  :error-count="1"
-                  :error-messages="esentatoAltroMotivoTestoErrors"
-                  type="text"
-                  label="Specificare quale esenzione solleva dal pagamento della tassa."
-                  v-model="grigliaAccertamentoNonPagato.grigliaEsenzioni.grigliaEsenzioniAltroMotivo.testo"
-                  :disabled="ossAvvAccForm.tipoEsenzione != 'esentatoAltroMotivo'"
-                />
+              <div class="validation-cont" v-if="regione === 'piemonte'">
+                <v-text-field
+                  v-model="grigliaAccertamentoNonPagato.grigliaEsenzioni
+                    .grigliaInstallazioneGplMetano.data"
+                  id="dataInstallImp"
+                  aria-label="inserire la data di installazione impianto gpl"
+                  type="date"
+                  :readonly="false"
+                  :error-messages="dataInstallImpErrors"
+                  :error-count="2"
+                  :disabled="
+                    ossAvvAccForm.tipoEsenzione !== 'esentatoImpianto'
+                  "
+                ></v-text-field>
+              </div>
+              <!--esenzione altro motivo-->
+              <v-radio value="esentatoAltroMotivo">
+                <template v-slot:label>
+                  <strong class="fix-align">
+                    {{
+                      $t(
+                        "pratica.osservazione.avviso_scadenza.motivazione.esentato_altro_motivo"
+                      )
+                    }}
+                  </strong>
+                </template>
+              </v-radio>
+              <v-textarea
+                id="esentatoAltroMotivoTesto"
+                :error-count="1"
+                :error-messages="esentatoAltroMotivoTestoErrors"
+                type="text"
+                label="Specificare quale esenzione solleva dal pagamento della tassa."
+                v-model="
+                  grigliaAccertamentoNonPagato.grigliaEsenzioni
+                    .grigliaEsenzioniAltroMotivo.testo
+                "
+                :disabled="ossAvvAccForm.tipoEsenzione != 'esentatoAltroMotivo'"
+              />
             </v-radio-group>
           </div>
         </div>
@@ -363,75 +368,62 @@
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="trasferitoRegione">
+            <v-radio value="trasferitoRegione">
               <template v-slot:label>
                 <strong class="fix-align">
-                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.trasferito_regione') }}
+                  {{
+                    $t(
+                      "pratica.osservazione.avviso_accertamento.motivazione.trasferito_regione"
+                    )
+                  }}
                 </strong>
-                <div class="validation-cont">
-                  <v-menu
-                    v-model="dataTrasfRegionePicker"
-                    :close-on-content-click="false"
-                    transition="scale-transition"
-                    offset-y
-                    max-width="290px"
-                    min-width="290px"
-                  >
-                    <template v-slot:activator="{ on }">
-                      <v-text-field
-                        v-model="dataTrasfRegioneFormatted"
-                        id="dataTrasfRegione"
-                        append-icon="event"
-                        readonly
-                        v-on="on"
-                        :error-messages="dataTrasfRegioneErrors"
-                        :error-count="2"
-                        :disabled="ossAvvAccForm.osservazRadio !== 'trasferitoRegione'"
-                      ></v-text-field>
-                    </template>
-                    <v-date-picker v-model="grigliaAccertamentoNonPagato.grigliaTrasferimentoRegione.data" @input="dataTrasfRegionePicker = false" locale="it-IT"></v-date-picker>
-                  </v-menu>
-                </div>
               </template>
             </v-radio>
+                <div class="validation-cont">
+                  <v-text-field
+                    v-model="grigliaAccertamentoNonPagato.grigliaTrasferimentoRegione
+                      .data"
+                    id="dataTrasfRegione"
+                    aria-label="inserire la data di trasferimento in altra Regione"
+                    type="date"
+                    :readonly="false"
+                    :error-messages="dataTrasfRegioneErrors"
+                    :error-count="2"
+                    :disabled="
+                      ossAvvAccForm.osservazRadio !== 'trasferitoRegione'
+                    "
+                  ></v-text-field>
+                </div>
           </div>
         </div>
       </div>
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="radiatoDemolizione">
+            <v-radio value="radiatoDemolizione">
               <template v-slot:label>
                 <strong class="fix-align">
-                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.radiato_demolizione') }}
+                  {{
+                    $t(
+                      "pratica.osservazione.avviso_accertamento.motivazione.radiato_demolizione"
+                    )
+                  }}
                 </strong>
               </template>
             </v-radio>
             <div class="validation-cont">
-              <v-menu
-                v-model="dataDemolizionePicker"
-                :close-on-content-click="false"
-                transition="scale-transition"
-                offset-y
-                max-width="290px"
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    v-model="dataDemolizioneFormatted"
-                    id="dataDemolizione"
-                    append-icon="event"
-                    readonly
-                    v-on="on"
-                    :error-messages="dataDemolizioneErrors"
-                    :error-count="2"
-                    :disabled="ossAvvAccForm.osservazRadio !== 'radiatoDemolizione'"
-                  ></v-text-field>
-                </template>
-                <v-date-picker v-model="grigliaAccertamentoNonPagato.grigliaRadiatoDemolizione.data" @input="dataDemolizionePicker = false" locale="it-IT"></v-date-picker>
-              </v-menu>
+              <v-text-field
+                v-model="grigliaAccertamentoNonPagato.grigliaRadiatoDemolizione.data"
+                id="dataDemolizione"
+                aria-label="inserire la data di demolizione del veicolo"
+                type="date"
+                :readonly="false"
+                :error-messages="dataDemolizioneErrors"
+                :error-count="2"
+                :disabled="
+                  ossAvvAccForm.osservazRadio !== 'radiatoDemolizione'
+                "
+              ></v-text-field>
             </div>
           </div>
         </div>
@@ -439,11 +431,14 @@
       <div class="multiple-inline-form-container">
         <div class="row">
           <div class="col-12">
-            <v-radio
-              value="competevaAltroSoggetto">
+            <v-radio value="competevaAltroSoggetto">
               <template v-slot:label>
                 <strong class="fix-align">
-                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.competeva_altro_soggetto') }}
+                  {{
+                    $t(
+                      "pratica.osservazione.avviso_accertamento.motivazione.competeva_altro_soggetto"
+                    )
+                  }}
                 </strong>
               </template>
             </v-radio>
@@ -456,10 +451,15 @@
               rows="3"
               id="motivoCompetevaAltroSogg"
               type="text"
-              v-model="grigliaAccertamentoNonPagato.grigliaCompetevaAltroSoggetto.motivazione"
+              v-model="
+                grigliaAccertamentoNonPagato.grigliaCompetevaAltroSoggetto
+                  .motivazione
+              "
               :error-count="1"
               :error-messages="motivoCompetevaAltroSoggErrors"
-              :disabled="ossAvvAccForm.osservazRadio != 'competevaAltroSoggetto'"
+              :disabled="
+                ossAvvAccForm.osservazRadio != 'competevaAltroSoggetto'
+              "
             />
           </div>
         </div>
@@ -476,24 +476,17 @@ import store from '@/store'
 import { validationMixin } from 'vuelidate'
 import { required, requiredIf } from 'vuelidate/lib/validators'
 import { notFutureDate } from '@/validators/bolloweb.validator'
+import { REGIONE_ABILITATA } from '@/common/config'
 
 export default {
   name: 'OssAvvAccFormRadio',
   data () {
     return {
+      regione: REGIONE_ABILITATA,
       ossAvvAccForm: {
         osservazRadio: '',
         tipoEsenzione: ''
-      },
-      date: null,
-      dataVenditaPicker: false,
-      dataEsportazionePicker: false,
-      nonDisponibileDalPicker: false,
-      nonDisponibileAlPicker: false,
-      dataProtocolloDisabiliPicker: false,
-      dataInstallImpPicker: false,
-      dataTrasfRegionePicker: false,
-      dataDemolizionePicker: false
+      }
     }
   },
   mixins: [
@@ -556,7 +549,7 @@ export default {
           }
         },
         dataAl: {
-          required: requiredIf(function () { return this.ossAvvAccForm.osservazRadio === 'nonDisponibile' }),
+          // required: requiredIf(function () { return this.ossAvvAccForm.osservazRadio === 'nonDisponibile' }),
           notFutureDate
         },
         motivazione: {
@@ -613,18 +606,18 @@ export default {
       const errors = []
       if (this.ossAvvAccForm.osservazRadio !== 'nonDisponibile' && !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataDal.$dirty) return errors
       if (this.ossAvvAccForm.osservazRadio === 'nonDisponibile' && !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataDal.required) {
-        errors.push('La data di esportazione è obbligatoria.')
+        errors.push('La data è obbligatoria.')
         return errors
       }
-      if (this.ossAvvAccForm.osservazRadio === 'nonDisponibile' && !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataDal.notFutureDate) errors.push('La data di esportazione non può essere futura.')
+      if (this.ossAvvAccForm.osservazRadio === 'nonDisponibile' && !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataDal.notFutureDate) errors.push('La data non può essere futura.')
       if (this.ossAvvAccForm.osservazRadio === 'nonDisponibile' && !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataDal.previousAlFailed) errors.push('La data di inizio indisponibilità non può essere successiva a quella di fine indisponibilità.')
       return errors
     },
     nonDisponibileAlErrors () {
       const errors = []
       if (this.ossAvvAccForm.osservazRadio !== 'nonDisponibile' && !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataAl.$dirty) return errors
-      !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataAl.required && errors.push('La data di esportazione è obbligatoria.')
-      !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataAl.notFutureDate && errors.push('La data di esportazione non può essere futura.')
+      // !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataAl.required && errors.push('La data è obbligatoria.')
+      !this.$v.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataAl.notFutureDate && errors.push('La data non può essere futura.')
       return errors
     },
     motivoPrivazioneDisponibilitaErrors () {
@@ -678,39 +671,9 @@ export default {
       !this.$v.grigliaAccertamentoNonPagato.grigliaRadiatoDemolizione.data.required && errors.push('La data di demolizione è obbligatoria.')
       !this.$v.grigliaAccertamentoNonPagato.grigliaRadiatoDemolizione.data.notFutureDate && errors.push('La data di demolizione non può essere futura.')
       return errors
-    },
-    grigliaVenditaVeicoloDateFormatted () {
-      return this.formatDate(this.grigliaAccertamentoNonPagato.grigliaVenditaVeicolo.data)
-    },
-    dataEsportazioneFormatted () {
-      return this.formatDate(this.grigliaAccertamentoNonPagato.grigliaRadiatoEsportazione.data)
-    },
-    nonDisponibileDalFormatted () {
-      return this.formatDate(this.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataDal)
-    },
-    nonDisponibileAlFormatted () {
-      return this.formatDate(this.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataAl)
-    },
-    dataProtocolloDisabiliFormatted () {
-      return this.formatDate(this.grigliaAccertamentoNonPagato.grigliaEsenzioni.grigliaEsenzioniDisabili.data)
-    },
-    dataInstallImpFormatted () {
-      return this.formatDate(this.grigliaAccertamentoNonPagato.grigliaEsenzioni.grigliaInstallazioneGplMetano.data)
-    },
-    dataTrasfRegioneFormatted () {
-      return this.formatDate(this.grigliaAccertamentoNonPagato.grigliaTrasferimentoRegione.data)
-    },
-    dataDemolizioneFormatted () {
-      return this.formatDate(this.grigliaAccertamentoNonPagato.grigliaRadiatoDemolizione.data)
     }
   },
   methods: {
-    formatDate (date) {
-      if (!date) return null
-
-      const [year, month, day] = date.split('-')
-      return `${day}/${month}/${year}`
-    },
     checkDateDisponibilitaPrivata () {
       const dateDal = new Date(this.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataDal.toString()).getTime()
       const dateAl = new Date(this.grigliaAccertamentoNonPagato.grigliaPrivazioneDisponibilita.dataAl.toString()).getTime()

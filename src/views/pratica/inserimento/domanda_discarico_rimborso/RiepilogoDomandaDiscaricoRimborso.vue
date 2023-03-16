@@ -1,98 +1,105 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <Wizard :servizio="'domanda_discarico_rimborso'" :stepAttivo="2" />
-      </div>
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <Wizard :servizio="'domanda_discarico_rimborso'" :stepAttivo="2" />
+          </div>
+        </div>
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
+          </div>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="space-section">
+              <DatiAnagraficiIntestatario
+                :denominazione="soggettoDomDisRim"
+                :codiceFiscale="cfDomDisRim"
+                :dataNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.dataNascita"
+                :comuneNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.comuneNascita"
+                :provinciaNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.provinciaNascita"
+                :sesso="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.sesso"
+                :tipoDatiAnagrafici="'intestatario ingiunzione / cartella'"
+                :personaFisica="personaFisica"
+              />
+            </div>
+            <div class="space-section"
+              v-if="rappresentanteLegaleDomanda !== null">
+              <DatiAnagRapprLegale
+                :denominazione="rappresentanteLegaleDomanda.nome + ' ' + rappresentanteLegaleDomanda.cognome"
+                :codiceFiscale="rappresentanteLegaleDomanda.codiceFiscaleR"
+                :sesso="rappresentanteLegaleDomanda.sesso"
+                :dataDiNascita="rappresentanteLegaleDomanda.dataDiNascita"
+                :comuneDiNascita="rappresentanteLegaleDomanda.comune"
+                :provinciaDiNascita="rappresentanteLegaleDomanda.provincia"/>
+            </div>
+            <titolo-esecutivo
+              :tipoTitolo="(ingiunzioneFiscaleDiscRimb.value) ? 'ingiunzione' : 'cartella'"
+              :numeroEsecutivo="(ingiunzioneFiscaleDiscRimb.value) ? ingiunzioneFiscaleDiscRimb.numeroIngiunzione : cartellaEsattorialeDiscRimb.numeroCartellaEsattoriale"
+              :dataNotifica="domandaDiscaricoRimborso.dataNotifica"
+              :importoTotale="Number(domandaDiscaricoRimborso.importoTotaleRiscossione)"
+            />
+            <oggetto-domanda
+              :oggetto="domandaDiscaricoRimborso.oggettoDomanda"
+            />
+            <motivo-domanda
+              :motivo="domandaDiscaricoRimborso.motivo"
+            />
+            <div class="space-section">
+              <h2>{{ $t('general.box_titles.allegati') }}</h2>
+              <div v-if="domDiscaricoRimborsoAllegati.length === 0">
+                {{ $t('general.messages.zero_allegati') }}
+              </div>
+              <div v-else>
+                <ul class="border-list">
+                  <li v-for="(item, index) in domDiscaricoRimborsoAllegati" :key="index">
+                    <a href="#" v-on:click="scaricaAllegato(item.identificativoArchivio)">{{ item.nomeAllegato }}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="error"
+                v-if="downloadFileError !== null">
+                {{ downloadFileError }}
+              </div>
+            </div>
+            <RiferimentiPratica
+              ref="rifPratica"
+              v-on:bloccainvioosservazione="inviaDomDisRimbDisabled = true"
+              :errorMsgPratica = detailError.fieldError
+              @resetMsgErrorsPage="removeMsg"
+            />
+            <div class="action-button-wide row">
+              <div class="col-md-6">
+                <BtnBack
+                  :backUrl="'crea_domanda_discarico_rimborso'"
+                  :backType="'backMod'"/>
+              </div>
+              <div class="col-md-6 text-md-right">
+                <v-btn
+                  depressed
+                  id="inviaRichiestaDTE"
+                  type="button"
+                  color="primary"
+                  @click.prevent="inviaDomandaDiscRimb"
+                  :disabled="inviaDomDisRimbDisabled">
+                  Invia richiesta
+                </v-btn>
+              </div>
+            </div>
+          </div>
+        </div>
+      </v-card>
     </div>
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="col-xxl-8 offset-xxl-2">
-        <div class="space-section">
-          <DatiAnagraficiIntestatario
-            :denominazione="soggettoDomDisRim"
-            :codiceFiscale="cfDomDisRim"
-            :dataNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.dataNascita"
-            :comuneNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.comuneNascita"
-            :provinciaNascita="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.provinciaNascita"
-            :sesso="datiDomandaDiscaricoIntestatario.dataAnagraficiIntestatario.sesso"
-            :tipoDatiAnagrafici="'intestatario ingiunzione / cartella'"
-            :personaFisica="personaFisica"
-          />
-        </div>
-        <div class="space-section"
-          v-if="rappresentanteLegaleDomanda !== null">
-          <DatiAnagRapprLegale
-            :denominazione="rappresentanteLegaleDomanda.nome + ' ' + rappresentanteLegaleDomanda.cognome"
-            :codiceFiscale="rappresentanteLegaleDomanda.codiceFiscaleR"
-            :sesso="rappresentanteLegaleDomanda.sesso"
-            :dataDiNascita="rappresentanteLegaleDomanda.dataDiNascita"
-            :comuneDiNascita="rappresentanteLegaleDomanda.comune"
-            :provinciaDiNascita="rappresentanteLegaleDomanda.provincia"/>
-        </div>
-        <titolo-esecutivo
-          :tipoTitolo="(ingiunzioneFiscaleDiscRimb.value) ? 'ingiunzione' : 'cartella'"
-          :numeroEsecutivo="(ingiunzioneFiscaleDiscRimb.value) ? ingiunzioneFiscaleDiscRimb.numeroIngiunzione : cartellaEsattorialeDiscRimb.numeroCartellaEsattoriale"
-          :dataNotifica="domandaDiscaricoRimborso.dataNotifica"
-          :importoTotale="Number(domandaDiscaricoRimborso.importoTotaleRiscossione)"
-        />
-        <oggetto-domanda
-          :oggetto="domandaDiscaricoRimborso.oggettoDomanda"
-        />
-        <motivo-domanda
-          :motivo="domandaDiscaricoRimborso.motivo"
-        />
-        <div class="space-section">
-          <h2>{{ $t('general.box_titles.allegati') }}</h2>
-          <div v-if="domDiscaricoRimborsoAllegati.length === 0">
-            {{ $t('general.messages.zero_allegati') }}
-          </div>
-          <div v-else>
-            <ul class="border-list">
-              <li v-for="(item, index) in domDiscaricoRimborsoAllegati" :key="index">
-                <a href="#" v-on:click="scaricaAllegato(item.identificativoArchivio)">{{ item.nomeAllegato }}</a>
-              </li>
-            </ul>
-          </div>
-          <div class="error"
-            v-if="downloadFileError !== null">
-            {{ downloadFileError }}
-          </div>
-        </div>
-        <RiferimentiPratica
-          ref="rifPratica"
-          v-on:bloccainvioosservazione="inviaDomDisRimbDisabled = true"
-        />
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnBack
-              :backUrl="'crea_domanda_discarico_rimborso'"
-              :backType="'backMod'"/>
-          </div>
-          <div class="col-md-6 text-md-right">
-            <v-btn
-              id="inviaRichiestaDTE"
-              type="button"
-              color="primary"
-              @click.prevent="inviaDomandaDiscRimb"
-              :disabled="inviaDomDisRimbDisabled">
-              Invia richiesta
-            </v-btn>
-          </div>
-        </div>
-      </div>
-    </div>
-    </v-card>
+
     <spinner :pOverlay="overlay" />
   </div>
 </template>
 
 <script>
+import ApiError from '@/common/api.error'
 import { emailAttiva, smsAttivo } from '@/common/config'
 import BoxErrore from '@/components/BoxErrore'
 import NavigatorService from '@/common/navigator.service'
@@ -125,7 +132,7 @@ export default {
   },
   data () {
     return {
-      detailError: { message: '', title: '' },
+      detailError: { message: '', title: '', fieldError: null },
       downloadFileError: null,
       inviaDomDisRimbDisabled: false,
       overlay: false
@@ -158,6 +165,11 @@ export default {
     }
   },
   methods: {
+    removeMsg (params) {
+      if (params === true) {
+        this.resetErrori()
+      }
+    },
     scaricaAllegato (idAllegato) {
       this.downloadFileError = null
       const attach = this.domDiscaricoRimborsoAllegati.find(p => (p.identificativoArchivio === idAllegato))
@@ -169,6 +181,7 @@ export default {
     },
 
     inviaDomandaDiscRimb () {
+      this.detailError = { message: '', title: '', fieldError: null }
       this.$refs.rifPratica.iniziaValidazione()
       this.$refs.rifPratica.$v.rifForm.$touch()
       if (this.$refs.rifPratica.$v.rifForm.$invalid) return
@@ -215,10 +228,14 @@ export default {
           } else if (error.response.status === 422) {
             this.detailError = {
               title: this.$i18n.t('general.error'),
-              message: 'Domanda non inviata, parametri inseriti non validi.'
+              message: this.$i18n.t('general.api.errors.pratica_invalid'),
+              fieldError: ApiError.serverValidationErrors(error.response.data.detail)
             }
           }
         })
+    },
+    resetErrori () {
+      this.detailError = { message: '', title: '', fieldError: null }
     },
 
     datiDomandaDiscRimb () {
@@ -254,7 +271,7 @@ export default {
       if (!this.ingiunzioneFiscaleDiscRimb.value) inputParams.cartellaEsattoriale = this.cartellaEsattorialeDiscRimb
 
       const rifObj = this.$refs.rifPratica.getRiferimenti()
-      if (emailAttiva()) inputParams.email = rifObj.email
+      if (emailAttiva()) inputParams.email = rifObj.email.toLowerCase()
       if (smsAttivo()) inputParams.telefono = rifObj.telefono
       return inputParams
     }

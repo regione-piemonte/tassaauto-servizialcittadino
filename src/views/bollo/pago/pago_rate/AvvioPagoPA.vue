@@ -1,45 +1,44 @@
 <template>
   <div>
-    <div class="app-container">
-      <v-card class="card-view-page">
-      <div class="app-row inner-cont-alert">
-        <div class="text-intro col-xxl-8 offset-xxl-2">
-          <BoxErrore :error="detailError" />
-        </div>
-      </div>
-      <div class="app-row inner-cont-bollo">
-        <div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3">
-          <div class="card-center-pos">
-            <strong>
-              {{ $t('bollo.pago.rate.labels.pagoPA') }}
-            </strong>
-            <v-row justify="center">
-              <v-img
-                :src="require('@/assets/images/loghi/piemonte/pagopa.png')"
-                max-width="185px"
-              />
-            </v-row>
-            <div class="action-button-wide">
-              <div class="col-md-12">
-                <BtnBack
-                  :backUrl="'carrello_pagamenti_rate'"
-                  :backType="'back'"
-                  :size="true"
+    <div class="container">
+      <div class="col-lg-10 mx-lg-auto">
+        <v-card class="card-view-page">
+          <div class="row inner-cont-alert">
+            <div class="text-intro col-lg-8 offset-lg-2">
+              <BoxErrore :error="detailError" />
+            </div>
+          </div>
+          <div class="row inner-cont-bollo">
+            <div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3">
+              <div class="card-center-pos">
+                <strong>
+                  {{ $t('bollo.pago.rate.labels.pagoPA') }}
+                </strong>
+                <v-row justify="center">
+                  <v-img
+                    :src="require('@/assets/images/loghi/piemonte/pagopa.png')"
+                    max-width="185px"
                   />
-                <v-btn
-                  type="button"
-                  id="creaTransazionePagoPaBtn"
-                  block
-                  color="primary"
-                  @click="creaTransazioneRatePagoPA()">
-                  {{ $t('general.buttons.continua') }}
-                </v-btn>
+                </v-row>
+                    <BtnBack
+                      :backUrl="'carrello_pagamenti_rate'"
+                      :backType="'back'"
+                      :size="true"
+                      />
+                      <br>
+                    <v-btn
+                      depressed
+                      class="col-xs-12"
+                      id="creaTransazionePagoPaBtn"
+                      color="primary"
+                      @click="creaTransazioneRatePagoPA()">
+                      {{ $t('general.buttons.continua') }}
+                    </v-btn>
               </div>
             </div>
           </div>
-        </div>
+        </v-card>
       </div>
-      </v-card>
     </div>
     <spinner :pOverlay="overlay" />
   </div>

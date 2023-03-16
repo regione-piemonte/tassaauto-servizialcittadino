@@ -1,51 +1,55 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-lg-8 offset-lg-2 col-12">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="col-xxl-8 offset-xxl-2">
-        <div class="action-area">
-          <!-- cfr. https://gitlab.csi.it/prodotti/bolloweb/bolloweb/issues/178#note_4415 -->
-          <PagamentoSingolo
-            v-if="ricevutaPagam.tipologia === 'S' && ricevutaPagam.pianoRateizzazione === null && ricevutaPagam.rate.length === 0"
-            :ricevuta="ricevutaPagam.ricevutaSingola"
-          />
-          <PagamentoCumulativo
-            v-if="ricevutaPagam.tipologia === 'C' && ricevutaPagam.pianoRateizzazione === null && ricevutaPagam.rate.length === 0"
-            :ricevuta="ricevutaPagam.ricevutaCumulativa"
-          />
-          <PagamentoRate
-            v-if="ricevutaPagam.tipologia === 'S' && ricevutaPagam.pianoRateizzazione !== null && ricevutaPagam.rate.length > 0"
-            :ricevuta="ricevutaPagam.ricevutaSingola"
-            :anagraficaIntest="ricevutaPagam.anagraficaIntestatario"
-            :pianoRateizz="ricevutaPagam.pianoRateizzazione"
-            :rate="ricevutaPagam.rate"
-          />
-        </div>
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnBack
-              :backUrl="'cerca_pagamento'"
-              :backType="'back'"/>
-            <BtnHome />
-          </div>
-          <div class="col-md-6 text-md-right">
-            <v-btn
-              type="button"
-              id="scaricaPdfBtn"
-              color="primary"
-              @click="scaricaPdf">
-              {{ $t('general.buttons.download_pdf') }}
-            </v-btn>
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2 col-12">
+            <BoxErrore :error="detailError" />
           </div>
         </div>
-      </div>
+        <div class="row inner-cont-bollo">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="action-area">
+              <!-- cfr. https://gitlab.csi.it/prodotti/bolloweb/bolloweb/issues/178#note_4415 -->
+              <PagamentoSingolo
+                v-if="ricevutaPagam.tipologia === 'S' && ricevutaPagam.pianoRateizzazione === null && ricevutaPagam.rate.length === 0"
+                :ricevuta="ricevutaPagam.ricevutaSingola"
+              />
+              <PagamentoCumulativo
+                v-if="ricevutaPagam.tipologia === 'C' && ricevutaPagam.pianoRateizzazione === null && ricevutaPagam.rate.length === 0"
+                :ricevuta="ricevutaPagam.ricevutaCumulativa"
+              />
+              <PagamentoRate
+                v-if="ricevutaPagam.tipologia === 'S' && ricevutaPagam.pianoRateizzazione !== null && ricevutaPagam.rate.length > 0"
+                :ricevuta="ricevutaPagam.ricevutaSingola"
+                :anagraficaIntest="ricevutaPagam.anagraficaIntestatario"
+                :pianoRateizz="ricevutaPagam.pianoRateizzazione"
+                :rate="ricevutaPagam.rate"
+              />
+            </div>
+            <div class="action-button-wide row">
+              <div class="col-md-6">
+                <BtnBack
+                  :backUrl="'cerca_pagamento'"
+                  :backType="'back'"/>
+                <BtnHome />
+              </div>
+              <div class="col-md-6 text-md-right">
+                <v-btn
+                  depressed
+                  type="button"
+                  id="scaricaPdfBtn"
+                  color="primary"
+                  @click="scaricaPdf">
+                  {{ $t('general.buttons.download_pdf') }}
+                </v-btn>
+              </div>
+            </div>
+          </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
+
     <spinner :pOverlay="overlay" />
   </div>
 </template>

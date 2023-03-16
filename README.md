@@ -4,16 +4,19 @@
 # Project Description
 È una web application realizzata in tecnica *responsive*, nativamente adattabile ai dispositivi sia mobili che desktop. Nello specifico si tratta di una *Single Page Application* che rappresenta il Front-End per i seguenti servizi:
 
-- Memobollo;
-- pagamenti online;
-- ricevuta di un pagamento;
-- calcola il bollo;
-- osservazioni su avvisi di scadenza/accertamento;
-- consulta una pratica;
-- chiedi la rateizzazione;
+- visure: per consultare i propri veicoli e la relativa situazione dei pagamenti;
+- memobollo: per essere avvisati via sms o via e-mail della scadenza del bollo;
+- paga online: per pagare il bollo in scadenza o quelli arretrati;
+- scarica la ricevuta di un pagamento;
+- stampa avviso di pagamento e piano di rateizzazione;
+- fai un'osservazione su avvisi di scadenza, avvisi bonari o avvisi di accertamento: per comunicare eventuali inesattezze presenti in un avviso ricevuto;
+- calcola il bollo: per simulare l'importo dovuto in base ai dati tecnici del veicolo presenti a sistema;
+- chiedi la rateizzazione dei pagamenti arretrati;
+- chiedi l'esenzione per motivi di disabilità;
+- chiedi la restituzione; per richiedere la restituzione del bollo non dovuto (rimborso o compensazione);
 - domanda di discarico o rimborso di cartella o ingiunzione di pagamento;
-- Infobollo;
-- stampa avviso di pagamento.
+- consulta una pratica: per consultare le richieste effettuate;
+- infobollo: per rimanere aggiornato con informazioni e notizie relative al bollo auto.
 
 # Configurations
 Nei file di configurazione:
@@ -105,6 +108,7 @@ Gli autori della componente **PWA: Servizi al cittadino** sono:
 - [Roberta Porqueddu](mailto:roberta.porqueddu@csi.it)
 - [Daniel Scaletta](mailto:daniel.scaletta@consulenti.csi.it)
 - [Simone Zangirolami](mailto:simone.zangirolami@consulenti.csi.it)
+- [Martino Buonaiuto](mailto:martino.buonaiuto@consulenti.csi.it)
 
 # Copyrights
 (C) Copyright 2020 Regione Piemonte

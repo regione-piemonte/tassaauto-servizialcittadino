@@ -1,81 +1,89 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore
-          :error="detailError"
-        />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class=" col-xxl-8 offset-xxl-2 justify-content-center">
-        <Wizard
-          :servizio="'osservazione'"
-          :stepAttivo="2"
-        />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class=" col-xxl-8 offset-xxl-2">
-        <DatiAnagraficiIntestatario
-          :denominazione="intestatarioAvviso"
-          :codiceFiscale="avvisoScadenza.intestatario.codiceFiscale"
-          :tipoDatiAnagrafici="'intestatario avviso'"
-        />
-        <DatiAnagRettOssAvvScadenza
-          v-if="ossAvvScadDatiAnagRett.value"
-          :denominazione="intestatarioRettif"
-          :codiceFiscale="ossAvvScadDatiAnagRett.codiceFiscale"
-          :indirizzo="ossAvvScadDatiAnagRett.indirizzo + ' - '  + ossAvvScadDatiAnagRett.domicilioFiscale"
-        />
-        <DatiVeicolo
-          :descrizione="avvisoScadenza.tipoVeicolo.descrizione"
-          :targa="avvisoScadenza.targa"
-          :scadenza="avvisoScadenza.scadenza"
-          :validita="Number(avvisoScadenza.validita)"
-          :tassa="avvisoScadenza.tassa"
-        />
-        <DatiAvvisoScadenza
-          :numeroRiferimento="avvisoScadenza.numeroRiferimento"
-        />
-        <OssAvvScadenza
-          :attributi="attributiOssAvvScad"
-        />
-        <Allegati
-          :codiceFiscale="''"
-          :numeroProtocollo="''"
-          :listaAllegati="ossAvvScadenzaAllegati"
-          :pLocal="true"
-        />
-        <RiferimentiPratica
-          ref="rifPratica"
-          v-on:bloccainvioosservazione="inviaOssDisabled = true"
-        />
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnBack
-              :backUrl="'crea_osservazione_avviso'"
-              :backType="'backMod'"/>
-          </div>
-          <div class="col-md-6 text-md-right">
-            <v-btn
-              type="submit"
-              @click.prevent="inviaOsservazione"
-              color="primary"
-              :disabled="inviaOssDisabled">
-              Invia Osservazione
-            </v-btn>
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore
+              :error="detailError"
+            />
           </div>
         </div>
-      </div>
+        <div class="row inner-cont-bollo">
+          <div class=" col-lg-8 offset-lg-2 justify-content-center">
+            <Wizard
+              :servizio="'osservazione'"
+              :stepAttivo="2"
+            />
+          </div>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class=" col-lg-8 offset-lg-2">
+            <DatiAnagraficiIntestatario
+              :denominazione="intestatarioAvviso"
+              :codiceFiscale="avvisoScadenza.intestatario.codiceFiscale"
+              :tipoDatiAnagrafici="'intestatario avviso'"
+            />
+            <DatiAnagRettOssAvvScadenza
+              v-if="ossAvvScadDatiAnagRett.value"
+              :denominazione="intestatarioRettif"
+              :codiceFiscale="ossAvvScadDatiAnagRett.codiceFiscale"
+              :indirizzo="ossAvvScadDatiAnagRett.indirizzo"
+              :comune="ossAvvScadDatiAnagRett.domicilioFiscale"
+            />
+            <DatiVeicolo
+              :descrizione="avvisoScadenza.tipoVeicolo.descrizione"
+              :targa="avvisoScadenza.targa"
+              :scadenza="avvisoScadenza.scadenza"
+              :validita="Number(avvisoScadenza.validita)"
+              :tassa="avvisoScadenza.tassa"
+            />
+            <DatiAvvisoScadenza
+              :numeroRiferimento="avvisoScadenza.numeroRiferimento"
+            />
+            <OssAvvScadenza
+              :attributi="attributiOssAvvScad"
+            />
+            <Allegati
+              :codiceFiscale="''"
+              :numeroProtocollo="''"
+              :listaAllegati="ossAvvScadenzaAllegati"
+              :pLocal="true"
+            />
+            <RiferimentiPratica
+              ref="rifPratica"
+              v-on:bloccainvioosservazione="inviaOssDisabled = true"
+              :errorMsgPratica = detailError.fieldError
+              @resetMsgErrorsPage="removeMsg"
+            />
+            <div class="action-button-wide row">
+              <div class="col-md-6">
+                <BtnBack
+                  :backUrl="'crea_osservazione_avviso'"
+                  :backType="'backMod'"/>
+              </div>
+              <div class="col-md-6 text-md-right">
+                <v-btn
+                  depressed
+                  type="submit"
+                  @click.prevent="inviaOsservazione"
+                  color="primary"
+                  :disabled="inviaOssDisabled">
+                  Invia Osservazione
+                </v-btn>
+              </div>
+            </div>
+          </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
+
     <spinner :pOverlay="overlay" />
   </div>
 </template>
 
 <script>
+import ApiError from '@/common/api.error'
 import { mapGetters } from 'vuex'
 import { emailAttiva, smsAttivo } from '@/common/config'
 import NavigatorService from '@/common/navigator.service'
@@ -109,9 +117,10 @@ export default {
   },
   data () {
     return {
-      detailError: { message: '', title: '' },
+      detailError: { message: '', title: '', fieldError: null },
       intestatarioAvviso: '',
       intestatarioRettif: '',
+      intestatarioResidenzaRettif: '',
       inviaOssDisabled: false,
       overlay: false
     }
@@ -125,7 +134,13 @@ export default {
     ])
   },
   methods: {
+    removeMsg (params) {
+      if (params === true) {
+        this.resetErrori()
+      }
+    },
     inviaOsservazione () {
+      this.detailError = { message: '', title: '', fieldError: null }
       this.$refs.rifPratica.iniziaValidazione()
       this.$refs.rifPratica.$v.rifForm.$touch()
       if (this.$refs.rifPratica.$v.rifForm.$invalid) return
@@ -147,7 +162,7 @@ export default {
         allegati: attachDocs
       }
       const rifObj = this.$refs.rifPratica.getRiferimenti()
-      if (emailAttiva()) requestCreaOsserAvvScad.email = rifObj.email
+      if (emailAttiva()) requestCreaOsserAvvScad.email = rifObj.email.toLowerCase()
       if (smsAttivo()) requestCreaOsserAvvScad.cell = rifObj.telefono
 
       this.overlay = true
@@ -179,8 +194,17 @@ export default {
               title: this.$i18n.t('general.error'),
               message: noSentOss + error.response.data.title
             }
+          } else if (error.response.status === 422) {
+            this.detailError = {
+              title: this.$i18n.t('general.error'),
+              message: this.$i18n.t('general.api.errors.pratica_invalid'),
+              fieldError: ApiError.serverValidationErrors(error.response.data.detail)
+            }
           }
         })
+    },
+    resetErrori () {
+      this.detailError = { message: '', title: '', fieldError: null }
     },
 
     mailTelefonoVuoti () {
@@ -190,16 +214,31 @@ export default {
     }
   },
   async created () {
+    // intestatario avviso anagrafica
     if (this.avvisoScadenza.intestatario.denominazione !== null && this.avvisoScadenza.intestatario.denominazione !== '') {
       // persona giuridica
       this.intestatarioAvviso = this.avvisoScadenza.intestatario.denominazione
     } else {
       this.intestatarioAvviso = this.avvisoScadenza.intestatario.nome + ' ' + this.avvisoScadenza.intestatario.cognome
     }
+    // fine intestatario avviso anagrafica
 
+    // intestatario avviso dati rettificati anagrafici
     const nomeRett = this.ossAvvScadDatiAnagRett.nome
-    this.intestatarioRettif = (nomeRett !== null && nomeRett !== '') ? nomeRett + ' ' : ''
-    this.intestatarioRettif += this.ossAvvScadDatiAnagRett.cognomeDenominazione
+    const cognomeDenominazioneRett = this.ossAvvScadDatiAnagRett.cognomeDenominazione
+    if (this.avvisoScadenza.intestatario.denominazione !== null && this.avvisoScadenza.intestatario.denominazione !== '') {
+      // persona giuridica
+      this.intestatarioRettif = cognomeDenominazioneRett
+    } else {
+      this.intestatarioRettif = (nomeRett !== null && nomeRett !== '') ? nomeRett + ' ' : this.avvisoScadenza.intestatario.nome + ' '
+      this.intestatarioRettif += (cognomeDenominazioneRett !== null && cognomeDenominazioneRett !== '') ? cognomeDenominazioneRett : this.avvisoScadenza.intestatario.cognome
+    }
+    if (this.intestatarioRettif === this.intestatarioAvviso) this.intestatarioRettif = null
+    const indirizzoRett = this.ossAvvScadDatiAnagRett.indirizzo
+    const domicilioFiscaleRett = this.ossAvvScadDatiAnagRett.domicilioFiscale
+    this.intestatarioResidenzaRettif = (indirizzoRett !== null && indirizzoRett !== '') ? indirizzoRett : null
+    this.intestatarioResidenzaRettif += (domicilioFiscaleRett !== null && domicilioFiscaleRett !== '') ? domicilioFiscaleRett : null
+    // fine intestatario avviso dati rettificati anagrafici
   }
 }
 </script>

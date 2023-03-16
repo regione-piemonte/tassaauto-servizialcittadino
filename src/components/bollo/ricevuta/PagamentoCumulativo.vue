@@ -11,7 +11,7 @@
           v-for="(item, index) in ricevuta.listaRicevute" :key="index">
           <v-expansion-panel-header>
             <div class="row">
-              <div class="col-md-2 col-sm-6 align-self-center">
+              <div class="col-md-3 col-sm-6 align-self-center">
                 <div class="mb-4 mb-sm-0">VEICOLO <span class="numberBadge">{{index + 1}}</span></div>
               </div>
               <div class="col-md-4 col-sm-6 align-self-center">
@@ -21,7 +21,7 @@
                 </div>
               </div>
               <div class="col-md-4 col-sm-6 align-self-center">
-                <div class="data-up dl-inline-header">
+                <div class="data-up dl-inline-header d-flex">
                   <dl>
                     <dt>importo</dt>
                     <dd>{{ item.importo | formatCurrency }}</dd>
@@ -41,7 +41,7 @@
               <div class="space-section">
                 <h2>{{ $t('bollo.ricevuta.scarica.accordion.anagrafica') }}</h2>
                 <v-list class="text-uppercase" flat>
-                  <v-list-item-group :no-action="true">
+                  <v-list-item-group :no-action="true" aria-label="anagrafica intestatario">
                     <v-list-item
                       id=""
                       :inactive="true"

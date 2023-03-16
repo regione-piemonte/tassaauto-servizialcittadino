@@ -1,62 +1,65 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <Wizard :servizio="'pago_bollo'" :stepAttivo="2" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="col-xxl-8 offset-xxl-2">
-        <DatiAnagraficiIntestatario
-          :denominazione="soggettoRateizz"
-          :codiceFiscale="respCercaPagamRata.intestatario.codiceFiscale"
-          :tipoDatiAnagrafici="'intestatario rate'"
-        />
-        <DatiPianoRateizzazione
-          :numeroRiferimento="respCercaPagamRata.pianoRateizzazione.numeroRiferimento"
-          :anno="respCercaPagamRata.pianoRateizzazione.anno"
-          :totaleImporto="respCercaPagamRata.pianoRateizzazione.totale | formatCurrency"
-          :numeroRateDaPagare="respCercaPagamRata.pianoRateizzazione.numeroRate"
-          :ratePagate="false"
-        />
-        <TabellaRate
-          :rate="carrelloPagoRate"
-          :importoTotale="importoTotPagoRate"
-          :ratePagate="false"
-        />
-        <RiferimentiPago
-          ref="rifPago"
-          :pEmail="emailFormPagoRate.email"
-          :pPrivacy="emailFormPagoRate.privacy"
-          v-on:bloccapagamento="vaiPagamentoDisabled = true"
-        />
-        <PagamentoPagoPa
-        />
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnBack
-              :backUrl="'esito_ricerca_pagamento_rate'"
-              :backType="'back'"/>
-          </div>
-          <div class="col-md-6 text-md-right">
-            <v-btn type="button"
-              id="vaiAlPagamentoBtn"
-              color="primary"
-              @click="avviaPagoPA()"
-              :disabled="vaiPagamentoDisabled">
-              {{ $t('general.buttons.pagamento') }}
-            </v-btn>
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <Wizard :servizio="'pago_bollo'" :stepAttivo="2" />
           </div>
         </div>
-      </div>
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
+          </div>
+        </div>
+        <div class="row inner-cont-bollo">
+          <div class="col-lg-8 offset-lg-2">
+            <DatiAnagraficiIntestatario
+              :denominazione="soggettoRateizz"
+              :codiceFiscale="respCercaPagamRata.intestatario.codiceFiscale"
+              :tipoDatiAnagrafici="'intestatario rate'"
+            />
+            <DatiPianoRateizzazione
+              :numeroRiferimento="respCercaPagamRata.pianoRateizzazione.numeroRiferimento"
+              :anno="respCercaPagamRata.pianoRateizzazione.anno"
+              :totaleImporto="respCercaPagamRata.pianoRateizzazione.totale | formatCurrency"
+              :numeroRateDaPagare="respCercaPagamRata.pianoRateizzazione.numeroRate"
+              :ratePagate="false"
+            />
+            <TabellaRate
+              :rate="carrelloPagoRate"
+              :importoTotale="importoTotPagoRate"
+              :ratePagate="false"
+            />
+            <RiferimentiPago
+              ref="rifPago"
+              :pEmail="emailFormPagoRate.email"
+              :pPrivacy="emailFormPagoRate.privacy"
+              v-on:bloccapagamento="vaiPagamentoDisabled = true"
+            />
+            <PagamentoPagoPa
+            />
+            <div class="action-button-wide row">
+              <div class="col-md-6">
+                <BtnBack
+                  :backUrl="'esito_ricerca_pagamento_rate'"
+                  :backType="'back'"/>
+              </div>
+              <div class="col-md-6 text-md-right">
+                <v-btn type="button"
+                depressed
+                  id="vaiAlPagamentoBtn"
+                  color="primary"
+                  @click="avviaPagoPA()"
+                  :disabled="vaiPagamentoDisabled">
+                  {{ $t('general.buttons.pagamento') }}
+                </v-btn>
+              </div>
+            </div>
+          </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
   </div>
 </template>
 
@@ -117,7 +120,7 @@ export default {
       const rifObj = this.$refs.rifPago.getEmailPrivacy()
       store
         .dispatch(BOLLO_PAGO_SALVA_RIFERIMENTI_RATE, {
-          email: rifObj.email,
+          email: rifObj.email.toLowerCase(),
           privacy: rifObj.privacy
         })
         .then(() => {

@@ -1,10 +1,10 @@
 <template>
-  <div class="col-xxl-4 col-md-6 second-col d-flex">
+  <div class="col-lg-4 col-md-6 second-col d-flex">
     <div class="d-flex w-100"
       v-if="esitoMemoVerifica.statoSms.stato=='INATTIVO'">
-      <div class="alert alert-form alert-quaternary">
+      <div class="alert alert-form alert-quaternary mr-lg-7 mb-xl-0">
         <div
-          class="d-block"
+          class="d-block d-block-memo"
           id="boxAttivaSms">
           <h4>
             Attiva Memobollo via SMS
@@ -20,14 +20,14 @@
                 id="cell"
                 type="text"
                 v-model="smsForm.cell"
-                @change.native="resetErroriServer()"
+                @focus="resetErroriServer()"
                 :maxlength="$v.smsForm.cell.$params.maxLength.max"
                 :error-messages="cellErrors"
                 autocomplete="off"
                 :error-count="5"
                 ></v-text-field>
-              <div class="inline-check-submit">
-                <div class="tooltip-field">
+              <div class="inline-check-submit no-gutters-col">
+                <div class="tooltip-field col-lg-12 col-md-7 py-md-0 pr-lg-0 text-left">
                   <div class="position-relative d-inline-block">
                     <v-checkbox
                       id="privacySms"
@@ -39,19 +39,28 @@
                       unchecked-value="not_accepted"
                       :label="this.$i18n.t('general.privacy')">
                     </v-checkbox>
-
                     <v-btn
-                      class="contextual-info"
+                      fab
+                      aria-label="Privacy Policy per i servizi di Tassa Auto"
+                      depressed
+                      class="contextual-info privacy-btn"
                       @click="$refs.mwPrivacy.mostraModalePrivacy()">
                       <v-icon>mdi-information</v-icon>
                     </v-btn>
                   </div>
                 </div>
               </div>
-              <div class="confirm-send mt-5">
-                <v-btn type="submit" class="btn-block">Attiva</v-btn>
+              <div class="confirm-send col-md-4 offset-md-1 mt-5">
+                <v-btn
+                  color="primary"
+                  outlined
+                  aria-label="attiva il servizio"
+                  depressed
+                  type="submit">
+                  Attiva
+                </v-btn>
               </div>
-              <div class="error-label"
+              <div class="error--text"
                 v-if="this.clickCb && !$v.smsForm.privacy.acceptedPrivacy">
                 Il consenso all'informativa sulla privacy è obbligatorio.
               </div>
@@ -67,7 +76,7 @@
       border="left"
       class="w-100"
       show>
-        <div class="d-block">
+        <div class="d-block d-block-memo">
           <h4 class="alert-heading">
             Attivazione Memobollo via SMS
           </h4>
@@ -93,7 +102,9 @@
                 :error-count="3"
               />
               <v-btn
+                depressed
                 block=""
+                aria-label="conferma il servizio"
                 type="submit"
                 color="primary">
                 Conferma
@@ -107,74 +118,33 @@
       </v-alert>
     </div>
     <div class="d-flex w-100"
-      v-if="esitoMemoVerifica.statoSms.stato == 'ATTESA_REVOCA'">
-      <v-alert
-        class="alert-form"
-        type="warning"
-        border="left">
-        <div class="d-block">
-          <div
-            v-if="esitoMemoVerifica.statoSms.stato == 'ATTESA_REVOCA'">
-            <h4 class="alert-heading">
-              Revoca Memobollo via SMS
-            </h4>
-            <p>
-              <strong>Attenzione!</strong> Stai revocando Memobollo via SMS. Per confermare la revoca inserisci <strong>qui sotto</strong> il codice che ti abbiamo appena <strong>inviato via SMS</strong>
-            </p>
-          </div>
-          <v-form
-            id="confermaCodice"
-            @submit.prevent="confermaCodice"
-          >
-            <v-text-field
-              clearable
-              clear-icon="mdi-close-circle"
-              background-color="#666"
-              outlined
-              :label="Codice"
-              id="token"
-              type="text"
-              v-model="codiceForm.token"
-              @change.native="resetErroriServer()"
-              :error-messages="codiceTokenErrors"
-              autocomplete="off"
-              :error-count="3"
-            />
-            <div class="alert-form-fields">
-              <v-btn
-                type="submit"
-                color="primary">
-                Conferma
-              </v-btn>
-            </div>
-          </v-form>
-          <p>
-            Non hai ricevuto l'SMS per la revoca? Fai click <a class="only-text" @click="richiediRevoca()">QUI</a>
-          </p>
-        </div>
-      </v-alert>
-    </div>
-    <div class="d-flex w-100"
       v-if="esitoMemoVerifica.statoSms.stato == 'ATTIVO' && revocaAttivazione == false">
       <v-alert
         color="success"
         dense
         outlined
-        aria-live="off" show class="w-100 pa-8 alertSuccessMemo">
-        <div class="d-block">
-          <h4 class="alert-heading-success">Memobollo attivo via SMS</h4>
-          <small class="alert-sub-heading">attivo dal: <strong>{{ new Date(esitoMemoVerifica.statoSms.dataAttivazione) | dateFormat('DD/MM/YYYY')  }}</strong></small>
+        aria-live="off" show class="w-100 pa-6 alertSuccessMemo">
+        <div class="d-block d-block-memo">
+          <h4 class="alert-heading-success">
+            Memobollo attivo <br/>via SMS
+          </h4>
+          <small class="alert-sub-heading">
+            attivo dal: <strong>{{ new Date(esitoMemoVerifica.statoSms.dataAttivazione) | dateFormat('DD/MM/YYYY')  }}</strong>
+          </small>
           <v-list flat>
-            <v-list-item-group :no-action="true">
+            <v-list-item-group :no-action="true" aria-label="dati numero di telefono">
               <v-list-item id="" :inactive="true" :ripple="false">
-                Numero di telefono mobile: <strong class="d-block">{{ esitoMemoVerifica.statoSms.destinatario }}</strong>
+                Numero di telefono mobile:&nbsp;<strong class="d-block d-block-memo"> {{ esitoMemoVerifica.statoSms.destinatario }}</strong>
               </v-list-item>
             </v-list-item-group>
           </v-list>
           <div class="alert-form-fields">
             <div class="pt-6">
               <v-btn
-                @click="richiediRevoca()"
+                id="revocaSmsBtn"
+                aria-label="revoca il servizio"
+                depressed
+                @click="revocaAttivazione = true"
                 color="primary"
                 block><v-icon>mdi-trash-can</v-icon> Revoca
               </v-btn>
@@ -183,53 +153,50 @@
         </div>
       </v-alert>
     </div>
-
     <div class="d-flex w-100"
       v-if="esitoMemoVerifica.statoSms.stato == 'ATTIVO' && revocaAttivazione == true">
-      <v-alert class="alert-form" color="danger" outlined show >
-        <div class="d-block">
+      <v-alert
+        class="alert-form"
+        dense
+        outlined
+        color="error"
+        aria-live="off"
+        show
+      >
+        <div class="d-block d-block-memo">
           <h4 class="alert-heading">
-            Revoca memobollo via SMS
+            Revoca Memobollo via SMS
           </h4>
-          <small class="alert-sub-heading">attivo dal: <strong>{{ new Date(esitoMemoVerifica.statoSms.dataAttivazione) | dateFormat('DD/MM/YYYY')  }}</strong></small>
+          <small class="alert-sub-heading">
+            attivo dal: <strong>{{ new Date(esitoMemoVerifica.statoSms.dataAttivazione) | dateFormat('DD/MM/YYYY')  }}</strong>
+          </small>
           <v-list class="text-uppercase mb-4" flat>
-            <v-list-item-group :no-action="true">
+            <v-list-item-group :no-action="true" aria-label="dati numero di telefono">
               <v-list-item id="" :inactive="true" :ripple="false">
-                Numero di telefono mobile: <strong class="d-block">{{ esitoMemoVerifica.statoSms.destinatario }}</strong>
+                Numero di telefono mobile: <strong class="d-block d-block-memo">{{ esitoMemoVerifica.statoSms.destinatario }}</strong>
               </v-list-item>
             </v-list-item-group>
           </v-list>
           <p>
-            <strong>Attenzione!</strong> Stai revocando Memobollo via SMS. Per confermare la revoca inserisci <strong>qui sotto</strong> il codice che ti abbiamo appena <strong>inviato via SMS</strong>
+            <strong>Attenzione!</strong> Stai revocando Memobollo via SMS.
           </p>
           <div class="alert-form-fields">
-            <v-form
-            id="confermaCodice"
-              @submit.prevent="confermaCodice">
-              <v-text-field
-                clearable
-                clear-icon="mdi-close-circle"
-                background-color="#666"
-                outlined
-                :label="Codice"
-                id="token"
-                type="text"
-                v-model="codiceForm.token"
-                @change.native="resetErroriServer()"
-                :error-messages="codiceTokenErrors"
-                autocomplete="off"
-                :error-count="3"
-                ></v-text-field>
-            </v-form>
-            <v-btn
-              @click="confermaRevoca()"
-              color="primary">
-              <v-icon>mdi-trash-can</v-icon> Revoca
-            </v-btn>
-            <v-btn
-              @click="revocaAttivazione=false">
-              Annulla
-            </v-btn>
+            <div class="pt-6">
+              <v-btn
+                id="confermaRevocaSms"
+                aria-label="conferma la revoca del servizio"
+                depressed
+                @click="richiediRevoca()"
+                color="primary">
+                <v-icon>mdi-trash-can</v-icon> Revoca
+              </v-btn>
+              <v-btn
+                depressed
+                aria-label="annulla la revoca del servizio"
+                @click="revocaAttivazione=false">
+                Annulla
+              </v-btn>
+            </div>
           </div>
         </div>
       </v-alert>
@@ -246,7 +213,7 @@ import { mapGetters } from 'vuex'
 import ApiError from '@/common/api.error'
 import NavigatorService from '@/common/navigator.service'
 import ModalePrivacy from '@/components/privacy/ModalePrivacy'
-import { MEMO_RICHIESTA_ATT_SMS, MEMO_RICHIESTA_REV_SMS, MEMO_ATTIVAZ_SMS, MEMO_REVOCA_SMS } from '@/store/actions.type'
+import { MEMO_RICHIESTA_ATT_SMS, MEMO_RICHIESTA_REV_SMS, MEMO_ATTIVAZ_SMS } from '@/store/actions.type'
 import store from '@/store'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, numeric } from 'vuelidate/lib/validators'
@@ -312,7 +279,7 @@ export default {
       !this.$v.smsForm.cell.minLength && errors.push('Il telefono mobile deve essere composto da almeno ' + this.$v.smsForm.cell.$params.minLength.min + ' numeri.')
       !this.$v.smsForm.cell.maxLength && errors.push('Il telefono mobile deve essere composto da massimo ' + this.$v.smsForm.cell.$params.maxLength.max + ' numeri.')
       !this.$v.smsForm.cell.numeric && errors.push('Il telefono mobile deve essere composto da soli numeri.')
-      !this.$v.smsForm.cell.serverFailed && errors.push(this.serverErrors.cell)
+      !this.$v.smsForm.cell.serverFailed && errors.push(this.$i18n.t('general.api.errors.phone_error'))
       return errors
     },
     privacyErrors () {
@@ -349,7 +316,8 @@ export default {
       } else if (error.response.status === 422) {
         this.$emit('updateboxerr', {
           title: this.$i18n.t('general.api.errors.no_results'),
-          message: this.$i18n.t('general.api.errors.search_params_invalid')
+          message: this.$i18n.t('general.api.errors.pratica_invalid'),
+          fieldError: ApiError.serverValidationErrors(error.response.data.detail)
         })
         const detail = error.response.data.detail
         this.serverErrors = ApiError.serverValidationErrors(detail)
@@ -372,6 +340,10 @@ export default {
     },
 
     richiediAttRev (action, cell) {
+      this.$emit('updateboxerr', {
+        title: '',
+        message: ''
+      })
       const qParams = {
         codiceFiscale: this.esitoMemoVerifica.codiceFiscale,
         targa: this.esitoMemoVerifica.targa,
@@ -390,6 +362,7 @@ export default {
               this.esitoMemoVerifica.codiceFiscale,
               this.esitoMemoVerifica.targa,
               this.esitoMemoVerifica.tipoVeicolo.codice)
+            this.revocaAttivazione = false
           } else {
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.error'),
@@ -409,9 +382,8 @@ export default {
       if (!NavigatorService.checkInternetConnection()) return
 
       this.$emit('controlspinner', { running: true })
-      const actionConf = (this.esitoMemoVerifica.statoSms.stato === 'IN_ATTESA') ? MEMO_ATTIVAZ_SMS : MEMO_REVOCA_SMS
       store
-        .dispatch(actionConf, {
+        .dispatch(MEMO_ATTIVAZ_SMS, {
           cell: this.esitoMemoVerifica.statoSms.destinatario,
           token: this.codiceForm.token
         })

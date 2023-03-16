@@ -63,5 +63,15 @@ export default {
       if (attrEsenz.grigliaInstallazioneGplMetano !== null && attrEsenz.grigliaInstallazioneGplMetano.value) return 'esentatoImpianto'
     }
     return ''
+  },
+
+  motivoOssAvvBonarioPagato (accPag) {
+    return this.motivoOssAvvAccPagato(accPag)
+  },
+  motivoOssAvvBonarioNonPagato (accNonPag) {
+    return this.motivoOssAvvAccNonPagato(accNonPag)
+  },
+  motivoOssAvvBonarioAltroMotivo (altroMotivo) {
+    return this.motivoOssAvvAccAltroMotivo(altroMotivo)
   }
 }

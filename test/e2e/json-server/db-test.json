@@ -16,7 +16,7 @@
       "telefono": 30012345678
     },
     "idPratica": {
-      "id":61412379
+      "id": 61412379
     },
     "idScadenzaVeicolo": 24271773,
     "idScadenzaPersona": 22843446,
@@ -47,14 +47,52 @@
     "sanzione": 9.42,
     "interesse": 0.51
   },
-  "dteIntestatarioPf": {"dataAnagraficiIntestatario":{"altro":null,"cap":"13047","codiceFiscale":"MMMNTN68A16C632X","cognome":"MAMMARELLA GIARDINIERI","comuneProvCap":null,"denominazione":null,"descComune":"SAN GERMANO VERCELLESE","email":null,"indirizzo":"VIALE FRANZOI AUGUSTO, 5","indirizzoCompleto":null,"nome":"ANTONIO","provincia":"VC","telefono":null,"sesso":"M","dataNascita":"16/01/1968","statoNascita":null,"provinciaNascita":"CH","comuneNascita":"CHIETI","piva":null}},
-  "dteNumIngiunzione": ["S116000210420"],
-  "infoBollo": [
-    { "esito": "KO", "dataAttivazione": null, "destinatario": "mario.rossi@dominiopostaxyz.com" },
-    { "esito": "KO", "dataAttivazione": null, "destinatario": "7891234567" }
+  "dteIntestatarioPf": {
+    "dataAnagraficiIntestatario": {
+      "altro": null,
+      "cap": "13047",
+      "codiceFiscale": "MMMNTN68A16C632X",
+      "cognome": "MAMMARELLA GIARDINIERI",
+      "comuneProvCap": null,
+      "denominazione": null,
+      "descComune": "SAN GERMANO VERCELLESE",
+      "email": null,
+      "indirizzo": "VIALE FRANZOI AUGUSTO, 5",
+      "indirizzoCompleto": null,
+      "nome": "ANTONIO",
+      "provincia": "VC",
+      "telefono": null,
+      "sesso": "M",
+      "dataNascita": "16/01/1968",
+      "statoNascita": null,
+      "provinciaNascita": "CH",
+      "comuneNascita": "CHIETI",
+      "piva": null
+    }
+  },
+  "dteNumIngiunzione": [
+    "S116000210420"
   ],
-  "infoBolloAttivazioneEmail": {"esito":"OK","destinatario":"daniel.scaletta@consulenti.csi.it"},
-  "infoBolloAttivazioneSMS": {"esito":"OK","destinatario":"7891234567"},
+  "infoBollo": [
+    {
+      "esito": "KO",
+      "dataAttivazione": null,
+      "destinatario": "mario.rossi@dominiopostaxyz.com"
+    },
+    {
+      "esito": "KO",
+      "dataAttivazione": null,
+      "destinatario": "7891234567"
+    }
+  ],
+  "infoBolloAttivazioneEmail": {
+    "esito": "OK",
+    "destinatario": "daniel.scaletta@consulenti.csi.it"
+  },
+  "infoBolloAttivazioneSMS": {
+    "esito": "OK",
+    "destinatario": "7891234567"
+  },
   "memoBollo": [
     {
       "codiceFiscale": "SBCCST76M66F335L",
@@ -63,17 +101,101 @@
         "codice": "A",
         "descrizione": "AUTOVEICOLO"
       },
-      "statoEmail": { "dataAttivazione": null, "destinatario": null, "stato": "INATTIVO" },
-      "statoSms": { "dataAttivazione": null, "destinatario": null, "stato": "INATTIVO" }
+      "statoEmail": {
+        "dataAttivazione": "2020-01-01",
+        "destinatario": "daniel.scaletta@consulenti.csi.it",
+        "stato": "ATTIVO"
+      },
+      "statoSms": {
+        "dataAttivazione": "2020-02-01",
+        "destinatario": "33333333",
+        "stato": "ATTIVO"
+      }
+    },
+    {
+      "codiceFiscale": "PRDCRL76D18L219G",
+      "targa": "EH372PV",
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "statoEmail": {
+        "dataAttivazione": null,
+        "destinatario": null,
+        "stato": "INATTIVO"
+      },
+      "statoSms": {
+        "dataAttivazione": null,
+        "destinatario": null,
+        "stato": "INATTIVO"
+      }
     }
   ],
   "richiestaAttivazioneMemo": {
     "esito": "OK",
     "destinatario": "daniel.scaletta@consulenti.csi.it"
   },
-  "richiestaRevocaMemobollo":{"esito":"OK","destinatario":"daniel.scaletta@consulenti.csi.it"},
-  "memobolloVerificaCF": {"codiceFiscale":"SBCCST76M66F335L","targa":"CR152AX","tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"},"statoEmail":{"dataAttivazione":"2020-01-01","destinatario":"daniel.scaletta@consulenti.csi.it","stato":"ATTIVO"},"statoSms":{"dataAttivazione":"2020-02-01","destinatario":"33333333","stato":"ATTIVO"}},
-  "ricevutaSingolaBollo": {"tipologia":"S","ricevutaSingola":{"banca":{"codice":"BCITITMM","descrizione":"Intesa Sanpaolo"},"dataOraPagamento":"16/07/2018 0:00","email":"cri.sabiacolucci@libero.it","esitoPagamento":"Pagamento effettuato","datiCalcolo":{"codiceFiscale":"SBCCMN35A30A519Z","creditoDisponibile":null,"dirittoFisso":null,"esplicativo":"POT KW 37 E2","esito":null,"identificativoPagamento":"201807160000002784977813","interesse":0.14,"percentualeRiduzione":"0","proprietario":{"tipologia":"PF","denominazione":"SABIA COLUCCI CARMINE ANGELO"},"sanzionamento":null,"sanzione":3.89,"scadenza":"12/2018","targa":"AT434CY","tassa":103.6,"tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"},"totaleDovuto":107.63,"totaleDaVersare":0.0,"totaleDovutoComp":null,"tipoRiduzione":"14","ultimoGiornoUtile":"31/01/2018","validita":"12"},"identificativoCarrello":"","identificativoPagamento":"201807160000002784977813","identificativoTransazione":"TST000000000043957","idRiscossione":"15317425430420147011","idStatoTransazione":4,"importo":107.63,"iuv":"RF02181970003T00200000002","percCommissione":null,"regione":"Piemonte","speseCommissione":null,"transazioneMDP":true,"rate":null},"ricevutaCumulativa":null,"pianoRateizzazione":null,"rate":[],"anagraficaIntestatario":null},
+  "richiestaRevocaMemobollo": {
+    "esito": "OK",
+    "destinatario": "daniel.scaletta@consulenti.csi.it"
+  },
+  "ricevutaSingolaBollo": {
+    "tipologia": "S",
+    "ricevutaSingola": {
+      "banca": {
+        "codice": "BCITITMM",
+        "descrizione": "Intesa Sanpaolo"
+      },
+      "dataOraPagamento": "16/07/2018 0:00",
+      "email": "cri.sabiacolucci@libero.it",
+      "esitoPagamento": "Pagamento effettuato",
+      "datiCalcolo": {
+        "codiceFiscale": "SBCCMN35A30A519Z",
+        "creditoDisponibile": null,
+        "dirittoFisso": null,
+        "esplicativo": "POT KW 37 E2",
+        "esito": null,
+        "identificativoPagamento": "201807160000002784977813",
+        "interesse": 0.14,
+        "percentualeRiduzione": "0",
+        "proprietario": {
+          "tipologia": "PF",
+          "denominazione": "SABIA COLUCCI CARMINE ANGELO"
+        },
+        "sanzionamento": null,
+        "sanzione": 3.89,
+        "scadenza": "12/2018",
+        "targa": "AT434CY",
+        "tassa": 103.6,
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "totaleDovuto": 107.63,
+        "totaleDaVersare": 0.0,
+        "totaleDovutoComp": null,
+        "tipoRiduzione": "14",
+        "ultimoGiornoUtile": "31/01/2018",
+        "validita": "12"
+      },
+      "identificativoCarrello": "",
+      "identificativoPagamento": "201807160000002784977813",
+      "identificativoTransazione": "TST000000000043957",
+      "idRiscossione": "15317425430420147011",
+      "idStatoTransazione": 4,
+      "importo": 107.63,
+      "iuv": "RF02181970003T00200000002",
+      "percCommissione": null,
+      "regione": "Piemonte",
+      "speseCommissione": null,
+      "transazioneMDP": true,
+      "rate": null
+    },
+    "ricevutaCumulativa": null,
+    "pianoRateizzazione": null,
+    "rate": [],
+    "anagraficaIntestatario": null
+  },
   "tipologiaPratica": [
     {
       "identificativo": "1051",
@@ -81,17 +203,190 @@
       "codice": "OSSER"
     }
   ],
-  "scaricaRicevutaMultipla":{"tipologia":"C","ricevutaSingola":null,"ricevutaCumulativa":{"riepilogo":{"banca":{"codice":"BCITITMM","descrizione":"Intesa Sanpaolo"},"dataOraPagamento":"05/12/2019 0:00","email":"carlo.peraudo@consulenti.csi.it","esitoPagamento":"Pagamento effettuato","datiCalcolo":{"codiceFiscale":null,"creditoDisponibile":null,"dirittoFisso":null,"esplicativo":null,"esito":null,"identificativoPagamento":null,"interesse":null,"percentualeRiduzione":null,"proprietario":null,"sanzionamento":null,"sanzione":null,"scadenza":null,"targa":null,"tassa":20.0,"tipoVeicolo":null,"totaleDovuto":null,"totaleDaVersare":null,"totaleDovutoComp":null,"tipoRiduzione":null,"ultimoGiornoUtile":null,"validita":null},"identificativoCarrello":"201912050002101","identificativoPagamento":"201912050000002785286313","identificativoTransazione":"TST000000000079089","idRiscossione":"15755512290650013011","idStatoTransazione":4,"importo":20.0,"iuv":"RF43193390003T00200000003","percCommissione":null,"regione":"Piemonte","speseCommissione":null,"transazioneMDP":null,"rate":null},"listaRicevute":[{"banca":{"codice":"BCITITMM","descrizione":"Intesa Sanpaolo"},"dataOraPagamento":"05/12/2019 0:00","email":"carlo.peraudo@consulenti.csi.it","esitoPagamento":"Pagamento effettuato","datiCalcolo":{"codiceFiscale":"SBCCST76M66F335L","creditoDisponibile":null,"dirittoFisso":null,"esplicativo":"IMPORTO FISSO ANNUO","esito":null,"identificativoPagamento":"201912050000002785286313","interesse":0.0,"percentualeRiduzione":"0","proprietario":{"tipologia":"PF","denominazione":"SABIA COLUCCI CRISTIANA IRENE"},"sanzionamento":null,"sanzione":0.0,"scadenza":"12/2019","targa":"6778003","tassa":20.0,"tipoVeicolo":{"codice":"C","descrizione":"CICLOMOTORE"},"totaleDovuto":20.0,"totaleDaVersare":0.0,"totaleDovutoComp":null,"tipoRiduzione":"NN","ultimoGiornoUtile":"31/01/2019","validita":"12"},"identificativoCarrello":"201912050002101","identificativoPagamento":"201912050000002785286313","identificativoTransazione":"TST000000000079089","idRiscossione":"15755512290650013011","idStatoTransazione":4,"importo":20.0,"iuv":"RF43193390003T00200000003","percCommissione":null,"regione":"Piemonte","speseCommissione":null,"transazioneMDP":true,"rate":null}]},"pianoRateizzazione":null,"rate":[],"anagraficaIntestatario":null},
-  "scaricaRicevutaRate": {"tipologia":"S","ricevutaSingola":{"banca":{"codice":"BCITITMM","descrizione":"Intesa Sanpaolo"},"dataOraPagamento":"04/12/2019 - 00:00","email":"carlo.peraudo@consulenti.csi.it","esitoPagamento":"Pagamento effettuato","datiCalcolo":null,"identificativoCarrello":null,"identificativoPagamento":null,"identificativoTransazione":"TST000000000079071","idRiscossione":"15754748139270006011","idStatoTransazione":9,"importo":4.51,"iuv":"RF88193380003T00200000007","percCommissione":null,"regione":"Piemonte","speseCommissione":null,"transazioneMDP":null,"rate":null},"ricevutaCumulativa":null,"pianoRateizzazione":{"numeroRiferimento":"50043679","anno":"2019","totale":132.47,"numeroRate":1},"rate":[{"numeroRata":3,"scadenza":"01/11/2020","importo":4.51,"codiceBollettino":null}],"anagraficaIntestatario":{"altro":null,"cap":null,"codiceFiscale":"GLOPLA75E21L219X","cognome":null,"comuneProvCap":null,"denominazione":null,"descComune":null,"email":"carlo.peraudo@consulenti.csi.it","indirizzo":null,"indirizzoCompleto":null,"nome":"GOLA PAOLO","provincia":null,"telefono":null,"sesso":null,"dataNascita":null,"statoNascita":null,"provinciaNascita":null,"comuneNascita":null,"piva":null}},
+  "scaricaRicevutaMultipla": {
+    "tipologia": "C",
+    "ricevutaSingola": null,
+    "ricevutaCumulativa": {
+      "riepilogo": {
+        "banca": {
+          "codice": "BCITITMM",
+          "descrizione": "Intesa Sanpaolo"
+        },
+        "dataOraPagamento": "05/12/2019 0:00",
+        "email": "carlo.peraudo@consulenti.csi.it",
+        "esitoPagamento": "Pagamento effettuato",
+        "datiCalcolo": {
+          "codiceFiscale": null,
+          "creditoDisponibile": null,
+          "dirittoFisso": null,
+          "esplicativo": null,
+          "esito": null,
+          "identificativoPagamento": null,
+          "interesse": null,
+          "percentualeRiduzione": null,
+          "proprietario": null,
+          "sanzionamento": null,
+          "sanzione": null,
+          "scadenza": null,
+          "targa": null,
+          "tassa": 20.0,
+          "tipoVeicolo": null,
+          "totaleDovuto": null,
+          "totaleDaVersare": null,
+          "totaleDovutoComp": null,
+          "tipoRiduzione": null,
+          "ultimoGiornoUtile": null,
+          "validita": null
+        },
+        "identificativoCarrello": "201912050002101",
+        "identificativoPagamento": "201912050000002785286313",
+        "identificativoTransazione": "TST000000000079089",
+        "idRiscossione": "15755512290650013011",
+        "idStatoTransazione": 4,
+        "importo": 20.0,
+        "iuv": "RF43193390003T00200000003",
+        "percCommissione": null,
+        "regione": "Piemonte",
+        "speseCommissione": null,
+        "transazioneMDP": null,
+        "rate": null
+      },
+      "listaRicevute": [
+        {
+          "banca": {
+            "codice": "BCITITMM",
+            "descrizione": "Intesa Sanpaolo"
+          },
+          "dataOraPagamento": "05/12/2019 0:00",
+          "email": "carlo.peraudo@consulenti.csi.it",
+          "esitoPagamento": "Pagamento effettuato",
+          "datiCalcolo": {
+            "codiceFiscale": "SBCCST76M66F335L",
+            "creditoDisponibile": null,
+            "dirittoFisso": null,
+            "esplicativo": "IMPORTO FISSO ANNUO",
+            "esito": null,
+            "identificativoPagamento": "201912050000002785286313",
+            "interesse": 0.0,
+            "percentualeRiduzione": "0",
+            "proprietario": {
+              "tipologia": "PF",
+              "denominazione": "SABIA COLUCCI CRISTIANA IRENE"
+            },
+            "sanzionamento": null,
+            "sanzione": 0.0,
+            "scadenza": "12/2019",
+            "targa": "6778003",
+            "tassa": 20.0,
+            "tipoVeicolo": {
+              "codice": "C",
+              "descrizione": "CICLOMOTORE"
+            },
+            "totaleDovuto": 20.0,
+            "totaleDaVersare": 0.0,
+            "totaleDovutoComp": null,
+            "tipoRiduzione": "NN",
+            "ultimoGiornoUtile": "31/01/2019",
+            "validita": "12"
+          },
+          "identificativoCarrello": "201912050002101",
+          "identificativoPagamento": "201912050000002785286313",
+          "identificativoTransazione": "TST000000000079089",
+          "idRiscossione": "15755512290650013011",
+          "idStatoTransazione": 4,
+          "importo": 20.0,
+          "iuv": "RF43193390003T00200000003",
+          "percCommissione": null,
+          "regione": "Piemonte",
+          "speseCommissione": null,
+          "transazioneMDP": true,
+          "rate": null
+        }
+      ]
+    },
+    "pianoRateizzazione": null,
+    "rate": [],
+    "anagraficaIntestatario": null
+  },
+  "scaricaRicevutaRate": {
+    "tipologia": "S",
+    "ricevutaSingola": {
+      "banca": {
+        "codice": "BCITITMM",
+        "descrizione": "Intesa Sanpaolo"
+      },
+      "dataOraPagamento": "04/12/2019 - 00:00",
+      "email": "carlo.peraudo@consulenti.csi.it",
+      "esitoPagamento": "Pagamento effettuato",
+      "datiCalcolo": null,
+      "identificativoCarrello": null,
+      "identificativoPagamento": null,
+      "identificativoTransazione": "TST000000000079071",
+      "idRiscossione": "15754748139270006011",
+      "idStatoTransazione": 9,
+      "importo": 4.51,
+      "iuv": "RF88193380003T00200000007",
+      "percCommissione": null,
+      "regione": "Piemonte",
+      "speseCommissione": null,
+      "transazioneMDP": null,
+      "rate": null
+    },
+    "ricevutaCumulativa": null,
+    "pianoRateizzazione": {
+      "numeroRiferimento": "50043679",
+      "anno": "2019",
+      "totale": 132.47,
+      "numeroRate": 1
+    },
+    "rate": [
+      {
+        "numeroRata": 3,
+        "scadenza": "01/11/2020",
+        "importo": 4.51,
+        "codiceBollettino": null
+      }
+    ],
+    "anagraficaIntestatario": {
+      "altro": null,
+      "cap": null,
+      "codiceFiscale": "GLOPLA75E21L219X",
+      "cognome": null,
+      "comuneProvCap": null,
+      "denominazione": null,
+      "descComune": null,
+      "email": "carlo.peraudo@consulenti.csi.it",
+      "indirizzo": null,
+      "indirizzoCompleto": null,
+      "nome": "GOLA PAOLO",
+      "provincia": null,
+      "telefono": null,
+      "sesso": null,
+      "dataNascita": null,
+      "statoNascita": null,
+      "provinciaNascita": null,
+      "comuneNascita": null,
+      "piva": null
+    }
+  },
   "osservazioneAvvisoScadenza": {
     "attributi": {
       "datiVeicoloRettifica": {
         "value": false,
         "kw": "",
         "targa": "",
-        "tipoVeicolo": { "codice": "", "descrizione": "" },
-        "catEuro": { "codice": "", "descrizione": "" },
-        "alimentazione": { "codice": "", "descrizione": "" },
+        "tipoVeicolo": {
+          "codice": "",
+          "descrizione": ""
+        },
+        "catEuro": {
+          "codice": "",
+          "descrizione": ""
+        },
+        "alimentazione": {
+          "codice": "",
+          "descrizione": ""
+        },
         "peso": 0,
         "numPosti": 0,
         "sp": false,
@@ -119,17 +414,39 @@
         "concessionario": true,
         "value": true
       },
-      "radiato": { "data": "", "value": false },
-      "disponibilitaPrivata": { "value": false, "dal": "", "al": ""
+      "radiato": {
+        "data": "",
+        "value": false
+      },
+      "disponibilitaPrivata": {
+        "value": false,
+        "dal": "",
+        "al": ""
       },
       "esenzioni": {
         "value": false,
-        "disabili": { "value": false, "del": "", "protocollo": "" },
-        "impiantoGplMetano": { "value": false, "data": "" },
-        "altroMotivo": { "value": false, "testo": "" }
+        "disabili": {
+          "value": false,
+          "del": "",
+          "protocollo": ""
+        },
+        "impiantoGplMetano": {
+          "value": false,
+          "data": ""
+        },
+        "altroMotivo": {
+          "value": false,
+          "testo": ""
+        }
       },
-      "trasferimentoRegione": { "value": false, "data": "" },
-      "radiatoDemolizione": { "value": false, "data": "" },
+      "trasferimentoRegione": {
+        "value": false,
+        "data": ""
+      },
+      "radiatoDemolizione": {
+        "value": false,
+        "data": ""
+      },
       "dataCompilazione": ""
     },
     "allegati": [
@@ -156,7 +473,7 @@
         "telefono": 30012345678
       },
       "idPratica": {
-        "id":61412379
+        "id": 61412379
       },
       "idScadenzaVeicolo": 24271773,
       "idScadenzaPersona": 22843446,
@@ -185,9 +502,58 @@
     },
     "telefono": "30012345678"
   },
-  "rateizzazioneFasce": [{"numeroFascia":1,"importoDa":120.0,"importoA":280.0,"numeroRate":5},{"numeroFascia":2,"importoDa":280.01,"importoA":600.0,"numeroRate":10},{"numeroFascia":3,"importoDa":600.01,"importoA":1260.0,"numeroRate":15},{"numeroFascia":4,"importoDa":1260.01,"importoA":2700.0,"numeroRate":20},{"numeroFascia":5,"importoDa":2700.01,"importoA":null,"numeroRate":30}],
-  "rateizzazioneProprietari":
-    {"cap":"15048","codiceFiscale":"NBBBBR69C68A182C","codiceFiscaleLegale":null,"cognome":"NEBBIA","comuneDiNascita":"ALESSANDRIA","comuneDomicilio":"VALENZA","dataDiNascita":"28/03/1969","denominazione":null,"email":null,"indirizzo":"VIALE VICENZA 8 ","indirizzoPresso":null,"nome":"BARBARA","personaFisica":true,"piva":null,"provinciaDiNascita":"AL","provinciaDomicilio":"AL","sesso":"F","telefono":null},
+  "rateizzazioneFasce": [
+    {
+      "numeroFascia": 1,
+      "importoDa": 120.0,
+      "importoA": 280.0,
+      "numeroRate": 5
+    },
+    {
+      "numeroFascia": 2,
+      "importoDa": 280.01,
+      "importoA": 600.0,
+      "numeroRate": 10
+    },
+    {
+      "numeroFascia": 3,
+      "importoDa": 600.01,
+      "importoA": 1260.0,
+      "numeroRate": 15
+    },
+    {
+      "numeroFascia": 4,
+      "importoDa": 1260.01,
+      "importoA": 2700.0,
+      "numeroRate": 20
+    },
+    {
+      "numeroFascia": 5,
+      "importoDa": 2700.01,
+      "importoA": null,
+      "numeroRate": 30
+    }
+  ],
+  "rateizzazioneProprietari": {
+    "cap": "15048",
+    "codiceFiscale": "NBBBBR69C68A182C",
+    "codiceFiscaleLegale": null,
+    "cognome": "NEBBIA",
+    "comuneDiNascita": "ALESSANDRIA",
+    "comuneDomicilio": "VALENZA",
+    "dataDiNascita": "28/03/1969",
+    "denominazione": null,
+    "email": null,
+    "indirizzo": "VIALE VICENZA 8 ",
+    "indirizzoPresso": null,
+    "nome": "BARBARA",
+    "personaFisica": true,
+    "piva": null,
+    "provinciaDiNascita": "AL",
+    "provinciaDomicilio": "AL",
+    "sesso": "F",
+    "telefono": null
+  },
   "rateizzazioneConfermaDatiContribuente": {
     "accertamenti": [
       {
@@ -211,37 +577,39 @@
     }
   },
   "rateizzazioneProprietariPersonaGiuridica": {
-      "cap": "15076",
-      "codiceFiscale": "00024770067",
-      "codiceFiscaleLegale": null,
-      "cognome": null,
-      "comuneDiNascita": null,
-      "comuneDomicilio": "OVADA",
-      "dataDiNascita": null,
-      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
-      "email": null,
-      "indirizzo": "STRADA VOLTRI 27 D",
-      "indirizzoPresso": null,
-      "nome": null,
-      "personaFisica": false,
-      "piva": null,
-      "provinciaDiNascita": null,
-      "provinciaDomicilio": "AL",
-      "sesso": null,
-      "telefono": null
-    },
+    "cap": "15076",
+    "codiceFiscale": "00024770067",
+    "codiceFiscaleLegale": null,
+    "cognome": null,
+    "comuneDiNascita": null,
+    "comuneDomicilio": "OVADA",
+    "dataDiNascita": null,
+    "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+    "email": null,
+    "indirizzo": "STRADA VOLTRI 27 D",
+    "indirizzoPresso": null,
+    "nome": null,
+    "personaFisica": false,
+    "piva": null,
+    "provinciaDiNascita": null,
+    "provinciaDomicilio": "AL",
+    "sesso": null,
+    "telefono": null
+  },
   "rateizzazioneConfermaDatiPersonaGiuridica": {
-    "accertamenti": [{
-      "anno": 2014,
-      "protocollo": "00214010CJ477BY",
-      "codiceFiscale": "00024770067",
-      "cognome": null,
-      "dataNotifica": "2016-08-31",
-      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
-      "idPratica": 58966988,
-      "nome": null,
-      "totale": 737.42
-    }],
+    "accertamenti": [
+      {
+        "anno": 2014,
+        "protocollo": "00214010CJ477BY",
+        "codiceFiscale": "00024770067",
+        "cognome": null,
+        "dataNotifica": "2016-08-31",
+        "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+        "idPratica": 58966988,
+        "nome": null,
+        "totale": 737.42
+      }
+    ],
     "totale": 737.42,
     "fascia": {
       "numeroFascia": 3,
@@ -251,17 +619,19 @@
     }
   },
   "rateizzazioneConfermaDatiPersonaGiuridicaBis": {
-    "accertamenti": [{
-      "anno": 2014,
-      "protocollo": "00214010CJ477BA",
-      "codiceFiscale": "00024770067",
-      "cognome": null,
-      "dataNotifica": "2016-08-31",
-      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
-      "idPratica": 58966988,
-      "nome": null,
-      "totale": 737.42
-    }],
+    "accertamenti": [
+      {
+        "anno": 2014,
+        "protocollo": "00214010CJ477BA",
+        "codiceFiscale": "00024770067",
+        "cognome": null,
+        "dataNotifica": "2016-08-31",
+        "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+        "idPratica": 58966988,
+        "nome": null,
+        "totale": 737.42
+      }
+    ],
     "totale": 737.42,
     "fascia": {
       "numeroFascia": 3,
@@ -271,21 +641,70 @@
     }
   },
   "rateizzazioneSpedita": {
-    "accertamenti":[{"anno":2015,"protocollo":"00615010CB871JE","codiceFiscale":"NBBBBR69C68A182C","cognome":"NEBBIA","dataNotifica":null,"denominazione":null,"idPratica":63255934,"nome":"BARBARA","totale":165.72}],"allegati":[],"dataCompilazione":"2019-12-20","diffEconomiche":false,"email":"carlo.peraudo@consulenti.csi.it","idArchiviazione":"253145","idComunicazione":50032590,"note":null,"numeroRate":{"numeroFascia":1,"importoDa":120.0,"importoA":280.0,"numeroRate":5},"numeroProtocollo":"00003723/2019",
-      "soggetto":{"cap":"15048","codiceFiscale":"NBBBBR69C68A182C","codiceFiscaleLegale":null,"cognome":"NEBBIA","comuneDiNascita":"ALESSANDRIA","comuneDomicilio":"VALENZA","dataDiNascita":"28/03/1969","denominazione":null,"email":null,"indirizzo":"VIALE VICENZA 8 ","indirizzoPresso":null,"nome":"BARBARA","personaFisica":true,"piva":null,"provinciaDiNascita":"AL","provinciaDomicilio":"AL","sesso":"F","telefono":null},"telefono":"3332040510","totaleDaRateizzare":165.72
+    "accertamenti": [
+      {
+        "anno": 2015,
+        "protocollo": "00615010CB871JE",
+        "codiceFiscale": "NBBBBR69C68A182C",
+        "cognome": "NEBBIA",
+        "dataNotifica": null,
+        "denominazione": null,
+        "idPratica": 63255934,
+        "nome": "BARBARA",
+        "totale": 165.72
+      }
+    ],
+    "allegati": [],
+    "dataCompilazione": "2019-12-20",
+    "diffEconomiche": false,
+    "email": "carlo.peraudo@consulenti.csi.it",
+    "idArchiviazione": "253145",
+    "idComunicazione": 50032590,
+    "note": null,
+    "numeroRate": {
+      "numeroFascia": 1,
+      "importoDa": 120.0,
+      "importoA": 280.0,
+      "numeroRate": 5
+    },
+    "numeroProtocollo": "00003723/2019",
+    "soggetto": {
+      "cap": "15048",
+      "codiceFiscale": "NBBBBR69C68A182C",
+      "codiceFiscaleLegale": null,
+      "cognome": "NEBBIA",
+      "comuneDiNascita": "ALESSANDRIA",
+      "comuneDomicilio": "VALENZA",
+      "dataDiNascita": "28/03/1969",
+      "denominazione": null,
+      "email": null,
+      "indirizzo": "VIALE VICENZA 8 ",
+      "indirizzoPresso": null,
+      "nome": "BARBARA",
+      "personaFisica": true,
+      "piva": null,
+      "provinciaDiNascita": "AL",
+      "provinciaDomicilio": "AL",
+      "sesso": "F",
+      "telefono": null
+    },
+    "telefono": "3332040510",
+    "totaleDaRateizzare": 165.72
   },
   "rateizzazioneSpeditaRappresentanteLegale": {
-    "accertamenti": [{
-      "anno": 2014,
-      "protocollo": "00214010CJ477BY",
-      "codiceFiscale": "00024770067",
-      "cognome": null,
-      "dataNotifica": "2016-08-31",
-      "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
-      "idPratica": 58966988,
-      "nome": null,
-      "totale": 737.42
-    }],
+    "accertamenti": [
+      {
+        "anno": 2014,
+        "protocollo": "00214010CJ477BY",
+        "codiceFiscale": "00024770067",
+        "cognome": null,
+        "dataNotifica": "2016-08-31",
+        "denominazione": "ALBERGO RISTORANTE VITTORIA DI GRAMATICA ROBERTO & C. - S.N.C.",
+        "idPratica": 58966988,
+        "nome": null,
+        "totale": 737.42
+      }
+    ],
     "allegati": [],
     "dataCompilazione": "2020-01-15",
     "diffEconomiche": false,
@@ -331,128 +750,433 @@
     "telefono": "3333333333",
     "totaleDaRateizzare": 737.42
   },
-  "listaVeicoliFiltro": [{"codice":"A","descrizione":"AUTOVEICOLO"},{"codice":"M","descrizione":"MOTOVEICOLO"},{"codice":"R","descrizione":"RIMORCHIO"}],
-  "listaVeicoli": [{"codice":"A","descrizione":"AUTOVEICOLO"},{"codice":"M","descrizione":"MOTOVEICOLO"},{"codice":"R","descrizione":"RIMORCHIO"},{"codice":"C","descrizione":"CICLOMOTORE"},{"codice":"Q","descrizione":"QUADRICICLO"}],
-  "pagoBollo": [
+  "listaVeicoliFiltro": [
     {
-      "esito":"OK",
-      "errori":[],
-      "risultato": {
-        "codiceFiscale": "REXLNZ46A30C048F",
-        "tipoVeicolo": { "codice": "A", "descrizione": "AUTOVEICOLO" },
-        "targa":"DV720BS",
-        "esplicativo":"Pot Kw 139 E4",
-        "identificativoPagamento": "201911150000002785277113",
-        "scadenza":"10/2015",
-        "ultimoGiornoUtile":"01/12/2014",
-        "validita":12,
-        "totale":438.77,
-        "tassa":408.93,
-        "sanzione":24.54,
-        "interesse":5.3
-      },
-      "proprietario": { "tipologia":"PF", "denominazione":"EVENEPOEL REMCO" }
+      "codice": "A",
+      "descrizione": "AUTOVEICOLO"
     },
     {
-      "esito":"OK",
-      "errori":[],
-      "risultato": {
-        "codiceFiscale": "VRTWTO46A30C048F",
-        "tipoVeicolo": { "codice": "A", "descrizione": "AUTOVEICOLO" },
-        "targa":"KV720AB",
-        "esplicativo":"Pot Kw 139 E6",
-        "identificativoPagamento": "201910290000002785277113",
-        "scadenza":"10/2014",
-        "ultimoGiornoUtile":"30/11/2014",
-        "validita":12,
-        "totale":438.77,
-        "tassa":408.93,
-        "sanzione":24.54,
-        "interesse":5.3
-      },
-      "proprietario": { "tipologia":"PF", "denominazione":"WOUT VAN AERT" }
+      "codice": "M",
+      "descrizione": "MOTOVEICOLO"
+    },
+    {
+      "codice": "R",
+      "descrizione": "RIMORCHIO"
     }
   ],
-  "pagoBolloLimiteCarrello": {"valore":15},
-  "pagoBolloDisponibScadenza": [
-    {"esito":"OK","tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"}},
-    {"esito":"OK","tipoVeicolo":{"codice":"M","descrizione":"MOTOVEICOLO"}},
-    {"esito":"OK","tipoVeicolo":{"codice":"R","descrizione":"RIMORCHIO"}},
-    {"esito":"KO","tipoVeicolo":{"codice":"C","descrizione":"CICLOMOTORE"}},
-    {"esito":"KO","tipoVeicolo":{"codice":"Q","descrizione":"QUADRICICLO"}}
+  "listaVeicoli": [
+    {
+      "codice": "A",
+      "descrizione": "AUTOVEICOLO"
+    },
+    {
+      "codice": "M",
+      "descrizione": "MOTOVEICOLO"
+    },
+    {
+      "codice": "R",
+      "descrizione": "RIMORCHIO"
+    },
+    {
+      "codice": "C",
+      "descrizione": "CICLOMOTORE"
+    },
+    {
+      "codice": "Q",
+      "descrizione": "QUADRICICLO"
+    }
   ],
-  "pagoBolloScadenzaMesi": [{"valore":"1","nome":"GENNAIO"},{"valore":"2","nome":"FEBBRAIO"},{"valore":"3","nome":"MARZO"},{"valore":"4","nome":"APRILE"},{"valore":"5","nome":"MAGGIO"},{"valore":"6","nome":"GIUGNO"},{"valore":"7","nome":"LUGLIO"},{"valore":"8","nome":"AGOSTO"},{"valore":"9","nome":"SETTEMBRE"},{"valore":"10","nome":"OTTOBRE"},{"valore":"11","nome":"NOVEMBRE"},{"valore":"12","nome":"DICEMBRE"}],
-  "pagoBolloScadenzaAnni": [{"valore":2020,"nome":"2020"},{"valore":2019,"nome":"2019"},{"valore":2018,"nome":"2018"},{"valore":2017,"nome":"2017"},{"valore":2016,"nome":"2016"},{"valore":2015,"nome":"2015"},{"valore":2014,"nome":"2014"},{"valore":2013,"nome":"2013"},{"valore":2012,"nome":"2012"},{"valore":2011,"nome":"2011"},{"valore":2010,"nome":"2010"},{"valore":2009,"nome":"2009"},{"valore":2008,"nome":"2008"},{"valore":2007,"nome":"2007"},{"valore":2006,"nome":"2006"},{"valore":2005,"nome":"2005"},{"valore":2004,"nome":"2004"},{"valore":2003,"nome":"2003"},{"valore":2002,"nome":"2002"},{"valore":2001,"nome":"2001"},{"valore":2000,"nome":"2000"},{"valore":1999,"nome":"1999"}],
-  "pagoBolloScadenzaValidita": [{"valore":12,"nome":"12"},{"valore":11,"nome":"11"},{"valore":10,"nome":"10"},{"valore":9,"nome":"9"},{"valore":8,"nome":"8"},{"valore":7,"nome":"7"},{"valore":6,"nome":"6"},{"valore":5,"nome":"5"},{"valore":4,"nome":"4"},{"valore":3,"nome":"3"},{"valore":2,"nome":"2"},{"valore":1,"nome":"1"}],
+  "pagoBollo": [
+    {
+      "esito": "OK",
+      "errori": [],
+      "risultato": {
+        "codiceFiscale": "REXLNZ46A30C048F",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "targa": "DV720BS",
+        "esplicativo": "Pot Kw 139 E4",
+        "identificativoPagamento": "201911150000002785277113",
+        "scadenza": "10/2015",
+        "ultimoGiornoUtile": "01/12/2014",
+        "validita": 12,
+        "totale": 438.77,
+        "tassa": 408.93,
+        "sanzione": 24.54,
+        "interesse": 5.3
+      },
+      "proprietario": {
+        "tipologia": "PF",
+        "denominazione": "EVENEPOEL REMCO"
+      }
+    },
+    {
+      "esito": "OK",
+      "errori": [],
+      "risultato": {
+        "codiceFiscale": "VRTWTO46A30C048F",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "targa": "KV720AB",
+        "esplicativo": "Pot Kw 139 E6",
+        "identificativoPagamento": "201910290000002785277113",
+        "scadenza": "10/2014",
+        "ultimoGiornoUtile": "30/11/2014",
+        "validita": 12,
+        "totale": 438.77,
+        "tassa": 408.93,
+        "sanzione": 24.54,
+        "interesse": 5.3
+      },
+      "proprietario": {
+        "tipologia": "PF",
+        "denominazione": "WOUT VAN AERT"
+      }
+    }
+  ],
+  "pagoBolloLimiteCarrello": {
+    "valore": 15
+  },
+  "pagoBolloDisponibScadenza": [
+    {
+      "esito": "OK",
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      }
+    },
+    {
+      "esito": "OK",
+      "tipoVeicolo": {
+        "codice": "M",
+        "descrizione": "MOTOVEICOLO"
+      }
+    },
+    {
+      "esito": "OK",
+      "tipoVeicolo": {
+        "codice": "R",
+        "descrizione": "RIMORCHIO"
+      }
+    },
+    {
+      "esito": "KO",
+      "tipoVeicolo": {
+        "codice": "C",
+        "descrizione": "CICLOMOTORE"
+      }
+    },
+    {
+      "esito": "KO",
+      "tipoVeicolo": {
+        "codice": "Q",
+        "descrizione": "QUADRICICLO"
+      }
+    }
+  ],
+  "pagoBolloScadenzaMesi": [
+    {
+      "nome": "1",
+      "valore": 1
+    },
+    {
+      "nome": "2",
+      "valore": 2
+    },
+    {
+      "nome": "3",
+      "valore": 3
+    },
+    {
+      "nome": "4",
+      "valore": 4
+    },
+    {
+      "nome": "5",
+      "valore": 5
+    },
+    {
+      "nome": "6",
+      "valore": 6
+    },
+    {
+      "nome": "7",
+      "valore": 7
+    },
+    {
+      "nome": "8",
+      "valore": 8
+    },
+    {
+      "nome": "9",
+      "valore": 9
+    },
+    {
+      "nome": "10",
+      "valore": 10
+    },
+    {
+      "nome": "11",
+      "valore": 11
+    },
+    {
+      "nome": "12",
+      "valore": 12
+    }
+  ],
+  "pagoBolloScadenzaAnni": [
+    {
+      "valore": 2020,
+      "nome": "2020"
+    },
+    {
+      "valore": 2019,
+      "nome": "2019"
+    },
+    {
+      "valore": 2018,
+      "nome": "2018"
+    },
+    {
+      "valore": 2017,
+      "nome": "2017"
+    },
+    {
+      "valore": 2016,
+      "nome": "2016"
+    },
+    {
+      "valore": 2015,
+      "nome": "2015"
+    },
+    {
+      "valore": 2014,
+      "nome": "2014"
+    },
+    {
+      "valore": 2013,
+      "nome": "2013"
+    },
+    {
+      "valore": 2012,
+      "nome": "2012"
+    },
+    {
+      "valore": 2011,
+      "nome": "2011"
+    },
+    {
+      "valore": 2010,
+      "nome": "2010"
+    },
+    {
+      "valore": 2009,
+      "nome": "2009"
+    },
+    {
+      "valore": 2008,
+      "nome": "2008"
+    },
+    {
+      "valore": 2007,
+      "nome": "2007"
+    },
+    {
+      "valore": 2006,
+      "nome": "2006"
+    },
+    {
+      "valore": 2005,
+      "nome": "2005"
+    },
+    {
+      "valore": 2004,
+      "nome": "2004"
+    },
+    {
+      "valore": 2003,
+      "nome": "2003"
+    },
+    {
+      "valore": 2002,
+      "nome": "2002"
+    },
+    {
+      "valore": 2001,
+      "nome": "2001"
+    },
+    {
+      "valore": 2000,
+      "nome": "2000"
+    },
+    {
+      "valore": 1999,
+      "nome": "1999"
+    }
+  ],
+  "pagoBolloScadenzaValidita": [
+    {
+      "valore": 12,
+      "nome": "12"
+    },
+    {
+      "valore": 11,
+      "nome": "11"
+    },
+    {
+      "valore": 10,
+      "nome": "10"
+    },
+    {
+      "valore": 9,
+      "nome": "9"
+    },
+    {
+      "valore": 8,
+      "nome": "8"
+    },
+    {
+      "valore": 7,
+      "nome": "7"
+    },
+    {
+      "valore": 6,
+      "nome": "6"
+    },
+    {
+      "valore": 5,
+      "nome": "5"
+    },
+    {
+      "valore": 4,
+      "nome": "4"
+    },
+    {
+      "valore": 3,
+      "nome": "3"
+    },
+    {
+      "valore": 2,
+      "nome": "2"
+    },
+    {
+      "valore": 1,
+      "nome": "1"
+    }
+  ],
   "pagoBolloCreaTransazione": {
     "esito": "OK",
     "url": "http://localhost:8080/#/bollo/pago/pagopa/transazione?tranId=TST000000000027548"
   },
   "pagoBolloTransazionePagamento": {
     "identificativoTransazione": "TST000000000027548",
-    "importo":877.54,
+    "importo": 877.54,
     "iuv": "RF341603300030T0400000001",
     "email": "remco.evenepoel@wolfpack.com"
   },
   "pagoRate": [
     {
-      "intestatario":{
-        "cap":"12040",
-        "codiceFiscale":"VNPRMC73R22Z129L",
-        "codiceFiscaleLegale":null,
-        "cognome":"PEDERSEN",
-        "comuneDiNascita":"TORINO",
-        "comuneDomicilio":"MONTEU ROERO",
-        "dataDiNascita":"22/10/1973",
-        "denominazione":null,
-        "email":null,
-        "indirizzo":"VIA RE UMBERTO I 35 ",
-        "indirizzoPresso":null,
-        "nome":"MADS",
-        "personaFisica":true,
-        "piva":null,
-        "provinciaDiNascita":null,
-        "provinciaDomicilio":"CN",
-        "sesso":"M",
-        "telefono":null
+      "intestatario": {
+        "cap": "12040",
+        "codiceFiscale": "VNPRMC73R22Z129L",
+        "codiceFiscaleLegale": null,
+        "cognome": "PEDERSEN",
+        "comuneDiNascita": "TORINO",
+        "comuneDomicilio": "MONTEU ROERO",
+        "dataDiNascita": "22/10/1973",
+        "denominazione": null,
+        "email": null,
+        "indirizzo": "VIA RE UMBERTO I 35 ",
+        "indirizzoPresso": null,
+        "nome": "MADS",
+        "personaFisica": true,
+        "piva": null,
+        "provinciaDiNascita": null,
+        "provinciaDomicilio": "CN",
+        "sesso": "M",
+        "telefono": null
       },
-      "rate":[
-        {"numeroRata":1,"scadenza":"28/10/2017","importo":45.03,"codiceBollettino":"201700500432260118"},
-        {"numeroRata":2,"scadenza":"28/11/2017","importo":45.03,"codiceBollettino":"201700500432260219"},
-        {"numeroRata":3,"scadenza":"28/12/2017","importo":45.03,"codiceBollettino":"201700500432260320"},
-        {"numeroRata":4,"scadenza":"28/01/2018","importo":45.03,"codiceBollettino":"201700500432260421"},
-        {"numeroRata":5,"scadenza":"28/02/2018","importo":45.03,"codiceBollettino":"201700500432260522"}
+      "rate": [
+        {
+          "numeroRata": 1,
+          "scadenza": "28/10/2017",
+          "importo": 45.03,
+          "codiceBollettino": "201700500432260118"
+        },
+        {
+          "numeroRata": 2,
+          "scadenza": "28/11/2017",
+          "importo": 45.03,
+          "codiceBollettino": "201700500432260219"
+        },
+        {
+          "numeroRata": 3,
+          "scadenza": "28/12/2017",
+          "importo": 45.03,
+          "codiceBollettino": "201700500432260320"
+        },
+        {
+          "numeroRata": 4,
+          "scadenza": "28/01/2018",
+          "importo": 45.03,
+          "codiceBollettino": "201700500432260421"
+        },
+        {
+          "numeroRata": 5,
+          "scadenza": "28/02/2018",
+          "importo": 45.03,
+          "codiceBollettino": "201700500432260522"
+        }
       ],
-      "pianoRateizzazione":{"numeroRiferimento":"50043226","anno":"2017","totale":225.15,"numeroRate":5},
-      "totale":0.0
+      "pianoRateizzazione": {
+        "numeroRiferimento": "50043226",
+        "anno": "2017",
+        "totale": 225.15,
+        "numeroRate": 5
+      },
+      "totale": 0.0
     }
   ],
   "pagoRateCalcolo": {
-    "intestatario":{
-      "cap":"12040",
-      "codiceFiscale":"VNPRMC73R22Z129L",
-      "codiceFiscaleLegale":null,
-      "cognome":"PEDERSEN",
-      "comuneDiNascita":"TORINO",
-      "comuneDomicilio":"MONTEU ROERO",
-      "dataDiNascita":"22/10/1973",
-      "denominazione":null,
-      "email":null,
-      "indirizzo":"VIA RE UMBERTO I 35 ",
-      "indirizzoPresso":null,
-      "nome":"MADS",
-      "personaFisica":true,
-      "piva":null,
-      "provinciaDiNascita":null,
-      "provinciaDomicilio":"CN",
-      "sesso":"M",
-      "telefono":null
+    "intestatario": {
+      "cap": "12040",
+      "codiceFiscale": "VNPRMC73R22Z129L",
+      "codiceFiscaleLegale": null,
+      "cognome": "PEDERSEN",
+      "comuneDiNascita": "TORINO",
+      "comuneDomicilio": "MONTEU ROERO",
+      "dataDiNascita": "22/10/1973",
+      "denominazione": null,
+      "email": null,
+      "indirizzo": "VIA RE UMBERTO I 35 ",
+      "indirizzoPresso": null,
+      "nome": "MADS",
+      "personaFisica": true,
+      "piva": null,
+      "provinciaDiNascita": null,
+      "provinciaDomicilio": "CN",
+      "sesso": "M",
+      "telefono": null
     },
     "rate": [
-      {"numeroRata":1,"scadenza":"28/10/2017","importo":45.03,"codiceBollettino":"201700500432260118"}
+      {
+        "numeroRata": 1,
+        "scadenza": "28/10/2017",
+        "importo": 45.03,
+        "codiceBollettino": "201700500432260118"
+      }
     ],
-    "pianoRateizzazione":{"numeroRiferimento":"50043226","anno":"2017","totale":225.15,"numeroRate":5},
-    "totale":45.03
+    "pianoRateizzazione": {
+      "numeroRiferimento": "50043226",
+      "anno": "2017",
+      "totale": 225.15,
+      "numeroRate": 5
+    },
+    "totale": 45.03
   },
   "pagoRateTransazionePagoPa": {
     "esito": "OK",
@@ -481,7 +1205,10 @@
       "piva": ""
     },
     "targa": "EH252RL",
-    "tipoVeicolo": { "codice": "A", "descrizione": "AUTOVEICOLO" },
+    "tipoVeicolo": {
+      "codice": "A",
+      "descrizione": "AUTOVEICOLO"
+    },
     "scadenza": "10/2017",
     "validita": 12,
     "costoBollo": 150.15,
@@ -513,7 +1240,10 @@
       "piva": ""
     },
     "targa": "FC704AG",
-    "tipoVeicolo": { "codice": "A", "descrizione": "AUTOVEICOLO" },
+    "tipoVeicolo": {
+      "codice": "A",
+      "descrizione": "AUTOVEICOLO"
+    },
     "scadenza": "10/2017",
     "validita": 12,
     "costoBollo": 150.15,
@@ -552,109 +1282,141 @@
     },
     "targaVeicolo": "DC528AW",
     "idPratica": {
-      "id":61412379
+      "id": 61412379
     }
   },
-  "veicoloCategoriaEuro": [{
-    "codice": "E0",
-    "descrizione": "EURO 0"
-  }, {
-    "codice": "E1",
-    "descrizione": "EURO 1"
-  }, {
-    "codice": "E2",
-    "descrizione": "EURO 2"
-  }, {
-    "codice": "E3",
-    "descrizione": "EURO 3"
-  }, {
-    "codice": "E4",
-    "descrizione": "EURO 4"
-  }, {
-    "codice": "E5",
-    "descrizione": "EURO 5"
-  }, {
-    "codice": "NN",
-    "descrizione": "NON DEFINITO"
-  }, {
-    "codice": "E6",
-    "descrizione": "EURO 6"
-  }],
-  "veicoloCombustile": [{
-    "codice": "B",
-    "descrizione": "BENZ"
-  }, {
-    "codice": "B-O",
-    "descrizione": "B/OLIO"
-  }, {
-    "codice": "B-W",
-    "descrizione": "B/WANK"
-  }, {
-    "codice": "ELE",
-    "descrizione": "ELETTR"
-  }, {
-    "codice": "G",
-    "descrizione": "GASOL"
-  }, {
-    "codice": "GP",
-    "descrizione": "GPL"
-  }, {
-    "codice": "GPL",
-    "descrizione": "B/GPL"
-  }, {
-    "codice": "M",
-    "descrizione": "B/MET"
-  }, {
-    "codice": "ME",
-    "descrizione": "METANO"
-  }, {
-    "codice": "MSC",
-    "descrizione": "MISCELA"
-  }, {
-    "codice": "P",
-    "descrizione": "PETROLIO"
-  }, {
-    "codice": "B-E",
-    "descrizione": "B/ELETTR"
-  }, {
-    "codice": "BET",
-    "descrizione": "B/ETANOLO"
-  }, {
-    "codice": "G-E",
-    "descrizione": "G/ELETTR"
-  }, {
-    "codice": "G-M",
-    "descrizione": "G/MET"
-  }, {
-    "codice": "G-G",
-    "descrizione": "G/GPL"
-  }, {
-    "codice": "GML",
-    "descrizione": "G/GNL"
-  }, {
-    "codice": "GNL",
-    "descrizione": "GNL"
-  }, {
-    "codice": "H",
-    "descrizione": "H"
-  }, {
-    "codice": "H-E",
-    "descrizione": "H/E"
-  }],
+  "veicoloCategoriaEuro": [
+    {
+      "codice": "E0",
+      "descrizione": "EURO 0"
+    },
+    {
+      "codice": "E1",
+      "descrizione": "EURO 1"
+    },
+    {
+      "codice": "E2",
+      "descrizione": "EURO 2"
+    },
+    {
+      "codice": "E3",
+      "descrizione": "EURO 3"
+    },
+    {
+      "codice": "E4",
+      "descrizione": "EURO 4"
+    },
+    {
+      "codice": "E5",
+      "descrizione": "EURO 5"
+    },
+    {
+      "codice": "NN",
+      "descrizione": "NON DEFINITO"
+    },
+    {
+      "codice": "E6",
+      "descrizione": "EURO 6"
+    }
+  ],
+  "veicoloCombustile": [
+    {
+      "codice": "B",
+      "descrizione": "BENZ"
+    },
+    {
+      "codice": "B-O",
+      "descrizione": "B/OLIO"
+    },
+    {
+      "codice": "B-W",
+      "descrizione": "B/WANK"
+    },
+    {
+      "codice": "ELE",
+      "descrizione": "ELETTR"
+    },
+    {
+      "codice": "G",
+      "descrizione": "GASOL"
+    },
+    {
+      "codice": "GP",
+      "descrizione": "GPL"
+    },
+    {
+      "codice": "GPL",
+      "descrizione": "B/GPL"
+    },
+    {
+      "codice": "M",
+      "descrizione": "B/MET"
+    },
+    {
+      "codice": "ME",
+      "descrizione": "METANO"
+    },
+    {
+      "codice": "MSC",
+      "descrizione": "MISCELA"
+    },
+    {
+      "codice": "P",
+      "descrizione": "PETROLIO"
+    },
+    {
+      "codice": "B-E",
+      "descrizione": "B/ELETTR"
+    },
+    {
+      "codice": "BET",
+      "descrizione": "B/ETANOLO"
+    },
+    {
+      "codice": "G-E",
+      "descrizione": "G/ELETTR"
+    },
+    {
+      "codice": "G-M",
+      "descrizione": "G/MET"
+    },
+    {
+      "codice": "G-G",
+      "descrizione": "G/GPL"
+    },
+    {
+      "codice": "GML",
+      "descrizione": "G/GNL"
+    },
+    {
+      "codice": "GNL",
+      "descrizione": "GNL"
+    },
+    {
+      "codice": "H",
+      "descrizione": "H"
+    },
+    {
+      "codice": "H-E",
+      "descrizione": "H/E"
+    }
+  ],
   "verificaPraticaRateizzazione": {
-    "accertamenti": [{
-      "anno": null,
-      "protocollo": "00214010CJ477BY",
-      "codiceFiscale": null,
-      "cognome": null,
-      "dataNotifica": null,
-      "denominazione": null,
-      "idPratica": {
-        "id":61412379
-      },
-      "nome": null,
-      "totale": 737.42
-    }],
+    "accertamenti": [
+      {
+        "anno": null,
+        "protocollo": "00214010CJ477BY",
+        "codiceFiscale": null,
+        "cognome": null,
+        "dataNotifica": null,
+        "denominazione": null,
+        "idPratica": {
+          "id": 61412379
+        },
+        "nome": null,
+        "totale": 737.42
+      }
+    ],
     "allegati": [],
     "dataCompilazione": "2019-11-25",
     "diffEconomiche": null,
@@ -709,11 +1471,13 @@
       "radiatoDemolizione": null,
       "dataCompilazione": "0031-12-10"
     },
-    "allegati": [{
-      "identificativoArchivio": "236648",
-      "nomeAllegato": "mezzo_barcaiolo_rinf.jpg",
-      "nomeLogico": "mezzo_barcaiolo_rinf.jpg"
-    }],
+    "allegati": [
+      {
+        "identificativoArchivio": "236648",
+        "nomeAllegato": "mezzo_barcaiolo_rinf.jpg",
+        "nomeLogico": "mezzo_barcaiolo_rinf.jpg"
+      }
+    ],
     "avvisoScadenza": {
       "intestatario": {
         "altro": null,
@@ -731,7 +1495,7 @@
         "telefono": null
       },
       "idPratica": {
-        "id":61412379
+        "id": 61412379
       },
       "idScadenzaVeicolo": 22706592,
       "idScadenzaPersona": 21385495,
@@ -764,7 +1528,7 @@
     "grigliaAccertamento": {
       "grigliaAccertamentoNonPagato": {
         "grigliaEsenzioni": {
-          "value":true,
+          "value": true,
           "grigliaEsenzioniDisabili": null,
           "grigliaInstallazioneGplMetano": {
             "value": true,
@@ -804,7 +1568,7 @@
       },
       "targaVeicolo": "DC528AW",
       "idPratica": {
-        "id":61412379
+        "id": 61412379
       }
     },
     "allegati": [
@@ -830,7 +1594,130 @@
     }
   },
   "osservazioneScadenzaPost": {
-    "attributi":{"datiVeicoloRettifica":{"value":true,"kw":"29","targa":"AK13345","tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"},"catEuro":{"codice":"E0","descrizione":"EURO 0"},"alimentazione":{"codice":"G","descrizione":"GASOL"},"peso":"789","numPosti":"7","sp":false,"rimorchio":false,"portata":"1000","assi":"8","imp":null,"emissCo2":"10"},"datiAnagraficiRettifica":null,"isNotIntestatario":{"value":false},"venduto":{"data":null,"concessionario":false,"value":false},"radiato":{"data":null,"value":false},"disponibilitaPrivata":{"value":false,"dal":null,"al":null},"esenzioni":{"value":false,"disabili":{"value":false,"del":null,"protocollo":""},"impiantoGplMetano":{"value":false,"data":null},"altroMotivo":{"value":false,"testo":""}},"trasferimentoRegione":{"value":false,"data":null},"radiatoDemolizione":{"value":false,"data":null},"motivoGenerico":null,"dataCompilazione":"2020-01-09"},"allegati":[],"avvisoScadenza":{"intestatario":{"altro":null,"cap":"10036","codiceFiscale":"TRCMTT51T09E332T","cognome":"TROCCOLO","comuneProvCap":null,"denominazione":null,"descComune":"SETTIMO TORINESE","email":null,"indirizzo":"VIA CREMONA 10 ","indirizzoCompleto":"SETTIMO TORINESE / 10036 / TO","nome":"MATTEO","provincia":"TO","telefono":null},"idPratica":61954433,"idScadenzaVeicolo":24477266,"idScadenzaPersona":23041298,"tassa":291.54,"numeroRiferimento":"201703000008026","scadenza":"03/2017","targa":"CN831BE","tipoVeicolo":{"codice":"A","descrizione":"AUTOVEICOLO"},"ultimoGiornoUtile":"2017-05-02","validita":12},"email":"carlo.peraudo@consulenti.csi.it","idComunicazione":50032634,"numeroProtocollo":"00000044/2020","identificativoArchivio":"253355","idPratica":61954433,"stato":{"id":1,"codice":null,"descrizione":"Ricevuta","data":null,"note":null},"telefono":"3332040510"
+    "attributi": {
+      "datiVeicoloRettifica": {
+        "value": true,
+        "kw": "29",
+        "targa": "AK13345",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "catEuro": {
+          "codice": "E0",
+          "descrizione": "EURO 0"
+        },
+        "alimentazione": {
+          "codice": "G",
+          "descrizione": "GASOL"
+        },
+        "peso": "789",
+        "numPosti": "7",
+        "sp": false,
+        "rimorchio": false,
+        "portata": "1000",
+        "assi": "8",
+        "imp": null,
+        "emissCo2": "10"
+      },
+      "datiAnagraficiRettifica": {
+        "value": true,
+        "codiceFiscale": "ZHOYHO65T17Z210Y",
+        "cognomeDenominazione": "azienda delle aziende",
+        "nome": "",
+        "domicilioFiscale": "Torino",
+        "indirizzo": "via delle vie 14/4",
+        "email": "",
+        "cell": ""
+      },
+      "isNotIntestatario": {
+        "value": false
+      },
+      "venduto": {
+        "data": null,
+        "concessionario": false,
+        "value": false
+      },
+      "radiato": {
+        "data": null,
+        "value": false
+      },
+      "disponibilitaPrivata": {
+        "value": false,
+        "dal": null,
+        "al": null
+      },
+      "esenzioni": {
+        "value": false,
+        "disabili": {
+          "value": false,
+          "del": null,
+          "protocollo": ""
+        },
+        "impiantoGplMetano": {
+          "value": false,
+          "data": null
+        },
+        "altroMotivo": {
+          "value": false,
+          "testo": ""
+        }
+      },
+      "trasferimentoRegione": {
+        "value": false,
+        "data": null
+      },
+      "radiatoDemolizione": {
+        "value": false,
+        "data": null
+      },
+      "motivoGenerico": null,
+      "dataCompilazione": "2020-01-09"
+    },
+    "allegati": [],
+    "avvisoScadenza": {
+      "intestatario": {
+        "altro": null,
+        "cap": "10036",
+        "codiceFiscale": "TRCMTT51T09E332T",
+        "cognome": "TROCCOLO",
+        "comuneProvCap": null,
+        "denominazione": null,
+        "descComune": "SETTIMO TORINESE",
+        "email": null,
+        "indirizzo": "VIA CREMONA 10 ",
+        "indirizzoCompleto": "SETTIMO TORINESE / 10036 / TO",
+        "nome": "MATTEO",
+        "provincia": "TO",
+        "telefono": null
+      },
+      "idPratica": 61954433,
+      "idScadenzaVeicolo": 24477266,
+      "idScadenzaPersona": 23041298,
+      "tassa": 291.54,
+      "numeroRiferimento": "201703000008026",
+      "scadenza": "03/2017",
+      "targa": "CN831BE",
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "ultimoGiornoUtile": "2017-05-02",
+      "validita": 12
+    },
+    "email": "carlo.peraudo@consulenti.csi.it",
+    "idComunicazione": 50032634,
+    "numeroProtocollo": "00000044/2020",
+    "identificativoArchivio": "253355",
+    "idPratica": 61954433,
+    "stato": {
+      "id": 1,
+      "codice": null,
+      "descrizione": "Ricevuta",
+      "data": null,
+      "note": null
+    },
+    "telefono": "3332040510"
   },
   "verificaPraticaDTE": {
     "dataAnagraficiIntestatario": {
@@ -948,19 +1835,22 @@
       "numeroProtocollo": "00001643/2019",
       "identificativoArchivio": "236685",
       "idPratica": null,
-      "stato": { "id": 1, "codice": null,
+      "stato": {
+        "id": 1,
+        "codice": null,
         "descrizione": "Ricevuta",
         "data": "26/06/2019",
         "note": null
       },
-      "telefono": "3332040510"
+      "telefono": "3332040510",
+      "note":"Testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo"
     }
   ],
   "verificaPraticaAccertamento": {
     "grigliaAccertamento": {
       "grigliaAccertamentoNonPagato": {
         "grigliaEsenzioni": {
-          "value":true,
+          "value": true,
           "grigliaEsenzioniDisabili": null,
           "grigliaInstallazioneGplMetano": null,
           "grigliaEsenzioniAltroMotivo": {
@@ -1019,14 +1909,190 @@
     },
     "telefono": ""
   },
+  "verificaPraticaEsenzione": {
+    "contribuente": {
+      "altro": null,
+      "cap": "15100",
+      "codiceFiscale": "RCCMLA68C44L166A",
+      "cognome": "RICCHIUTO",
+      "comuneProvCap": null,
+      "denominazione": null,
+      "descComune": null,
+      "email": null,
+      "indirizzo": "VIA MAGGIOLI MARIO 5 ",
+      "indirizzoCompleto": null,
+      "nome": "AMALIA",
+      "provincia": null,
+      "telefono": null,
+      "sesso": null,
+      "dataNascita": "1968-03-04",
+      "statoNascita": null,
+      "provinciaNascita": "LE",
+      "comuneNascita": "TIGGIANO",
+      "piva": null
+    },
+    "oggettoDomanda": {
+      "primaRichiestaEsenzione": {
+        "checked": true,
+        "veicolo": {
+          "targa": "CY591WN",
+          "tipoVeicolo": {
+            "codice": "A",
+            "descrizione": "AUTOVEICOLO"
+          },
+          "descrizione": "AUTOVEICOLO CY591WN",
+          "idVeicolo": null
+        }
+      },
+      "trasferimentoEsenzione": null
+    },
+    "dichiarazione": {
+      "proprietarioDisabile": {
+        "checked": true,
+        "riconosciutoPersonaDisabile": true,
+        "personaDisabilitaPsichicaMentale": null,
+        "personaVedenteIpovedente": null,
+        "invalidoRidotteImpediteCapacitaMotorie": null
+      },
+      "disabileFamiliare": null
+    },
+    "allegati": [
+      {
+        "identificativoArchivio": "272238",
+        "nomeAllegato": "Capture.jpg",
+        "nomeLogico": "Capture.jpg"
+      }
+    ],
+    "email": "paoloberrettacsi@gmail.com",
+    "telefono": "3333333333",
+    "numeroProtocollo": "00000205/2015",
+    "idComunicazione": 50033988,
+    "statoDomanda": "RICEVUTA"
+  },
+  "verificaPraticaRestituzione": {
+    "contribuente": {
+      "altro": null,
+      "cap": "15100",
+      "codiceFiscale": "RCCMLA68C44L166A",
+      "cognome": "RICCHIUTO",
+      "comuneProvCap": null,
+      "denominazione": null,
+      "descComune": "ALESSANDRIA",
+      "email": null,
+      "indirizzo": "VIA MAGGIOLI MARIO 5 ",
+      "indirizzoCompleto": null,
+      "nome": "AMALIA",
+      "provincia": "AL",
+      "telefono": null,
+      "sesso": "F",
+      "dataNascita": "1968-03-04",
+      "statoNascita": null,
+      "provinciaNascita": "LE",
+      "comuneNascita": "TIGGIANO",
+      "piva": null
+    },
+    "oggettoDomanda": {
+      "doppioPagamento": true,
+      "pagamentoEccessivo": {
+        "checked": false,
+        "erroreMateriale": null,
+        "targaErrata": null,
+        "targa": null
+      },
+      "pagamentoNonDovuto": {
+        "checked": false,
+        "motivo": null
+      },
+      "perditaDiPossesso": {
+        "checked": false,
+        "restituzionePeriodo": null,
+        "restituzioneDifferenza": null
+      }
+    },
+    "datiVeicoloVersamenti": null,
+    "modalitaRestituzione": {
+      "accreditoCc": null,
+      "compensazione": {
+        "checked": true,
+        "miaProprieta": true,
+        "altroSoggetto": false,
+        "codiceFiscale": null
+      }
+    },
+    "versamenti": [
+      {
+        "veicolo": {
+          "targa": "CY591WN",
+          "tipoVeicolo": {
+            "codice": "A",
+            "descrizione": "AUTOVEICOLO"
+          },
+          "descrizione": "AUTOVEICOLO CY591WN",
+          "idVeicolo": null
+        },
+        "scadenza": "2010-09",
+        "validita": 12,
+        "importo": 121.26,
+        "dataPagamento": "2009-10-30",
+        "stato": null
+      }
+    ],
+    "allegati": [
+      {
+        "identificativoArchivio": "272236",
+        "nomeAllegato": "Capture.jpg",
+        "nomeLogico": "Capture.jpg"
+      }
+    ],
+    "email": "paoloberrettacsi@gmail.com",
+    "telefono": "3333333333",
+    "numeroProtocollo": "00002558/2020",
+    "idComunicazione": 50033987,
+    "statoDomanda": "Ricevuta"
+  },
   "verificaPraticaTipologia": [
-    { "identificativo": "00001643/2019", "codiceFiscale": "BAIMSM72B23B111H", "codice": "OSSER" },
-    { "identificativo": "00000044/2020", "codiceFiscale": "TRCMTT51T09E332T", "codice": "OSSER" },
-    { "identificativo": "00000217/2019", "codiceFiscale": "VRGLGU50B18H121A", "codice": "DTE" },
-    { "identificativo": "00003341/2019", "codiceFiscale": "00024770067", "codice": "RAR" },
-    { "identificativo": "00002695/2019", "codiceFiscale": "ZHOYHO65T17Z210Y", "codice": "MEMOR" }
+    {
+      "identificativo": "00000205/2015",
+      "codiceFiscale": "RCCMLA68C44L166A",
+      "codice": "EPD"
+    },
+    {
+      "identificativo": "00002910/2017",
+      "codiceFiscale": "RCCMLA68C44L166A",
+      "codice": "RIM"
+    },
+    {
+      "identificativo": "00001643/2019",
+      "codiceFiscale": "BAIMSM72B23B111H",
+      "codice": "OSSER"
+    },
+    {
+      "identificativo": "00000044/2020",
+      "codiceFiscale": "TRCMTT51T09E332T",
+      "codice": "OSSER"
+    },
+    {
+      "identificativo": "00000217/2019",
+      "codiceFiscale": "VRGLGU50B18H121A",
+      "codice": "DTE"
+    },
+    {
+      "identificativo": "00003341/2019",
+      "codiceFiscale": "00024770067",
+      "codice": "RAR"
+    },
+    {
+      "identificativo": "00002695/2019",
+      "codiceFiscale": "ZHOYHO65T17Z210Y",
+      "codice": "MEMOR"
+    }
   ],
-  "codiciTributo": ["1B66","1B67","1B68","1D35"],
+  "codiciTributo": [
+    "1B66",
+    "1B67",
+    "1B68",
+    "1D35"
+  ],
   "domandaDiscaricoResponseIntestatario": {
     "dataAnagraficiIntestatario": {
       "altro": null,
@@ -1114,7 +2180,9 @@
       "piva": "00368570859"
     }
   },
-  "dteNumIngiunzioneRL": ["S116000391505"],
+  "dteNumIngiunzioneRL": [
+    "S116000391505"
+  ],
   "domandaDiscaricoResponseRL": {
     "dataAnagraficiIntestatario": {
       "altro": null,
@@ -1156,7 +2224,7 @@
       "statoNascita": "ITALIA",
       "provinciaNascita": "TO",
       "comuneNascita": "TO",
-      "piva": null  
+      "piva": null
     },
     "ingiunzioneFiscale": {
       "value": true,
@@ -1178,11 +2246,13 @@
       "mancanzaPresupposto": null,
       "altro": null
     },
-    "allegati": [{
-      "identificativoArchivio": "218959",
-      "nomeAllegato": "GME-CDU-08-V02.docx",
-      "nomeLogico": "GME-CDU-08-V02.docx"
-    }],
+    "allegati": [
+      {
+        "identificativoArchivio": "218959",
+        "nomeAllegato": "GME-CDU-08-V02.docx",
+        "nomeLogico": "GME-CDU-08-V02.docx"
+      }
+    ],
     "email": "daniel.scaletta@csi.it",
     "telefono": "3333333333",
     "numeroProtocollo": "00000149/2020",
@@ -1202,5 +2272,499 @@
       "data": "'22/02/2019' o null",
       "note": "string"
     }
-  }
+  },
+  "gradiParentela": [
+    {
+      "codice": "C",
+      "descrizione": "CONIUGE"
+    }
+  ],
+  "veicoliTipologie": [
+    {
+      "codice": "A",
+      "descrizione": "AUTOVEICOLO"
+    }
+  ],
+  "contribuentiResponse":{"altro":null,"cap":"15100","codiceFiscale":"RCCMLA68C44L166A","cognome":"RICCHIUTO","comuneProvCap":null,"denominazione":null,"descComune":"ALESSANDRIA","email":null,"indirizzo":"VIA MAGGIOLI MARIO 5 ","indirizzoCompleto":null,"nome":"AMALIA","provincia":"AL","telefono":null,"sesso":"F","dataNascita":"1968-03-04","statoNascita":"ITALIA","provinciaNascita":"LE","comuneNascita":"TIGGIANO","piva":null},
+  "esenzioniDisabiliResponse": {
+    "contribuente": {
+      "altro": null,
+      "cap": "15100",
+      "codiceFiscale": "RCCMLA68C44L166A",
+      "cognome": "RICCHIUTO",
+      "comuneProvCap": "ALESSANDRIA / AL / 15100",
+      "denominazione": null,
+      "descComune": "ALESSANDRIA",
+      "email": null,
+      "indirizzo": "VIA MAGGIOLI MARIO 5 ",
+      "indirizzoCompleto": "ALESSANDRIA / 15100 / AL",
+      "nome": "AMALIA",
+      "provincia": "AL",
+      "telefono": null,
+      "sesso": null,
+      "dataNascita": "1968-03-04",
+      "statoNascita": null,
+      "provinciaNascita": "LE",
+      "comuneNascita": "TIGGIANO",
+      "piva": null
+    },
+    "oggettoDomanda": {
+      "primaRichiestaEsenzione": null,
+      "trasferimentoEsenzione": {
+        "checked": true,
+        "targa": "DD222KK",
+        "veicolo": {
+          "targa": "CY591WN",
+          "tipoVeicolo": {
+            "codice": "A",
+            "descrizione": "AUTOVEICOLO"
+          },
+          "descrizione": "AUTOVEICOLO CY591WN",
+          "idVeicolo": null
+        }
+      }
+    },
+    "dichiarazione": {
+      "proprietarioDisabile": null,
+      "disabileFamiliare": {
+        "checked": true,
+        "parentela": "CONIUGE",
+        "cfFamiliare": "RCCMLA68C44L166A",
+        "disabilitaGrave": true,
+        "disabilitaPsichicaMentale": null,
+        "disabilitaNonVedenteIpovedente": null
+      }
+    },
+    "allegati": [
+      {
+        "identificativoArchivio": "272337",
+        "nomeAllegato": "Capture.jpg",
+        "nomeLogico": "Capture.jpg"
+      }
+    ],
+    "email": "paoloberrettacsi@gmail.com",
+    "telefono": "3333333333",
+    "numeroProtocollo": "00002612/2020",
+    "idComunicazione": 50034030,
+    "statoDomanda": "RICEVUTA"
+  },
+  "esenzioniDisabiliContribuenti": {
+    "altro": "string",
+    "cap": "10155",
+    "codiceFiscale": "RCCMLA68C44L166A",
+    "cognome": "TARRICONE",
+    "comuneProvCap": "string",
+    "denominazione": "string",
+    "descComune": "TORINO",
+    "email": "mario.rossi@csi.it",
+    "indirizzo": "VIA GIOVANNI POGGIO 9",
+    "indirizzoCompleto": "TORINO / 10155 / TO",
+    "nome": "ANTONIETTA",
+    "provincia": "TO",
+    "telefono": 30012345678,
+    "sesso": "M",
+    "dataNascita": "16/01/1968",
+    "statoNascita": "string",
+    "provinciaNascita": "string",
+    "comuneNascita": "string",
+    "piva": "string"
+  },
+  "esenzioniDisabiliVeicoli": [
+    {
+      "targa": "CY591WN",
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "descrizione": "AUTOVEICOLO CY591WN"
+    }
+  ],
+  "restituzioniVersamenti": [
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2011-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2010-03-31",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2017-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2016-03-23",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2016-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2015-03-30",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2015-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2014-03-29",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2012-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2011-03-30",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2008-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2007-03-23",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2013-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2012-02-27",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2018-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2017-03-28",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2009-02",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2008-03-28",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "02/2014",
+      "validita": 12,
+      "importo": 135,
+      "dataPagamento": "2013-03-29",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "02/2005",
+      "validita": 12,
+      "importo": 129,
+      "dataPagamento": "27/04/2004",
+      "stato": null
+    },
+    {
+      "veicolo": {
+        "targa": "CM520VG",
+        "tipoVeicolo": {
+          "codice": "A",
+          "descrizione": "AUTOVEICOLO"
+        },
+        "descrizione": "AUTOVEICOLO CM520VG",
+        "idVeicolo": 4670736
+      },
+      "scadenza": "2006-02",
+      "validita": 12,
+      "importo": 129,
+      "dataPagamento": "2005-02-21",
+      "stato": null
+    }
+  ],
+  "restituzioniTassaContribuente": {
+    "altro": null,
+    "cap": "15100",
+    "codiceFiscale": "RCCMLA68C44L166A",
+    "cognome": "RICCHIUTO",
+    "comuneProvCap": "ALESSANDRIA / AL / 15100",
+    "denominazione": null,
+    "descComune": "ALESSANDRIA",
+    "email": null,
+    "indirizzo": "VIA MAGGIOLI MARIO 5 ",
+    "indirizzoCompleto": "ALESSANDRIA / 15100 / AL",
+    "nome": "AMALIA",
+    "provincia": "AL",
+    "telefono": null,
+    "sesso": "F",
+    "dataNascita": "1968-03-04",
+    "statoNascita": null,
+    "provinciaNascita": "LE",
+    "comuneNascita": "TIGGIANO",
+    "piva": null
+  },
+  "restituzioniTassaResponse": {
+    "contribuente": {
+      "altro": null,
+      "cap": "15100",
+      "codiceFiscale": "RCCMLA68C44L166A",
+      "cognome": "RICCHIUTO",
+      "comuneProvCap": "ALESSANDRIA / AL / 15100",
+      "denominazione": null,
+      "descComune": "ALESSANDRIA",
+      "email": null,
+      "indirizzo": "VIA MAGGIOLI MARIO 5 ",
+      "indirizzoCompleto": "ALESSANDRIA / 15100 / AL",
+      "nome": "AMALIA",
+      "provincia": "AL",
+      "telefono": null,
+      "sesso": "F",
+      "dataNascita": "1968-03-04",
+      "statoNascita": null,
+      "provinciaNascita": "LE",
+      "comuneNascita": "TIGGIANO",
+      "piva": null
+    },
+    "oggettoDomanda": {
+      "doppioPagamento": false,
+      "pagamentoEccessivo": {
+        "checked": true,
+        "erroreMateriale": false,
+        "targaErrata": true,
+        "targa": "DD222KKK"
+      },
+      "pagamentoNonDovuto": {
+        "checked": false,
+        "motivo": null
+      },
+      "perditaDiPossesso": {
+        "checked": false,
+        "restituzionePeriodo": null,
+        "restituzioneDifferenza": null
+      }
+    },
+    "datiVeicoloVersamenti": null,
+    "modalitaRestituzione": {
+      "accreditoCc": null,
+      "compensazione": {
+        "checked": true,
+        "miaProprieta": true,
+        "altroSoggetto": false,
+        "codiceFiscale": null
+      }
+    },
+    "versamenti": [
+      {
+        "veicolo": {
+          "targa": "DD222KK",
+          "tipoVeicolo": {
+            "codice": "A",
+            "descrizione": "AUTOVEICOLO"
+          },
+          "descrizione": "AUTOVEICOLO DD222KK",
+          "idVeicolo": null
+        },
+        "scadenza": "2020-01",
+        "validita": 12,
+        "importo": 12.0,
+        "dataPagamento": "2020-10-11",
+        "stato": null
+      }
+    ],
+    "allegati": [
+      {
+        "identificativoArchivio": "272343",
+        "nomeAllegato": "Capture.jpg",
+        "nomeLogico": "Capture.jpg"
+      }
+    ],
+    "email": "paoloberrettacsi@gmail.com",
+    "telefono": "3333333333",
+    "numeroProtocollo": "00002910/2017",
+    "idComunicazione": 50034031,
+    "statoDomanda": "RICEVUTA"
+  },
+  "restituzioniTassaVeicoli": [
+    {
+      "targa": "CM520VG",
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "descrizione": "AUTOVEICOLO CM520VG",
+      "idVeicolo": 4670736
+    },
+    {
+      "targa": "TO27516N",
+      "tipoVeicolo": {
+        "codice": "A",
+        "descrizione": "AUTOVEICOLO"
+      },
+      "descrizione": "AUTOVEICOLO TO27516N",
+      "idVeicolo": 7233855
+    }
+  ],
+  "nazioni": 
+    [{"id":"153","codice":null,"descrizione":"AFGHANISTAN"}]
+  ,
+  "province":[{"id":"84","codice":"AG","descrizione":"AGRIGENTO"}],
+  "comuni":[{"id":"4180","codice":"A089","descrizione":"AGRIGENTO","cap":"92100"}],
+  "visureVeicoli": {
+    "dataUltimoAggiornamento":"2020-10-23",
+    "visure":[
+       {
+          "tipoVeicolo":{
+             "targa":"CY591WN",
+             "tipoVeicolo":{
+                "codice":"A",
+                "descrizione":"AUTOVEICOLO"
+             },
+             "descrizione":"AUTOVEICOLO CY591WN",
+             "idVeicolo":null
+          },
+          "dataInizioProprieta":"2008-09-23",
+          "dataFineProprieta":null
+       }
+    ]
+ },
+  "visureResponse": {
+      "key":"ID:JBM-bb74cd43-4df8-4eb6-9473-7281805107b0",
+      "veicolo":{
+         "targa":"CY591WN",
+         "tipoVeicolo":{
+            "codice":"A",
+            "descrizione":"A"
+         },
+         "descrizione":"AUTOVEICOLO CY591WN",
+         "idVeicolo":null
+      }
+  },
+  "visurePagamenti":{
+    "pagamenti":[
+       {
+          "annoTributo":"2020",
+          "scadenza":"SETTEMBRE",
+          "statoPagamento":"IN SCADENZA"
+       },
+       {
+          "annoTributo":"2019",
+          "scadenza":"SETTEMBRE",
+          "statoPagamento":"IRREGOLARE"
+       },
+       {
+          "annoTributo":"2018",
+          "scadenza":"SETTEMBRE",
+          "statoPagamento":"IRREGOLARE"
+       },
+       {
+          "annoTributo":"2017",
+          "scadenza":"SETTEMBRE",
+          "statoPagamento":"IRREGOLARE"
+       },
+       {
+          "annoTributo":"2016",
+          "scadenza":"SETTEMBRE",
+          "statoPagamento":"IRREGOLARE"
+       },
+       {
+          "annoTributo":"2015",
+          "scadenza":"SETTEMBRE",
+          "statoPagamento":"ACCERTAMENTO"
+       }
+    ]
+ },
+ "notificheFalse": [],
+ "notificheTrue": [],
+ "serviziPreferiti": []
 }

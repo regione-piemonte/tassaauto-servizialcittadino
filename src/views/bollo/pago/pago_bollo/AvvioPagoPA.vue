@@ -1,44 +1,45 @@
 <template>
   <div>
-    <div class="app-container">
-      <v-card class="card-view-page card-pago-pa">
-      <div class="app-row inner-cont-alert">
-        <div class="text-intro col-xxl-8 offset-xxl-2">
-          <BoxErrore :error="detailError" />
-        </div>
-      </div>
-      <div class="app-row inner-cont-bollo">
-        <div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3">
-          <div class="card-center-pos">
-            <strong>
-              Il pagamento viene effettuato sulla piattaforma pagoPA.
-            </strong>
-            <v-row justify="center">
-              <v-img
-                :src="require('@/assets/images/loghi/piemonte/pagopa.png')"
-                max-width="185px"
-              />
-            </v-row>
-            <div class="action-button-wide">
-              <div class="col-md-12">
+    <div class="container">
+      <div class="col-lg-10 mx-lg-auto">
+        <v-card class="card-view-page card-pago-pa">
+          <div class="row inner-cont-alert">
+            <div class="text-intro col-lg-8 offset-lg-2">
+              <BoxErrore :error="detailError" />
+            </div>
+          </div>
+          <div class="row inner-cont-bollo">
+            <div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3">
+              <div class="card-center-pos">
+                <strong>
+                  {{ $t('bollo.pago.rate.labels.pagoPA') }}
+                </strong>
+                <v-row justify="center">
+                  <v-img
+                    :src="require('@/assets/images/loghi/piemonte/pagopa.png')"
+                    max-width="185px"
+                  />
+                </v-row>
                 <BtnBack
                   :backUrl="'carrello_pagamenti'"
                   :size="true"
-                  :backType="'back'"/>
+                  :backType="'back'"
+                />
+                <br>
                 <v-btn
+                  depressed
+                  class="col-xs-12"
                   id="transazionePagoPaBtn"
-                  type="button"
-                  block
                   color="primary"
-                  @click="creaTransazionePagoPA()">
-                  Continua
+                  @click="creaTransazionePagoPA()"
+                >
+                   {{ $t('general.buttons.continua') }}
                 </v-btn>
               </div>
             </div>
           </div>
-        </div>
+        </v-card>
       </div>
-      </v-card>
     </div>
     <spinner :pOverlay="overlay" />
   </div>
@@ -84,11 +85,12 @@ export default {
 
       const campiCarrello = [
         'codiceFiscale', 'identificativoPagamento', 'targa', 'esplicativo',
-        'scadenza', 'validita', 'totale', 'tassa', 'sanzione', 'interesse']
+        'scadenza', 'validita', 'totale', 'tassa', 'sanzione', 'interesse', 'tipologiaCC']
       this.carrelloPagoBollo.forEach(function (item) {
         const carrello = {
           tipoVeicolo: item.risultato.tipoVeicolo.codice,
-          proprietario: item.proprietario
+          proprietario: item.proprietario,
+          tipologiaCC: item.risultato.tipologiaCC
         }
         campiCarrello.forEach(function (field) {
           carrello[field] = item.risultato[field]

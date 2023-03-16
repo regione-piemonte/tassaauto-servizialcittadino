@@ -7,21 +7,24 @@ import {
   BOLLO_PAGO_SALVA_RIFERIMENTI_RATE,
   BOLLO_PAGO_CREA_TRANSAZIONE_RATE,
   BOLLO_PAGO_RIEPILOGO_TRANSAZIONE_RATE,
-  BOLLO_PAGO_RATE_CARRELLO
+  BOLLO_PAGO_RATE_CARRELLO,
+  RATEIZZAZIONE_LIST_AUTENTICATI
 } from './actions.type'
 
 import {
   ADD_PAGAMENTO_RATE,
   INITIAL_STATE_PAGAMENTO_RATA,
   UPD_RIF_PAGAMENTO_BOLLO,
-  UPD_PAGO_RATE_CARRELLO
+  UPD_PAGO_RATE_CARRELLO,
+  UPD_RATEIZZAZIONE_LIST_AUTENTICATI
 } from './mutations.type'
 
 const initialState = {
   emailFormPagoRate: { email: '', privacy: 'not_accepted' },
   respCercaPagamRata: null,
   carrelloPagoRate: [],
-  importoTotPagoRate: 0
+  importoTotPagoRate: 0,
+  listaRateizzazioniAuth: []
 }
 
 export const state = { ...initialState }
@@ -56,6 +59,12 @@ export const actions = {
 
   async [BOLLO_PAGO_RIEPILOGO_TRANSAZIONE_RATE] (context, slug) {
     return PagorateService.transazionePagoPA(slug)
+  },
+
+  async [RATEIZZAZIONE_LIST_AUTENTICATI] (context, params) {
+    const { data } = await PagorateService.rateizzazioniAutenticati(params)
+    context.commit(UPD_RATEIZZAZIONE_LIST_AUTENTICATI, data)
+    return { data }
   }
 }
 
@@ -80,6 +89,10 @@ const mutations = {
   [UPD_PAGO_RATE_CARRELLO] (state, respCalcPagoRate) {
     state.carrelloPagoRate = respCalcPagoRate.rate
     state.importoTotPagoRate = respCalcPagoRate.totale
+  },
+
+  [UPD_RATEIZZAZIONE_LIST_AUTENTICATI] (state, listaRateizzazioniAuth) {
+    state.listaRateizzazioniAuth = listaRateizzazioniAuth
   }
 }
 
@@ -98,6 +111,9 @@ const getters = {
   // state somma totale pagamento
   importoTotPagoRate (state) {
     return state.importoTotPagoRate
+  },
+  listaRateizzazioniAuth (state) {
+    return state.listaRateizzazioniAuth
   }
 }
 

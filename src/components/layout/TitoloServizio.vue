@@ -1,14 +1,16 @@
 <template>
+<div>
   <v-app-bar
     :color="colorHeaderSwitch()"
     dark
     height="90px"
-    :class="(this.$route.name !== 'home') ? 'titolo-servizio-appbar' : 'titolo-servizio-appbar home-appbar'"
+    :class="(this.$route.name !== 'home' || servizio ==='area_personale' ) ? 'titolo-servizio-appbar' : 'titolo-servizio-appbar home-appbar'"
     tag="div">
-    <div :class="(this.$route.name !== 'home') ? 'title-service-appbar' : 'title-home-appbar'">
+    <div :class="(this.$route.name !== 'home' || servizio ==='area_personale') ? 'title-service-appbar' : 'title-home-appbar'">
       <h1 v-bind:class="(regione != 'piemonte') ? '' : iconClass" tabindex="-1">{{titolo}}</h1>
     </div>
   </v-app-bar>
+  </div>
 </template>
 
 <script>
@@ -26,7 +28,7 @@ export default {
           icona: 'ico-titolo ico-calcolatrice'
         },
         domanda_discarico_rimborso: {
-          nomeServizio: 'Fai una domanda di discarico o rimborso di cartelle esattoriali e ingiunzioni',
+          nomeServizio: 'Fai una domanda di discarico di cartelle esattoriali e ingiunzioni',
           icona: 'ico-titolo ico-discarico'
         },
         info_bollo: {
@@ -38,19 +40,23 @@ export default {
           icona: 'ico-titolo ico-memo'
         },
         scelta_tipo_osservazione: {
-          nomeServizio: 'Fai una osservazione',
+          nomeServizio: this.$i18n.t('pratica.osservazione.scelta_tipo_osservazione.titolo_servizio'),
           icona: 'ico-titolo ico-chat'
         },
         osservazione_avviso_accertamento: {
-          nomeServizio: 'Osservazione su avviso di accertamento',
+          nomeServizio: this.$i18n.t('pratica.osservazione.avviso_accertamento.titolo_servizio'),
           icona: 'ico-titolo ico-chat'
         },
         osservazione_avviso_scadenza: {
-          nomeServizio: 'Osservazione su avviso di scadenza',
+          nomeServizio: this.$i18n.t('pratica.osservazione.avviso_scadenza.titolo_servizio'),
+          icona: 'ico-titolo ico-chat'
+        },
+        osservazione_avviso_bonario: {
+          nomeServizio: this.$i18n.t('pratica.osservazione.avviso_bonario.titolo_servizio'),
           icona: 'ico-titolo ico-chat'
         },
         scelta_tipo_pagamento: {
-          nomeServizio: 'Pagamenti Online',
+          nomeServizio: this.$i18n.t('bollo.pago.scelta_tipo_pagamento.titolo_servizio'),
           icona: 'ico-titolo ico-pagamento'
         },
         pago_bollo: {
@@ -58,7 +64,7 @@ export default {
           icona: 'ico-titolo ico-pagamento'
         },
         pago_rate: {
-          nomeServizio: 'Paga le rate di un piano di rateizzazione',
+          nomeServizio: this.$i18n.t('bollo.pago.rate.titolo_servizio'),
           icona: 'ico-titolo ico-pagamento'
         },
         richiesta_rateizzazione: {
@@ -70,7 +76,7 @@ export default {
           icona: 'ico-titolo ico-download'
         },
         scelta_tipo_stampa: {
-          nomeServizio: 'Stampa avviso di pagamento',
+          nomeServizio: 'Stampa avviso di pagamento e piano di rateizzazione',
           icona: 'ico-titolo ico-stampa-avviso'
         },
         stampa_avviso_accertamento: {
@@ -81,15 +87,38 @@ export default {
           nomeServizio: 'Stampa avviso di pagamento - scadenza',
           icona: 'ico-titolo ico-stampa-avviso'
         },
+        stampa_piano_rateizzazione: {
+          nomeServizio: 'Stampa piano di rateizzazione',
+          icona: 'ico-titolo ico-stampa-avviso'
+        },
         verifica_pratica: {
           nomeServizio: this.$i18n.t('pratica.verifica.titolo_servizio'),
           icona: 'ico-titolo ico-verifica'
         },
+        esenzioni_disabili: {
+          nomeServizio: this.$i18n.t('pratica.esenzioni_disabili.titolo_servizio')
+        },
+        restituzione_tassa: {
+          nomeServizio: this.$i18n.t('pratica.restituzione_tassa.titolo_servizio')
+        },
+        consulta_pratica_auth: {
+          nomeServizio: this.$i18n.t('pratica.consulta_pratica_auth.titolo_servizio'),
+          icona: 'ico-titolo ico-verifica'
+        },
+        visure: {
+          nomeServizio: 'Area personale'
+        },
         home: {
           nomeServizio: 'I servizi per il tuo veicolo'
         },
+        area_personale: {
+          nomeServizio: 'Area personale'
+        },
         not_found: {
           nomeServizio: 'Pagina non trovata'
+        },
+        not_auth_service: {
+          nomeServizio: 'Accesso negato ai servizi'
         },
         contatti_aiuto: {
           nomeServizio: 'Hai bisogno di aiuto?',
@@ -115,7 +144,12 @@ export default {
   },
   methods: {
     colorHeaderSwitch () {
-      return '#178CD6'
+      switch (this.regione) {
+        case 'piemonte':
+          return '#007ACD'
+        case 'vda':
+          return '#be0004'
+      }
     }
   }
 }

@@ -2,40 +2,45 @@
   <footer id="footer">
     <div class="upper-footer"
       v-if="altLogoRegione !== ''">
-      <div class="lay-conth">
-        <v-row justify="space-between">
+      <div class="lay-conth container text-center text-md-left">
+        <v-row justify="space-between" align="center">
           <v-col cols="12" md="auto">
-              <v-img
+            <a href="https://www.regione.piemonte.it/web/" target="_blank" rel="noopener noreferrer" class="d-block">
+              <img
                 class="img-Regione"
                 :src="require(`@/assets/images/loghi/${regione}/regione_footer.png`)"
-                :lazy-src="require(`@/assets/images/loghi/${regione}/regione_footer.png`)"
                 :alt="altLogoRegione"
               />
+            </a>
           </v-col>
           <v-col cols="12" md="auto">
-            <v-row>
-              <v-col md="auto">
-                <v-img
-                  position="right"
-                  max-width="259px"
-                  :src="require(`@/assets/images/loghi/${regione}/Iniziativa.png`)"
-                  alt="Iniziativa unione europea"
-                />
-              </v-col>
-              <v-col md="auto">
-                <v-img
-                  max-width="259px"
-                  :src="require(`@/assets/images/loghi/${regione}/Piemonte.png`)"
-                  alt="Piemonte"
-                />
-              </v-col>
-            </v-row>
+            <v-container class="text-center text-md-left">
+              <v-row>
+                <v-col md="auto">
+                  <v-img
+                    class="iniziativaEUImg"
+                    position="right"
+                    max-width="259px"
+                    :src="require(`@/assets/images/loghi/${regione}/Iniziativa.png`)"
+                    alt="Iniziativa unione europea"
+                  />
+                </v-col>
+                <v-col cols="12" md="auto">
+                  <img
+                    class="piemonteImg"
+                    max-width="259px"
+                    :src="require(`@/assets/images/loghi/${regione}/Piemonte.png`)"
+                    alt="Piemonte"
+                  />
+                </v-col>
+              </v-row>
+            </v-container>
           </v-col>
         </v-row>
       </div>
     </div>
     <div class="ps-footer">
-      <div class="lay-conth">
+      <div class="lay-conth container text-center text-md-left">
         <v-row class="aiuto-footer" v-if="linkAiuto">
           <v-col>
             <h3 class="title-help-footer">Hai bisogno di aiuto</h3>
@@ -49,44 +54,59 @@
           </v-col>
         </v-row>
         <v-row justify="space-between" class="loghi-footer">
-          <v-col md="auto">
-            <v-img
-              :src="require(`@/assets/images/loghi/${regione}/piemonteTu_logo.svg`)"
-              :lazy-src="require(`@/assets/images/loghi/${regione}/piemonteTu_logo.svg`)"
+          <v-col cols="12" sm="auto">
+            <a :href="(logged) ? piemonteTuUrlLogged : piemonteTuUrl" target="_blank" rel="noopener noreferrer" class="d-block">
+              <img v-if="regione === 'piemonte'"
+                class="mx-auto"
+                :src="require(`@/assets/images/loghi/${regione}/piemonteTu_logo.svg`)"
+                width="240px"
+                height="82.45px"
+                alt="scopri i servizi di piemonte tu"
+                min-height="auto"
+              />
+            </a>
+            <v-img v-if="regione === 'vda'"
+              class="mx-auto"
+              :src="require(`@/assets/images/loghi/${regione}/sistema_footer.png`)"
               :alt="altLogoSistema"
-              width="265"
-            />
+              width="240px"
+              min-height="auto"/>
           </v-col>
-          <v-col md="auto">
-              <v-img
-                width="211"
+          <v-col cols="12" sm="auto" v-if="regione === 'piemonte'">
+            <a href="https://www.csipiemonte.it/web/it" target="_blank" rel="noopener noreferrer" class="d-block">
+              <img
+                class="mx-auto"
+                width="211px"
                 :src="require('@/assets/images/loghi/logo_CSI_negativo.png')"
                 alt="CSI Piemonte"
               />
+            </a>
           </v-col>
         </v-row>
         <v-row justify="space-between" class="info-footer">
           <v-col md="auto" cols="12">
             <ul class="list-inline">
-              <li class="list-inline-item">
+              <li
+                class="list-inline-item"
+                v-if="useNoteUrl !== ''">
                 <v-btn
+                  class="b-footer-help"
                   text
                   depressed
                   :ripple="false"
-                  class="b-menu-footer-link-item"
                   :href="useNoteUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  v-if="useNoteUrl !== ''">
-                  Accessibilità
+                  >
+                  Dichiarazione di accessibilità
                 </v-btn>
               </li>
               <li class="list-inline-item">
                 <v-btn
+                  class="b-footer-help"
                   text
                   depressed
                   :ripple="false"
-                  class="b-menu-footer-link-item"
                   :href="privacyUrl"
                   rel="noopener noreferrer"
                   target="_blank">
@@ -95,10 +115,10 @@
               </li>
               <li class="list-inline-item">
                 <v-btn
+                  class="b-footer-help"
                   depressed
                   :ripple="false"
                   text
-                  class="b-menu-footer-link-item"
                   :href="cookieUrl"
                   rel="noopener noreferrer"
                   target="_blank">
@@ -122,8 +142,9 @@
 </template>
 
 <script>
-import { version } from '../../../package.json'
-import { REGIONE_ABILITATA, REGIONE_PARAMS, servizioAttivo } from '@/common/config'
+import pkg from '../../../package.json'
+import { mapGetters } from 'vuex'
+import { REGIONE_ABILITATA, REGIONE_PARAMS, servizioAttivo, PIEMONTE_TU_URL, PIEMONTE_TU_URL_LOGGED } from '@/common/config'
 
 export default {
   name: 'Footer',
@@ -133,17 +154,26 @@ export default {
       altLogoSistema: REGIONE_PARAMS.ALT_LOGO_SISTEMA,
       cookieUrl: REGIONE_PARAMS.COOKIE_URL,
       privacyUrl: REGIONE_PARAMS.PRIVACY_URL,
+      piemonteTuUrl: PIEMONTE_TU_URL,
+      piemonteTuUrlLogged: PIEMONTE_TU_URL_LOGGED,
       regione: REGIONE_ABILITATA,
       serviceDescription: REGIONE_PARAMS.SERVICE_DESCRIPTION,
       useNoteUrl: REGIONE_PARAMS.USE_NOTE_URL
     }
   },
   computed: {
+    ...mapGetters(['isUserLogged', 'isUserLoggedLocalhost']),
+    logged () {
+      if (process.env.NODE_ENV === 'production') {
+        return this.isUserLogged
+      }
+      return this.isUserLoggedLocalhost
+    },
     linkAiuto: function () {
       return (this.$route.name !== 'home' && this.$route.name !== 'contatti_aiuto' && servizioAttivo('contatti_aiuto')) // nella Home Page è presente la card di aiuto
     },
     versionePwa: function () {
-      return version
+      return pkg.version
     }
   }
 }

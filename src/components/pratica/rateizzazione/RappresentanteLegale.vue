@@ -9,6 +9,7 @@
         ref="RappresentanteLegaleBox"
       />
       <v-btn
+        depressed
         id="btnRappLegStep2"
         @click="next()"
         type="submit"
@@ -54,16 +55,17 @@
             v-on:recaptchaverified="updRecaptchaVerified()"
             v-on:recaptchanotverified="recaptchaVerified = false"
           />
-          <div class="action-button-wide">
+          <div class="action-button-wide row">
             <div class="col-md-6">
               <v-btn
+                depressed
                 @click.prevent="step = 1">
                 Indietro
               </v-btn>
             </div>
             <div class="col-md-6 text-md-right">
               <v-btn
-                class="spaceTopButtonSubmit"
+                depressed
                 id="btnRappLegCerca"
                 type="submit"
                 color="primary">
@@ -177,7 +179,7 @@ export default {
       store.dispatch(DATI_LEGALE_RAPPRESENTANTE, datiRapprLegale)
 
       if (!NavigatorService.checkInternetConnection()) return
-      const codiceFiscale = this.$refs.cFSoggRapp.getValore()
+      const codiceFiscale = this.$refs.cFSoggRapp.getValore().toUpperCase()
       this.$emit('controlspinner', { running: true })
       store
         .dispatch(DATI_INTESTATARIO, codiceFiscale)
@@ -229,7 +231,7 @@ export default {
       store
         .dispatch(PRATICA_RICHIESTA_INTESTATARIO, {
           codiceFiscale: cf,
-          numeroProtocollo: this.cercaFormRap.numeroProtocollo
+          numeroProtocollo: this.cercaFormRap.numeroProtocollo.toUpperCase()
         })
         .then(({ data }) => {
           this.$emit('controlspinner', { running: false })
@@ -275,7 +277,8 @@ export default {
           } else if (error.response.status === 422) {
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.api.errors.no_results'),
-              message: 'Impossibile aggiungere l\'accertamento in quanto risulta prescritto'
+              // message: 'Impossibile aggiungere l\'accertamento in quanto risulta prescritto'
+              message: error.response.data.title
             })
             this.noCaptchaCount++
             const detail = error.response.data.detail
@@ -283,7 +286,8 @@ export default {
           } else if (error.response.status === 500 || error.response.status === 503) {
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.error'),
-              message: this.$i18n.t('general.api.errors.service_unavailable') + ' (' + error.response.data.title + ')'
+              // message: this.$i18n.t('general.api.errors.service_unavailable') + ' (' + error.response.data.title + ')'
+              message: this.$i18n.t('general.api.errors.service_unavailable')
             })
           }
         })

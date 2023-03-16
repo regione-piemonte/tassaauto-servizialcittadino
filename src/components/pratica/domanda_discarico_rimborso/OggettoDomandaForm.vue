@@ -1,7 +1,7 @@
 <template>
   <div class="space-section mt-2">
     <h2>
-      Oggetto della domanda
+      {{ $t('pratica.domanda_discarico_rimborso.crea.oggettoDomanda') }}
     </h2>
     <v-radio-group
       v-model="oggDomandaForm.oggDomRadio"
@@ -15,7 +15,7 @@
           value="discaricoAmministrativo">
           <template v-slot:label>
             <strong id="discaricoAmministrativo">
-              Chiedo il discarico amministrativo
+              {{ $t('pratica.domanda_discarico_rimborso.crea.chiedo_discarico_amministrativo') }}
             </strong>
           </template>
         </v-radio>
@@ -53,7 +53,7 @@
               <strong
                 class="col-12"
                 id="rimborsoPagamento">
-                Chiedo il rimborso, avendo già provveduto al pagamento
+                {{ $t('pratica.domanda_discarico_rimborso.crea.chiedo_rimborso') }}
               </strong>
             </div>
           </template>
@@ -87,7 +87,7 @@
         clear-icon="mdi-close-circle"
         label="Inserisci IBAN"
         :disabled="oggDomandaForm.oggDomRadio !== 'rimborsoPagamento'"
-        id="targa"
+        id="iban"
         type="text"
         :maxLength="$v.oggDomandaForm.iban.$params.maxLength.max"
         v-model="oggDomandaForm.iban"
@@ -165,7 +165,7 @@ export default {
       if (!this.$v.oggDomandaForm.iban.$dirty && this.$v.oggDomandaForm.oggDomRadio !== 'rimborsoPagamento') return errors
       !this.$v.oggDomandaForm.iban.required && errors.push('L\'IBAN è obbligatorio.')
       !this.$v.oggDomandaForm.iban.minLength && errors.push('L\'IBAN deve avere una lunghezza minima di ' + this.$v.oggDomandaForm.iban.$params.minLength.min + ' caratteri.')
-      !this.$v.oggDomandaForm.iban.alphaNum && errors.push('L\'IBAN deve contenere solo lettere e numeri.')
+      !this.$v.oggDomandaForm.iban.alphaNum && errors.push('L\'IBAN deve contenere solo lettere e numeri e non ci devono essere spazi vuoti.')
       !this.$v.oggDomandaForm.iban.ibanOk && errors.push('L\'IBAN non è formalmente corretto.')
       return errors
     }

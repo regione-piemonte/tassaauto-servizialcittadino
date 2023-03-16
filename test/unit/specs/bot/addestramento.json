@@ -1,0 +1,1662 @@
+{
+"id": 0,
+"service": "update",
+"body": {
+"host": "int-sdnet-convplat1.sdp.csi.it",
+"port": 8011,
+"data": {
+"bot": {
+"description": "bollo auto",
+"bot_version": 1,
+"num_algo": 1,
+"confidence_tfidf": 0.3,
+"confidence_lsa": 0.4,
+"is_lsa_sim": true,
+"is_cluster": false,
+"n_cluster": 4,
+"n_topics": 18,
+"confidence_wv": 0.691,
+"wordvec_path": ""
+},
+"stopwords": [
+{
+"stopword": "avere",
+"to_keep": false
+},
+{
+"stopword": "essere",
+"to_keep": false
+},
+{
+"stopword": "dovere",
+"to_keep": false
+},
+{
+"stopword": "volere",
+"to_keep": false
+},
+{
+"stopword": "possedere",
+"to_keep": false
+},
+{
+"stopword": "cioè",
+"to_keep": false
+},
+{
+"stopword": "potere",
+"to_keep": false
+},
+{
+"stopword": "sapere",
+"to_keep": false
+},
+{
+"stopword": "fare",
+"to_keep": false
+},
+{
+"stopword": "fra",
+"to_keep": false
+},
+{
+"stopword": "cosa",
+"to_keep": false
+},
+{
+"stopword": "cos",
+"to_keep": false
+},
+{
+"stopword": "circa",
+"to_keep": false
+},
+{
+"stopword": "dire",
+"to_keep": false
+},
+{
+"stopword": "acquistare",
+"to_keep": false
+},
+{
+"stopword": "n",
+"to_keep": false
+},
+{
+"stopword": "°",
+"to_keep": false
+},
+{
+"stopword": "oppure",
+"to_keep": false
+},
+{
+"stopword": "ovvero",
+"to_keep": false
+},
+{
+"stopword": "chi",
+"to_keep": true
+},
+{
+"stopword": "quanto",
+"to_keep": true
+},
+{
+"stopword": "non",
+"to_keep": true
+},
+{
+"stopword": "più",
+"to_keep": true
+}
+],
+"compound_words": [
+{
+"compound_word": "20 anni",
+"base_token": "20_anni"
+},
+{
+"compound_word": "21 anni",
+"base_token": "21_anni"
+},
+{
+"compound_word": "22 anni",
+"base_token": "22_anni"
+},
+{
+"compound_word": "23 anni",
+"base_token": "23_anni"
+},
+{
+"compound_word": "24 anni",
+"base_token": "24_anni"
+},
+{
+"compound_word": "25 anni",
+"base_token": "25_anni"
+},
+{
+"compound_word": "26 anni",
+"base_token": "26_anni"
+},
+{
+"compound_word": "27 anni",
+"base_token": "27_anni"
+},
+{
+"compound_word": "28 anni",
+"base_token": "28_anni"
+},
+{
+"compound_word": "29 anni",
+"base_token": "29_anni"
+},
+{
+"compound_word": "30 anni",
+"base_token": "30_anni"
+},
+{
+"compound_word": "agenzia di riscossione",
+"base_token": "agenzia_di_riscossione"
+},
+{
+"compound_word": "avviso di pagamento",
+"base_token": "avviso_di_pagamento"
+},
+{
+"compound_word": "benzina gas",
+"base_token": "benzina_gas"
+},
+{
+"compound_word": "benzina gpl",
+"base_token": "benzina_gpl"
+},
+{
+"compound_word": "benzina metano",
+"base_token": "benzina_metano"
+},
+{
+"compound_word": "bi power",
+"base_token": "bi_power"
+},
+{
+"compound_word": "bollo auto",
+"base_token": "bollo_auto"
+},
+{
+"compound_word": "carrello tenda",
+"base_token": "carrello_tenda"
+},
+{
+"compound_word": "che momento",
+"base_token": "che_momento"
+},
+{
+"compound_word": "che periodo",
+"base_token": "che_periodo"
+},
+{
+"compound_word": "cos e",
+"base_token": "cosa_e"
+},
+{
+"compound_word": "cos è",
+"base_token": "cosa_e"
+},
+{
+"compound_word": "cosa è",
+"base_token": "cosa_e"
+},
+{
+"compound_word": "cosa sono",
+"base_token": "cosa_e"
+},
+{
+"compound_word": "di nuovo",
+"base_token": "di_nuovo"
+},
+{
+"compound_word": "doppia alimentazione",
+"base_token": "doppia_alimentazione"
+},
+{
+"compound_word": "fra quanto",
+"base_token": "fra_quanto"
+},
+{
+"compound_word": "micro car",
+"base_token": "micro_car"
+},
+{
+"compound_word": "micro macchina",
+"base_token": "micro_macchina"
+},
+{
+"compound_word": "micro vettura",
+"base_token": "micro_vettura"
+},
+{
+"compound_word": "non circola",
+"base_token": "non_circola"
+},
+{
+"compound_word": "non guido",
+"base_token": "non_guido"
+},
+{
+"compound_word": "non la uso",
+"base_token": "non_la_uso"
+},
+{
+"compound_word": "non la uso più",
+"base_token": "non_uso_più"
+},
+{
+"compound_word": "non lo uso",
+"base_token": "non_lo_uso"
+},
+{
+"compound_word": "non lo uso più",
+"base_token": "non_uso_più"
+},
+{
+"compound_word": "non ricordo",
+"base_token": "non_ricordo"
+},
+{
+"compound_word": "non so",
+"base_token": "non_so"
+},
+{
+"compound_word": "non uso",
+"base_token": "non_uso"
+},
+{
+"compound_word": "non uso più",
+"base_token": "non_uso_più"
+},
+{
+"compound_word": "non utilizzo",
+"base_token": "non_utilizzo"
+},
+{
+"compound_word": "ogni quanto",
+"base_token": "ogni_quanto"
+},
+{
+"compound_word": "on line",
+"base_token": "on_line"
+},
+{
+"compound_word": "più di",
+"base_token": "più_di"
+},
+{
+"compound_word": "quadricicli leggeri",
+"base_token": "quadriciclo_leggero"
+},
+{
+"compound_word": "quadriciclo leggero",
+"base_token": "quadriciclo_leggero"
+},
+{
+"compound_word": "quale momento",
+"base_token": "quale_momento"
+},
+{
+"compound_word": "quale periodo",
+"base_token": "quale_periodo"
+},
+{
+"compound_word": "tassa auto",
+"base_token": "tassa_auto"
+},
+{
+"compound_word": "tassa automobilistica",
+"base_token": "tassa_automobilistica"
+},
+{
+"compound_word": "tassa circolazione",
+"base_token": "tassa_di_circolazione"
+},
+{
+"compound_word": "tassa di circolazione",
+"base_token": "tassa_di_circolazione"
+},
+{
+"compound_word": "tassa di proprietà",
+"base_token": "tassa_di_proprietà"
+},
+{
+"compound_word": "tasse automobilistiche",
+"base_token": "tassa_automobilistica"
+},
+{
+"compound_word": "tra i 20 e i 30 anni",
+"base_token": "tra_i_20_e_i_30_anni"
+},
+{
+"compound_word": "tra quanto",
+"base_token": "tra_quanto"
+},
+{
+"compound_word": "uffici postali",
+"base_token": "uffici_postali"
+},
+{
+"compound_word": "ufficio postale",
+"base_token": "uffici_postali"
+},
+{
+"compound_word": "ultimo giorno",
+"base_token": "ultimo_giorno"
+},
+{
+"compound_word": "uso professionale",
+"base_token": "uso_professionale"
+},
+{
+"compound_word": "attività professionale",
+"base_token": "attivita_professionale"
+},
+{
+"compound_word": "esercizio di impresa",
+"base_token": "esercizio_di_impresa"
+}
+],
+"synonym_words": [
+{
+"synonym_word": "20_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "21_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "22_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "23_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "24_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "25_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "26_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "27_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "28_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "29_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "30_anni",
+"base_token": "vecchio"
+},
+{
+"synonym_word": "affittare",
+"base_token": "leasing"
+},
+{
+"synonym_word": "affitto",
+"base_token": "leasing"
+},
+{
+"synonym_word": "alimentare",
+"base_token": "alimentazione"
+},
+{
+"synonym_word": "anziana",
+"base_token": "vecchio"
+},
+{
+"synonym_word": "anziano",
+"base_token": "vecchio"
+},
+{
+"synonym_word": "autocarro",
+"base_token": "furgone"
+},
+{
+"synonym_word": "autoveicolo",
+"base_token": "auto"
+},
+{
+"synonym_word": "bancomat",
+"base_token": "dove"
+},
+{
+"synonym_word": "benzina_gas",
+"base_token": "bi_power"
+},
+{
+"synonym_word": "benzina_gpl",
+"base_token": "bi_power"
+},
+{
+"synonym_word": "benzina_metano",
+"base_token": "bi_power"
+},
+{
+"synonym_word": "bipower",
+"base_token": "bi_power"
+},
+{
+"synonym_word": "bollo_auto",
+"base_token": "bollo"
+},
+{
+"synonym_word": "camion",
+"base_token": "furgone"
+},
+{
+"synonym_word": "carrello",
+"base_token": "rimorchio"
+},
+{
+"synonym_word": "carrello_tenda",
+"base_token": "rimorchio"
+},
+{
+"synonym_word": "che_momento",
+"base_token": "quando"
+},
+{
+"synonym_word": "che_periodo",
+"base_token": "quando"
+},
+{
+"synonym_word": "chilowatt",
+"base_token": "kilowatt"
+},
+{
+"synonym_word": "cinquantino",
+"base_token": "ciclomotore"
+},
+{
+"synonym_word": "corrispondere",
+"base_token": "pagare"
+},
+{
+"synonym_word": "di_nuovo",
+"base_token": "ancora"
+},
+{
+"synonym_word": "doppia_alimentazione",
+"base_token": "bi_power"
+},
+{
+"synonym_word": "epoca",
+"base_token": "vecchio"
+},
+{
+"synonym_word": "esentare",
+"base_token": "esenzione"
+},
+{
+"synonym_word": "fra_quanto",
+"base_token": "quando"
+},
+{
+"synonym_word": "furto",
+"base_token": "rubare"
+},
+{
+"synonym_word": "gas",
+"base_token": "metano"
+},
+{
+"synonym_word": "immatricolare",
+"base_token": "nuovo"
+},
+{
+"synonym_word": "impianto",
+"base_token": "alimentazione"
+},
+{
+"synonym_word": "interesse",
+"base_token": "sanzione"
+},
+{
+"synonym_word": "internet",
+"base_token": "dove"
+},
+{
+"synonym_word": "kw",
+"base_token": "kilowatt"
+},
+{
+"synonym_word": "luogo",
+"base_token": "dove"
+},
+{
+"synonym_word": "macchina",
+"base_token": "auto"
+},
+{
+"synonym_word": "micro_car",
+"base_token": "quadriciclo_leggero"
+},
+{
+"synonym_word": "micro_macchina",
+"base_token": "quadriciclo_leggero"
+},
+{
+"synonym_word": "micro_vettura",
+"base_token": "quadriciclo_leggero"
+},
+{
+"synonym_word": "microcar",
+"base_token": "quadriciclo_leggero"
+},
+{
+"synonym_word": "micromacchina",
+"base_token": "quadriciclo_leggero"
+},
+{
+"synonym_word": "micromacchine",
+"base_token": "quadriciclo_leggero"
+},
+{
+"synonym_word": "microvettura",
+"base_token": "quadriciclo_leggero"
+},
+{
+"synonym_word": "mini",
+"base_token": "micro"
+},
+{
+"synonym_word": "mora",
+"base_token": "sanzione"
+},
+{
+"synonym_word": "moto",
+"base_token": "ciclomotore"
+},
+{
+"synonym_word": "motorino",
+"base_token": "ciclomotore"
+},
+{
+"synonym_word": "motoveicolo",
+"base_token": "ciclomotore"
+},
+{
+"synonym_word": "multa",
+"base_token": "sanzione"
+},
+{
+"synonym_word": "noleggiare",
+"base_token": "leasing"
+},
+{
+"synonym_word": "noleggio",
+"base_token": "leasing"
+},
+{
+"synonym_word": "non_circola",
+"base_token": "non_uso"
+},
+{
+"synonym_word": "non_guido",
+"base_token": "non_uso"
+},
+{
+"synonym_word": "non_la_uso",
+"base_token": "non_uso"
+},
+{
+"synonym_word": "non_lo_uso",
+"base_token": "non_uso"
+},
+{
+"synonym_word": "non_ricordo",
+"base_token": "dimenticare"
+},
+{
+"synonym_word": "non_so",
+"base_token": "dimenticare"
+},
+{
+"synonym_word": "non_uso_più",
+"base_token": "non_uso"
+},
+{
+"synonym_word": "non_utilizzo",
+"base_token": "non_uso"
+},
+{
+"synonym_word": "ogni_quanto",
+"base_token": "quando"
+},
+{
+"synonym_word": "on line",
+"base_token": "dove"
+},
+{
+"synonym_word": "on_line",
+"base_token": "dove"
+},
+{
+"synonym_word": "online",
+"base_token": "dove"
+},
+{
+"synonym_word": "pagano",
+"base_token": "pagare"
+},
+{
+"synonym_word": "pago",
+"base_token": "pagare"
+},
+{
+"synonym_word": "passato",
+"base_token": "precedente"
+},
+{
+"synonym_word": "più",
+"base_token": "oltre"
+},
+{
+"synonym_word": "più_di",
+"base_token": "oltre"
+},
+{
+"synonym_word": "posta",
+"base_token": "dove"
+},
+{
+"synonym_word": "professionale",
+"base_token": "lavoro"
+},
+{
+"synonym_word": "professione",
+"base_token": "lavoro"
+},
+{
+"synonym_word": "quale_momento",
+"base_token": "quando"
+},
+{
+"synonym_word": "quale_periodo",
+"base_token": "quando"
+},
+{
+"synonym_word": "quant",
+"base_token": "quanto"
+},
+{
+"synonym_word": "roulottes",
+"base_token": "roulotte"
+},
+{
+"synonym_word": "scadere",
+"base_token": "scadenza"
+},
+{
+"synonym_word": "scooter",
+"base_token": "ciclomotore"
+},
+{
+"synonym_word": "scooters",
+"base_token": "ciclomotore"
+},
+{
+"synonym_word": "scordare",
+"base_token": "dimenticare"
+},
+{
+"synonym_word": "scorso",
+"base_token": "precedente"
+},
+{
+"synonym_word": "storico",
+"base_token": "vecchio"
+},
+{
+"synonym_word": "tabaccheria",
+"base_token": "dove"
+},
+{
+"synonym_word": "tassa",
+"base_token": "bollo"
+},
+{
+"synonym_word": "tassa_auto",
+"base_token": "bollo"
+},
+{
+"synonym_word": "tassa_automobilistica",
+"base_token": "bollo"
+},
+{
+"synonym_word": "tassa_circolazione",
+"base_token": "tassa_di_circolazione"
+},
+{
+"synonym_word": "tassa_di_proprietà",
+"base_token": "bollo"
+},
+{
+"synonym_word": "termine",
+"base_token": "scadenza"
+},
+{
+"synonym_word": "tir",
+"base_token": "furgone"
+},
+{
+"synonym_word": "tra_i_20_e_i_30_anni",
+"base_token": "fra_20_e_30_anni"
+},
+{
+"synonym_word": "tra_quanto",
+"base_token": "quando"
+},
+{
+"synonym_word": "uffici_postali",
+"base_token": "dove"
+},
+{
+"synonym_word": "ultimo_giorno",
+"base_token": "scadenza"
+},
+{
+"synonym_word": "unicredit",
+"base_token": "intermediari"
+},
+{
+"synonym_word": "usare",
+"base_token": "utilizzare"
+},
+{
+"synonym_word": "uso",
+"base_token": "utilizzo"
+},
+{
+"synonym_word": "vecchia",
+"base_token": "vecchio"
+},
+{
+"synonym_word": "verificare",
+"base_token": "controllare"
+},
+{
+"synonym_word": "versamento",
+"base_token": "pagamento"
+},
+{
+"synonym_word": "versare",
+"base_token": "pagare"
+},
+{
+"synonym_word": "vespa",
+"base_token": "ciclomotore"
+},
+{
+"synonym_word": "watt",
+"base_token": "kilowatt"
+},
+{
+"synonym_word": "comprare",
+"base_token": "acquistare"
+},
+{
+"synonym_word": "uso_professionale",
+"base_token": "lavoro"
+},
+{
+"synonym_word": "attivita_professionale",
+"base_token": "lavoro"
+},
+{
+"synonym_word": "esercizio_di_impresa",
+"base_token": "lavoro"
+},
+{
+"synonym_word": "cifra",
+"base_token": "quanto"
+}
+],
+"knowledge_base": [
+{
+"question_type": "faq_bollo_rp",
+"question_number": "13",
+"question": "Tassa circolazione  cos’è, chi deve pagarla  quando, scadenza, dimenticato  anno precedente  ciclomotori/cinquantino/motorino/scooter, vespa  quadricicli leggeri, veicoli storici più di 30 anni, roulottes, rimorchi speciali",
+"answer": "Per alcune categorie di veicoli (ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici che hanno più di 30 anni, roulottes e rimorchi speciali) è prevista l'applicazione di una tassa di circolazione non legata alla proprietà/possesso del veicolo, ma alla messa in circolazione dello stesso sulle strade pubbliche.\r\n\r\nLa tassa annuale è dovuta solo se il veicolo è circolante su strade pubbliche e deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Il pagamento ha validità fino al 31 dicembre dell'anno solare in corso. Non si deve pagare la tassa di circolazione per gli anni precedenti. Se il contribuente non ha pagato la tassa di circolazione potrebbe essere sottoposto a controlli su strada dell'autorità di polizia e sanzionato per violazione agli obblighi tributari.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "13",
+"question": "Cos'è la tassa di circolazione e chi deve pagarla?\r\n",
+"answer": "Per alcune categorie di veicoli (ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici che hanno più di 30 anni, roulottes e rimorchi speciali) è prevista l'applicazione di una tassa di circolazione non legata alla proprietà/possesso del veicolo, ma alla messa in circolazione dello stesso sulle strade pubbliche.\r\n\r\nLa tassa annuale è dovuta solo se il veicolo è circolante su strade pubbliche e deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Il pagamento ha validità fino al 31 dicembre dell'anno solare in corso. Non si deve pagare la tassa di circolazione per gli anni precedenti. Se il contribuente non ha pagato la tassa di circolazione potrebbe essere sottoposto a controlli su strada dell'autorità di polizia e sanzionato per violazione agli obblighi tributari.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "13",
+"question": "Ho un’auto che non uso, devo pagare il bollo?\r\n",
+"answer": "Per alcune categorie di veicoli (ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici che hanno più di 30 anni, roulottes e rimorchi speciali) è prevista l'applicazione di una tassa di circolazione non legata alla proprietà/possesso del veicolo, ma alla messa in circolazione dello stesso sulle strade pubbliche.\r\n\r\nLa tassa annuale è dovuta solo se il veicolo è circolante su strade pubbliche e deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Il pagamento ha validità fino al 31 dicembre dell'anno solare in corso. Non si deve pagare la tassa di circolazione per gli anni precedenti. Se il contribuente non ha pagato la tassa di circolazione potrebbe essere sottoposto a controlli su strada dell'autorità di polizia e sanzionato per violazione agli obblighi tributari.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "13",
+"question": "Quando devo pagare la tassa di circolazione?\r\n",
+"answer": "Per alcune categorie di veicoli (ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici che hanno più di 30 anni, roulottes e rimorchi speciali) è prevista l'applicazione di una tassa di circolazione non legata alla proprietà/possesso del veicolo, ma alla messa in circolazione dello stesso sulle strade pubbliche.\r\n\r\nLa tassa annuale è dovuta solo se il veicolo è circolante su strade pubbliche e deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Il pagamento ha validità fino al 31 dicembre dell'anno solare in corso. Non si deve pagare la tassa di circolazione per gli anni precedenti. Se il contribuente non ha pagato la tassa di circolazione potrebbe essere sottoposto a controlli su strada dell'autorità di polizia e sanzionato per violazione agli obblighi tributari.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "13",
+"question": "Che scadenze ho per la tassa di circolazione?\r\n",
+"answer": "Per alcune categorie di veicoli (ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici che hanno più di 30 anni, roulottes e rimorchi speciali) è prevista l'applicazione di una tassa di circolazione non legata alla proprietà/possesso del veicolo, ma alla messa in circolazione dello stesso sulle strade pubbliche.\r\n\r\nLa tassa annuale è dovuta solo se il veicolo è circolante su strade pubbliche e deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Il pagamento ha validità fino al 31 dicembre dell'anno solare in corso. Non si deve pagare la tassa di circolazione per gli anni precedenti. Se il contribuente non ha pagato la tassa di circolazione potrebbe essere sottoposto a controlli su strada dell'autorità di polizia e sanzionato per violazione agli obblighi tributari.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "13",
+"question": "Ho un ciclomotore/motorino/scooter/vespa, devo pagare la tassa di circolazione/bollo dell'anno precedente/scorso/passato, come posso fare?\r\n",
+"answer": "Per alcune categorie di veicoli (ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici che hanno più di 30 anni, roulottes e rimorchi speciali) è prevista l'applicazione di una tassa di circolazione non legata alla proprietà/possesso del veicolo, ma alla messa in circolazione dello stesso sulle strade pubbliche.\r\n\r\nLa tassa annuale è dovuta solo se il veicolo è circolante su strade pubbliche e deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Il pagamento ha validità fino al 31 dicembre dell'anno solare in corso. Non si deve pagare la tassa di circolazione per gli anni precedenti. Se il contribuente non ha pagato la tassa di circolazione potrebbe essere sottoposto a controlli su strada dell'autorità di polizia e sanzionato per violazione agli obblighi tributari.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "16",
+"question": "tassa auto/bollo   tassa di circolazione  differenze, cosa sono  possesso, uso, utilizzo, inattivo  circolazione, strada",
+"answer": "La tassa automobilistica (o bollo auto) è una imposta legata al possesso di un veicolo. Essendo legata al possesso deve essere pagata anche se il veicolo non circola.\r\n\r\nLa tassa di circolazione (per ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici, roulotte e autocaravan con più di 30 anni) non è legata al possesso del veicolo ma alla circolazione sulle strade pubbliche.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "16",
+"question": "Cos'è la tassa di circolazione?\r\n",
+"answer": "La tassa automobilistica (o bollo auto) è una imposta legata al possesso di un veicolo. Essendo legata al possesso deve essere pagata anche se il veicolo non circola.\r\n\r\nLa tassa di circolazione (per ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici, roulotte e autocaravan con più di 30 anni) non è legata al possesso del veicolo ma alla circolazione sulle strade pubbliche.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "16",
+"question": "Che differenza c'è fra bollo e tassa di circolazione?\r\n",
+"answer": "La tassa automobilistica (o bollo auto) è una imposta legata al possesso di un veicolo. Essendo legata al possesso deve essere pagata anche se il veicolo non circola.\r\n\r\nLa tassa di circolazione (per ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici, roulotte e autocaravan con più di 30 anni) non è legata al possesso del veicolo ma alla circolazione sulle strade pubbliche.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "16",
+"question": "Cos'è il bollo?\r\n",
+"answer": "La tassa automobilistica (o bollo auto) è una imposta legata al possesso di un veicolo. Essendo legata al possesso deve essere pagata anche se il veicolo non circola.\r\n\r\nLa tassa di circolazione (per ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici, roulotte e autocaravan con più di 30 anni) non è legata al possesso del veicolo ma alla circolazione sulle strade pubbliche.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "16",
+"question": "bollo\r\n",
+"answer": "La tassa automobilistica (o bollo auto) è una imposta legata al possesso di un veicolo. Essendo legata al possesso deve essere pagata anche se il veicolo non circola.\r\n\r\nLa tassa di circolazione (per ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici, roulotte e autocaravan con più di 30 anni) non è legata al possesso del veicolo ma alla circolazione sulle strade pubbliche.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "16",
+"question": "tassa auto\r\n",
+"answer": "La tassa automobilistica (o bollo auto) è una imposta legata al possesso di un veicolo. Essendo legata al possesso deve essere pagata anche se il veicolo non circola.\r\n\r\nLa tassa di circolazione (per ciclomotori fino a 50 centimetri cubici, quadricicli leggeri, veicoli storici, roulotte e autocaravan con più di 30 anni) non è legata al possesso del veicolo ma alla circolazione sulle strade pubbliche.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "17",
+"question": "tassa auto/bollo   tassa di circolazione  riscossione pagamento pagare versare  intermediari autorizzati, dove, punti/agenzie di riscossione, sportelli  Dove e come  ACI, Avantgarde e Sermetra   Poste banca bancomat, sisal, lottomatica, pagoPa",
+"answer": "La tassa automobilistica può essere pagata:\r\n\r\n- sul sito www.sistemapiemonte.it alla sezione Tributi e Visure\r\n\r\n- servizio Pag@bollo;\r\n\r\n- presso gli uffici postali (alle condizioni previste da Poste Italiane);\r\n\r\n- sul sito internet di Poste Italiane (www.poste.it);\r\n\r\n- presso le agenzie della sua banca mediante i servizi di home banking (esclusivamente utilizzando CBILL o pagoPA);\r\n\r\n- presso gli sportelli bancomat della sua banca (se abilitati); - presso le tabaccherie (anche tramite i servizi di banca ITB) e le ricevitorie collegate alla rete SISAL, Lottomatica o di altri soggetti che aderiscono al sistema pagoPA);\r\n\r\n- presso le agenzie di pratiche auto aderenti al consorzio Sermetra e le agenzie Avantgarde;\r\n\r\n- presso le delegazioni ACI (Automobile Club d’Italia).\r\n\r\nL'elenco dei punti di pagamento del bollo auto presso ACI, Avantgarde e Sermetra in Piemonte è scaricabile dalla pagina http://www.regione.piemonte.it/tributi/dwd/elenco_concess.pdf\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "17",
+"question": "Dove posso trovare i punti Sermetra\r\n",
+"answer": "La tassa automobilistica può essere pagata:\r\n\r\n- sul sito www.sistemapiemonte.it alla sezione Tributi e Visure\r\n\r\n- servizio Pag@bollo;\r\n\r\n- presso gli uffici postali (alle condizioni previste da Poste Italiane);\r\n\r\n- sul sito internet di Poste Italiane (www.poste.it);\r\n\r\n- presso le agenzie della sua banca mediante i servizi di home banking (esclusivamente utilizzando CBILL o pagoPA);\r\n\r\n- presso gli sportelli bancomat della sua banca (se abilitati); - presso le tabaccherie (anche tramite i servizi di banca ITB) e le ricevitorie collegate alla rete SISAL, Lottomatica o di altri soggetti che aderiscono al sistema pagoPA);\r\n\r\n- presso le agenzie di pratiche auto aderenti al consorzio Sermetra e le agenzie Avantgarde;\r\n\r\n- presso le delegazioni ACI (Automobile Club d’Italia).\r\n\r\nL'elenco dei punti di pagamento del bollo auto presso ACI, Avantgarde e Sermetra in Piemonte è scaricabile dalla pagina http://www.regione.piemonte.it/tributi/dwd/elenco_concess.pdf\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "17",
+"question": "Dove sono le agenzie di riscossione ACI o Avantgarde in Piemonte?\r\n&nbsp;\r\n",
+"answer": "La tassa automobilistica può essere pagata:\r\n\r\n- sul sito www.sistemapiemonte.it alla sezione Tributi e Visure\r\n\r\n- servizio Pag@bollo;\r\n\r\n- presso gli uffici postali (alle condizioni previste da Poste Italiane);\r\n\r\n- sul sito internet di Poste Italiane (www.poste.it);\r\n\r\n- presso le agenzie della sua banca mediante i servizi di home banking (esclusivamente utilizzando CBILL o pagoPA);\r\n\r\n- presso gli sportelli bancomat della sua banca (se abilitati); - presso le tabaccherie (anche tramite i servizi di banca ITB) e le ricevitorie collegate alla rete SISAL, Lottomatica o di altri soggetti che aderiscono al sistema pagoPA);\r\n\r\n- presso le agenzie di pratiche auto aderenti al consorzio Sermetra e le agenzie Avantgarde;\r\n\r\n- presso le delegazioni ACI (Automobile Club d’Italia).\r\n\r\nL'elenco dei punti di pagamento del bollo auto presso ACI, Avantgarde e Sermetra in Piemonte è scaricabile dalla pagina http://www.regione.piemonte.it/tributi/dwd/elenco_concess.pdf\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "17",
+"question": "Quali sono gli intermediari autorizzati alla riscossione delle tasse automobilistiche?\r\n",
+"answer": "La tassa automobilistica può essere pagata:\r\n\r\n- sul sito www.sistemapiemonte.it alla sezione Tributi e Visure\r\n\r\n- servizio Pag@bollo;\r\n\r\n- presso gli uffici postali (alle condizioni previste da Poste Italiane);\r\n\r\n- sul sito internet di Poste Italiane (www.poste.it);\r\n\r\n- presso le agenzie della sua banca mediante i servizi di home banking (esclusivamente utilizzando CBILL o pagoPA);\r\n\r\n- presso gli sportelli bancomat della sua banca (se abilitati); - presso le tabaccherie (anche tramite i servizi di banca ITB) e le ricevitorie collegate alla rete SISAL, Lottomatica o di altri soggetti che aderiscono al sistema pagoPA);\r\n\r\n- presso le agenzie di pratiche auto aderenti al consorzio Sermetra e le agenzie Avantgarde;\r\n\r\n- presso le delegazioni ACI (Automobile Club d’Italia).\r\n\r\nL'elenco dei punti di pagamento del bollo auto presso ACI, Avantgarde e Sermetra in Piemonte è scaricabile dalla pagina http://www.regione.piemonte.it/tributi/dwd/elenco_concess.pdf\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "17",
+"question": "Dove posso pagare il bollo?\r\n",
+"answer": "La tassa automobilistica può essere pagata:\r\n\r\n- sul sito www.sistemapiemonte.it alla sezione Tributi e Visure\r\n\r\n- servizio Pag@bollo;\r\n\r\n- presso gli uffici postali (alle condizioni previste da Poste Italiane);\r\n\r\n- sul sito internet di Poste Italiane (www.poste.it);\r\n\r\n- presso le agenzie della sua banca mediante i servizi di home banking (esclusivamente utilizzando CBILL o pagoPA);\r\n\r\n- presso gli sportelli bancomat della sua banca (se abilitati); - presso le tabaccherie (anche tramite i servizi di banca ITB) e le ricevitorie collegate alla rete SISAL, Lottomatica o di altri soggetti che aderiscono al sistema pagoPA);\r\n\r\n- presso le agenzie di pratiche auto aderenti al consorzio Sermetra e le agenzie Avantgarde;\r\n\r\n- presso le delegazioni ACI (Automobile Club d’Italia).\r\n\r\nL'elenco dei punti di pagamento del bollo auto presso ACI, Avantgarde e Sermetra in Piemonte è scaricabile dalla pagina http://www.regione.piemonte.it/tributi/dwd/elenco_concess.pdf\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "17",
+"question": "Come posso pagare il bollo?\r\n",
+"answer": "La tassa automobilistica può essere pagata:\r\n\r\n- sul sito www.sistemapiemonte.it alla sezione Tributi e Visure\r\n\r\n- servizio Pag@bollo;\r\n\r\n- presso gli uffici postali (alle condizioni previste da Poste Italiane);\r\n\r\n- sul sito internet di Poste Italiane (www.poste.it);\r\n\r\n- presso le agenzie della sua banca mediante i servizi di home banking (esclusivamente utilizzando CBILL o pagoPA);\r\n\r\n- presso gli sportelli bancomat della sua banca (se abilitati); - presso le tabaccherie (anche tramite i servizi di banca ITB) e le ricevitorie collegate alla rete SISAL, Lottomatica o di altri soggetti che aderiscono al sistema pagoPA);\r\n\r\n- presso le agenzie di pratiche auto aderenti al consorzio Sermetra e le agenzie Avantgarde;\r\n\r\n- presso le delegazioni ACI (Automobile Club d’Italia).\r\n\r\nL'elenco dei punti di pagamento del bollo auto presso ACI, Avantgarde e Sermetra in Piemonte è scaricabile dalla pagina http://www.regione.piemonte.it/tributi/dwd/elenco_concess.pdf\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "17",
+"question": "Dove pagare\r\n",
+"answer": "La tassa automobilistica può essere pagata:\r\n\r\n- sul sito www.sistemapiemonte.it alla sezione Tributi e Visure\r\n\r\n- servizio Pag@bollo;\r\n\r\n- presso gli uffici postali (alle condizioni previste da Poste Italiane);\r\n\r\n- sul sito internet di Poste Italiane (www.poste.it);\r\n\r\n- presso le agenzie della sua banca mediante i servizi di home banking (esclusivamente utilizzando CBILL o pagoPA);\r\n\r\n- presso gli sportelli bancomat della sua banca (se abilitati); - presso le tabaccherie (anche tramite i servizi di banca ITB) e le ricevitorie collegate alla rete SISAL, Lottomatica o di altri soggetti che aderiscono al sistema pagoPA);\r\n\r\n- presso le agenzie di pratiche auto aderenti al consorzio Sermetra e le agenzie Avantgarde;\r\n\r\n- presso le delegazioni ACI (Automobile Club d’Italia).\r\n\r\nL'elenco dei punti di pagamento del bollo auto presso ACI, Avantgarde e Sermetra in Piemonte è scaricabile dalla pagina http://www.regione.piemonte.it/tributi/dwd/elenco_concess.pdf\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "23",
+"question": "Tassa di circolazione/bollo   quanto pagare, importo, costo, esenzione, esente  ciclomotori/cinquantino/motorino/scooter, vespa  quadricicli leggeri  roulottes e rimorchi speciali   ",
+"answer": "Per i ciclomotori (motorini, scooters) fino a 50 centimetri cubici di cilindrata non si deve pagare la tassa di proprietà (bollo auto) ma solo quella di circolazione, che è di Euro 20,00 (tassa annuale). Se invece hai un motociclo (cilindrata superiore sa 50 centimetri cubici) devi pagare la tassa di proprietà (prova a chiedermi per esempio come si calcola la tassa di proprietà).\r\n\r\nPer i quadricicli leggeri (cioè le microvetture con velocità massima non superiore a 45km/h, cilindrata non superiore a 50 cc e massa a vuoto inferiore a 350 kg) la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso, è pari a Euro 50,00 (tassa annuale).\r\n\r\nLa tassa di circolazione è annuale ed è dovuta solo se il veicolo è circolante su strade pubbliche, deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Non si deve pagare la tassa di circolazione per gli anni precedenti.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "23",
+"question": "Di quant'è la tassa di circolazione/bollo per uno scooter o un motorino, cinquantino?\r\n",
+"answer": "Per i ciclomotori (motorini, scooters) fino a 50 centimetri cubici di cilindrata non si deve pagare la tassa di proprietà (bollo auto) ma solo quella di circolazione, che è di Euro 20,00 (tassa annuale). Se invece hai un motociclo (cilindrata superiore sa 50 centimetri cubici) devi pagare la tassa di proprietà (prova a chiedermi per esempio come si calcola la tassa di proprietà).\r\n\r\nPer i quadricicli leggeri (cioè le microvetture con velocità massima non superiore a 45km/h, cilindrata non superiore a 50 cc e massa a vuoto inferiore a 350 kg) la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso, è pari a Euro 50,00 (tassa annuale).\r\n\r\nLa tassa di circolazione è annuale ed è dovuta solo se il veicolo è circolante su strade pubbliche, deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Non si deve pagare la tassa di circolazione per gli anni precedenti.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "23",
+"question": "\r\nQuanto devo pagare/versare per un ciclomotore?\r\n",
+"answer": "Per i ciclomotori (motorini, scooters) fino a 50 centimetri cubici di cilindrata non si deve pagare la tassa di proprietà (bollo auto) ma solo quella di circolazione, che è di Euro 20,00 (tassa annuale). Se invece hai un motociclo (cilindrata superiore sa 50 centimetri cubici) devi pagare la tassa di proprietà (prova a chiedermi per esempio come si calcola la tassa di proprietà).\r\n\r\nPer i quadricicli leggeri (cioè le microvetture con velocità massima non superiore a 45km/h, cilindrata non superiore a 50 cc e massa a vuoto inferiore a 350 kg) la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso, è pari a Euro 50,00 (tassa annuale).\r\n\r\nLa tassa di circolazione è annuale ed è dovuta solo se il veicolo è circolante su strade pubbliche, deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Non si deve pagare la tassa di circolazione per gli anni precedenti.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "23",
+"question": "Ho uno scooter quanto devo pagare?\r\n",
+"answer": "Per i ciclomotori (motorini, scooters) fino a 50 centimetri cubici di cilindrata non si deve pagare la tassa di proprietà (bollo auto) ma solo quella di circolazione, che è di Euro 20,00 (tassa annuale). Se invece hai un motociclo (cilindrata superiore sa 50 centimetri cubici) devi pagare la tassa di proprietà (prova a chiedermi per esempio come si calcola la tassa di proprietà).\r\n\r\nPer i quadricicli leggeri (cioè le microvetture con velocità massima non superiore a 45km/h, cilindrata non superiore a 50 cc e massa a vuoto inferiore a 350 kg) la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso, è pari a Euro 50,00 (tassa annuale).\r\n\r\nLa tassa di circolazione è annuale ed è dovuta solo se il veicolo è circolante su strade pubbliche, deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Non si deve pagare la tassa di circolazione per gli anni precedenti.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "23",
+"question": "Ho dimenticato di pagare&nbsp; il bollo della mia vespa dello scorso anno, devo pagarla?\r\n",
+"answer": "Per i ciclomotori (motorini, scooters) fino a 50 centimetri cubici di cilindrata non si deve pagare la tassa di proprietà (bollo auto) ma solo quella di circolazione, che è di Euro 20,00 (tassa annuale). Se invece hai un motociclo (cilindrata superiore sa 50 centimetri cubici) devi pagare la tassa di proprietà (prova a chiedermi per esempio come si calcola la tassa di proprietà).\r\n\r\nPer i quadricicli leggeri (cioè le microvetture con velocità massima non superiore a 45km/h, cilindrata non superiore a 50 cc e massa a vuoto inferiore a 350 kg) la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso, è pari a Euro 50,00 (tassa annuale).\r\n\r\nLa tassa di circolazione è annuale ed è dovuta solo se il veicolo è circolante su strade pubbliche, deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Non si deve pagare la tassa di circolazione per gli anni precedenti.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "23",
+"question": "Ho una micro-car, devo pagare?\r\n",
+"answer": "Per i ciclomotori (motorini, scooters) fino a 50 centimetri cubici di cilindrata non si deve pagare la tassa di proprietà (bollo auto) ma solo quella di circolazione, che è di Euro 20,00 (tassa annuale). Se invece hai un motociclo (cilindrata superiore sa 50 centimetri cubici) devi pagare la tassa di proprietà (prova a chiedermi per esempio come si calcola la tassa di proprietà).\r\n\r\nPer i quadricicli leggeri (cioè le microvetture con velocità massima non superiore a 45km/h, cilindrata non superiore a 50 cc e massa a vuoto inferiore a 350 kg) la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso, è pari a Euro 50,00 (tassa annuale).\r\n\r\nLa tassa di circolazione è annuale ed è dovuta solo se il veicolo è circolante su strade pubbliche, deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Non si deve pagare la tassa di circolazione per gli anni precedenti.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "23",
+"question": "Si deve pagare/versare per i quadricicli leggeri?\r\n",
+"answer": "Per i ciclomotori (motorini, scooters) fino a 50 centimetri cubici di cilindrata non si deve pagare la tassa di proprietà (bollo auto) ma solo quella di circolazione, che è di Euro 20,00 (tassa annuale). Se invece hai un motociclo (cilindrata superiore sa 50 centimetri cubici) devi pagare la tassa di proprietà (prova a chiedermi per esempio come si calcola la tassa di proprietà).\r\n\r\nPer i quadricicli leggeri (cioè le microvetture con velocità massima non superiore a 45km/h, cilindrata non superiore a 50 cc e massa a vuoto inferiore a 350 kg) la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso, è pari a Euro 50,00 (tassa annuale).\r\n\r\nLa tassa di circolazione è annuale ed è dovuta solo se il veicolo è circolante su strade pubbliche, deve essere corrisposta in qualsiasi momento dell’anno prima della messa in circolazione. Non si deve pagare la tassa di circolazione per gli anni precedenti.\r\n\r\nPer approfondimenti leggi https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/tasse-circolazione\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "27",
+"question": "Tassa di circolazione/bollo   avvisi di pagamento, avvisare, ricordare, scadenza  quanto pagare, importo, costo, esenzione, esente  quadricicli leggeri/microvetture/micromacchine/micro-car  ciclomotori/cinquantino/motorino/scooter, vespa ",
+"answer": "La Regione invia gli avvisi per ricordare che la tassa di circolazione per ciclomotori (motorino, cinquantino, scooter) e quadricicli leggeri (microvetture, micromacchine, micro-car) deve essere pagata se il veicolo circola.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "27",
+"question": "La Regione invia anche gli avvisi di pagamento per un cinquantino?\r\n",
+"answer": "La Regione invia gli avvisi per ricordare che la tassa di circolazione per ciclomotori (motorino, cinquantino, scooter) e quadricicli leggeri (microvetture, micromacchine, micro-car) deve essere pagata se il veicolo circola.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "27",
+"question": "\r\nHo uno scooter&nbsp;posso essere avvisato sulla scadenza di pagamento?\r\n&nbsp;\r\n",
+"answer": "La Regione invia gli avvisi per ricordare che la tassa di circolazione per ciclomotori (motorino, cinquantino, scooter) e quadricicli leggeri (microvetture, micromacchine, micro-car) deve essere pagata se il veicolo circola.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "27",
+"question": "\r\nHo una microvettura posso essere avvisato circa la scadenza di pagamento?\r\n&nbsp;\r\n",
+"answer": "La Regione invia gli avvisi per ricordare che la tassa di circolazione per ciclomotori (motorino, cinquantino, scooter) e quadricicli leggeri (microvetture, micromacchine, micro-car) deve essere pagata se il veicolo circola.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "quanto pagare, importo, costo, esenzione, esente  auto/veicoli/macchine storiche/vecchie/anziane? vecchi/anziani/storici/tra i 20 e i 30 anni/oltre i 30 anni  uso professionale, commerciale  autocarri, autobus  TIR/autoarticolato/camion ",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Qual è l’importo del bollo per le auto vecchie, storiche?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Si deve pagare la tassa di proprietà per i veicoli&nbsp; tra i 20 e i 30 anni e per quelli oltre i 30 anni?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Di quant'è la tassa di circolazione&nbsp;per le auto anziane?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Pago il bollo ridotto se ho una macchina tra i 20 e i 30 anni?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Ho comprato un veicolo di 20 anni. Posso esentarla/sono esentata dalla tassa automobilistica?&nbsp;\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Si deve pagare la tassa di proprietà&nbsp;per i veicoli&nbsp; oltre i 30 anni?\r\n\r\nLe auto storiche (fra 20 e 30 anni) devono pagare il bollo auto oppure sono esentate dal pagamento\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Ho un autocarro adibito ad uso professionale con più di 30 anni. Devo pagare il bollo?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Ho un autobus adibito ad uso professionale con più di 30 anni.&nbsp;Se non lo uso più per professione, non pago più il bollo? Come posso fare?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Ho un furgone che ha più di 30 anni, devo pagare il bollo?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Quanto devo pagare per un autocarro che ha più di 30 anni, se non lo uso per attività professionale?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "39",
+"question": "Ho un TIR, autoarticolato che uso per lavoro devo versare il bollo?\r\n",
+"answer": "Le auto anziane (con almeno 30 anni) non adibite a uso professionale pagano la tassa di circolazione, dovuta in misura fissa nell'anno solare in corso (indipendentemente dalla potenza del motore), è di Euro 30,00.\r\n\r\nLe auto storiche (fra 20 e 30 anni) hanno l’obbligo di pagare la tassa automobilistica in misura ridotta del 10%.\r\n\r\nSe iscritti ai registri ASI, storico Lancia, italiano Fiat, italiano Alfa Romeo e storico FMI i veicoli pagano con una riduzione del 50% (la storicità deve essere registrata sul libretto di circolazione) \r\n\r\nLe tariffe della tassa automobilistica sono pubblicate sul sito della Regione Piemonte www.regione.piemonte.it alla sezione Tributi-Tassa automobilistica-Quanto pagare.\r\n\r\nI veicoli, anche se con più di 30 anni, adibiti ad uso professionale utilizzati nell'esercizio di un'attività di impresa o di arte o professione pagano la tassa automobilistica ordinaria. Sono da considerarsi tali, ad esempio, quelli adibiti al servizio pubblico da piazza, a noleggio da rimessa, o a scuola guida.\r\n\r\nSe i veicoli con più di 30 anni, diversi dalle autovetture (ad esempio: autocarri, autobus), dimostrano di non essere adibiti ad uso professionale, non pagano il bollo ma pagano la tassa di circolazione, se circolano su strade pubbliche. Per dimostrare tale condizione occorre recarsi presso la Motorizzazione per l’azzeramento della portata (o dei posti) e far modificare la destinazione d’uso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "tassa automobilistica/bollo   quanto pagare, importo, costo  scadenza, termine ultimo  comprato/acquistato un'auto nuova, nuova immatricolazione  veicolo/macchina/autoveicolo",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Ho acquistato/comprato un veicolo usato, devo pagare il bollo?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Il proprietario precedente non ha pagato il bollo, devo pagarlo io?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Ho acquistato una macchina usata ma non so quando scade il bollo, potete dirmelo?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Qual è il termine di pagamento/versamento del bollo per un'auto usata?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Ho comprato un’auto usata, come posso fare per il bollo? qual è la regola?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Qual è il termine di pagamento/versamento del bollo per un'auto nuova cioè entro quando devo pagare la tassa automobilistica/bollo se ho comprato/acquistato un'auto nuova (di nuova immatricolazione)?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Quando devo pagare/versare la tassa automobilistica/bollo se ho comprato/acquistato un'auto nuova?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Quanto costa bollo per auto nuova immatricolazione\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Quando scade/non ricordo/ho dimenticato/ho scordato/in che mese mi scade/è in scadenza il bollo/bollo auto/tassa auto/tassa automobilistica del mio veicolo/macchina/autoveicolo?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "quando scade il bollo per la mia auto?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "come posso capire se sono in regola con il pagamento della tassa automobilistica?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "calcolare data di scadenza bollo\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Ho venduto la mia macchina, devo pagare il bollo?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Ho venduto la mia auto, devo pagare il bollo?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "50",
+"question": "Ho venduto il mio autoveicolo, devo pagare il bollo?\r\n",
+"answer": "È tenuto al pagamento del bollo chi risulta intestatario del veicolo l'ultimo giorno utile di pagamento. Per ultimo giorno utile di pagamento si intende l'ultimo giorno del mese successivo a quello di scadenza; qualora quindi l'ultimo giorno sia festivo, il termine sarà prorogato al primo giorno feriale successivo.\r\n\r\nIl termine di pagamento per il primo bollo è fissato nell'ultimo giorno del mese successivo a quello di immatricolazione. Esempio: se la data immatricolazione veicolo è 15 luglio 2018, il 1° bollo è da pagare entro il 31/08/2018 specificando come mese e anno di scadenza giugno 2018 (06/2019). \r\nBolli successivi al primo da pagare entro 31 luglio dell’anno in corso (es.: 31/07/2019), specificando come mese e anno di scadenza giugno dell’anno successivo a quello in corso (es.: 06/2020).\r\n\r\nPer auto usata si intendono sia le vetture acquistate da privati che quelle acquistate presso i rivenditori autorizzati. In entrambi i casi, se l'auto acquistata usata è coperta da bollo in corso di validità, il primo pagamento da parte dell'acquirente deve essere effettuato alla scadenza del bollo in corso, con versamento da eseguire entro l'ultimo giorno del mese successivo a quello di scadenza.\r\n\r\nPer l'auto acquistata usata presso un rivenditore che ha attivato il regime di sospensione, invece, si debbono applicare le medesime regole valide per l'immatricolazione delle auto nuove.\r\n\r\nPuoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "51",
+"question": "bollo/bollo auto/tassa auto/tassa automobilistica  controllare, verificare  dove, sito, servizio  dimenticato, scordato, forse  pagamento pagare",
+"answer": "Puoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n\r\nÈ possibile controllare il pagamento del bollo anche con il servizio on line Visure veicoli di proprietà dal portale www.sistemapiemonte.it alla voce Tributi e visure – Bollo web. Il servizio è accessibile con credenziali che potranno essere richieste dal portale www.sistemapiemonte.it alla voce Registrati gratuitamente oppure con credenziali SPID, Carta di identità elettronica (CIE) oppure Sistemapiemonte.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "51",
+"question": "Dove posso controllare se ho corrisposto il bollo?\r\n",
+"answer": "Puoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n\r\nÈ possibile controllare il pagamento del bollo anche con il servizio on line Visure veicoli di proprietà dal portale www.sistemapiemonte.it alla voce Tributi e visure – Bollo web. Il servizio è accessibile con credenziali che potranno essere richieste dal portale www.sistemapiemonte.it alla voce Registrati gratuitamente oppure con credenziali SPID, Carta di identità elettronica (CIE) oppure Sistemapiemonte.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "51",
+"question": "Ho dimenticato/scordato se ho pagato la tassa automobilistica\r\n",
+"answer": "Puoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n\r\nÈ possibile controllare il pagamento del bollo anche con il servizio on line Visure veicoli di proprietà dal portale www.sistemapiemonte.it alla voce Tributi e visure – Bollo web. Il servizio è accessibile con credenziali che potranno essere richieste dal portale www.sistemapiemonte.it alla voce Registrati gratuitamente oppure con credenziali SPID, Carta di identità elettronica (CIE) oppure Sistemapiemonte.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "51",
+"question": "Non ricordo, ho scordato se ho pagato la tassa automobilistica\r\n&nbsp;\r\n",
+"answer": "Puoi controllare se hai pagato il bollo direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Visura del bollo\": qui basta inserire targa e codice fiscale del proprietario.\r\n\r\nÈ possibile controllare il pagamento del bollo anche con il servizio on line Visure veicoli di proprietà dal portale www.sistemapiemonte.it alla voce Tributi e visure – Bollo web. Il servizio è accessibile con credenziali che potranno essere richieste dal portale www.sistemapiemonte.it alla voce Registrati gratuitamente oppure con credenziali SPID, Carta di identità elettronica (CIE) oppure Sistemapiemonte.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "54",
+"question": "auto/tassa auto/tassa automobilistica  Quanto, calcolare  tariffe, mora, sanzione, interessi  Pagare  Dimenticato, ritardo",
+"answer": "Puoi calcolare l'importo della tassa auto direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Calcola il bollo\": qui basta inserire targa del veicolo.\r\n\r\nÈ possibile calcolare la tassa anche con il servizio online \"calcolo tassa\" dal portale www.sistemapiemonte.it alla voce Tributi e visure – Tassa auto.\r\n\r\nLe tariffe del bollo auto sono pubblicate alla pagina: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/bollo-auto-quanto-pagare .\r\n\r\nSe si paga in ritardo il bollo auto, oltre alla tassa si è soggetti anche al pagamento di sanzioni, applicate in funzione del ritardo con cui il pagamento viene fatto. Fino alla dell’accertamento è possibile pagare la tassa con sanzioni e interessi ridotti.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "54",
+"question": "Quanto verso di bollo auto?\r\n",
+"answer": "Puoi calcolare l'importo della tassa auto direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Calcola il bollo\": qui basta inserire targa del veicolo.\r\n\r\nÈ possibile calcolare la tassa anche con il servizio online \"calcolo tassa\" dal portale www.sistemapiemonte.it alla voce Tributi e visure – Tassa auto.\r\n\r\nLe tariffe del bollo auto sono pubblicate alla pagina: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/bollo-auto-quanto-pagare .\r\n\r\nSe si paga in ritardo il bollo auto, oltre alla tassa si è soggetti anche al pagamento di sanzioni, applicate in funzione del ritardo con cui il pagamento viene fatto. Fino alla dell’accertamento è possibile pagare la tassa con sanzioni e interessi ridotti.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "54",
+"question": "Quali sono le tariffe della tassa automobilistica?\r\n",
+"answer": "Puoi calcolare l'importo della tassa auto direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Calcola il bollo\": qui basta inserire targa del veicolo.\r\n\r\nÈ possibile calcolare la tassa anche con il servizio online \"calcolo tassa\" dal portale www.sistemapiemonte.it alla voce Tributi e visure – Tassa auto.\r\n\r\nLe tariffe del bollo auto sono pubblicate alla pagina: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/bollo-auto-quanto-pagare .\r\n\r\nSe si paga in ritardo il bollo auto, oltre alla tassa si è soggetti anche al pagamento di sanzioni, applicate in funzione del ritardo con cui il pagamento viene fatto. Fino alla dell’accertamento è possibile pagare la tassa con sanzioni e interessi ridotti.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "54",
+"question": "Mi sono dimenticato di pagare il bollo, quanto devo pagare di mora, sanzione?\r\n",
+"answer": "Puoi calcolare l'importo della tassa auto direttamente da questo chatbot: dal menù in basso segui la voce \"Servizi online\" e poi \"Calcola il bollo\": qui basta inserire targa del veicolo.\r\n\r\nÈ possibile calcolare la tassa anche con il servizio online \"calcolo tassa\" dal portale www.sistemapiemonte.it alla voce Tributi e visure – Tassa auto.\r\n\r\nLe tariffe del bollo auto sono pubblicate alla pagina: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/bollo-auto-quanto-pagare .\r\n\r\nSe si paga in ritardo il bollo auto, oltre alla tassa si è soggetti anche al pagamento di sanzioni, applicate in funzione del ritardo con cui il pagamento viene fatto. Fino alla dell’accertamento è possibile pagare la tassa con sanzioni e interessi ridotti.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "59",
+"question": "tariffe, mora, sanzione, interessi  Pagare  Rubato furto rottamato ",
+"answer": "Nel caso in cui si verifichi la perdita di possesso del veicolo per rottamazione o per furto, prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, qui trovi le indicazioni per chiedere il rimborso: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/restituzioni-della-tassa-automobilistica\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "59",
+"question": "Mi hanno rubato la macchina/veicolo/auto devo pagare/versare il bollo auto/tassa auto/tassa automobilistica?\r\n",
+"answer": "Nel caso in cui si verifichi la perdita di possesso del veicolo per rottamazione o per furto, prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, qui trovi le indicazioni per chiedere il rimborso: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/restituzioni-della-tassa-automobilistica\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "59",
+"question": "Ho rottamato la macchina/veicolo/auto devo pagare/versare il bollo auto/tassa auto/tassa automobilistica?\r\n&nbsp;\r\n",
+"answer": "Nel caso in cui si verifichi la perdita di possesso del veicolo per rottamazione o per furto, prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, qui trovi le indicazioni per chiedere il rimborso: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/restituzioni-della-tassa-automobilistica\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "59",
+"question": "Domanda sul rimborso per furto auto\r\n",
+"answer": "Nel caso in cui si verifichi la perdita di possesso del veicolo per rottamazione o per furto, prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, qui trovi le indicazioni per chiedere il rimborso: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/restituzioni-della-tassa-automobilistica\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "59",
+"question": "non sono più proprietario della mia auto, pago il bollo?\r\n",
+"answer": "Nel caso in cui si verifichi la perdita di possesso del veicolo per rottamazione o per furto, prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, qui trovi le indicazioni per chiedere il rimborso: https://www.regione.piemonte.it/web/temi/tributi/tassa-automobilistica-bollo-auto/restituzioni-della-tassa-automobilistica\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "60",
+"question": "auto/tassa auto/tassa automobilistica  Pagare  Fermo amministrativo, bloccato, blocco",
+"answer": "Dal 1° gennaio 2016 il bollo è dovuto anche in presenza di un fermo amministrativo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "60",
+"question": "Ho un fermo amministrativo sulla mia macchina, devo pagare il bollo auto?\r\n",
+"answer": "Dal 1° gennaio 2016 il bollo è dovuto anche in presenza di un fermo amministrativo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "61",
+"question": "auto/tassa auto/tassa automobilistica  Pagare  Esportato, trasferito all’estero ",
+"answer": "In caso di esportazione all’estero del veicolo prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, non è possibile richiedere il rimborso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "61",
+"question": "Ho esportato la mia macchina/veicolo/auto/autoveicolo all’estero devo pagare/versare il bollo/bollo auto/tassa auto/tassa automobilistica?\r\n",
+"answer": "In caso di esportazione all’estero del veicolo prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, non è possibile richiedere il rimborso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "61",
+"question": "Mi sono trasferito all’estero. Devo versare il bollo?\r\n",
+"answer": "In caso di esportazione all’estero del veicolo prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, non è possibile richiedere il rimborso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "61",
+"question": "In caso di trasferimento in altro stato, devo ancora&nbsp;versare il bollo?\r\n",
+"answer": "In caso di esportazione all’estero del veicolo prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, non è possibile richiedere il rimborso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "61",
+"question": "Mi trasferisco fuori Italia, pago ancora la tassa auto?\r\n",
+"answer": "In caso di esportazione all’estero del veicolo prima dell’ultimo giorno utile di pagamento la tassa automobilistica non è dovuta.\r\n\r\nNel caso in cui il bollo sia già stato pagato, non è possibile richiedere il rimborso.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "63",
+"question": "auto/tassa auto/tassa automobilistica  Pagare  leasing/affitto noleggio lising",
+"answer": "La tassa è dovuta dall’utilizzatore del veicolo a favore della propria Regione di residenza.\r\n\r\nI pagamenti della tassa automobilistica con decorrenza successiva a giugno 2016 dovranno essere effettuati dall'utilizzatore del veicolo (locatario), dall'usufruttuario o dall'acquirente con patto di riservato dominio sulla base della propria regione di residenza, mentre per le scadenze antecedenti a tale data, dovranno essere effettuati a favore della regione in cui ha la sede legale la società di leasing.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "63",
+"question": "Con i veicoli&nbsp;in leasing chi deve pagare il bollo?\r\n",
+"answer": "La tassa è dovuta dall’utilizzatore del veicolo a favore della propria Regione di residenza.\r\n\r\nI pagamenti della tassa automobilistica con decorrenza successiva a giugno 2016 dovranno essere effettuati dall'utilizzatore del veicolo (locatario), dall'usufruttuario o dall'acquirente con patto di riservato dominio sulla base della propria regione di residenza, mentre per le scadenze antecedenti a tale data, dovranno essere effettuati a favore della regione in cui ha la sede legale la società di leasing.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "63",
+"question": "Ho una macchina in affitto devo pagare la tassa automobilistica?\r\n",
+"answer": "La tassa è dovuta dall’utilizzatore del veicolo a favore della propria Regione di residenza.\r\n\r\nI pagamenti della tassa automobilistica con decorrenza successiva a giugno 2016 dovranno essere effettuati dall'utilizzatore del veicolo (locatario), dall'usufruttuario o dall'acquirente con patto di riservato dominio sulla base della propria regione di residenza, mentre per le scadenze antecedenti a tale data, dovranno essere effettuati a favore della regione in cui ha la sede legale la società di leasing.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "64",
+"question": "veicolo/auto/autoveicolo/macchina/   puro esclusivo solo solamente  elettrico   impianto  alimentazione gas propano liquido GPL metano    pagare/versare esenzioni permanente per sempre bollo/tassa auto/tassa automobilistica",
+"answer": "L'esenzione permanente dal pagamento del bollo per tutti i veicoli elettrici e quelli alimentati esclusivamente a gas metano o esclusivamente a GPL.\r\nQuesta esenzione opera in automatico senza necessità di alcuna domanda o comunicazione da parte del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "64",
+"question": "Se ho comprato un veicolo con impianto solo a GPL devo pagare la tassa automobilistica?\r\n",
+"answer": "L'esenzione permanente dal pagamento del bollo per tutti i veicoli elettrici e quelli alimentati esclusivamente a gas metano o esclusivamente a GPL.\r\nQuesta esenzione opera in automatico senza necessità di alcuna domanda o comunicazione da parte del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "64",
+"question": "Ho un'auto con alimentazione pura a&nbsp;&nbsp;metano pago il bollo?\r\n",
+"answer": "L'esenzione permanente dal pagamento del bollo per tutti i veicoli elettrici e quelli alimentati esclusivamente a gas metano o esclusivamente a GPL.\r\nQuesta esenzione opera in automatico senza necessità di alcuna domanda o comunicazione da parte del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "64",
+"question": "Ho comprato auto con&nbsp;motore elettrico devo pagare bollo?\r\n",
+"answer": "L'esenzione permanente dal pagamento del bollo per tutti i veicoli elettrici e quelli alimentati esclusivamente a gas metano o esclusivamente a GPL.\r\nQuesta esenzione opera in automatico senza necessità di alcuna domanda o comunicazione da parte del proprietario.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "75",
+"question": "doppia  alimentazione benzina gas propano liquido GPL metano  impianto bombolone  trasformato  installato  pagare/versare esenzioni  bollo/bollo auto/tassa auto/tassa automobilistica  anni euro, classe categoria",
+"answer": "I veicoli a doppia alimentazione benzina/metano o benzina/GPL usciti dalla fabbrica con l'impianto per la circolazione con gas metano o GPL già installato godono di un'esenzione quinquennale, che vale per cinque annualità a decorrere dalla data di immatricolazione.\r\nDal sesto anno successivo a quello di immatricolazione per i veicoli a doppia alimentazione benzina/metano o benzina/GPL è previsto il pagamento, ma la tassa - calcolata in base alla tariffa fissa di Euro 2,58 per kW indipendentemente dalla categoria euro e dalla potenza - sarà ridotta a un quarto per i veicoli alimentati a GPL e a un quinto per quelli alimentati a gas metano.\r\nPer i veicoli a doppia alimentazione benzina/metano o benzina/GPL \"trasformati\" (cioè con l’alimentazione modificata dopo l’immatricolazione) aventi potenza uguale o inferiore ai 100kw o categoria euro 2 o superiore è prevista l'esenzione dal pagamento della tassa per le cinque scadenze successive al collaudo dell'impianto.\r\nL'esenzione può essere riconosciuta limitatamente alla prima installazione per un veicolo a benzina su cui viene installato e collaudato l'impianto metano/GPL. La reinstallazione dell’impianto sullo stesso veicolo non determina una nuova esenzione.\r\nPassati i primi 5 anni di esenzione, dal sesto anno il pagamento del bollo si calcola in base alle tariffe previste (http://www.regione.piemonte.it/tributi/quantoPagare.htm).\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "75",
+"question": "Ho un veicolo a doppia alimentazione benzina/metano devo pagare/versare il bollo?\r\n",
+"answer": "I veicoli a doppia alimentazione benzina/metano o benzina/GPL usciti dalla fabbrica con l'impianto per la circolazione con gas metano o GPL già installato godono di un'esenzione quinquennale, che vale per cinque annualità a decorrere dalla data di immatricolazione.\r\nDal sesto anno successivo a quello di immatricolazione per i veicoli a doppia alimentazione benzina/metano o benzina/GPL è previsto il pagamento, ma la tassa - calcolata in base alla tariffa fissa di Euro 2,58 per kW indipendentemente dalla categoria euro e dalla potenza - sarà ridotta a un quarto per i veicoli alimentati a GPL e a un quinto per quelli alimentati a gas metano.\r\nPer i veicoli a doppia alimentazione benzina/metano o benzina/GPL \"trasformati\" (cioè con l’alimentazione modificata dopo l’immatricolazione) aventi potenza uguale o inferiore ai 100kw o categoria euro 2 o superiore è prevista l'esenzione dal pagamento della tassa per le cinque scadenze successive al collaudo dell'impianto.\r\nL'esenzione può essere riconosciuta limitatamente alla prima installazione per un veicolo a benzina su cui viene installato e collaudato l'impianto metano/GPL. La reinstallazione dell’impianto sullo stesso veicolo non determina una nuova esenzione.\r\nPassati i primi 5 anni di esenzione, dal sesto anno il pagamento del bollo si calcola in base alle tariffe previste (http://www.regione.piemonte.it/tributi/quantoPagare.htm).\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "75",
+"question": "Ho acquistato un veicolo a doppia alimentazione benzina/GPL, devo versare il bollo auto?\r\n",
+"answer": "I veicoli a doppia alimentazione benzina/metano o benzina/GPL usciti dalla fabbrica con l'impianto per la circolazione con gas metano o GPL già installato godono di un'esenzione quinquennale, che vale per cinque annualità a decorrere dalla data di immatricolazione.\r\nDal sesto anno successivo a quello di immatricolazione per i veicoli a doppia alimentazione benzina/metano o benzina/GPL è previsto il pagamento, ma la tassa - calcolata in base alla tariffa fissa di Euro 2,58 per kW indipendentemente dalla categoria euro e dalla potenza - sarà ridotta a un quarto per i veicoli alimentati a GPL e a un quinto per quelli alimentati a gas metano.\r\nPer i veicoli a doppia alimentazione benzina/metano o benzina/GPL \"trasformati\" (cioè con l’alimentazione modificata dopo l’immatricolazione) aventi potenza uguale o inferiore ai 100kw o categoria euro 2 o superiore è prevista l'esenzione dal pagamento della tassa per le cinque scadenze successive al collaudo dell'impianto.\r\nL'esenzione può essere riconosciuta limitatamente alla prima installazione per un veicolo a benzina su cui viene installato e collaudato l'impianto metano/GPL. La reinstallazione dell’impianto sullo stesso veicolo non determina una nuova esenzione.\r\nPassati i primi 5 anni di esenzione, dal sesto anno il pagamento del bollo si calcola in base alle tariffe previste (http://www.regione.piemonte.it/tributi/quantoPagare.htm).\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "75",
+"question": "Ho acquistato un autoveicolo bi-power, sono passati 5 anni dall’esenzione, devo pagare il bollo?\r\n",
+"answer": "I veicoli a doppia alimentazione benzina/metano o benzina/GPL usciti dalla fabbrica con l'impianto per la circolazione con gas metano o GPL già installato godono di un'esenzione quinquennale, che vale per cinque annualità a decorrere dalla data di immatricolazione.\r\nDal sesto anno successivo a quello di immatricolazione per i veicoli a doppia alimentazione benzina/metano o benzina/GPL è previsto il pagamento, ma la tassa - calcolata in base alla tariffa fissa di Euro 2,58 per kW indipendentemente dalla categoria euro e dalla potenza - sarà ridotta a un quarto per i veicoli alimentati a GPL e a un quinto per quelli alimentati a gas metano.\r\nPer i veicoli a doppia alimentazione benzina/metano o benzina/GPL \"trasformati\" (cioè con l’alimentazione modificata dopo l’immatricolazione) aventi potenza uguale o inferiore ai 100kw o categoria euro 2 o superiore è prevista l'esenzione dal pagamento della tassa per le cinque scadenze successive al collaudo dell'impianto.\r\nL'esenzione può essere riconosciuta limitatamente alla prima installazione per un veicolo a benzina su cui viene installato e collaudato l'impianto metano/GPL. La reinstallazione dell’impianto sullo stesso veicolo non determina una nuova esenzione.\r\nPassati i primi 5 anni di esenzione, dal sesto anno il pagamento del bollo si calcola in base alle tariffe previste (http://www.regione.piemonte.it/tributi/quantoPagare.htm).\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "75",
+"question": "Per un auto con un impianto a doppia alimentazione benzina/GPL e categoria euro 0/1/2/3 sono esentato dal pagamento del bollo?\r\n",
+"answer": "I veicoli a doppia alimentazione benzina/metano o benzina/GPL usciti dalla fabbrica con l'impianto per la circolazione con gas metano o GPL già installato godono di un'esenzione quinquennale, che vale per cinque annualità a decorrere dalla data di immatricolazione.\r\nDal sesto anno successivo a quello di immatricolazione per i veicoli a doppia alimentazione benzina/metano o benzina/GPL è previsto il pagamento, ma la tassa - calcolata in base alla tariffa fissa di Euro 2,58 per kW indipendentemente dalla categoria euro e dalla potenza - sarà ridotta a un quarto per i veicoli alimentati a GPL e a un quinto per quelli alimentati a gas metano.\r\nPer i veicoli a doppia alimentazione benzina/metano o benzina/GPL \"trasformati\" (cioè con l’alimentazione modificata dopo l’immatricolazione) aventi potenza uguale o inferiore ai 100kw o categoria euro 2 o superiore è prevista l'esenzione dal pagamento della tassa per le cinque scadenze successive al collaudo dell'impianto.\r\nL'esenzione può essere riconosciuta limitatamente alla prima installazione per un veicolo a benzina su cui viene installato e collaudato l'impianto metano/GPL. La reinstallazione dell’impianto sullo stesso veicolo non determina una nuova esenzione.\r\nPassati i primi 5 anni di esenzione, dal sesto anno il pagamento del bollo si calcola in base alle tariffe previste (http://www.regione.piemonte.it/tributi/quantoPagare.htm).\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "75",
+"question": "Ho un’auto a gpl e benzina, devo pagare?\r\n",
+"answer": "I veicoli a doppia alimentazione benzina/metano o benzina/GPL usciti dalla fabbrica con l'impianto per la circolazione con gas metano o GPL già installato godono di un'esenzione quinquennale, che vale per cinque annualità a decorrere dalla data di immatricolazione.\r\nDal sesto anno successivo a quello di immatricolazione per i veicoli a doppia alimentazione benzina/metano o benzina/GPL è previsto il pagamento, ma la tassa - calcolata in base alla tariffa fissa di Euro 2,58 per kW indipendentemente dalla categoria euro e dalla potenza - sarà ridotta a un quarto per i veicoli alimentati a GPL e a un quinto per quelli alimentati a gas metano.\r\nPer i veicoli a doppia alimentazione benzina/metano o benzina/GPL \"trasformati\" (cioè con l’alimentazione modificata dopo l’immatricolazione) aventi potenza uguale o inferiore ai 100kw o categoria euro 2 o superiore è prevista l'esenzione dal pagamento della tassa per le cinque scadenze successive al collaudo dell'impianto.\r\nL'esenzione può essere riconosciuta limitatamente alla prima installazione per un veicolo a benzina su cui viene installato e collaudato l'impianto metano/GPL. La reinstallazione dell’impianto sullo stesso veicolo non determina una nuova esenzione.\r\nPassati i primi 5 anni di esenzione, dal sesto anno il pagamento del bollo si calcola in base alle tariffe previste (http://www.regione.piemonte.it/tributi/quantoPagare.htm).\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "75",
+"question": "La mia macchina va a benzina e metano, devo pagare il bollo?\r\n",
+"answer": "I veicoli a doppia alimentazione benzina/metano o benzina/GPL usciti dalla fabbrica con l'impianto per la circolazione con gas metano o GPL già installato godono di un'esenzione quinquennale, che vale per cinque annualità a decorrere dalla data di immatricolazione.\r\nDal sesto anno successivo a quello di immatricolazione per i veicoli a doppia alimentazione benzina/metano o benzina/GPL è previsto il pagamento, ma la tassa - calcolata in base alla tariffa fissa di Euro 2,58 per kW indipendentemente dalla categoria euro e dalla potenza - sarà ridotta a un quarto per i veicoli alimentati a GPL e a un quinto per quelli alimentati a gas metano.\r\nPer i veicoli a doppia alimentazione benzina/metano o benzina/GPL \"trasformati\" (cioè con l’alimentazione modificata dopo l’immatricolazione) aventi potenza uguale o inferiore ai 100kw o categoria euro 2 o superiore è prevista l'esenzione dal pagamento della tassa per le cinque scadenze successive al collaudo dell'impianto.\r\nL'esenzione può essere riconosciuta limitatamente alla prima installazione per un veicolo a benzina su cui viene installato e collaudato l'impianto metano/GPL. La reinstallazione dell’impianto sullo stesso veicolo non determina una nuova esenzione.\r\nPassati i primi 5 anni di esenzione, dal sesto anno il pagamento del bollo si calcola in base alle tariffe previste (http://www.regione.piemonte.it/tributi/quantoPagare.htm).\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "veicolo   ibrido (elettrico+benzina),   bollo auto/ tassa automobilistica?  pagare esente , esenzioni",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "Ho un veicolo ibrido (elettrico+benzina), devo pagare il bollo auto?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ci sono esenzioni per una macchina ibrida benzina + elettrico?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "quanto pago per ibrido elettrico e benzina?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "auto ibride elettriche e verde, pago?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "doppia &nbsp;alimentazione &nbsp; gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico &nbsp; impianto bombolone &nbsp;installato &nbsp; &nbsp;esenzioni&nbsp;&nbsp;\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "un veicolo a doppia alimentazione gasolio/gpl, &nbsp;devo pagare il bollo?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "un veicolo a doppia alimentazione diesel e idrogeno&nbsp;devo pagare il bollo?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ho un veicolo a doppia alimentazione diesel e elettrico&nbsp;devo pagare il bollo?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "per auto ibrida gasolio e elettrico, ho esenzioni?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ibrido diesel e idrogeno, ho esenzioni?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ho un veicolo a doppia alimentazione diesel&nbsp;e idrogeno devo pagare il bollo?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "per auto con diesel e idrogeno devo pagare il bollo?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ibrido, doppia alimentazione con diesel gasolio\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ho comprato un veicolo a doppia alimentazione gasolio e idrogeno devo pagare il bollo?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ibrido gasolio e idrogeno, ho esenzioni?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ho acquistato un veicolo a doppia alimentazione gasolio e metano, devo pagare la tassa automobilistica?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "127",
+"question": "ho acquistato un veicolo a doppia alimentazione diesel e metano, devo pagare la tassa automobilistica?\r\n",
+"answer": "I veicoli ibridi (elettrico+benzina) di potenza inferiore o uguale ai 100 kw sono esenti dal pagamento del bollo per i primi 5 anni a decorrere dalla data di immatricolazione. Dal sesto anno non godono più di alcuna agevolazione. I veicoli ibridi di potenza superiore ai 100 kw non sono esentati dal pagamento del bollo auto.\r\n\r\nPer i veicoli a doppia alimentazione gasolio/metano, gasolio/gpl, gasolio/gas naturale liquefatto, gas naturale liquefatto, idrogeno, idrogeno/elettrico, al momento non sono previste esenzioni particolari al pagamento del bollo.\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "129",
+"question": "avvisi di accertamento",
+"answer": "Questo argomento non è ancora oggetto di questo chatbot. Ti ricordo che posso rispondere a domande generali su tassa di circolazione, tassa di proprietà, esenzioni per tipo di alimentazione e storicità del veicolo. Se hai bisogno di ulteriore aiuto, puoi contattare il call center di Regione Piemonte con il numero verde 800.333.444\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "129",
+"question": "Mi è arrivato un accertamento ma non sono proprietario del veicolo. Cosa devo fare?&nbsp;\r\n",
+"answer": "Questo argomento non è ancora oggetto di questo chatbot. Ti ricordo che posso rispondere a domande generali su tassa di circolazione, tassa di proprietà, esenzioni per tipo di alimentazione e storicità del veicolo. Se hai bisogno di ulteriore aiuto, puoi contattare il call center di Regione Piemonte con il numero verde 800.333.444\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "129",
+"question": "ci sono faq per gli accertamenti? come devo comportarmi?\r\n",
+"answer": "Questo argomento non è ancora oggetto di questo chatbot. Ti ricordo che posso rispondere a domande generali su tassa di circolazione, tassa di proprietà, esenzioni per tipo di alimentazione e storicità del veicolo. Se hai bisogno di ulteriore aiuto, puoi contattare il call center di Regione Piemonte con il numero verde 800.333.444\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "129",
+"question": "avvisi di accertamento, fare un'osservazione\r\n",
+"answer": "Questo argomento non è ancora oggetto di questo chatbot. Ti ricordo che posso rispondere a domande generali su tassa di circolazione, tassa di proprietà, esenzioni per tipo di alimentazione e storicità del veicolo. Se hai bisogno di ulteriore aiuto, puoi contattare il call center di Regione Piemonte con il numero verde 800.333.444\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "130",
+"question": "disabili, pagamento bollo",
+"answer": "Questo argomento non è ancora oggetto di questo chatbot. Ti ricordo che posso rispondere a domande generali su tassa di circolazione, tassa di proprietà, esenzioni per tipo di alimentazione e storicità del veicolo. Se hai bisogno di ulteriore aiuto, puoi contattare il call center di Regione Piemonte con il numero verde 800.333.444\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "130",
+"question": "sono disabile, ci sono esenzioni per la mia auto per il pagamento del bollo?\r\n",
+"answer": "Questo argomento non è ancora oggetto di questo chatbot. Ti ricordo che posso rispondere a domande generali su tassa di circolazione, tassa di proprietà, esenzioni per tipo di alimentazione e storicità del veicolo. Se hai bisogno di ulteriore aiuto, puoi contattare il call center di Regione Piemonte con il numero verde 800.333.444\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+},
+{
+"question_type": "faq_bollo_rp",
+"question_number": "130",
+"question": "per una persona disabile a cui è intestata una macchina ci sono sgravi?\r\n",
+"answer": "Questo argomento non è ancora oggetto di questo chatbot. Ti ricordo che posso rispondere a domande generali su tassa di circolazione, tassa di proprietà, esenzioni per tipo di alimentazione e storicità del veicolo. Se hai bisogno di ulteriore aiuto, puoi contattare il call center di Regione Piemonte con il numero verde 800.333.444\r\n",
+"note": "FAQ Bollo Regione Piemonte"
+}
+]
+}
+}
+}

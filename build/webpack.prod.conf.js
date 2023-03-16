@@ -1,25 +1,25 @@
-var path = require('path')
-var packageConfig = require('../package.json')
-var utils = require('./utils')
-var webpack = require('webpack')
-var config = require('../config')
-var manifestPwaCfg = require('./manifest/' + process.env.REGION)
+const path = require('path')
+const packageConfig = require('../package.json')
+const utils = require('./utils')
+const webpack = require('webpack')
+const config = require('../config')
+const manifestPwaCfg = require('./manifest/' + process.env.REGION)
 const { merge } = require('webpack-merge')
-var baseWebpackConfig = require('./webpack.base.conf')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var MiniCssExtractPlugin = require('mini-css-extract-plugin')
-var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const baseWebpackConfig = require('./webpack.base.conf')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-var WebpackPwaManifest = require('webpack-pwa-manifest')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
-var env = process.env.NODE_ENV === 'testing'
+const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
 
-var webpackConfig = merge(baseWebpackConfig, {
+const webpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
   module: {
     rules: utils.styleLoaders({
@@ -38,30 +38,36 @@ var webpackConfig = merge(baseWebpackConfig, {
     minimizer: [
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
-        cache: true,
         parallel: 4,
-        sourceMap: config.build.productionSourceMap,
         terserOptions: {
-          compress: true,
-          warnings: false
+          compress: true
         }
       }),
-      new OptimizeCSSPlugin({
-        cssProcessor: require('cssnano'),
-        cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }]
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true }
+            }
+          ]
         }
-        // cssProcessorOptions: { safe: true }
       })
     ],
+    moduleIds: 'deterministic',
     runtimeChunk: false,
     splitChunks: {
-      name: true,
+      chunks: 'all',
       cacheGroups: {
-        commons: {
+        defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
+          priority: -10,
+          reuseExistingChunk: true
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
         }
       }
     }
@@ -95,8 +101,6 @@ var webpackConfig = merge(baseWebpackConfig, {
         removeAttributeQuotes: true
       }
     }),
-    // keep module.id stable when vender modules does not change
-    new webpack.HashedModuleIdsPlugin(),
     // https://github.com/arthurbergmz/webpack-pwa-manifest
     new WebpackPwaManifest(merge(manifestPwaCfg, {
       inject: true,
@@ -113,9 +117,11 @@ var webpackConfig = merge(baseWebpackConfig, {
         }
       ]
     })),
-    new SWPrecacheWebpackPlugin({
+    new GenerateSW({
       cacheId: 'bolloweb-cache-v' + packageConfig.version,
-      filename: 'tassa-auto-service-worker.js'
+      cleanupOutdatedCaches: true,
+      skipWaiting: true,
+      swDest: 'tassa-auto-service-worker.js'
     })
   ]
 })

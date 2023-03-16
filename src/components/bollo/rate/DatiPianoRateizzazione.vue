@@ -3,7 +3,7 @@
     <h2>
       Dati del piano di rateizzazione
     </h2>
-    <div class="dl-inline-header data-up justify-content-center">
+    <div class="row dl-inline-header data-up justify-content-center">
       <dl class="text-center col-6 col-sm-3 offset-sm-2">
         <dt>
           riferimento n°

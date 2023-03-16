@@ -2,17 +2,19 @@
   <v-form
     @submit.prevent="cercaDatiVeicolo">
     <v-text-field
-      clearable
+      :error-count="4"
+      :error-messages="cfErrors"
+      :maxLength="$v.targaForm.codiceFiscale.$params.maxLength.max"
+      @change.native="resetErroriServer()"
+      autocomplete="off"
+      class="uppercase-input"
       clear-icon="mdi-close-circle"
-      label="Codice fiscale"
+      clearable
       id="codiceFiscale"
+      label="Codice fiscale"
       type="text"
       v-model="targaForm.codiceFiscale"
-      @change.native="resetErroriServer()"
-      :maxLength="$v.targaForm.codiceFiscale.$params.maxLength.max"
-      :error-messages="cfErrors"
-      autocomplete="off"
-      :error-count="4"></v-text-field>
+      ></v-text-field>
     <Targa
       ref="targa"
       :pServerErr="serverErrors.targa"
@@ -57,9 +59,10 @@
       v-on:recaptchaverified="updRecaptchaVerified()"
       v-on:recaptchanotverified="recaptchaVerified = false"
     />
-    <div class="action-button-wide mt-6">
+    <div class="action-button-wide row mt-6">
       <div class="col-12">
         <v-btn
+          depressed
           class="spaceTopButtonSubmit"
           id="cercaPagamVeicoloBtn"
           type="submit"
@@ -202,8 +205,8 @@ export default {
       const esito = (this.pStampaAccertamento) ? 'riepilogo_avviso_accertamento' : 'riepilogo_avviso_scadenza'
 
       const inParams = {
-        codiceFiscale: this.targaForm.codiceFiscale,
-        targa: this.$refs.targa.getValore(),
+        codiceFiscale: this.targaForm.codiceFiscale.toUpperCase(),
+        targa: this.$refs.targa.getValore().toUpperCase(),
         idTipoVeicolo: this.targaForm.tipoVeicolo,
         meseScadenza: this.targaForm.meseScadenza,
         annoScadenza: this.targaForm.annoScadenza,
@@ -241,10 +244,17 @@ export default {
             this.noCaptchaCount++
             this.serverErrors = ApiError.serverValidationErrors(error.response.data.detail)
           } else if (error.response.status === 500) {
-            this.$emit('updateboxerr', {
-              title: this.$i18n.t('general.error'),
-              message: this.$i18n.t('general.api.errors.service_unavailable')
-            })
+            if (error.response.data.title) {
+              this.$emit('updateboxerr', {
+                title: this.$i18n.t('general.error'),
+                message: error.response.data.title
+              })
+            } else {
+              this.$emit('updateboxerr', {
+                title: this.$i18n.t('general.error'),
+                message: this.$i18n.t('general.api.errors.service_unavailable')
+              })
+            }
           } else if (error.response.status === 505) {
             this.$emit('updateboxerr', {
               title: this.$i18n.t('general.error'),
@@ -289,7 +299,7 @@ export default {
       .dispatch(BOLLO_PAGO_LIST_MESE_SCADENZA)
       .then(({ data }) => {
         this.mesiScadenza.push({ text: 'Seleziona', value: null })
-        for (var i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
           this.mesiScadenza.push({ text: data[i].nome, value: data[i].valore })
         }
       })
@@ -305,7 +315,7 @@ export default {
       .dispatch(BOLLO_PAGO_LIST_ANNO_SCADENZA)
       .then(({ data }) => {
         this.anniScadenza.push({ text: 'Seleziona', value: null })
-        for (var i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
           this.anniScadenza.push({ text: data[i].nome, value: data[i].valore })
         }
       })
@@ -321,7 +331,7 @@ export default {
       .dispatch(BOLLO_PAGO_LIST_VAL_SCADENZA)
       .then(({ data }) => {
         this.listaMesiValidita.push({ text: 'Seleziona', value: null })
-        for (var i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
           this.listaMesiValidita.push({ text: data[i].nome, value: data[i].valore })
         }
       })

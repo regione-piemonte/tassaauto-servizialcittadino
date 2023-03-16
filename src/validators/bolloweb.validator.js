@@ -1,5 +1,7 @@
 export const acceptedPrivacy = (value) => value === 'accepted' // verifica che il valore in input non contenga caratteri blank
 
+export const acceptedFlag = (value) => value === 'accepted' // verifica che il valore in input non contenga caratteri blank
+
 export const notFutureDate = (value) => {
   // value, data nel formato 2019-06-28
   if (value === null || value === '' || value === undefined) return true
@@ -9,3 +11,4 @@ export const notFutureDate = (value) => {
   if ((dateObject - today) > 0) return false
   return true
 }
+// verifica che ci sia almeno un allegato nella lista

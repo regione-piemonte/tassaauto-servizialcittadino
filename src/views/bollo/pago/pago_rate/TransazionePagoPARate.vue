@@ -1,40 +1,42 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro col-lg-8 offset-lg-2 col-12">
-        <Wizard
-          :servizio="'pago_bollo'"
-          :stepAttivo="4"
-        />
-      </div>
-    </div>
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row justify-content-md-center">
-      <div class="col-12 col-lg-8">
-        <div class="wrap-view">
-          <div class="inner-cont-alert">
-            <div class="row">
-              <BoxNeutral
-                show
-                :msg="detailInfo"
-                class="printDisplay"
-              />
-            </div>
-            <div class="action-button-wide">
-              <div class="col-md-6">
-                <BtnHome />
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class="text-intro col-lg-8 mx-auto">
+            <Wizard
+              :servizio="'pago_bollo'"
+              :stepAttivo="4"
+            />
+          </div>
+        </div>
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 mx-auto">
+            <BoxErrore :error="detailError" />
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col-12 col-lg-8 mx-auto mt-12">
+            <div class="wrap-view">
+              <div class="inner-cont-alert">
+                <div class="row">
+                  <BoxNeutral
+                    show
+                    :msg="detailInfo"
+                    class="printDisplay"
+                  />
+                </div>
+                <div class="action-button-wide row">
+                  <div class="col-md-6 mt-6">
+                    <BtnHome />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </v-card>
     </div>
-    </v-card>
   </div>
 </template>
 

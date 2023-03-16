@@ -1,16 +1,18 @@
 <template>
   <v-text-field
-    clearable
+    :error-count="4"
+    :error-messages="targaErrors"
+    :maxLength="$v.targaForm.targa.$params.maxLength.max"
+    @change.native="resetErroriServer()"
+    autocomplete="off"
+    class="uppercase-input"
     clear-icon="mdi-close-circle"
-    label="Targa/Telaio"
+    clearable
     id="targa"
+    label="Targa/Telaio"
     type="text"
     v-model="targaForm.targa"
-    @change.native="resetErroriServer()"
-    :maxLength="$v.targaForm.targa.$params.maxLength.max"
-    :error-messages="targaErrors"
-    autocomplete="off"
-    :error-count="4"
+    @focusout="toTrim()"
     ></v-text-field>
 </template>
 
@@ -58,10 +60,12 @@ export default {
     }
   },
   methods: {
+    toTrim () {
+      this.targaForm.targa = this.targaForm.targa.replace(/\s/g, '').toUpperCase()
+    },
     getValore () {
       return this.targaForm.targa
     },
-
     resetErroriServer () {
       this.$emit('targachanged')
     }

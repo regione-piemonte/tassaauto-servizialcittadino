@@ -4,6 +4,7 @@
   type="success"
   border="left"
   :icon="false"
+  :dismissible="dismiss"
   show
   aria-relevant="all"
   v-if="this.success.message !== '' && this.success.title !== ''">
@@ -26,7 +27,8 @@
 export default {
   name: 'BoxSuccesso',
   props: {
-    success: { type: Object, required: true }
+    success: { type: Object, required: true },
+    dismiss: { type: Boolean }
   }
 }
 </script>

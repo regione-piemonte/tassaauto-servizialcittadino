@@ -1,7 +1,7 @@
 <template>
-  <div class="app-container">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro text-descrizione-servizio col-xxl-8 offset-xxl-2">
+  <div class="container">
+    <div class="row inner-cont-bollo">
+      <div class="text-intro text-descrizione-servizio col-lg-8 offset-lg-2">
         <p v-html="descrizione" />
         <p>
           <strong>Iscriviti a Infobollo!</strong><br>
@@ -9,89 +9,95 @@
         </p>
       </div>
     </div>
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class="form-infobollo col-xxl-3 col-md-6 offset-xxl-2 mt-8 mt-sm-0">
-          <v-img
-            class="imgHomeServizio"
-            width="178"
-            :src="require('@/assets/images/ritagli/servizi/infobollo.svg')"
-            fluid
-          />
-      </div>
-      <div class="infobollo-hp col-xxl-5 col-md-6 offset-xxl-1">
-        <div v-if="canaleEmailAttivo" class="canaleEmailAttivo">
-          <h2>
-            Infobollo via e-mail
-          </h2>
-          <v-form
-            @submit.prevent="verificaEmail"
-            id="verificaEmail">
-            <v-text-field
-            clearable
-            clear-icon="mdi-close-circle"
-            :label="$t('bollo.info.labels.email')"
-            id="email"
-            v-model="emailForm.email"
-            :error-messages="emailErrors"
-            autocomplete="off"
-            :error-count="2"
-            ></v-text-field>
-            <tassa-auto-recaptcha
-              :pCount="noCaptchaCount"
-              v-on:recaptchaverified="updRecaptchaVerified()"
-              v-on:recaptchanotverified="recaptchaVerified = false"
-            />
-            <v-btn
-              id="verifInfobolloEmailBtn"
-              class="spaceTopButtonSubmit"
-              type="submit"
-              color="primary">
-              {{ $t('general.buttons.attiva_revoca') }}
-            </v-btn>
-          </v-form>
-        </div>
-        <div v-if="canaleSmsAttivo" class="canaleSmsAttivo">
-          <h2>
-            Infobollo via SMS (gratuito)
-          </h2>
-          <v-form @submit.prevent="verificaSms"
-          id="verificaSms">
-            <v-text-field
-            clearable
-            type="tel"
-            clear-icon="mdi-close-circle"
-            :label="$t('bollo.info.labels.cell')"
-            id="cell"
-            v-model="smsForm.cell"
-            :error-messages="telefonoErrors"
-            @change.native="resetErroriServer()"
-            :maxLength="$v.smsForm.cell.$params.maxLength.max"
-            autocomplete="off"
-            :error-count="4"
-            ></v-text-field>
-            <tassa-auto-recaptcha
-              :pCount="noCaptchaCount"
-              v-on:recaptchaverified="updRecaptchaVerified()"
-              v-on:recaptchanotverified="recaptchaVerified = false"
-            />
-            <v-btn
-              class="spaceTopButtonSubmit"
-              id="verifInfobolloSmsBtn"
-              type="submit"
-              color="primary">
-              {{ $t('general.buttons.attiva_revoca') }}
-            </v-btn>
-          </v-form>
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+      <div class="row inner-cont-alert">
+        <div class="text-intro col-lg-8 offset-lg-2">
+          <BoxErrore :error="detailError" />
         </div>
       </div>
+      <div class="row inner-cont-bollo">
+        <div class="form-infobollo col-lg-3 col-md-6 offset-lg-2 mt-8 mt-sm-0">
+            <v-img
+              class="imgHomeServizio"
+              width="178"
+              :src="require('@/assets/images/ritagli/servizi/infobollo.svg')"
+              fluid
+            />
+        </div>
+        <div class="infobollo-hp col-lg-4 col-md-6 offset-lg-1">
+          <div v-if="canaleEmailAttivo" class="canaleEmailAttivo">
+            <h2>
+              Infobollo via e-mail
+            </h2>
+            <v-form
+              @submit.prevent="verificaEmail"
+              id="verificaEmail">
+              <v-text-field
+              :error-count="2"
+              :error-messages="emailErrors"
+              :label="$t('bollo.info.labels.email')"
+              class="uppercase-input"
+              autocomplete="off"
+              clear-icon="mdi-close-circle"
+              clearable
+              id="email"
+              v-model="emailForm.email"
+              @focusout="toTrim()"
+              ></v-text-field>
+              <tassa-auto-recaptcha
+                :pCount="noCaptchaCount"
+                v-on:recaptchaverified="updRecaptchaVerified()"
+                v-on:recaptchanotverified="recaptchaVerified = false"
+              />
+              <v-btn
+                depressed
+                id="verifInfobolloEmailBtn"
+                class="spaceTopButtonSubmit"
+                type="submit"
+                color="primary">
+                {{ $t('general.buttons.attiva_revoca') }}
+              </v-btn>
+            </v-form>
+          </div>
+          <div v-if="canaleSmsAttivo" class="canaleSmsAttivo">
+            <h2>
+              Infobollo via SMS (gratuito)
+            </h2>
+            <v-form @submit.prevent="verificaSms" id="verificaSms">
+              <v-text-field
+              :error-count="4"
+              :error-messages="telefonoErrors"
+              :label="$t('bollo.info.labels.cell')"
+              :maxLength="$v.smsForm.cell.$params.maxLength.max"
+              @change.native="resetErroriServer()"
+              autocomplete="off"
+              clear-icon="mdi-close-circle"
+              clearable
+              id="cell"
+              type="tel"
+              v-model="smsForm.cell"
+              ></v-text-field>
+              <tassa-auto-recaptcha
+                :pCount="noCaptchaCount"
+                v-on:recaptchaverified="updRecaptchaVerified()"
+                v-on:recaptchanotverified="recaptchaVerified = false"
+              />
+              <v-btn
+                depressed
+                class="spaceTopButtonSubmit"
+                id="verifInfobolloSmsBtn"
+                type="submit"
+                color="primary">
+                {{ $t('general.buttons.attiva_revoca') }}
+              </v-btn>
+            </v-form>
+          </div>
+        </div>
+      </div>
+      </v-card>
     </div>
-    </v-card>
+
     <spinner :pOverlay="overlay" />
   </div>
 </template>
@@ -185,6 +191,9 @@ export default {
     }
   },
   methods: {
+    toTrim () {
+      this.emailForm.email = this.emailForm.email.replace(/\s/g, '')
+    },
     isRobot () {
       if (this.noCaptchaCount > NO_RECAPTCHA_ATTEMPTS && !this.recaptchaVerified) {
         this.detailError = {
@@ -204,7 +213,7 @@ export default {
 
       this.overlay = true
       store
-        .dispatch(INFO_VERIFICA_EMAIL, { email: this.emailForm.email })
+        .dispatch(INFO_VERIFICA_EMAIL, { email: this.emailForm.email.toUpperCase() })
         .then(({ data }) => {
           this.$router.push({ name: 'attivazione_email_info' })
         })

@@ -1,85 +1,91 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore
-          :error="detailError"
-        />
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+      <div class="row inner-cont-alert">
+        <div class="text-intro col-lg-8 offset-lg-2">
+          <BoxErrore
+            :error="detailError"
+          />
+        </div>
       </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class=" col-xxl-8 offset-xxl-2 justify-content-center">
-        <Wizard
-          :servizio="'osservazione'"
-          :stepAttivo="2"
-        />
+      <div class="row inner-cont-bollo">
+        <div class=" col-lg-8 offset-lg-2 justify-content-center">
+          <Wizard
+            :servizio="'osservazione'"
+            :stepAttivo="2"
+          />
+        </div>
       </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div class=" col-xxl-8 offset-xxl-2">
-        <DatiAnagraficiIntestatario
-          :denominazione="intestAvvAcc"
-          :codiceFiscale="avvisoAccertamento.intestatario.codiceFiscale"
-          :tipoDatiAnagrafici="'intestatario avviso'"
-        />
-        <DatiVeicolo
-          :descrizione="avvisoAccertamento.tipoVeicolo.descrizione"
-          :targa="avvisoAccertamento.targaVeicolo"
-        />
-        <DatiAvvisoAccertamento
-          :numeroRiferimento="avvisoAccertamento.numeroProtocollo"
-          :scadenza="avvisoAccertamento.scadenza"
-          :tributoDovuto="avvisoAccertamento.tributoDovuto"
-          :dataInvio="avvisoAccertamento.dataInvio"
-          :violazioneAccertata="avvisoAccertamento.violazioneAccertata"
-          :dataNotifica="avvisoAccertamento.dataNotifica"
-        />
-        <OssAvvAccertamento
-          :grigliaAccPagato="grigliaAccertamentoPagato"
-          v-if="pagNonPag === 'pagato'"
-        />
-        <OssAvvAccertamento
-          :grigliaAccNonPagato="grigliaAccertamentoNonPagato"
-          v-if="pagNonPag === 'non_pagato'"
-        />
-         <OssAvvAccertamento
-          :grigliaAccAltroMotivo="grigliaAccertamentoAltro"
-          v-if="pagNonPag === 'altro'"
-        />
-        <Note
-          :pTesto="ossAvvAccNote"
-        />
-        <Allegati
-          :codiceFiscale="''"
-          :numeroProtocollo="''"
-          :listaAllegati="ossAvvAccertamentoAllegati"
-          :pLocal="true"
-        />
-        <RiferimentiPratica
-          ref="rifPratica"
-          v-on:bloccainvioosservazione="inviaOssDisabled = true"
-        />
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnBack
-              :backUrl="'crea_osservazione_accertamento'"
-              :backType="'backMod'"/>
-          </div>
-          <div class="col-md-6 text-md-right">
-            <v-btn
-              id="submitForm"
-              type="submit"
-              @click.prevent="inviaOsservazione"
-              color="primary"
-              :disabled="inviaOssDisabled">
-              Invia Osservazione
-            </v-btn>
+      <div class="row inner-cont-bollo">
+        <div class=" col-lg-8 offset-lg-2">
+          <DatiAnagraficiIntestatario
+            :denominazione="intestAvvAcc"
+            :codiceFiscale="avvisoAccertamento.intestatario.codiceFiscale"
+            :tipoDatiAnagrafici="'intestatario avviso'"
+          />
+          <DatiVeicolo
+            :descrizione="avvisoAccertamento.tipoVeicolo.descrizione"
+            :targa="avvisoAccertamento.targaVeicolo"
+          />
+          <DatiAvvisoAccertamento
+            :numeroRiferimento="avvisoAccertamento.numeroProtocollo"
+            :scadenza="avvisoAccertamento.scadenza"
+            :tributoDovuto="avvisoAccertamento.tributoDovuto"
+            :dataInvio="avvisoAccertamento.dataInvio"
+            :violazioneAccertata="avvisoAccertamento.violazioneAccertata"
+            :dataNotifica="avvisoAccertamento.dataNotifica"
+          />
+          <OssAvvAccertamento
+            :grigliaAccPagato="grigliaAccertamentoPagato"
+            v-if="pagNonPag === 'pagato'"
+          />
+          <OssAvvAccertamento
+            :grigliaAccNonPagato="grigliaAccertamentoNonPagato"
+            v-if="pagNonPag === 'non_pagato'"
+          />
+          <OssAvvAccertamento
+            :grigliaAccAltroMotivo="grigliaAccertamentoAltro"
+            v-if="pagNonPag === 'altro'"
+          />
+          <Note
+            :pTesto="ossAvvAccNote"
+          />
+          <Allegati
+            :codiceFiscale="''"
+            :numeroProtocollo="''"
+            :listaAllegati="ossAvvAccertamentoAllegati"
+            :pLocal="true"
+          />
+          <RiferimentiPratica
+            ref="rifPratica"
+            v-on:bloccainvioosservazione="inviaOssDisabled = true"
+            :errorMsgPratica = detailError.fieldError
+            @resetMsgErrorsPage="removeMsg"
+          />
+          <div class="action-button-wide row">
+            <div class="col-md-6">
+              <BtnBack
+                :backUrl="'crea_osservazione_accertamento'"
+                :backType="'backMod'"/>
+            </div>
+            <div class="col-md-6 text-md-right">
+              <v-btn
+                depressed
+                id="submitForm"
+                type="submit"
+                @click.prevent="inviaOsservazione"
+                color="primary"
+                :disabled="inviaOssDisabled">
+                Invia Osservazione
+              </v-btn>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </v-card>
+    </div>
+
     <spinner :pOverlay="overlay" />
   </div>
 </template>
@@ -87,6 +93,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { emailAttiva, smsAttivo } from '@/common/config'
+import ApiError from '@/common/api.error'
 import NavigatorService from '@/common/navigator.service'
 import OsservazioneService from '@/common/osservazione.service'
 import BoxErrore from '@/components/BoxErrore'
@@ -119,7 +126,7 @@ export default {
   },
   data () {
     return {
-      detailError: { message: '', title: '' },
+      detailError: { message: '', title: '', fieldError: null },
       inviaOssDisabled: false,
       intestAvvAcc: '',
       overlay: false
@@ -142,7 +149,13 @@ export default {
     }
   },
   methods: {
+    removeMsg (params) {
+      if (params === true) {
+        this.resetErrori()
+      }
+    },
     inviaOsservazione () {
+      this.detailError = { message: '', title: '', fieldError: null }
       this.$refs.rifPratica.iniziaValidazione()
       this.$refs.rifPratica.$v.rifForm.$touch()
       if (this.$refs.rifPratica.$v.rifForm.$invalid) return
@@ -174,7 +187,7 @@ export default {
       if (this.ossAvvAccNote !== '') requestCreaOsserAvvAcc.note = this.ossAvvAccNote
 
       const rifObj = this.$refs.rifPratica.getRiferimenti()
-      if (emailAttiva()) requestCreaOsserAvvAcc.email = rifObj.email
+      if (emailAttiva()) requestCreaOsserAvvAcc.email = rifObj.email.toLowerCase()
       if (smsAttivo()) requestCreaOsserAvvAcc.cell = rifObj.telefono
 
       this.overlay = true
@@ -210,8 +223,17 @@ export default {
               title: this.$i18n.t('general.error'),
               message: this.$i18n.t('general.api.errors.service_unavailable') + ' (' + error.response.data.title + ')'
             }
+          } else if (error.response.status === 422) {
+            this.detailError = {
+              title: this.$i18n.t('general.error'),
+              message: this.$i18n.t('general.api.errors.pratica_invalid'),
+              fieldError: ApiError.serverValidationErrors(error.response.data.detail)
+            }
           }
         })
+    },
+    resetErrori () {
+      this.detailError = { message: '', title: '', fieldError: null }
     }
   },
   async created () {

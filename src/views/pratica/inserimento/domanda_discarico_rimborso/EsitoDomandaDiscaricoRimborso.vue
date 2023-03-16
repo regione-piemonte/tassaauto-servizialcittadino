@@ -1,77 +1,80 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <Wizard :servizio="'domanda_discarico_rimborso'" :stepAttivo="3" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-bollo">
-      <div
-        class=" col-xxl-8 offset-xxl-2"
-        v-if="responseDomandaDiscaricoRimborso == null">
-        {{ $t('general.labels.pagina_scaduta') }}
-      </div>
-      <div
-        class=" col-xxl-8 offset-xxl-2"
-        v-else>
-        <DomandaEsitoBox
-          :numeroProtocollo="responseDomandaDiscaricoRimborso.numeroProtocollo"
-        />
-        <DatiAnagraficiIntestatario
-          :denominazione="intestDomDisRim"
-          :codiceFiscale="cfDomDisRim"
-          :dataNascita="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.dataNascita"
-          :comuneNascita="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.comuneNascita"
-          :personaFisica="(responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.denominazione === null) ? true : false"
-          :provinciaNascita="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.provinciaNascita"
-          :sesso="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.sesso"
-          :tipoDatiAnagrafici="'intestatario ingiunzione / cartella'"
-        />
-        <div v-if="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante !== null && responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.nome !== undefined">
-            <DatiAnagRapprLegale
-              :denominazione="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.nome + ' ' + responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.cognome"
-              :codiceFiscale="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.codiceFiscale"
-              :sesso="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.sesso"
-              :dataDiNascita="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.dataNascita"
-              :comuneDiNascita="luogoNascitaRL"
-              :provinciaDiNascita="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.provinciaNascita"/>
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <Wizard :servizio="'domanda_discarico_rimborso'" :stepAttivo="3" />
+          </div>
         </div>
-        <titolo-esecutivo
-          :tipoTitolo="(responseDomandaDiscaricoRimborso.ingiunzioneFiscale !== null) ? 'ingiunzione' : 'cartella'"
-          :numeroEsecutivo="(responseDomandaDiscaricoRimborso.ingiunzioneFiscale !== null) ? responseDomandaDiscaricoRimborso.ingiunzioneFiscale.numeroIngiunzione : responseDomandaDiscaricoRimborso.cartellaEsattoriale.numeroCartellaEsattoriale"
-          :dataNotifica="responseDomandaDiscaricoRimborso.dataNotifica"
-          :importoTotale="responseDomandaDiscaricoRimborso.importoTotaleRiscossione"
-        />
-        <oggetto-domanda
-          :oggetto="responseDomandaDiscaricoRimborso.oggettoDomanda"
-        />
-        <motivo-domanda
-          :motivo="responseDomandaDiscaricoRimborso.motivo"
-        />
-        <Allegati
-          :codiceFiscale="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.codiceFiscale"
-          :numeroProtocollo="responseDomandaDiscaricoRimborso.numeroProtocollo"
-          :listaAllegati="responseDomandaDiscaricoRimborso.allegati"
-          :pLocal="false"
-        />
-        <Riferimenti
-          :pEmail="rifEmail"
-          :pTelefono="rifTelefono"
-        />
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnStampaPagina
-              :label="'Stampa riepilogo'"
+        <div class="row inner-cont-bollo">
+          <div
+            class=" col-lg-8 offset-lg-2"
+            v-if="responseDomandaDiscaricoRimborso == null">
+            {{ $t('general.labels.pagina_scaduta') }}
+          </div>
+          <div
+            class=" col-lg-8 offset-lg-2"
+            v-else>
+            <DomandaEsitoBox
+              :numeroProtocollo="responseDomandaDiscaricoRimborso.numeroProtocollo"
             />
-          </div>
-          <div class="col-md-6 text-md-right">
-            <BtnHome />
+            <DatiAnagraficiIntestatario
+              :denominazione="intestDomDisRim"
+              :codiceFiscale="cfDomDisRim"
+              :dataNascita="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.dataNascita"
+              :comuneNascita="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.comuneNascita"
+              :personaFisica="(responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.denominazione === null) ? true : false"
+              :provinciaNascita="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.provinciaNascita"
+              :sesso="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.sesso"
+              :tipoDatiAnagrafici="'intestatario ingiunzione / cartella'"
+            />
+            <div v-if="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante !== null && responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.nome !== undefined">
+                <DatiAnagRapprLegale
+                  :denominazione="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.nome + ' ' + responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.cognome"
+                  :codiceFiscale="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.codiceFiscale"
+                  :sesso="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.sesso"
+                  :dataDiNascita="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.dataNascita"
+                  :comuneDiNascita="luogoNascitaRL"
+                  :provinciaDiNascita="responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.provinciaNascita"/>
+            </div>
+            <titolo-esecutivo
+              :tipoTitolo="(responseDomandaDiscaricoRimborso.ingiunzioneFiscale !== null) ? 'ingiunzione' : 'cartella'"
+              :numeroEsecutivo="(responseDomandaDiscaricoRimborso.ingiunzioneFiscale !== null) ? responseDomandaDiscaricoRimborso.ingiunzioneFiscale.numeroIngiunzione : responseDomandaDiscaricoRimborso.cartellaEsattoriale.numeroCartellaEsattoriale"
+              :dataNotifica="responseDomandaDiscaricoRimborso.dataNotifica"
+              :importoTotale="responseDomandaDiscaricoRimborso.importoTotaleRiscossione"
+            />
+            <oggetto-domanda
+              :oggetto="responseDomandaDiscaricoRimborso.oggettoDomanda"
+            />
+            <motivo-domanda
+              :motivo="responseDomandaDiscaricoRimborso.motivo"
+            />
+            <Allegati
+              :codiceFiscale="responseDomandaDiscaricoRimborso.dataAnagraficiIntestatario.codiceFiscale"
+              :numeroProtocollo="responseDomandaDiscaricoRimborso.numeroProtocollo"
+              :listaAllegati="responseDomandaDiscaricoRimborso.allegati"
+              :pLocal="false"
+            />
+            <Riferimenti
+              :pEmail="rifEmail"
+              :pTelefono="rifTelefono"
+            />
+            <div class="action-button-wide row">
+              <div class="col-md-6">
+                <BtnStampaPagina
+                  :label="'Stampa riepilogo'"
+                />
+              </div>
+              <div class="col-md-6 text-md-right">
+                <BtnHome />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </v-card>
     </div>
-    </v-card>
+
   </div>
 </template>
 
@@ -127,7 +130,7 @@ export default {
       return this.responseDomandaDiscaricoRimborso.dataAnagraficiRappresentante.statoNascita
     },
     rifEmail: function () {
-      if (emailAttiva) return this.responseDomandaDiscaricoRimborso.email
+      if (emailAttiva) return this.responseDomandaDiscaricoRimborso.email ? this.responseDomandaDiscaricoRimborso.email.toLowerCase() : this.responseDomandaDiscaricoRimborso.email
       return null
     },
     rifTelefono: function () {

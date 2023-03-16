@@ -1,5 +1,7 @@
 import Vue from 'vue'
+
 import { PagobolloService } from '@/common/api/tassa-auto'
+
 import {
   BOLLO_PAGO_IUV,
   BOLLO_PAGO_RINNOVO,
@@ -38,17 +40,17 @@ export const actions = {
   [BOLLO_PAGO_RESET_STATE] ({ commit }) {
     commit(INITIAL_STATE_PAGAMENTO_BOLLO)
   },
-
-  async [BOLLO_PAGO_IUV] (context, slug) {
-    const { data } = await PagobolloService.calcoloIuv(slug)
-    trovaPagamento(data)
+  async [BOLLO_PAGO_IUV] (context, params) {
+    const { data } = await PagobolloService.calcoloIuv(params.iuv)
+    trovaPagamento(data, params.parametroAcc, params.parametroMod1CC, params.parametroMod1BolloCC, params.paramAppDateCC)
     context.commit(ADD_PAGAMENTO_BOLLO, data)
     return { data }
   },
 
   async [BOLLO_PAGO_RINNOVO] (context, params) {
+    console.log('marts params BOLLO_PAGO_RINNOVO inParams parametroAcc ' + params.parametroAcc)
     const { data } = await PagobolloService.calcoloRinnovo(params)
-    trovaPagamento(data)
+    trovaPagamento(data, params.parametroAcc, params.parametroMod1CC, params.parametroMod1BolloCC, params.paramAppDateCC)
     context.commit(ADD_PAGAMENTO_BOLLO, data)
     return { data }
   },
@@ -71,7 +73,7 @@ export const actions = {
 
   async [BOLLO_PAGO_SCADENZA] (context, params) {
     const { data } = await PagobolloService.calcoloScadenza(params)
-    trovaPagamento(data)
+    trovaPagamento(data, params.parametroAcc, params.parametroMod1CC, params.parametroMod1BolloCC, params.paramAppDateCC)
     context.commit(ADD_PAGAMENTO_BOLLO, data)
     return { data }
   },
@@ -99,6 +101,7 @@ export const actions = {
   }
 }
 
+// Marts
 function periodoSovrapposto (pag, nuovoPag) {
   if (pag.risultato.scadenza === nuovoPag.risultato.scadenza) return true
   if (pag.risultato.scadenza.indexOf('/') === -1 || nuovoPag.risultato.scadenza.indexOf('/') === -1) return true
@@ -120,7 +123,19 @@ function periodoSovrapposto (pag, nuovoPag) {
   return true
 }
 
-function trovaPagamento (nuovoPag) {
+function verificaCarrelloOmogeneo (nuovoPag, parametroAcc, parametroMod1CC, parametroMod1BolloCC, paramAppDateCC) {
+  state.carrelloPagoBollo.forEach(pag => {
+    console.log('verifica carrello omogeneo pag tiipologia cc ' + pag.risultato.tipologiaCC)
+    console.log('verifica carrello omogeneo NUOVO pag tiipologia cc ' + nuovoPag.risultato.tipologiaCC)
+    if (nuovoPag.risultato !== null && nuovoPag.risultato !== undefined && nuovoPag.risultato.tipologiaCC !== null && nuovoPag.risultato.tipologiaCC !== undefined) {
+      if ((pag.risultato.tipologiaCC !== nuovoPag.risultato.tipologiaCC) && pag.risultato.tipologiaCC === parametroAcc) throw new Error('Il carrello contiene pagamenti relativi ad accertamenti. E\' possibile aggiungere solo pagamenti della stessa tipologia')
+      if ((pag.risultato.tipologiaCC !== nuovoPag.risultato.tipologiaCC) && pag.risultato.tipologiaCC === parametroMod1CC) throw new Error('Il carrello contiene pagamenti relativi a bolli con termine di pagamento antecedente il ' + paramAppDateCC + '. E\' possibile aggiungere solo pagamenti della stessa tipologia')
+      if ((pag.risultato.tipologiaCC !== nuovoPag.risultato.tipologiaCC) && pag.risultato.tipologiaCC === parametroMod1BolloCC) throw new Error('Il carrello contiene pagamenti relativi a bolli con termine di pagamento successivo al ' + paramAppDateCC + '. E\' possibile aggiungere solo pagamenti della stessa tipologia')
+    }
+  })
+}
+
+function trovaPagamento (nuovoPag, parametroAcc, parametroMod1CC, parametroMod1BolloCC, paramAppDateCC) {
   const item = state.carrelloPagoBollo.find(
     p => (
       p.risultato.codiceFiscale === nuovoPag.risultato.codiceFiscale &&
@@ -129,6 +144,7 @@ function trovaPagamento (nuovoPag) {
     periodoSovrapposto(p, nuovoPag)
     ))
   if (item !== undefined) throw new Error('Pagamento già presente, per eliminarlo andare al riepilogo')
+  verificaCarrelloOmogeneo(nuovoPag, parametroAcc, parametroMod1CC, parametroMod1BolloCC, paramAppDateCC)
 }
 
 const mutations = {

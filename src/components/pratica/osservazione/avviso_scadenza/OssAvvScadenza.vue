@@ -1,13 +1,14 @@
 <template>
   <div>
     <div class="space-section" id="osservazioni-avv-scadenza">
-      <h2>Osservazioni</h2>
+      <h2 v-if="osservazRadio !== ''">Osservazioni</h2>
       <div v-if="osservazRadio == 'venduto'">
         <v-list
           class="text-uppercase"
           flat>
           <v-list-item-group
-            :no-action="true">
+            :no-action="true"
+            aria-label="osservazioni scadenza veicolo venduto">
             <v-list-item
               id=""
               :inactive="true"
@@ -29,7 +30,8 @@
           class="text-uppercase"
           flat>
           <v-list-item-group
-            :no-action="true">
+            :no-action="true"
+            aria-label="osservazioni scadenza radiato o per demolizione">
             <v-list-item
               id=""
               :inactive="true"
@@ -44,7 +46,8 @@
           class="text-uppercase"
           flat>
           <v-list-item-group
-            :no-action="true">
+            :no-action="true"
+            aria-label="osservazioni scadenza esportato">
             <v-list-item
               id=""
               :inactive="true"
@@ -62,7 +65,8 @@
           class="text-uppercase"
           flat>
           <v-list-item-group
-            :no-action="true">
+            :no-action="true"
+            aria-label="osservazioni scadenza esenzione disabili">
             <v-list-item
               id=""
               :inactive="true"
@@ -86,7 +90,8 @@
           class="text-uppercase"
           flat>
           <v-list-item-group
-            :no-action="true">
+            :no-action="true"
+            aria-label="osservazioni scadenza esentato per altro motivo">
             <v-list-item
               id=""
               :inactive="true"
@@ -105,12 +110,13 @@
           class="text-uppercase"
           flat>
           <v-list-item-group
-            :no-action="true">
+            :no-action="true"
+            aria-label="osservazioni scadenza non disponibile">
             <v-list-item
               id=""
               :inactive="true"
               :ripple="false">
-              Dal {{ new Date(attributi.disponibilitaPrivata.dal) | dateFormat('DD/MM/YYYY') }} Al {{ new Date(attributi.disponibilitaPrivata.al) | dateFormat('DD/MM/YYYY') }}
+              Dal {{ new Date(attributi.disponibilitaPrivata.dal) | dateFormat('DD/MM/YYYY') }} <span v-if="attributi.disponibilitaPrivata.al !== undefined && attributi.disponibilitaPrivata.al !== null && attributi.disponibilitaPrivata.al">&nbsp; Al {{ new Date(attributi.disponibilitaPrivata.al) | dateFormat('DD/MM/YYYY') }}</span>
             </v-list-item>
           </v-list-item-group>
         </v-list>
@@ -125,7 +131,8 @@
           class="text-uppercase"
           flat>
           <v-list-item-group
-            :no-action="true">
+            :no-action="true"
+            aria-label="osservazioni scadenza trasferito in altra regione">
             <v-list-item
               id=""
               :inactive="true"
@@ -140,7 +147,7 @@
           class="text-uppercase"
           flat>
           <v-list-item-group
-            :no-action="true">
+            :no-action="true" aria-label="osservazioni scadenza esenzioni impianto">
             <v-list-item
               id=""
               :inactive="true"

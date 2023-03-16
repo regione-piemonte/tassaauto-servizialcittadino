@@ -15,47 +15,47 @@
 
 // classi di utility per grandezza testo rfs
 .rfs-14 {
-  @include responsive-font-size(14px);
+  @include font-size(14px);
 }
 
 .rfs-16 {
-  @include responsive-font-size(16px);
+  @include font-size(16px);
 }
 
 .rfs-18 {
-  @include responsive-font-size(18px);
+  @include font-size(18px);
 }
 
 .rfs-20 {
-  @include responsive-font-size(20px);
+  @include font-size(20px);
 }
 
 .rfs-22 {
-  @include responsive-font-size(22px);
+  @include font-size(22px);
 }
 
 .rfs-24 {
-  @include responsive-font-size(24px);
+  @include font-size(24px);
 }
 
 .rfs-26 {
-  @include responsive-font-size(26px);
+  @include font-size(26px);
 }
 
 .rfs-30 {
-  @include responsive-font-size(30px);
+  @include font-size(30px);
 }
 
 .rfs-45 {
-  @include responsive-font-size(45px);
+  @include font-size(45px);
 }
 
-h1, .h1 { @include responsive-font-size($font-size-h1); font-weight:$font-weight-semibold; }
-h2, .h2 { @include responsive-font-size($font-size-h2); @extend .font-weight-bold; }
-h3, .h3 { @include responsive-font-size($font-size-h3); @extend .font-weight-bold; }
-h4, .h4 { @include responsive-font-size($font-size-h4); @extend .font-weight-bold; }
-h5, .h5 { @include responsive-font-size($font-size-h5); @extend .font-weight-bold; }
-h6, .h6 { @include responsive-font-size($font-size-h6); @extend .font-weight-bold; }
+h1, .h1 { @include font-size($font-size-h1); font-weight: $font-weight-semibold; margin-bottom: .5rem; }
+h2, .h2 { @include font-size($font-size-h2); font-weight: $font-weight-bold; margin-top: 1.125rem;}
+h3, .h3 { @include font-size($font-size-h3); font-weight: $font-weight-bold; }
+h4, .h4 { @include font-size($font-size-h4); font-weight: $font-weight-bold; }
+h5, .h5 { @include font-size($font-size-h5); font-weight: $font-weight-bold; }
+h6, .h6 { @include font-size($font-size-h6); font-weight: $font-weight-bold; }
 
 // parti testuali - max width per accessibilità
 
@@ -63,6 +63,10 @@ p, ol, ul, hr {
 
   @extend %max-width-text;
 
+}
+
+address, dl {
+  margin-bottom: 1rem;
 }
 
 // come su help
@@ -78,15 +82,15 @@ p, ol, ul, hr {
 
   }
 
-  @extend .mb-10;
+  margin-bottom: $space-10;
   ul {
 
     li{
 
-      @extend .p-4;
-      @extend .mb-6;
-      @extend .border;
-      @extend .border-secondary;
+      padding: $space-4;
+      margin-bottom: $space-6;
+      // @extend .border;
+      // @extend .border-secondary;
 
     }
 
@@ -94,15 +98,15 @@ p, ol, ul, hr {
 
 }
 
-.cont-title {
-  //background-color: $gray-600;
+/*.cont-title {
+  // background-color: $gray-600;
   // @extend .w-100;
   h1 {
     // @extend .container;
     // font-size:$h3-font-size;
-    @extend .py-7;
+    // @extend .py-7;
   }
-}
+}*/
 
 // Titoli
 .service-title {
@@ -111,36 +115,44 @@ p, ol, ul, hr {
     z-index:2;
   }
   //background-color:$gray-600;
-  @extend .px-3;
-  @extend .py-3;
-  @extend .mb-8;
+  padding: $space-3;
+  margin-bottom: $space-8;
   .home-page &{
     background-color:$white;
-    @extend .mb-0;
+    margin-bottom: $space-0;
     h1 {
-      @extend .pb-0;
+      padding-bottom: $space-0;
     }
   }
   h1 {
-    //@extend .py-7;
-    //@extend .px-3;
-    //@extend .mb-md-9;
     color:$white;
-    @extend .mb-0;
+    margin-bottom: $space-0;
   }
 }
 
 h2 {
   // border-bottom:2px solid $tertiary;
-  @extend .pb-1;
-  @extend .mb-5;
-  @include responsive-font-size(23px);
+  padding-bottom: $space-1!important;
+  margin-bottom: $space-5!important;
+  @include font-size(23px);
   .box-grigio &{
     border-bottom:0 none;
-    @extend .pb-0;
+    padding-bottom: $space-0!important;
   }
   ul + &{
-    @extend .mb-0;
+    margin-bottom: $space-0!important;
+  }
+}
+
+.tabListVeicoli {
+  .tabListSingleVeicoli {
+    border-top: 1px solid #E0E0E0;
+  }
+  &:last-child {
+  .tabListSingleVeicoli {
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 10px;
+  }
   }
 }
 
@@ -151,24 +163,34 @@ h2 {
       content:"";
       width:100px;
       height:50px;
+      @media (max-width:600px) {
+        margin: auto;
+      }
     }
+    &.bg-icoAlign {
+      &:before {
+        margin: auto;
+      }
+    }
+    
+
     dl {
       dt {
-        @extend .rfs-14;
+         @extend .rfs-14;
         font-weight:$font-weight-normal;
       }
       dd {
-        @extend .rfs-14;
+         @extend .rfs-14;
         font-weight:$font-weight-bold;
       }
     }
     @media (min-width: 576px) {
       dl {
         dt {
-          @include responsive-font-size(14px);
+          @include font-size(14px);
         }
         dd {
-          @include responsive-font-size(18px);
+          @include font-size(18px);
         }
       }
       &:before {
@@ -177,34 +199,46 @@ h2 {
       }
     }
     &.bg-ico-A:before {
-      background:transparent url(../images/icone/auto.png) 0 50% no-repeat;
+      background:transparent url(../images/icone/auto.png) 50% 50% no-repeat;
     }
     &.bg-ico-M:before {
-      background:transparent url(../images/icone/motociclo.png) 0 50% no-repeat;
+      background:transparent url(../images/icone/motociclo.png) 50% 50% no-repeat;
     }
     &.bg-ico-C:before {
-      background:transparent url(../images/icone/ciclomotore.png) 0 50% no-repeat;
+      background:transparent url(../images/icone/ciclomotore.png) 50% 50% no-repeat;
     }
     &.bg-ico-R:before {
-      background:transparent url(../images/icone/rimorchio.png) 0 50% no-repeat;
+      background:transparent url(../images/icone/rimorchio.png) 50% 50% no-repeat;
     }
   }
 }
 
 .menuIcon {
-  @extend .pl-7;
+  padding-left: $space-7!important;
   &.aiuto {
     background:transparent url(../images/icone/menu/aiuto.svg) 0 50% no-repeat;
   }
 
+  &.CALCOLOBOL{
+    background:transparent url(../images/icone/menu/calcola_bollo.svg) 0 50% no-repeat;
+  }
+
   &.calcola_bollo{
     background:transparent url(../images/icone/menu/calcola_bollo.svg) 0 50% no-repeat;
+  }
+
+  &.INSRATEIZZ{
+    background:transparent url(../images/icone/menu/chiedi_rateizzazione.svg) 0 50% no-repeat;
   }
   
   &.chiedi_rateizzazione{
     background:transparent url(../images/icone/menu/chiedi_rateizzazione.svg) 0 50% no-repeat;
   }
   
+  &.CONSULTAPR{
+    background:transparent url(../images/icone/menu/consulta_pratica.svg) 0 50% no-repeat;
+  }
+
   &.consulta_pratica{
     background:transparent url(../images/icone/menu/consulta_pratica.svg) 0 50% no-repeat;
   }
@@ -212,25 +246,49 @@ h2 {
   &.domanda_discarico_rimborso{
     background:transparent url(../images/icone/menu/domanda_discarico_rimborso.svg) 0 50% no-repeat;
   }
+
+  &.INSDISCRIM{
+    background:transparent url(../images/icone/menu/domanda_discarico_rimborso.svg) 0 50% no-repeat;
+  }
   
   &.home{
     background:transparent url(../images/icone/menu/home.svg) 0 50% no-repeat;
   }
   
+  &.INFOBOLLO{
+    background:transparent url(../images/icone/menu/infobollo.svg) 0 50% no-repeat;
+  }
+
   &.infobollo{
     background:transparent url(../images/icone/menu/infobollo.svg) 0 50% no-repeat;
+  }
+
+  &.MEMOBOLLO{
+    background:transparent url(../images/icone/menu/memobollo.svg) 0 50% no-repeat;
   }
   
   &.memobollo{
     background:transparent url(../images/icone/menu/memobollo.svg) 0 50% no-repeat;
   }
+
+  &.INSOSSERVA{
+    background:transparent url(../images/icone/menu/osservazioni.svg) 0 50% no-repeat;
+  }
   
   &.osservazioni{
     background:transparent url(../images/icone/menu/osservazioni.svg) 0 50% no-repeat;
   }
+
+  &.PAGAONLINE{
+    background:transparent url(../images/icone/menu/pagamenti_online.svg) 0 50% no-repeat;
+  }
   
   &.pagamenti_online{
     background:transparent url(../images/icone/menu/pagamenti_online.svg) 0 50% no-repeat;
+  }
+
+  &.SCARICARIC{
+    background:transparent url(../images/icone/menu/scarica_ricevuta_pagamento.svg) 3px 50% no-repeat;
   }
 
   &.scarica_ricevuta_pagamento{
@@ -250,58 +308,124 @@ h2 {
         width: 10px;
         height: 10px;
         content: '';
-        @extend .p-1;
-        @extend .ml-1;
+        padding: $space-1!important;
+        margin-top: $space-1!important;
         background:transparent url(../images/icone/menu/link.svg) 0 50% no-repeat;
       }
     }
+  }
+
+  &.STAMPAAVVI{
+    background:transparent url(../images/icone/menu/stampa_avviso_pagamento.svg) 0 50% no-repeat;
   }
 
   &.stampa_avviso_pagamento{
     background:transparent url(../images/icone/menu/stampa_avviso_pagamento.svg) 0 50% no-repeat;
   }
 
+  &.INSESENZ{
+    background:transparent url(../images/icone/menu/domanda_esenzioni_disabilita_auth.svg) 0 50% no-repeat;
+  }
+
+  &.domanda_esenzioni_disabilita_auth{
+    background:transparent url(../images/icone/menu/domanda_esenzioni_disabilita_auth.svg) 0 50% no-repeat;
+  }
+
+  &.INDREST{
+    background:transparent url(../images/icone/menu/richiesta_restituzione_tassa.svg) 0 50% no-repeat;
+  }
+  &.restituzione_tassa{
+    background:transparent url(../images/icone/menu/richiesta_restituzione_tassa.svg) 0 50% no-repeat;
+  }
+
+  &.consulta_pratica_auth{
+    background:transparent url(../images/icone/menu/consulta_pratica_auth.svg) 0 50% no-repeat;
+  }
+
+  &.visure{
+    background:transparent url(../images/icone/menu/visure.svg) 0 50% no-repeat;
+  }
   .v-list-item__title {
     color: $primary!important;
   }
 }
 
 .homeIcon {
-  @extend .pl-9;
+  padding-left: $space-9!important;
   &.aiuto {
     background:transparent url(../images/icone/home/aiuto.svg) 0 0% no-repeat;
+  }
+
+  &.CALCOLOBOL{
+    background:transparent url(../images/icone/home/calcola_bollo.svg) 0 0% no-repeat;
   }
 
   &.calcola_bollo{
     background:transparent url(../images/icone/home/calcola_bollo.svg) 0 0% no-repeat;
   }
+
+  &.INSRATEIZZ{
+    background:transparent url(../images/icone/home/chiedi_rateizzazione.svg) 0 0% no-repeat;
+  }
   
   &.chiedi_rateizzazione{
     background:transparent url(../images/icone/home/chiedi_rateizzazione.svg) 0 0% no-repeat;
+  }
+
+  &.CONSULTAPR{
+    background:transparent url(../images/icone/home/consulta_pratica.svg) 0 0% no-repeat;
   }
   
   &.consulta_pratica{
     background:transparent url(../images/icone/home/consulta_pratica.svg) 0 0% no-repeat;
   }
+
+  &.INSDISCRIM{
+    background:transparent url(../images/icone/home/domanda_discarico_rimborso.svg) 0 0% no-repeat;
+  }
   
   &.domanda_discarico_rimborso{
     background:transparent url(../images/icone/home/domanda_discarico_rimborso.svg) 0 0% no-repeat;
+  }
+
+  &.INFOBOLLO{
+    background:transparent url(../images/icone/home/infobollo.svg) 0 0% no-repeat;
   }
   
   &.infobollo{
     background:transparent url(../images/icone/home/infobollo.svg) 0 0% no-repeat;
   }
+
+  &.MEMOBOLLO{
+    background:transparent url(../images/icone/home/memobollo.svg) 0 0% no-repeat;
+  }
   
+
   &.memobollo{
     background:transparent url(../images/icone/home/memobollo.svg) 0 0% no-repeat;
+  }
+
+  &.INSOSSERVA{
+    background:transparent url(../images/icone/home/osservazioni.svg) 0 0% no-repeat;
   }
   
   &.osservazioni{
     background:transparent url(../images/icone/home/osservazioni.svg) 0 0% no-repeat;
   }
-  
+  &.PAGAONLINE{
+    background:transparent url(../images/icone/home/pagamenti_online.svg) 0 0% no-repeat;
+  }
+
+  &.PAGAONLINE{
+    background:transparent url(../images/icone/home/pagamenti_online.svg) 0 0% no-repeat;
+  }
+
   &.pagamenti_online{
     background:transparent url(../images/icone/home/pagamenti_online.svg) 0 0% no-repeat;
+  }
+
+  &.SCARICARIC{
+    background:transparent url(../images/icone/home/scarica_ricevuta_pagamento.svg) 0 0% no-repeat;
   }
 
   &.scarica_ricevuta_pagamento{
@@ -312,9 +436,34 @@ h2 {
     background:transparent url(../images/icone/home/servizi_accesso_autenticato.svg) 0 0% no-repeat;
   }
 
+  &.STAMPAAVVI{
+    background:transparent url(../images/icone/home/stampa_avviso_pagamento.svg) 0 0% no-repeat;
+  }
+
   &.stampa_avviso_pagamento{
     background:transparent url(../images/icone/home/stampa_avviso_pagamento.svg) 0 0% no-repeat;
   }
+  
+  &.INSESENZ{
+    background:transparent url(../images/icone/home/domanda_esenzioni_disabilita_auth.svg) 0 0% no-repeat;
+  }
+  &.domanda_esenzioni_disabilita_auth{
+    background:transparent url(../images/icone/home/domanda_esenzioni_disabilita_auth.svg) 0 0% no-repeat;
+  }
+  
+  &.restituzione_tassa{
+    background:transparent url(../images/icone/home/richiesta_restituzione_tassa.svg) 0 50% no-repeat;
+  }
+  &.INDREST{
+    background:transparent url(../images/icone/home/richiesta_restituzione_tassa.svg) 0 50% no-repeat;
+  }
+  &.consulta_pratica_auth{
+    background:transparent url(../images/icone/home/consulta_pratica_auth.svg) 0 0% no-repeat;
+  }
+  &.VISURE{
+    background:transparent url(../images/icone/home/visure.svg) 0 0% no-repeat;
+  }
+
 }
 
 label {

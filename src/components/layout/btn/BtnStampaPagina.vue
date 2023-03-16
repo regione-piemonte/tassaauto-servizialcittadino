@@ -1,7 +1,9 @@
 <template>
   <v-btn
+    depressed
     type="button"
     color="primary"
+    aria-label="Stampa la pagina"
     @click="stampaRiepilogo()">
     <v-icon class="mr-1">mdi-printer</v-icon> {{ label }}
   </v-btn>

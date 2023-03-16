@@ -1,5 +1,5 @@
 <template>
-  <div class="space-section mt-2">
+  <div class="space-section mt-2 mx-2">
     <v-radio-group
       v-model="ossAvvAccForm.osservazRadio"
       id="formRadio-pagato"
@@ -14,7 +14,7 @@
               value="pagamentiCorretti">
               <template v-slot:label>
                 <strong class="fix-align">
-                  I pagamenti sono corretti
+                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.pagamentiCorretti') }}
                 </strong>
               </template>
             </v-radio>
@@ -30,7 +30,7 @@
               value="targaErrata">
               <template v-slot:label>
                 <strong class="fix-align">
-                  Ho indicato la targa in modo errato
+                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.targaErrataIndicata') }}
                 </strong>
               </template>
             </v-radio>
@@ -46,12 +46,11 @@
               <template v-slot:label>
                 <div>
                   <strong class="fix-align w-100">
-                    Ho indicato una scadenza errata
+                    {{ $t('pratica.osservazione.avviso_accertamento.motivazione.scadenzaErrata') }}
                   </strong>
                   <br/>
                   <small>
-                    Se si è indicata una data dell'anno precedente o successivo a quello per cui si contesta il mancato pagamento,
-                    allegare copia di entrambe le ricevute.
+                   {{ $t('pratica.osservazione.avviso_accertamento.motivazione.info') }}
                   </small>
                 </div>
               </template>
@@ -68,10 +67,10 @@
               <template v-slot:label>
                 <div>
                   <strong class="fix-align w-100">
-                    Il veicolo è stato ritargato
+                    {{ $t('pratica.osservazione.avviso_accertamento.motivazione.veicoloRitargato') }}
                   </strong>
                   <small>
-                    Allegare una copia di circolazione.
+                    {{ $t('pratica.osservazione.avviso_accertamento.motivazione.copiaCircolazione') }}
                   </small>
                 </div>
               </template>
@@ -87,7 +86,7 @@
               value="pagamentoAltraRegioneProvincia">
               <template v-slot:label>
                 <strong class="fix-align">
-                  Ho pagato a favore di altra Regione o Provincia autonoma
+                  {{ $t('pratica.osservazione.avviso_accertamento.motivazione.pagamentoAltraRegioneProvinciaForm') }}
                 </strong>
               </template>
             </v-radio>
@@ -96,15 +95,15 @@
       </div>
     </v-radio-group>
     <h2 class="mt-9">
-      Inserire gli estremi di pagamento
+      {{ $t('pratica.osservazione.avviso_accertamento.estremi_pagamento') }}
     </h2>
       <div class="row">
-        <div class="col-12 col-md-6 col-xl-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <fieldset :disabled="ossAvvAccForm.osservazRadio !== '' ? false : true">
             <v-text-field
             clearable
             clear-icon="mdi-close-circle"
-            label="N° Quietanza"
+            label="N° Quietanza (Ricevuta)"
             id="numeroQuietanza"
             v-model="grigliaAccertamentoPagato.numeroQuietanza"
             type="text"
@@ -114,28 +113,16 @@
             ></v-text-field>
             <div
               id="dataPagamentoGroup">
-              <v-menu
-                v-model="dataPagamentoPicker"
-                :close-on-content-click="false"
-                transition="scale-transition"
-                offset-y
-                max-width="290px"
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    v-model="dataPagamentoFormatted"
-                    id="dataPagamento"
-                    label="Data del pagamento"
-                    append-icon="event"
-                    readonly
-                    v-on="on"
-                    :error-messages="dataPagamentoErrors"
-                    :error-count="2"
-                  ></v-text-field>
-                </template>
-                <v-date-picker v-model="grigliaAccertamentoPagato.dataPagamento" @input="dataPagamentoPicker = false" locale="it-IT"></v-date-picker>
-              </v-menu>
+              <v-text-field
+                v-model="grigliaAccertamentoPagato.dataPagamento"
+                id="dataPagamento"
+                label="Data del pagamento"
+                aria-label="inserire la data di pagamento"
+                :readonly="false"
+                type="date"
+                :error-messages="dataPagamentoErrors"
+                :error-count="2"
+              ></v-text-field>
             </div>
             <v-text-field
               clearable
@@ -169,9 +156,7 @@ export default {
     return {
       ossAvvAccForm: {
         osservazRadio: {}
-      },
-      date: null,
-      dataPagamentoPicker: false
+      }
     }
   },
   mixins: [
@@ -201,13 +186,13 @@ export default {
     osservazRadioErrors () {
       const errors = []
       if (!this.$v.ossAvvAccForm.osservazRadio.$dirty) return errors
-      !this.$v.ossAvvAccForm.osservazRadio.required && errors.push('Specificare il motivo dell\'osservazione.')
+      !this.$v.ossAvvAccForm.osservazRadio.required && errors.push('Devi specificare il motivo dell\'osservazione.')
       return errors
     },
     numeroQuietanzaErrors () {
       const errors = []
       if (!this.$v.grigliaAccertamentoPagato.numeroQuietanza.$dirty) return errors
-      !this.$v.grigliaAccertamentoPagato.numeroQuietanza.required && errors.push('Il Numero di Quietanza è obbligatorio.')
+      !this.$v.grigliaAccertamentoPagato.numeroQuietanza.required && errors.push('Il N° Quietanza (Ricevuta) è obbligatorio.')
       return errors
     },
     ufficioAccettanteErrors () {
@@ -222,24 +207,9 @@ export default {
       !this.$v.grigliaAccertamentoPagato.dataPagamento.required && errors.push('La data del pagamento è obbligatoria.')
       !this.$v.grigliaAccertamentoPagato.dataPagamento.notFutureDate && errors.push('La data del pagamento non può essere futura.')
       return errors
-    },
-    dataPagamentoFormatted () {
-      return this.formatDate(this.grigliaAccertamentoPagato.dataPagamento)
     }
   },
   methods: {
-    formatDate (date) {
-      if (!date) return null
-
-      const [year, month, day] = date.split('-')
-      return `${day}/${month}/${year}`
-    },
-    parseDate (date) {
-      if (!date) return null
-
-      const [month, day, year] = date.split('/')
-      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-    },
     getValidationClass (fieldName) {
       const field = this.$v.grigliaAccertamentoPagato[fieldName]
 
@@ -251,7 +221,6 @@ export default {
     },
     updMotivOssPagato () {
       const radioValue = this.ossAvvAccForm.osservazRadio
-      console.log(this.grigliaAccertamentoPagato.dataPagamento + 'this.grigliaAccertamentoPagato.dataPagamento')
       this.grigliaAccertamentoPagato.pagamentiCorretti = (radioValue === 'pagamentiCorretti')
       this.grigliaAccertamentoPagato.targaErrata = (radioValue === 'targaErrata')
       this.grigliaAccertamentoPagato.scadenzaErrata = (radioValue === 'scadenzaErrata')

@@ -1,17 +1,20 @@
 <template>
-  <v-overlay
-    color="rgba(255,255,255, 1)"
-    :value="pOverlay">
-    <img
-      :src="require(`@/assets/images/loghi/${regione}/loading_spinner.gif`)"
-      alt="Caricamento in corso"
-      class="spinner"
-    />
-  </v-overlay>
+  <div>
+    <v-overlay
+      color="rgba(255,255,255, 1)"
+      :value="pOverlay">
+      <v-progress-circular
+        :size="150"
+        :width="10"
+        :color="mainColor"
+        indeterminate
+      ></v-progress-circular>
+    </v-overlay>
+  </div>
 </template>
 
 <script>
-import { REGIONE_ABILITATA } from '@/common/config'
+import { REGIONE_PARAMS, REGIONE_ABILITATA } from '@/common/config'
 export default {
   name: 'Spinner',
   props: {
@@ -19,7 +22,8 @@ export default {
   },
   data () {
     return {
-      regione: REGIONE_ABILITATA
+      regione: REGIONE_ABILITATA,
+      mainColor: REGIONE_PARAMS.MAIN_COLOR
     }
   }
 }

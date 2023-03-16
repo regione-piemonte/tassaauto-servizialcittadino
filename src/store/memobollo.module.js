@@ -5,11 +5,9 @@ import {
   MEMO_RICHIESTA_ATT_EMAIL,
   MEMO_ATTIVAZ_EMAIL,
   MEMO_RICHIESTA_REV_EMAIL,
-  MEMO_REVOCA_EMAIL,
   MEMO_RICHIESTA_ATT_SMS,
   MEMO_ATTIVAZ_SMS,
   MEMO_RICHIESTA_REV_SMS,
-  MEMO_REVOCA_SMS,
   MEMO_RESET_STATE
 } from './actions.type'
 
@@ -38,9 +36,6 @@ export const actions = {
   async [MEMO_ATTIVAZ_EMAIL] (context, params) {
     return MemoService.attivaEmail(params)
   },
-  async [MEMO_REVOCA_EMAIL] (context, params) {
-    return MemoService.revocaEmail(params)
-  },
   async [MEMO_RICHIESTA_ATT_SMS] (context, params) {
     return MemoService.richiediAttSms(params)
   },
@@ -49,9 +44,6 @@ export const actions = {
   },
   async [MEMO_ATTIVAZ_SMS] (context, params) {
     return MemoService.attivaSms(params)
-  },
-  async [MEMO_REVOCA_SMS] (context, params) {
-    return MemoService.revocaSms(params)
   }
 }
 

@@ -1,20 +1,20 @@
 require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
-process.env.GOAL_ENV = process.argv[2]
-process.env.REGION = 'piemonte'
-console.log('  process.env.GOAL_ENV: ' + process.env.GOAL_ENV)
+process.env.CSI_ENV = process.argv[2]
+process.env.REGION = (process.argv[3] === undefined) ? 'piemonte' : process.argv[3]
+console.log('  process.env.CSI_ENV: ' + process.env.CSI_ENV)
 console.log('  process.env.REGION: ' + process.env.REGION)
 
-var ora = require('ora')
-var rm = require('rimraf')
-var path = require('path')
-var chalk = require('chalk')
-var webpack = require('webpack')
-var config = require('../config')
-var webpackConfig = require('./webpack.prod.conf')
+const ora = require('ora')
+const rm = require('rimraf')
+const path = require('path')
+const chalk = require('chalk')
+const webpack = require('webpack')
+const config = require('../config')
+const webpackConfig = require('./webpack.prod.conf')
 
-var spinner = ora('building for production...')
+const spinner = ora('building for production...')
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {

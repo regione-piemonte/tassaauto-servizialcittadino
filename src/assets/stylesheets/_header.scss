@@ -1,26 +1,208 @@
 // Import elementi header
 .sp-header {
   #main-menu {
-  .v-toolbar__content {
-    .v-app-bar__nav-icon {
-      margin-left: 0px;
-      @extend .mr-4;
-      height: 2.4em;
-      width: 2.4em;
-      min-height: auto!important;
+    z-index: 1001;
+
+    .main-burger-menu,
+    .logo-header,
+    #btnLogin {
+      &:focus {
+        outline-style: solid;
+        outline-color: $white;
+        outline-width: 1px;
+      }
+
+      .img-logo-header {
+        width: 180px;
+
+        @media (min-width: 476px) {
+          width: 212px;
+        }
+      }
+    }
+
+    .v-toolbar__content {
+      margin: auto;
+      padding-left: 8px;
+      padding-right: 8px;
+
+      @media (min-width: 960px) {
+        max-width: 900px;
+      }
+
+      @media (min-width: 1264px) {
+        max-width: 1185px;
+      }
+
+      @media only screen and (min-width: 576px) {
+        max-width: 540px !important;
+      }
+
+      @media only screen and (min-width: 768px) {
+        max-width: 720px !important;
+      }
+
+      @media only screen and (min-width: 992px) {
+        max-width: 960px !important;
+      }
+
+      @media only screen and (min-width: 1200px) {
+        max-width: 1140px !important;
+      }
+
+      @media only screen and (min-width: 1440px) {
+        max-width: 1440px !important;
+      }
+
+      .v-app-bar__nav-icon {
+        margin-left: 0px;
+        margin-right: $space-4;
+        height: 2.4em;
+        width: 2.4em;
+        min-height: auto !important;
+      }
+    }
+
+    .btn-Login {
+      background-color: $white !important;
+      border: 2px solid $white !important;
+      color: $blue-button !important;
+      width: auto !important;
+      min-width: 50px !important;
+
+      @media only screen and (min-width: 768px) {
+        min-width: 100px !important;
+      }
+
+      min-height: 35px !important;
+
+      @media (min-width: 569px) {
+        //margin-right: $space-6;
+      }
+
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+        background-color: transparent !important;
+
+        .text-loginBtn {
+          color: $white !important;
+        }
+
+        .v-icon {
+          color: $white !important;
+        }
+      }
+
+      .img_loginBtn {
+        @media (min-width: 569px) {
+          margin-right: $space-1;
+        }
+      }
+
+
+    }
+
+    .notifyIcon {
+      .v-btn {
+        min-width: auto !important;
+      }
+
+    }
+
+    .userInfo {
+      .loginBtnMenu {
+        background-color: $white;
+        color: $blue-button;
+        font-size: 15px;
+        // @media (max-width: 569px){
+        //   margin-right: $space-3;
+        // }
+      }
     }
   }
-  
-  }
-  #main-menu-list {
+  #menu-list-notify {
+    z-index: 1001;
+
     .title-main-menu {
       height: 40px;
-      @extend .pt-2;
+      padding-top: $space-2;
+      padding-left: 16px;
+      color: $black;
+      margin-bottom: $space-6;
+
+      h2 {
+        padding: $space-0;
+        border: none;
+      }
+    }
+    .notify-list {
+      &.single-notify {
+        padding: 15px;
+        margin: 5px 0px;
+        border-top: 1px solid #D5D5D5;
+
+        &:last-child {
+          border-bottom: 1px solid #D5D5D5;
+        }
+
+        h3 {
+          @include font-size(14px);
+          margin-bottom: 15px;
+        }
+
+        .tagName {
+          background-color: #BFDDF2;
+          border-radius: 5px;
+          padding: 3px 14px;
+          max-width: max-content;
+          margin-bottom: 15px;
+          color: $black;
+        }
+
+        .body-message {
+          @include font-size(12px);
+        }
+
+        .subtitle-date-vuetify {
+          @include font-size(11px);
+          color: $black;
+        }
+        .read-moreLessBtn {
+          min-width: fit-content!important;
+          max-width: fit-content!important;
+          text-transform: none;
+          .v-btn__content {
+            @include font-size(14px);
+            font-weight: $font-weight-bold;
+          }
+          
+        }
+      }
+
+      &.notify--notread {
+        background-color: rgba(34, 151, 252, .05);
+      }
+
+    }
+
+
+  }
+
+
+
+  #main-menu-list {
+    z-index: 1001;
+    .title-main-menu {
+      height: 40px;
+      padding-top: $space-2;
       padding-left: 16px;
       color: $primary;
       h2 {
-        @extend .m-0;
-        @extend .p-0;
+        padding: $space-0;
+        padding: $space-0;
         border: none;
       }
     }
@@ -28,20 +210,23 @@
     .main-menu-left-offcanvas {
       min-height: calc(100vh - 160px);
       &.v-list  {
-      padding-left: 16px;
-      .v-list-item--active {
-        &::before {
-          opacity: 0;
+        padding-left: 16px;
+        .v-list-item--active {
+          &::before {
+            opacity: 0;
+          }
+        }
+        .cursor-pointer-off {
+          cursor: default;
         }
       }
-    }
     }
     
     .footer-main-menu {
       min-height: 120px;
       background:$primary url(../images/loghi/piemonte/piemonteTu_logo.svg) 10% 50% no-repeat;
       background-size: 200px auto;
-      @extend .d-flex;
+      display: flex;
       align-items: center;
       .link-piemonte-tu {
         color: $white;
@@ -52,145 +237,60 @@
 
 }
 
-.header {
-  color: $black;
-  //background-color:$blue;
-  background-color:$primary;
+.logOutBtnCard {
+  width: 184px;
 
+  .v-card__actions {
+    padding: 5px 10px;
+  }
 
-  #sp-navbar {
-    //background:$primary;
-    /*
-    @media (min-width: 768px) {
-      
-      background: #0153a9;
-      background: -moz-linear-gradient(left, #0153a9 30%, $red-header 39%, $red-header 100%);
-      background: -webkit-linear-gradient(left, #0153a9 30%,$red-header 39%,$red-header 100%);
-      background: linear-gradient(to right, #0153a9 30%,$red-header 39%,$red-header 100%);
-      // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0153a9', endColorstr='#B81819',GradientType=1 );
-  
-      background-color:$blue-hover;
+  .btnLogout {
+    color: $blue-button;
+    @extend .rfs-14;
 
-    }
-    */
-    .sp-container {
-      @extend .container-fluid;
-      @media (max-width: 991.98px) {
-        padding:0;
-      }
-      .sp-row {
-        //background-color: $red-header;
-        @extend .row;
-        @extend .align-items-center;
-        @extend .no-gutters;
-
-      }
-    }
-    a:focus,
-    .btn:focus,
-    .form-control:focus,
-    .custom-file-input:focus {
-      outline:$red!important;
-      outline-color: $primary!important;
-      border-color: $primary!important;
+    .v-btn__content {
+      text-align: left !important;
+      justify-content: start;
     }
   }
-  .navbar-header {
-    //@extend .align-items-center;
-    @extend .justify-content-start;
-    @extend .col-6;
-    @extend .d-flex;
-    @extend .pl-0;
+}
 
-    .navbar-brand {
-      
-      @extend .p-0;
-      @extend .pl-4;
-      @extend .m-0;
-      @extend .rfs-26;
-      @extend .bold;
-      color: $white;
+.v-navigation-drawer.notify-drawer {
+  width: 300px !important;
+  z-index: 1001;
+}
 
-      .d-brand-mo {
-        @extend .d-lg-none;
-        
-      }
-      .d-brand-dsk {
-        @extend .d-none;
-        @extend .d-lg-inline-block;
-        @extend .rfs-22;
-        font-weight:$font-weight-bold;
-      }
-      & > div {
+.list-notify-right-app {
+  .notificaCard-laterale {
+    padding: 20px;
+    border-bottom: 1px solid $gray-500;
 
-        float:left;
-        @extend .pl-2;
-        line-height:49px;
-        color: $white;
+    .subtitle-date-vuetify {
+      @include font-size(13px);
+      margin-top: 5px;
+      color: $black !important;
+    }
+  }
+
+  .vedi-tutte {
+    .link-seeAll {
+      color: $blu-btn;
+      font-weight: 700;
+      @include font-size(14px);
+
+      @media #{map-get($display-breakpoints, 'md-and-up')} {
+        @include font-size(16px);
       }
     }
   }
-  #utilities {
-    .bm-burger-button { // soppresso ddmenu percui rendo sempre visibile il toggler
-      top:19px;
-      left:12px;
-      
-      width:15px!important;
-      height:15px!important;
-      &::before {
+}
 
-        content:"";
-        position: absolute;
-        top:-11px;
-        left:-10px;
-        width:34px;
-        height:34px;
-        border-radius:50%;
-        background-color:transparent;
-        transition:all .2s;
-
-        
-      }
-      .line-style{
-        height:2px;
-        top:0!important;
-        &:nth-child(2){
-          top:4px!important;
-        }
-        &:nth-child(3){
-          top:8px!important;
-        }
-      }
-      &:hover {
-
-        &::before{
-          background-color:#2682BF;
-        }
-      }
-    }
-    @media (max-width: 991.98px) {
-      .bm-burger-button {
-        // top:-15px;
-        left:8px;
-      }
-    }
-
-    .bm-burger-bars {
-      background-color: $white;
-    }
-
-    .bm-menu {
-      left:0!important;
-      .bm-cross-button {
-        display:none;
-        &.cross-style {
-          left: 250px!important;
-        }
-      }
-    }
-    
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
+.titolo-menu {
+  margin-top: 10px;
+  margin-bottom: -5px;
+  .v-btn{
+    color: #006cb4;
+    text-transform: none;
+    font-size: 23px;
   }
 }

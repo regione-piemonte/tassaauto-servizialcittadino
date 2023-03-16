@@ -1,64 +1,71 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore :error="detailError" />
-      </div>
-    </div>
-    <div class="app-row inner-cont-2box">
-      <div class="col-xxl-8 offset-xxl-2">
-        <h2>
-          Risultato della ricerca
-        </h2>
-        <div
-          :class="'dl-inline-header text-center bg-ico bg-ico-'+ esitoMemoVerifica.tipoVeicolo.codice" id="desc-veicolo">
-          <dl class="col-4 col-md-3 col-lg-3 col-xl-2">
-            <dt>
-              tipo
-            </dt>
-            <dd>
-              {{ esitoMemoVerifica.tipoVeicolo.descrizione }}
-            </dd>
-          </dl>
-          <dl class="col-4 col-md-3 col-lg-3 col-xl-2">
-            <dt>
-              targa
-            </dt>
-            <dd>
-              {{ esitoMemoVerifica.targa }}
-            </dd>
-          </dl>
-        </div>
-      </div>
-      <AttivazioneEmailMemo
-        v-bind:boxErr.sync="detailError"
-        v-on:controlspinner="overlay = $event.running"
-        v-on:updateboxerr="updateDetailError($event)"
-        v-if="canaleEmailAttivo"
-      />
-      <AttivazioneSmsMemo
-        v-bind:boxErr.sync="detailError"
-        v-on:controlspinner="overlay = $event.running"
-        v-on:updateboxerr="updateDetailError($event)"
-        v-if="canaleSmsAttivo"
-      />
-      <div class="text-intro col-xxl-8 offset-xxl-2 col-12">
-        <div class="action-button-wide">
-          <div class="col-md-6">
-            <BtnHome />
-          </div>
-          <div class="col-md-6 text-md-right">
-            <v-btn
-              color="primary"
-              :to="{ name: 'cerca_veicolo_memo' }">
-              {{ $t('general.buttons.nuovo_veicolo') }}
-            </v-btn>
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 offset-lg-2">
+            <BoxErrore :error="detailError" />
           </div>
         </div>
-      </div>
+        <div class="row inner-cont-2box">
+          <div class="col-lg-8 offset-lg-2">
+            <h2>Risultato della ricerca</h2>
+            <div class="container">
+              <v-row
+                :class="
+                  'my-9 row dl-inline-header text-center bg-ico bg-ico-' +
+                  esitoMemoVerifica.tipoVeicolo.codice
+                "
+              >
+                <dl class="col-sm-5">
+                  <dt>tipo</dt>
+                  <dd>
+                     {{ esitoMemoVerifica.tipoVeicolo.descrizione }}
+                  </dd>
+                </dl>
+                <dl class="col-sm-3">
+                  <dt>targa</dt>
+                  <dd>
+                   {{ esitoMemoVerifica.targa }}
+                  </dd>
+                </dl>
+              </v-row>
+            </div>
+
+          </div>
+          <AttivazioneEmailMemo
+            v-bind:boxErr.sync="detailError"
+            v-on:controlspinner="overlay = $event.running"
+            v-on:updateboxerr="updateDetailError($event)"
+            v-if="canaleEmailAttivo"
+          />
+          <AttivazioneSmsMemo
+            v-bind:boxErr.sync="detailError"
+            v-on:controlspinner="overlay = $event.running"
+            v-on:updateboxerr="updateDetailError($event)"
+            v-if="canaleSmsAttivo"
+          />
+          <div class="text-intro col-lg-8 offset-lg-2 col-12">
+            <div
+              class="action-button-wide row pt-md-10 mt-md-7 pt-5 border-top border-dark"
+            >
+              <div class="col-md-6">
+                <BtnHome />
+              </div>
+              <div class="col-md-6 text-md-right">
+                <v-btn
+                  depressed
+                  color="primary"
+                  :to="{ name: 'cerca_veicolo_memo' }"
+                >
+                  {{ $t("general.buttons.nuovo_veicolo") }}
+                </v-btn>
+              </div>
+            </div>
+          </div>
+        </div>
+      </v-card>
     </div>
-    </v-card>
     <spinner :pOverlay="overlay" />
   </div>
 </template>

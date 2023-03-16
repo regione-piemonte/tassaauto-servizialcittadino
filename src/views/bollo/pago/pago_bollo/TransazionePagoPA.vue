@@ -1,42 +1,46 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row inner-cont-bollo">
-      <div class="text-intro col-lg-8 offset-lg-2 col-12">
-        <Wizard
-          :servizio="'pago_bollo'"
-          :stepAttivo="4"
-        />
-      </div>
-    </div>
-    <div class="app-row inner-cont-alert">
-      <div class="text-intro col-xxl-8 offset-xxl-2">
-        <BoxErrore
-          :error="detailError"
-        />
-      </div>
-    </div>
-    <div class="app-row justify-content-md-center">
-      <div class="col-12 col-lg-8">
-        <div class="wrap-view">
-          <div class="inner-cont-alert">
-            <div class="row">
-              <BoxNeutral
-                show
-                :msg="detailInfo"
-                class="printDisplay"
-              />
-            </div>
-            <div class="action-button-wide">
-              <div class="col-md-6">
-                <BtnHome />
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row inner-cont-bollo">
+          <div class="text-intro col-lg-8 mx-auto">
+            <Wizard
+              :servizio="'pago_bollo'"
+              :stepAttivo="4"
+            />
+          </div>
+        </div>
+        <div class="row inner-cont-alert">
+          <div class="text-intro col-lg-8 mx-auto">
+            <BoxErrore
+              :error="detailError"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col-12 col-lg-8 mx-auto mt-12">
+            <div class="wrap-view">
+              <div class="inner-cont-alert">
+                <div class="row">
+                  <BoxNeutral
+                    show
+                    :msg="detailInfo"
+                    :service="'pago_bollo'"
+                    v-if="detailInfo"
+                    class="printDisplay"
+                  />
+                </div>
+                <div class="action-button-wide row">
+                  <div class="col-md-6 mt-6">
+                    <BtnHome />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </v-card>
     </div>
-    </v-card>
     <v-dialog ref="modaleCs" v-model="dialog" size="xl" visible centered hide-footer>
       <div class="modalSatisfaction">
         <v-card>
@@ -51,10 +55,12 @@
         </v-card>
       </div>
     </v-dialog>
+    <spinner :pOverlay="overlay" />
   </div>
 </template>
 
 <script>
+import Spinner from '@/components/layout/Spinner'
 import { CUSTOMER_SATISFACTION_URL } from '@/common/config'
 import BoxErrore from '@/components/BoxErrore'
 import BoxNeutral from '@/components/BoxNeutral'
@@ -66,13 +72,14 @@ import store from '@/store'
 import { BOLLO_PAGO_RIEPILOGO_TRANSAZIONE, BOLLO_PAGO_RESET_STATE } from '@/store/actions.type'
 
 export default {
-  components: { BoxErrore, BoxNeutral, BoxSuccesso, BtnHome, Wizard },
+  components: { BoxErrore, BoxNeutral, BoxSuccesso, BtnHome, Spinner, Wizard },
   data () {
     return {
       csUrl: CUSTOMER_SATISFACTION_URL + 'form/customer-pagobollo',
       detailError: { message: '', title: '' },
       detailInfo: { title: '', message: '' },
-      dialog: false
+      dialog: false,
+      overlay: false
     }
   },
   methods: {
@@ -82,9 +89,11 @@ export default {
     }
   },
   async created () {
+    this.overlay = true
     if (!NavigatorService.checkInternetConnection()) return
 
     if (!('tranId' in this.$route.query)) {
+      this.overlay = false
       this.detailInfo = { title: 'Pagamento annullato', message: 'Nessun pagamento eseguito.' }
       return
     }
@@ -92,13 +101,13 @@ export default {
     store
       .dispatch(BOLLO_PAGO_RIEPILOGO_TRANSAZIONE, this.$route.query.tranId)
       .then(({ data }) => {
-        const detailMsg = 'Per la conclusione dell\'operazione è stata inviata una notifica all\'indirizzo: <strong>' + data.email + '</strong><br><br>' +
-        'In caso di esito positivo la ricevuta sarà disponibile attraverso il servizio <a href="#/bollo/ricevuta">Scarica la ricevuta di un pagamento</a>'
-
-        this.detailInfo = { title: 'Pago bollo online', message: detailMsg }
+        this.overlay = false
+        const detailMsg = data
+        this.detailInfo = { title: 'Operazione terminata', message: detailMsg }
         store.dispatch(BOLLO_PAGO_RESET_STATE)
       })
       .catch((error) => {
+        this.overlay = false
         if (error == null || error.response.status === 500) {
           this.detailError = {
             title: this.$i18n.t('general.error'),

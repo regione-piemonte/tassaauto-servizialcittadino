@@ -12,7 +12,7 @@
           id=""
           :inactive="true"
           :ripple="false">
-          {{ $t('pratica.osservazione.dati_veicolo.tipo') }}: <span v-if="datiRettifica.tipoVeicolo !== null && datiRettifica.tipoVeicolo.descrizione !== ''">{{ datiRettifica.tipoVeicolo.descrizione }}</span><span v-else>Non specificata</span>
+          {{ $t('pratica.osservazione.dati_veicolo.tipo') }}: <span v-if="datiRettifica.tipoVeicolo !== null && datiRettifica.tipoVeicolo.descrizione !== ''">&nbsp;{{ datiRettifica.tipoVeicolo.descrizione }}</span><span v-else>Non specificata</span>
         </v-list-item>
         <v-list-item
           id=""
@@ -30,7 +30,7 @@
           id=""
           :inactive="true"
           :ripple="false">
-          {{ $t('pratica.osservazione.dati_veicolo.catEuro') }}: <span v-if="datiRettifica.catEuro !== null && datiRettifica.catEuro.descrizione !== ''">{{ datiRettifica.catEuro.descrizione }}</span><span v-else>Non specificata</span>
+          {{ $t('pratica.osservazione.dati_veicolo.catEuro') }}: <span v-if="datiRettifica.catEuro !== null && datiRettifica.catEuro.descrizione !== ''">&nbsp;{{ datiRettifica.catEuro.descrizione }}</span><span v-else>Non specificata</span>
         </v-list-item>
         <v-list-item
           id=""
@@ -42,7 +42,7 @@
           id=""
           :inactive="true"
           :ripple="false">
-          {{ $t('pratica.osservazione.dati_veicolo.alimentazione') }}: <span v-if="datiRettifica.alimentazione !== null && datiRettifica.alimentazione.descrizione !== ''">{{ datiRettifica.alimentazione.descrizione }}</span><span v-else>Non specificata</span>
+          {{ $t('pratica.osservazione.dati_veicolo.alimentazione') }}: <span v-if="datiRettifica.alimentazione !== null && datiRettifica.alimentazione.descrizione !== ''">&nbsp;{{ datiRettifica.alimentazione.descrizione }}</span><span v-else>Non specificata</span>
         </v-list-item>
         <v-list-item
           id=""

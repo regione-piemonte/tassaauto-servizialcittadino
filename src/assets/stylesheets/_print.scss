@@ -1,126 +1,188 @@
 //  class="printDisplay" => è la classe da aggiungere ai box di alert per visualizzarli senza colori in stampa
 @media print {
-    @page { 
-        size: auto;
-        margin:25mm;
-    } 
+  @page {
+    size: auto;
+    margin: 25mm;
+  }
 
-    body { 
-        
-        -webkit-print-color-adjust: exact!important;
-        color-adjust: exact!important;
-        
-    } 
-    
+  body {
 
-    #app {
-        width: 100%;
-        margin: 0; 
-        padding: 0;
-        background: none;
-    }
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
 
-    //div[role = alert], 
-    
-    #footer{
-        position:absolute;
-        bottom:0;
-        width:100%;
-        height:280px;
-        .ps-footer{
-            padding-top:20px;
-            padding-bottom:20px;
-        }
-    }
+  }
 
-    main {
-        padding-bottom:290px;
-    }
-    
-    .sp-drodpown-menu, 
-    .action-button-wide, 
-    .btn, 
-    main img {
-        visibility: hidden!important;   // toglie visibilità ma non l'ingombro
-    }
-    .ps_menu-footer, 
-    div[role = alert],
-    .sp-wizard,
-    .right-info-subfooter {
-        display:none;   // toglie visibilità E ingombro
-    }
-   
-    .footer-fix {
-        
-        .risultati-ricerca {
-            .box-grigio {
-                padding: 2mm!important;
-            }
-        }
-       
-    }
-    .service-title {
-        background-color: transparent;
-        .ico-titolo {
-            margin-left: 0px;
-            padding-left: 0px!important;  
-            &.ico-calcolatrice, &.ico-memo, &.ico-pagamento, 
-            &.ico-download, &.ico-chat, &.ico-verifica, 
-            &.ico-rate, &.ico-info{
-                &:before{
-                    background:none;
-                }
-            }
-        }
-    }
 
-    div[role = alert] {
-        &.printDisplay {
-            display: block!important;
-            background: transparent;
-            background-color: transparent;
-            border:2px solid #000;
-            padding: 2mm!important;
-            &::before{
-                display: none;
-            }
-        }
-        .printBold{
-            font-weight: bold; 
-        }
+  #app {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+
+  //div[role = alert], 
+
+  #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 280px;
+
+    .ps-footer {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .sp-header {
+    display: none;
+  }
+
+  #main-content {
+    padding-top: 0px;
+  }
+
+  .card-view-page {
+    padding-top: 1mm !important;
+    padding-bottom: 1mm !important;
+  }
+
+  .space-section {
+    padding-bottom: 0.5mm !important;
+  }
+
+  .v-alert {
+    background-color: transparent !important;
+
+    &.info,
+    .v-image {
+      display: none;
+    }
+  }
+
+  main {
+    padding-bottom: 290px;
+  }
+
+  .sp-drodpown-menu,
+  .btn,
+  main img {
+    visibility: hidden !important; // toglie visibilità ma non l'ingombro
+  }
+
+  .ps_menu-footer,
+  .sp-wizard,
+  .action-button-wide,
+  .right-info-subfooter,
+  .aiuto-footer {
+    display: none; // toglie visibilità E ingombro
+  }
+
+  .footer-fix {
+
+    .risultati-ricerca {
+      .box-grigio {
+        padding: 2mm !important;
+      }
     }
 
-    .linkPrint, a, a:link, a:active, a:visited {
-        color: $black;
-        text-decoration: none;
-    }
-    
-    .left-info-subfooter {
-        width:100%!important;
-        img{
-            margin:0 auto;
-            padding: 0!important;
+  }
+
+  .service-title {
+    background-color: transparent;
+
+    .ico-titolo {
+      margin-left: 0px;
+      padding-left: 0px !important;
+
+      &.ico-calcolatrice,
+      &.ico-memo,
+      &.ico-pagamento,
+      &.ico-download,
+      &.ico-chat,
+      &.ico-verifica,
+      &.ico-rate,
+      &.ico-info {
+        &:before {
+          background: none;
         }
+      }
     }
-    .ps_first-footer {
-        flex: 0 0 50%!important;
-        max-width: 50%!important;
-        margin:0!important;
-        
-    }
-    .ps_last-footer {
-        flex: 0 0 50%!important;
-        max-width: 50%!important;
-        margin:0!important;
-        img{
-            width:200px!important;
-        }
+  }
+
+  div[role=alert] {
+    &.printDisplay {
+      display: block !important;
+      background: transparent;
+      background-color: transparent;
+      border: 2px solid #000;
+      padding: 2mm !important;
+
+      &::before {
+        display: none;
+      }
     }
 
-    /*
+    .printBold {
+      font-weight: bold;
+    }
+  }
+
+  .linkPrint,
+  a,
+  a:link,
+  a:active,
+  a:visited {
+    color: $black;
+    text-decoration: none;
+  }
+
+  .left-info-subfooter {
+    width: 100% !important;
+
+    img {
+      margin: 0 auto;
+      padding: 0 !important;
+    }
+  }
+
+  .ps_first-footer {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    margin: 0 !important;
+
+  }
+
+  .ps_last-footer {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    margin: 0 !important;
+
+    img {
+      width: 200px !important;
+    }
+  }
+
+  /*
     div[class*=offset] {
         margin-left:0!important;
         margin-right:0!important;
     }
-    */
+  */
+  #app {
+    .v-btn {
+      display: none;
+    }
+    .upper-footer, .aiuto-footer, .info-footer {
+      display: none;
+    }
+    .card-view-page.v-card, .titolo-servizio-appbar {
+      margin-bottom: 0px;
+    }
+    #footer .lay-conth .loghi-footer {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      border-bottom: none;
+    }
+  }
 }

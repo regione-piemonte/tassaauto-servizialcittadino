@@ -1,9 +1,11 @@
 <template>
   <v-btn
+    depressed
     type="button"
-    class="btn-secondary"
+    class="btn-secondary mr-5 mb-5"
     :to="{ name: backUrl }"
     id="backButton"
+    aria-label="Torna indietro"
     :block="(size) ? true : false">
     <span v-if="backType === 'back'">{{ $t('general.buttons.back') }}</span>
     <span v-if="backType === 'backMod'">{{ $t('general.buttons.back_mod') }}</span>

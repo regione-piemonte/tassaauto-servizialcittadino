@@ -1,24 +1,26 @@
 <template>
-  <div class="app-container">
-    <v-card class="card-view-page">
-    <div class="app-row justify-content-md-center">
-      <div class="col-12 col-lg-8">
-        <div class="wrap-view">
-          <div class="inner-cont-alert">
-            <div class="row">
-              <BoxErrore show :error="detailError" />
-              <BoxSuccesso show :success="detailSuccess" />
-            </div>
-            <div class="action-button-wide">
-              <div class="col-12 text-md-right">
-                <BtnHome />
+  <div class="container">
+    <div class="col-lg-10 mx-lg-auto">
+      <v-card class="card-view-page">
+        <div class="row justify-content-md-center">
+          <div class="offset-lg-2 col-lg-8">
+            <div class="wrap-view">
+              <div class="inner-cont-alert">
+                <div class="row">
+                  <BoxErrore show :error="detailError" />
+                  <BoxSuccesso show :success="detailSuccess" />
+                </div>
+                <div class="action-button-wide row mt-6">
+                  <div class="col-12 text-md-right">
+                    <BtnHome />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </v-card>
     </div>
-    </v-card>
   </div>
 </template>
 

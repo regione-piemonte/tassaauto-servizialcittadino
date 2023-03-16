@@ -1,0 +1,99 @@
+@if $region == 'vda' {
+  .header {
+      #sp-navbar {
+        @media (min-width: 768px) {
+          background: $primary;
+        }
+      }
+  }
+
+  .navbar-header {
+      .navbar-brand {
+          span {
+              color:$white;
+              }
+      }
+  }
+
+  .service-title {
+      background-color: $white;
+  } 
+  .btn{
+      &.btn-primary,
+      &.btn-primary:not(:disabled):not(.disabled):active,
+      &.btn-primary:not(:disabled):not(.disabled).active{
+          background-color:$primary;
+          border-color:$primary;
+      }    
+  }
+  #footer {
+      .ps-footer {
+          background-color: $footer-color-vda;
+      }
+  }
+  #utilities{
+    .bm-burger-bars {
+        background-color: $white;
+    }
+  }
+
+  #utilities{
+    .dropdown-menu{
+      max-width: 700px;
+    }
+  }
+
+  
+  .sp-row{
+      .ico-titolo {
+          padding-left: $space-0;
+        
+          @media (max-width: 575.98px) {
+              &.ico-memo:before{
+                  display: none;
+              }
+          }
+      }
+  }
+
+  /*CLASSE smsMemo DA INTEGRARE NEL FILE ATTIVAZIONESMSMEMO.vue
+  nel box smsMemo nel caso in cui non sia presente il servizio sms -
+  invece di due box ci sarà solo il box emailMemo allineato al centro
+  */
+  /*
+  .inner-cont-2box{
+    .first-col{
+    }
+      .smsMemo {
+        display: none;
+      }
+    
+  }
+  */
+
+  @media (min-width: 576px){
+      .footer-fix{
+          padding-bottom: 250px;
+      }	
+  }
+
+  .inner-cont-2box .first-col {
+    margin: auto;
+  }
+
+
+}
+
+.menuIcon {
+  .v-list-item__title {
+    color: $black!important;
+  }
+}
+
+#main-content {
+  .v-btn:not(.v-btn--text):hover, .v-btn:not(.v-btn--text):not(.v-btn--outlined):hover {
+    background-color: $blue!important;
+    color: $white!important;
+    text-decoration: none!important;
+  }
+}

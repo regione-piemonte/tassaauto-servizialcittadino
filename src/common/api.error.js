@@ -7,9 +7,26 @@ export default {
   serverValidationErrors (serverDetailError) {
     const objErr = { }
     for (const key in serverDetailError) {
-      objErr[serverDetailError[key].field] = serverDetailError[key].error
+      if (serverDetailError[key].field === '') {
+        objErr[serverDetailError[key].field + 'fieldMessage'] = serverDetailError[key].error
+      } else {
+        objErr[serverDetailError[key].field] = serverDetailError[key].error
+      }
     }
-    console.log(objErr)
     return objErr
+  },
+
+  serverValidationErrorsArray (serverDetailError) {
+    const arrErr = []
+    for (const key in serverDetailError) {
+      const objErr = {}
+      if (serverDetailError[key].field === '') {
+        objErr[serverDetailError[key].field + 'fieldMessage'] = serverDetailError[key].error
+      } else {
+        objErr[serverDetailError[key].field] = serverDetailError[key].error
+      }
+      arrErr.push(objErr)
+    }
+    return arrErr
   }
 }

@@ -6,6 +6,8 @@ import {
   OSS_AVV_SCADENZA_SALVA_ATTRIBUTI,
   OSS_AVV_SCADENZA_SALVA_DATI_ANAGRAFICI,
   OSS_AVV_SCADENZA_CREA,
+  OSS_AVV_SCADENZA_VERIFICA_DATI_RETTIFICA,
+  OSS_AVV_SCADENZA_LIST_AUTENTICATI,
   OSS_AVV_SCADENZA_CARICA_ALLEGATO,
   OSS_AVV_SCADENZA_ELIMINA_ALLEGATO
 } from './actions.type'
@@ -16,7 +18,9 @@ import {
   UPD_ATTRIB_OSS_AVV_SCADENZA,
   ADD_ALLEGATO_OSS_AVV_SCADENZA,
   REM_ALLEGATO_OSS_AVV_SCADENZA,
-  UPD_DATI_ANAGRAFICI_OSS_AVV_SCADENZA
+  UPD_VERIFICA_DATI_RETTIFICA,
+  UPD_DATI_ANAGRAFICI_OSS_AVV_SCADENZA,
+  UPD_OSS_AVV_SCADENZA_LIST_AUTENTICATI
 } from './mutations.type'
 
 const initialState = {
@@ -51,16 +55,26 @@ const initialState = {
   },
   ossAvvScadDatiAnagRett: {
     value: false,
-    codiceFiscale: '',
-    cognomeDenominazione: '',
-    nome: '',
-    domicilioFiscale: '',
-    indirizzo: ''
+    codiceFiscale: null,
+    cognomeDenominazione: null,
+    nome: null,
+    domicilioFiscale: null,
+    indirizzo: null
   },
-  ossAvvScadenzaAllegati: []
+  errorRettifica: false,
+  ossAvvScadenzaAllegati: [],
+  listaAvvisiScaAuth: []
 }
 
 export const state = { ...initialState }
+
+function lista (data) {
+  const lista = [{ text: 'Seleziona', value: null }]
+  for (const idx in data) {
+    lista.push({ text: data[idx].tipoVeicolo.descrizione + ' - ' + data[idx].targa + ' - ' + data[idx].meseScadenza + '/' + data[idx].annoScadenza, value: data[idx] })
+  }
+  return lista
+}
 
 export const actions = {
   [OSS_AVV_SCADENZA_RESET_STATE] ({ commit }) {
@@ -71,6 +85,10 @@ export const actions = {
     context.commit(INIT_STATE_OSS_AVV_SCADENZA)
     const { data } = await OssAvvisoScadenzaService.cerca(params)
     context.commit(SET_AVVISO_SCADENZA, data)
+  },
+
+  [OSS_AVV_SCADENZA_VERIFICA_DATI_RETTIFICA] (context, params) {
+    context.commit(UPD_VERIFICA_DATI_RETTIFICA, params)
   },
 
   [OSS_AVV_SCADENZA_SALVA_ATTRIBUTI] (context, params) {
@@ -97,6 +115,11 @@ export const actions = {
     delete params.slug
     await OssAvvisoScadenzaService.eliminaAllegato(slug, params)
     return context.commit(REM_ALLEGATO_OSS_AVV_SCADENZA, slug)
+  },
+  async [OSS_AVV_SCADENZA_LIST_AUTENTICATI] (context, params) {
+    const { data } = await OssAvvisoScadenzaService.avvisiAutenticati(params)
+    context.commit(UPD_OSS_AVV_SCADENZA_LIST_AUTENTICATI, lista(data))
+    return { data }
   }
 }
 
@@ -162,8 +185,16 @@ const mutations = {
     state.attributiOssAvvScad.radiatoDemolizione = pAttrOssAvv.radiatoDemolizione
   },
 
+  [UPD_VERIFICA_DATI_RETTIFICA] (state, params) {
+    state.errorRettifica = params
+  },
+
   [UPD_DATI_ANAGRAFICI_OSS_AVV_SCADENZA] (state, pOssAvvScadDatiAnagRett) {
-    state.ossAvvScadDatiAnagRett = pOssAvvScadDatiAnagRett
+    if (!pOssAvvScadDatiAnagRett.codiceFiscale) state.ossAvvScadDatiAnagRett.codiceFiscale = pOssAvvScadDatiAnagRett.codiceFiscale
+    if (!pOssAvvScadDatiAnagRett.domicilioFiscale) state.ossAvvScadDatiAnagRett.domicilioFiscale = pOssAvvScadDatiAnagRett.domicilioFiscale
+    if (!pOssAvvScadDatiAnagRett.cognomeDenominazione) state.ossAvvScadDatiAnagRett.cognomeDenominazione = pOssAvvScadDatiAnagRett.cognomeDenominazione
+    if (!pOssAvvScadDatiAnagRett.nome) state.ossAvvScadDatiAnagRett.nome = pOssAvvScadDatiAnagRett.nome
+    if (!pOssAvvScadDatiAnagRett.indirizzo) state.ossAvvScadDatiAnagRett.indirizzo = pOssAvvScadDatiAnagRett.indirizzo
   },
 
   [ADD_ALLEGATO_OSS_AVV_SCADENZA] (state, allegato) {
@@ -176,6 +207,9 @@ const mutations = {
 
     if (itemIdx === -1) return
     state.ossAvvScadenzaAllegati.splice(itemIdx, 1)
+  },
+  [UPD_OSS_AVV_SCADENZA_LIST_AUTENTICATI] (state, listaAvvisiAuthResponse) {
+    state.listaAvvisiScaAuth = listaAvvisiAuthResponse
   }
 }
 
@@ -194,6 +228,13 @@ const getters = {
 
   ossAvvScadenzaAllegati (state) {
     return state.ossAvvScadenzaAllegati
+  },
+
+  errorRettifica (state) {
+    return state.errorRettifica
+  },
+  listaAvvisiScaAuth (state) {
+    return state.listaAvvisiScaAuth
   }
 }
 

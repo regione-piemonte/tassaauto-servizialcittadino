@@ -1,40 +1,44 @@
 <template>
-  <v-form
-    @submit.prevent="iniziaPagamento">
+  <v-form @submit.prevent="iniziaPagamento">
     <v-text-field
-      clearable
+      :error-count="4"
+      :error-messages="cfErrors"
+      :maxLength="$v.targaForm.codiceFiscale.$params.maxLength.max"
+      @change.native="resetErroriServer()"
+      autocomplete="off"
+      class="uppercase-input"
       clear-icon="mdi-close-circle"
-      label="Codice fiscale"
+      clearable
       id="codiceFiscale"
+      label="Codice fiscale"
       type="text"
       v-model="targaForm.codiceFiscale"
-      @change.native="resetErroriServer()"
-      :maxLength="$v.targaForm.codiceFiscale.$params.maxLength.max"
-      :error-messages="cfErrors"
-      autocomplete="off"
-      :error-count="4"></v-text-field>
-    <TargaTelaio
+    ></v-text-field>
+  <TargaTelaio
       ref="targa"
       :pServerErr="serverErrors.targa"
       v-on:targachanged="resetErroriServer()"
     />
     <v-select
-      id="tipoVeicolo"
+      :error-count="1"
+      :error-messages="tipoVeicoloErrors"
       :items="veicoli"
+      @change="verificaScadenzaPregressa()"
+      id="tipoVeicolo"
       label="Scegli il tipo di veicolo"
       v-model="targaForm.tipoVeicolo"
-      @change="verificaScadenzaPregressa()"
-      :error-messages="tipoVeicoloErrors"
-      :error-count="1">
+    >
     </v-select>
     <v-switch
-      v-if="canScadenzaPregressa"
-      id="scadenzaPregressa"
-      v-model="targaForm.scadenzaPregressa"
+      :ripple="false"
       @change="datiScadenzaPregressa"
-      value="yes_pregressa"
+      id="scadenzaPregressa"
+      label="Voglio pagare un'annualità pregressa"
       unchecked-value="no_pregressa"
-      label="Voglio pagare un'annualità pregressa">
+      v-if="canScadenzaPregressa"
+      v-model="targaForm.scadenzaPregressa"
+      value="yes_pregressa"
+    >
     </v-switch>
 
     <v-select
@@ -44,7 +48,10 @@
       v-model="targaForm.meseScadenza"
       :error-messages="meseScadenzaErrors"
       :error-count="1"
-      v-if="canScadenzaPregressa && targaForm.scadenzaPregressa === 'yes_pregressa'">
+      v-if="
+        canScadenzaPregressa && targaForm.scadenzaPregressa === 'yes_pregressa'
+      "
+    >
     </v-select>
 
     <v-select
@@ -54,7 +61,10 @@
       v-model="targaForm.annoScadenza"
       :error-messages="annoScadenzaErrors"
       :error-count="1"
-      v-if="canScadenzaPregressa && targaForm.scadenzaPregressa === 'yes_pregressa'">
+      v-if="
+        canScadenzaPregressa && targaForm.scadenzaPregressa === 'yes_pregressa'
+      "
+    >
     </v-select>
 
     <v-select
@@ -65,30 +75,45 @@
       @change="verificaScadenzaPregressa()"
       :error-messages="meseValiditaErrors"
       :error-count="1"
-      v-if="canScadenzaPregressa && targaForm.scadenzaPregressa === 'yes_pregressa'">
+      v-if="
+        canScadenzaPregressa && targaForm.scadenzaPregressa === 'yes_pregressa'
+      "
+    >
     </v-select>
     <tassa-auto-recaptcha
       :pCount="noCaptchaCount"
       v-on:recaptchaverified="updRecaptchaVerified()"
       v-on:recaptchanotverified="recaptchaVerified = false"
     />
-    <div class="action-button-wide spaceTopButtonSubmit">
-      <div class="col-12">
-        <v-btn
-          id="calcolaBtn"
-          type="submit"
-          color="primary"
-          :disabled="carrelloPagoBollo.length >= limiteCarrelloPagoBollo">
-          {{ $t('general.buttons.calcola') }}
-        </v-btn>
-        <v-btn
-          id="riepilogoCarrelloBtn"
-          type="button"
-          :to="{ name: 'carrello_pagamenti' }"
-          v-if="carrelloPagoBollo.length > 0">
-          Riepilogo
-        </v-btn>
-      </div>
+    <div class="action-button-wide row spaceTopButtonSubmit">
+      <v-row class="container">
+        <v-col cols="12" md="6">
+          <v-btn
+            depressed
+            aria-label="vai alla pagina di calcola il bollo"
+            id="calcolaBtn"
+            type="submit"
+            color="primary"
+            :disabled="carrelloPagoBollo.length >= limiteCarrelloPagoBollo"
+          >
+            {{ $t("general.buttons.calcola") }}
+          </v-btn>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-btn
+            depressed
+            id="riepilogoCarrelloBtn"
+            aria-label="vai alla pagina di riepilogo pagamenti"
+            outlined
+            color="primary"
+            type="button"
+            :to="{ name: 'carrello_pagamenti' }"
+            v-if="carrelloPagoBollo.length > 0"
+          >
+            Riepilogo
+          </v-btn>
+        </v-col>
+      </v-row>
     </div>
   </v-form>
 </template>
@@ -105,7 +130,8 @@ import {
   BOLLO_PAGO_LIST_MESE_SCADENZA,
   BOLLO_PAGO_LIST_ANNO_SCADENZA,
   BOLLO_PAGO_LIST_VAL_SCADENZA,
-  VEICOLO_LISTA
+  VEICOLO_LISTA,
+  COMMON_PARAMETRI
 } from '@/store/actions.type'
 import TargaTelaio from '@/components/bollo/pago/TargaTelaio'
 import TassaAutoRecaptcha from '@/components/TassaAutoRecaptcha'
@@ -143,13 +169,15 @@ export default {
         meseScadenza: '',
         annoScadenza: '',
         validita: ''
-      }
+      },
+      changeCCParams: { dataParametroAcc: '', dataParametroMod1CC: '', dataParametroMod1BolloCC: '', dataParamAppDateCC: '' }
     }
   },
   computed: {
     ...mapGetters([
       'carrelloPagoBollo',
-      'limiteCarrelloPagoBollo'
+      'limiteCarrelloPagoBollo',
+      'parametri'
     ]),
     cfErrors () {
       const errors = []
@@ -157,7 +185,7 @@ export default {
       !this.$v.targaForm.codiceFiscale.required && errors.push('Il codice fiscale è obbligatorio.')
       !this.$v.targaForm.codiceFiscale.minLength && errors.push('Il codice fiscale deve avere una lunghezza minima di ' + this.$v.targaForm.codiceFiscale.$params.minLength.min + ' caratteri.')
       !this.$v.targaForm.codiceFiscale.alphaNum && errors.push('Il codice fiscale deve contenere solo lettere e numeri.')
-      !this.$v.targaForm.codiceFiscale.serverValidOk && errors.push(this.serverErrors.codiceFiscale)
+      !this.$v.targaForm.codiceFiscale.serverFailed && errors.push(this.serverErrors.codiceFiscale)
       return errors
     },
     tipoVeicoloErrors () {
@@ -219,6 +247,7 @@ export default {
   },
   methods: {
     iniziaPagamento () {
+      this.resetErroriServer()
       this.$refs.targa.$v.targaForm.$touch()
       this.$v.targaForm.$touch()
       if (this.$v.targaForm.$invalid || this.$refs.targa.$v.targaForm.$invalid) return
@@ -235,8 +264,12 @@ export default {
       let action = BOLLO_PAGO_RINNOVO
       const inParams = {
         tipoVeicolo: this.targaForm.tipoVeicolo,
-        targa: this.$refs.targa.getValore(),
-        codiceFiscale: this.targaForm.codiceFiscale
+        targa: this.$refs.targa.getValore().toUpperCase(),
+        codiceFiscale: this.targaForm.codiceFiscale.toUpperCase(),
+        parametroAcc: this.changeCCParams.dataParametroAcc,
+        parametroMod1CC: this.changeCCParams.dataParametroMod1CC,
+        parametroMod1BolloCC: this.changeCCParams.dataParametroMod1BolloCC,
+        paramAppDateCC: this.changeCCParams.dataParamAppDateCC
       }
       if (this.targaForm.scadenzaPregressa === 'yes_pregressa') {
         action = BOLLO_PAGO_SCADENZA
@@ -244,7 +277,7 @@ export default {
         inParams.annoScadenza = this.targaForm.annoScadenza
         inParams.validita = this.targaForm.mesiValidita
       }
-
+      console.log('marts iniParama forPagamentotarga inParams parametroAcc ' + inParams.parametroAcc)
       this.$emit('controlspinner', { running: true })
       store
         .dispatch(action, inParams)
@@ -277,6 +310,14 @@ export default {
               })
               this.noCaptchaCount++
               this.serverErrors.codiceFiscale = 'Proprietario non corrisponde al codice fiscale in input'
+              break
+            case 406:
+              this.$emit('updateboxwarn', {
+                title: this.$i18n.t('general.api.errors.no_results'),
+                message: error.response.data.title
+              })
+              this.noCaptchaCount++
+              this.serverErrors.iuv = error.response.data.title
               break
             case 409:
               this.$emit('updateboxerr', {
@@ -323,7 +364,7 @@ export default {
         .dispatch(BOLLO_PAGO_LIST_MESE_SCADENZA)
         .then(({ data }) => {
           this.mesiScadenza.push({ text: 'Seleziona', value: null })
-          for (var i = 0; i < data.length; i++) {
+          for (let i = 0; i < data.length; i++) {
             this.mesiScadenza.push({ text: data[i].nome, value: data[i].valore })
           }
         })
@@ -339,7 +380,7 @@ export default {
         .dispatch(BOLLO_PAGO_LIST_ANNO_SCADENZA)
         .then(({ data }) => {
           this.anniScadenza.push({ text: 'Seleziona', value: null })
-          for (var i = 0; i < data.length; i++) {
+          for (let i = 0; i < data.length; i++) {
             this.anniScadenza.push({ text: data[i].nome, value: data[i].valore })
           }
         })
@@ -355,7 +396,7 @@ export default {
         .dispatch(BOLLO_PAGO_LIST_VAL_SCADENZA)
         .then(({ data }) => {
           this.listaMesiValidita.push({ text: 'Seleziona', value: null })
-          for (var i = 0; i < data.length; i++) {
+          for (let i = 0; i < data.length; i++) {
             this.listaMesiValidita.push({ text: data[i].nome, value: data[i].valore })
           }
         })
@@ -405,6 +446,7 @@ export default {
         validita: ''
       }
       this.$emit('updateboxerr', { message: '', title: '' })
+      this.$emit('updateboxwarn', { message: '', title: '' })
     },
 
     updRecaptchaVerified () {
@@ -425,6 +467,47 @@ export default {
           title: this.$i18n.t('general.error'),
           message: this.$i18n.t('general.api.errors.service_unavailable')
         })
+      })
+    await store
+      .dispatch(COMMON_PARAMETRI, 'MDP_COD_APPLICATIVO_ACC')
+      .then(() => {
+        this.overlay = false
+        this.changeCCParams.dataParametroAcc = this.parametri
+        console.log('marts create: ' + this.changeCCParams.dataParametroAcc)
+      })
+      .catch((error) => {
+        console.log(error, ' errore')
+        this.overlay = false
+      })
+    await store.dispatch(COMMON_PARAMETRI, 'MDP_MOD1_BOLLO')
+      .then(() => {
+        this.changeCCParams.dataParametroMod1CC = this.parametri
+        console.log('marts create: ' + this.changeCCParams.dataParametroMod1CC)
+        this.overlay = false
+      })
+      .catch((error) => {
+        console.log(error, ' errore')
+        this.overlay = false
+      })
+    await store.dispatch(COMMON_PARAMETRI, 'MDP_MOD1_BOLLO_CC')
+      .then(() => {
+        this.changeCCParams.dataParametroMod1BolloCC = this.parametri
+        console.log('marts create: ' + this.changeCCParams.dataParametroMod1BolloCC)
+        this.overlay = false
+      })
+      .catch((error) => {
+        console.log(error, ' errore')
+        this.overlay = false
+      })
+    await store.dispatch(COMMON_PARAMETRI, 'MDP_DATE_CC')
+      .then(() => {
+        this.changeCCParams.dataParamAppDateCC = this.parametri
+        console.log('marts create: ' + this.changeCCParams.dataParamAppDateCC)
+        this.overlay = false
+      })
+      .catch((error) => {
+        console.log(error, ' errore')
+        this.overlay = false
       })
   }
 }

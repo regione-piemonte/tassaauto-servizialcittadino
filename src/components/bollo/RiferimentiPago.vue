@@ -1,43 +1,52 @@
 <template>
   <v-form>
-    <div class="space-section" id="riferimentiPraticaPago">
-      <h2>
-        {{ $t('general.box_titles.riferimenti') }}
+    <div class="space-section mt-12" id="riferimentiPraticaPago">
+      <h2 class="mb-12">
+        {{ $t("general.box_titles.riferimenti") }}
       </h2>
-      <div class="app-row inner-cont-alert">
+      <div class="row inner-cont-alert">
         <div class="text-intro col-lg-8 offset-lg-2 col-12">
           <BoxErrore :error="detailError" />
         </div>
       </div>
-      <v-alert
-        color="info"
-        border="left">
-        <template v-slot:prepend>
-          <v-icon x-large>mdi-information</v-icon>
-        </template>
-          Devi inserire un <strong>indirizzo e-mail</strong> per ricevere la
-          notifica sull'esito della transazione di pagamento e lo IUV (Identificativo
-          Univoco di pagamento) per scaricare la <strong>RICEVUTA TELEMATICA</strong> di pagamento.
+      <v-alert show aria-live="off" type="info" border="left" :icon="false">
+        <v-row class="pl-6 pl-md-12">
+          <v-col cols="12" md="1">
+            <v-img
+              width="40"
+              :src="require(`@/assets/images/icone/alert/info.svg`)"
+              :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"
+            />
+          </v-col>
+          <v-col cols="12" md="10" class="bodyAlertDark">
+            <p>
+              Devi inserire un <strong>indirizzo e-mail</strong> per ottenere la
+              <strong>RICEVUTA TELEMATICA</strong> dell'esito positivo del versamento.
+            </p>
+          </v-col>
+        </v-row>
       </v-alert>
       <div class="row" v-if="canaleEmailAttivo">
-        <div class="col-xl-5">
+        <div class="col-lg-5">
           <v-text-field
-          clearable
-          clear-icon="mdi-close-circle"
-          label="Indirizzo e-mail"
-          id="email"
-          type="text"
-          v-model="rifForm.email"
-          :error-messages="emailErrors"
-          autocomplete="off"
-          :error-count="2"
+            clearable
+            clear-icon="mdi-close-circle"
+            label="Indirizzo e-mail"
+            id="email"
+            type="text"
+            v-model="rifForm.email"
+            :error-messages="emailErrors"
+            autocomplete="off"
+            :error-count="2"
+            @keyup="toLow"
           ></v-text-field>
+          <!-- @keyup="toLow" per evitare che la mail venga inserita maiuscola -->
         </div>
       </div>
-      <div class="inner-cont-2box info-left app-row">
+      <div class="inner-cont-2box info-left row">
         <div class="reset-margin">
-          <div class="inline-check-submit">
-            <div class="tooltip-field">
+          <div class="inline-check-submit no-gutters-col offset-lg-0 col-12">
+            <div class="tooltip-field py-md-0 pr-lg-0">
               <div class="position-relative d-inline-block">
                 <v-checkbox
                   id="privacy"
@@ -47,17 +56,23 @@
                   :state="!$v.rifForm.privacy.$error"
                   value="accepted"
                   unchecked-value="not_accepted"
-                  :label="this.$i18n.t('general.privacy')">
+                  :label="this.$i18n.t('general.privacy')"
+                >
                 </v-checkbox>
-
                 <v-btn
+                  aria-label="Privacy Policy per i servizi di Tassa Auto"
+                  fab
+                  depressed
                   class="contextual-info privacy-btn"
-                  @click="$refs.mwPrivacy.mostraModalePrivacy()">
+                  @click="$refs.mwPrivacy.mostraModalePrivacy()"
+                >
                   <v-icon>mdi-information</v-icon>
                 </v-btn>
               </div>
-              <div class="error--text"
-                v-if="clickInvia && !$v.rifForm.privacy.acceptedPrivacy">
+              <div
+                class="error--text"
+                v-if="clickInvia && !$v.rifForm.privacy.acceptedPrivacy"
+              >
                 Il consenso all'informativa sulla privacy è obbligatorio.
               </div>
             </div>
@@ -128,6 +143,9 @@ export default {
     }
   },
   methods: {
+    toLow () {
+      this.rifForm.email = this.rifForm.email.toLowerCase()
+    },
     iniziaValidazione () {
       this.clickInvia = true
     },

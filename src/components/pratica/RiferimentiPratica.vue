@@ -2,66 +2,66 @@
   <v-form>
     <div class="space-section" id="riferimentiPratica">
       <h2>
-        {{ $t('general.box_titles.riferimenti') }}
+        {{ $t("general.box_titles.riferimenti") }}
       </h2>
-      <div class="app-row inner-cont-alert">
-        <div class="text-intro col-lg-8 offset-lg-2 col-12">
-          <BoxErrore :error="detailError" />
-        </div>
-      </div>
-      <v-alert
-      show
-      aria-live="off"
-      type="info"
-      border="left"
-      :icon="false">
+      <v-alert show aria-live="off" type="info" border="left" :icon="false">
         <v-row class="pl-6 pl-md-12">
           <v-col cols="12" md="1">
             <v-img
               width="40"
               :src="require(`@/assets/images/icone/alert/info.svg`)"
-              :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"/>
+              :lazy-src="require(`@/assets/images/icone/alert/info.svg`)"
+            />
           </v-col>
           <v-col cols="12" md="10" class="bodyAlertDark">
             <p>
-              Devi inserire {{ descrizione }} per ricevere il <strong>numero di protocollo</strong> della pratica inviata.
+              Devi inserire {{ descrizione }} per ricevere il
+              <strong>numero di protocollo</strong> della pratica inviata.
             </p>
           </v-col>
         </v-row>
       </v-alert>
+      <div class="row inner-cont-alert my-9">
+        <div class="text-intro col-12">
+          <BoxErrore :error="detailError" />
+        </div>
+      </div>
       <div class="row" v-if="canaleEmailAttivo" id="canaleEmail">
         <div class="col-12 col-sm-6">
           <v-text-field
-          clearable
-          clear-icon="mdi-close-circle"
-          label="Indirizzo e-mail"
-          id="email"
-          v-model="rifForm.email"
-          :error-messages="emailErrors"
-          autocomplete="off"
-          :error-count="3"
+            clearable
+            clear-icon="mdi-close-circle"
+            label="Indirizzo e-mail"
+            id="email"
+            v-model="rifForm.email"
+            :error-messages="emailErrors"
+            autocomplete="off"
+            :error-count="3"
+            @keyup="toLow"
           ></v-text-field>
+           <!-- @keyup="toLow" per evitare che la mail venga inserita maiuscola -->
         </div>
       </div>
       <div class="row" v-if="canaleSmsAttivo" id="canaleSms">
         <div class="col-12 col-sm-6">
           <v-text-field
-          clearable
-          type="tel"
-          clear-icon="mdi-close-circle"
-          label="Numero di telefono mobile"
-          id="telefono"
-          v-model="rifForm.telefono"
-          :error-messages="telefonoErrors"
-          :maxLength="$v.rifForm.telefono.$params.maxLength.max"
-          autocomplete="off"
-          :error-count="5"
+            clearable
+            type="tel"
+            @focus="resetErroriMsg()"
+            clear-icon="mdi-close-circle"
+            label="Numero di telefono mobile"
+            id="telefono"
+            v-model="rifForm.telefono"
+            :error-messages="telefonoErrors"
+            :maxLength="$v.rifForm.telefono.$params.maxLength.max"
+            autocomplete="off"
+            :error-count="5"
           ></v-text-field>
         </div>
       </div>
-      <div class="inner-cont-2box info-left app-row" id="informativa-privacy">
+      <div class="inner-cont-2box info-left row" id="informativa-privacy">
         <div class="reset-margin">
-          <div class="inline-check-submit">
+          <div class="inline-check-submit no-gutters-col offset-lg-0 col-12">
             <div class="tooltip-field">
               <div class="position-relative d-inline-block">
                 <v-checkbox
@@ -73,11 +73,15 @@
                   unchecked-value="not_accepted"
                   :error-messages="privacyErrors"
                   :error-count="2"
-                  :label="this.$i18n.t('general.privacy')">
+                  :label="this.$i18n.t('general.privacy')"
+                >
                 </v-checkbox>
                 <v-btn
+                  fab
+                  depressed
                   class="contextual-info privacy-btn"
-                  @click="$refs.mwPrivacy.mostraModalePrivacy()">
+                  @click="$refs.mwPrivacy.mostraModalePrivacy()"
+                >
                   <v-icon>mdi-information</v-icon>
                 </v-btn>
               </div>
@@ -109,6 +113,9 @@ import { acceptedPrivacy } from '@/validators/bolloweb.validator'
 export default {
   name: 'RiferimentiPratica',
   components: { BoxErrore, ModalePrivacy },
+  props: {
+    errorMsgPratica: { type: Object, required: false }
+  },
   data () {
     return {
       atLeastOneMsg: 'Devi specificare almeno uno fra e-mail e numero di telefono cellulare.',
@@ -153,6 +160,7 @@ export default {
       !this.$v.rifForm.telefono.minLength && errors.push('Il numero di telefono mobile deve essere composto da almeno ' + this.$v.rifForm.telefono.$params.minLength.min + ' numeri.')
       !this.$v.rifForm.telefono.maxLength && errors.push('Il numero di telefono mobile deve essere composto da massimo' + this.$v.rifForm.telefono.$params.maxLength.max + 'numeri.')
       if (this.clickInvia && !this.$v.rifForm.email.atLeastOne) errors.push(this.atLeastOneMsg)
+      if (this.errorMsgPratica) errors.push(this.$i18n.t('general.api.errors.phone_error'))
       return errors
     }
   },
@@ -181,10 +189,17 @@ export default {
     }
   },
   methods: {
+    resetErroriMsg () {
+      if (this.errorMsgPratica) {
+        this.$emit('resetMsgErrorsPage', true)
+      }
+    },
+    toLow () {
+      this.rifForm.email = this.rifForm.email.toLowerCase()
+    },
     iniziaValidazione () {
       this.clickInvia = true
     },
-
     getRiferimenti () {
       const retObj = {}
       if (this.canaleEmailAttivo) retObj.email = this.rifForm.email
@@ -195,7 +210,7 @@ export default {
     mailTelefonoVuoti () {
       if (!this.canaleEmailAttivo || !this.canaleSmsAttivo) return false
       if ((this.rifForm.email == null || this.rifForm.email === '') &&
-      (this.rifForm.telefono == null || this.rifForm.telefono === '')) return true
+        (this.rifForm.telefono == null || this.rifForm.telefono === '')) return true
       return false
     }
   },
